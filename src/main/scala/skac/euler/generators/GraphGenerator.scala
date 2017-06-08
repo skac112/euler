@@ -9,7 +9,9 @@ import skac.euler._
  * ale nie musi być tożsamy grafowi startowemu (Zależy to od tego, czy graf startowy jest
  * mutowalny czy też nie).
  */
-abstract class GraphGenerator[ND, ED](startGraph: Graph[ND, ED], nodeDataGen: () => ND, edgeDataGen: () => ED) {
-
-  def generate: Graph[ND, ED]
+abstract class GraphGenerator[ND, ED](implicit startGraph: Graph[ND, ED],
+ nodeDataGen: Graph[ND, ED] => ND,
+ edgeDataGen: Graph[ND, ED] => ED) {
+  type G = Graph[ND, ED]
+  def generate(): G
 }

@@ -3,17 +3,17 @@ package skac.euler
 object General {
   trait NodeDesignator
   case class NodeIDDesignator(ID: Any) extends NodeDesignator
-  case class NodeIdxDesignator(Index: Int) extends NodeDesignator  
+  case class NodeIdxDesignator(Index: Int) extends NodeDesignator
   case class NodeDataDesignator[+ND](Data: ND) extends NodeDesignator
   case class NodePredDesignator(Predicate: NodeInfo[_] => Boolean) extends NodeDesignator
-    
+
   trait EdgeDesignator
   case class EdgeIDDesignator(ID: Any) extends EdgeDesignator
-  case class EdgeIdxDesignator(Index: Int) extends EdgeDesignator  
+  case class EdgeIdxDesignator(Index: Int) extends EdgeDesignator
   case class EdgeDataDesignator[+ED](Data: ED) extends EdgeDesignator
   case class EdgeNodesDesignator(NodeDes1: NodeDesignator, NodeDes2: NodeDesignator) extends EdgeDesignator
   case class EdgePredDesignator(Predicate: EdgeInfo[_] => Boolean) extends EdgeDesignator
-  
+
   class EdgeInfo[+ED](val ID: Any, val Data: ED, val SrcNode: NodeDesignator, val DstNode: NodeDesignator) extends EdgeDesignator {
 //    def oppositeNode(NodeDes: NodeDesignator) = if (NodeDes.equals(SrcNode)) DstNode else SrcNode
 //    def isLoop = SrcNode.equals(DstNode)
@@ -23,20 +23,20 @@ object General {
     def canEqual(other: Any) = {
       other.isInstanceOf[skac.euler.General.NodeInfo[ND]]
     }
-    
+
     override def equals(other: Any) = {
       other match {
         case that: skac.euler.General.NodeInfo[ND] => that.canEqual(NodeInfo.this) && ID == that.ID && Data == that.Data
         case _ => false
       }
     }
-    
+
     override def hashCode() = {
       val prime = 41
       prime * (prime + ID.hashCode) + Data.hashCode
     }
   }
-  
+
   /**
    * "Substrat" desygnatora węzła wykorzystujący konwersję implicit do łatwego tworzenia desygnatorów
    * klasy {@link NodeIDDesignator} lub {@link NodeDataDesignator}, np.
@@ -49,52 +49,52 @@ object General {
    * Takie podejście pozwala z drugiej strony uniknąć dodawania metod z różnymi typami parametrów
    * wskazującymi węzły dla wykonania tych samych operacji
    */
-  class NodeDesignatorFactory(Value: Any) {    
+  class NodeDesignatorFactory(Value: Any) {
     def id = NodeIDDesignator(Value)
-    def da = NodeDataDesignator(Value)  
+    def da = NodeDataDesignator(Value)
   }
-  
+
   class NodeIdxDesignatorFactory(val Value: Int) {
     def i = NodeIdxDesignator(Value)
   }
-  
+
   class EdgeDesignatorFactory(Value: Any) {
     def eid = EdgeIDDesignator(Value)
     def eda = EdgeDataDesignator(Value)
   }
-  
+
   class EdgeIdxDesignatorFactory(Value: Int) {
     def ei = EdgeIdxDesignator(Value)
   }
-             
+
   implicit def Any2NodeDesignatorFactory(Value: Any) = new NodeDesignatorFactory(Value)
   implicit def Int2NodeIdxDesignatorFactory(Value: Int) = new NodeIdxDesignatorFactory(Value)
   implicit def Any2EdgeDesignatorFactory(Value: Any) = new EdgeDesignatorFactory(Value)
   implicit def Int2EdgeIdxDesignatorFactory(Value: Int) = new EdgeIdxDesignatorFactory(Value)
-  implicit def Tuple2EdgeNodesDesignator(Value: Tuple2[NodeDesignator, NodeDesignator]) = 
+  implicit def Tuple2EdgeNodesDesignator(Value: Tuple2[NodeDesignator, NodeDesignator]) =
    new EdgeNodesDesignator(Value._1, Value._2)
- 
+
   abstract sealed class SubgraphDesignator
-  
+
   /**
    * Subgraf określany poprzez zbiór swoich węzłów. Krawędziami subgrafu są wszystkie krawędzie
    * incydentne ze wskazanymi węzłami.
    */
   case class NodesSubgraphDesignator(Nodes: Traversable[NodeDesignator]) extends SubgraphDesignator
-  
+
   /**
    * Subgraf określany poprzez jawne wskazanie zbioru węzłów i krawędzi. W przypadku, gdy wskazana
    * jest "wisząca" krawędź - tzn. taka, dla której nie wszystkie węzły wskazane są w zbiorze
    * węzłów - do subgrafu dodawane są także brakujące węzły.
    */
-  case class ExplicitSubgraphDesignator(Nodes: Traversable[NodeDesignator], Edges: Traversable[NodeDesignator]) 
+  case class ExplicitSubgraphDesignator(Nodes: Traversable[NodeDesignator], Edges: Traversable[NodeDesignator])
    extends SubgraphDesignator
-   
+
   /**
    * Subgraf określany poprzez predykat wybierający węzły. Krawędziami subgrafu są wszystkie krawędzie
    * incydentne ze wskazanymi węzłami.
-   */  
-  case class PredNodesSubgraphDesignator[ND](Predicate: NodeInfo[ND] => Boolean) extends SubgraphDesignator 
-  
-  
+   */
+  case class PredNodesSubgraphDesignator[ND](Predicate: NodeInfo[ND] => Boolean) extends SubgraphDesignator
+
+
 }

@@ -38,6 +38,7 @@ abstract class AbstractGraph[ND, ED] extends Graph[ND, ED] {
 
     case NodeDataDesignator(data) => Nodes map {_.nodeInfo} find {_.Data == data}
     case NodePredDesignator(pred) => Nodes map {_.nodeInfo} find {pred}
+    case ni: NodeInfo[ND] => Some(ni)
   }
 
   override def nodesOf(Data: ND) = (Data match {
@@ -102,6 +103,7 @@ abstract class AbstractGraph[ND, ED] extends Graph[ND, ED] {
     }
     case NodeDataDesignator(data: Any) => Nodes find {_.nodeInfo.Data == data}
     case NodePredDesignator(pred) => Nodes find {ns => pred(ns.nodeInfo)}
+    case ni: NodeInfo[ND] => Nodes find {_.nodeInfo == ni}
   }
 
   override def edgesOfNode(NodeDes: NodeDesignator, Direction: Int = NEIGHBOR_SIDE_BOTH): Set[EdgeInfo[ED]] = {

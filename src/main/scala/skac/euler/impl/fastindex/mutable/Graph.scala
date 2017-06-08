@@ -170,4 +170,11 @@ class Graph[ND, ED] extends AbstractGraph[ND, ED] {
     //dst_ns.InEdges = dst_ns.InEdges - e.ID + Tuple2(e.ID, ReplaceFun(e))
     dst_ns.inEdges = dst_ns.inEdges - e.ID + (e.ID -> ReplaceFun(e))
   }
+
+  override def updateNode(NodeDes: NodeDesignator, NewData: ND) = {
+    val ns = findNodeStruct(NodeDes).get
+    val old_ni = ns.nodeInfo
+    ns.nodeInfo = new NodeInfo(old_ni.ID, NewData)
+    this
+  }
 }

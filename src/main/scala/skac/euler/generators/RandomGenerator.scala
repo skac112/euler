@@ -8,15 +8,18 @@ import skac.euler.Graph._
  * Generuje graf przypadkowy o ustalonej liczbie krawędzi i węzłów. Krawędzie tworzone są pomiędzy
  * losowy wybranymi węzłami.
  */
-class RandomGenerator[ND, ED](startGraph: Graph[ND, ED], nodeDataGen: () => ND,
-                              edgeDataGen: () => ED, nodeCount: Int, edgeCount: Int, directed: Boolean = false)
- extends GraphGenerator[ND, ED](startGraph, nodeDataGen, edgeDataGen) {
+class RandomGenerator[ND, ED](nodeCount: Int, edgeCount: Int, directed: Boolean = false)
+ (implicit startGraph: Graph[ND, ED],
+ nodeDataGen: Graph[ND, ED] => ND,
+ edgeDataGen: Graph[ND, ED] => ED)
+ extends GraphGenerator[ND, ED] {
 
   val random = new Random
-  var Graph: Graph[ND, ED] = startGraph
+  var g: G = startGraph
 
-  def generate = {
-    1 to nodeCount foreach {_ => Graph = Graph + nodeDataGen()}
+  override def generate() = {
+    g = startGraph
+    1 to nodeCount foreach {_ => g = g + nodeDataGen(g)}
     1 to edgeCount foreach {_ => {
         val n1 = pickRandomNode
         var n2 = pickRandomNode
@@ -24,17 +27,17 @@ class RandomGenerator[ND, ED](startGraph: Graph[ND, ED], nodeDataGen: () => ND,
         // sprawdza, czy drugi z wylosowanych węzłów nie jest równy pierwszemu lub czy krawędź
         // łącząca wylosowane węzły (z ew. uwzględnieniem kierunku) już nie występuje
         //while ((n1 eq n2) || Graph.isEdge(NodeIDDesignator(n1.ID), NodeIDDesignator(n2.ID), directed)) {
-        while ((n1 eq n2) || Graph.isEdge(n1, n2, directed)) {
+        while ((n1 eq n2) || g.isEdge(n1, n2, directed)) {
           n2 = pickRandomNode
         }
 
-        Graph = Graph+->(edgeDataGen(), NodeIDDesignator(n1.ID), NodeIDDesignator(n2.ID))
+        g = g +-> (edgeDataGen(g), NodeIDDesignator(n1.ID), NodeIDDesignator(n2.ID))
     }}
-    Graph
+    g
   }
 
   /**
    * Wybiera losowy węzeł.
    */
-  def pickRandomNode = Graph.node(random.nextInt(Graph.nodeCount).i) get
+  def pickRandomNode = g.node(random.nextInt(g.nodeCount).i) get
 }

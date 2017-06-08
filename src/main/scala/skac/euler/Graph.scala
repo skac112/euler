@@ -241,19 +241,6 @@ trait Graph[ND, ED] {
     case NEIGHBOR_SIDE_BOTH => NEIGHBOR_SIDE_BOTH
   }
 
-//  def edgeLayer(Nodes: Set[NodeDesignator], LayerIdx: Int, Direction: Int): Set[NodeInfo[ND]] = {
-//    // TODO: uzupelnic
-//    var all_layers = Set()
-//    var res = Set()
-//    (0 until LayerIdx) foreach ((x: Int) => {
-//        res  = (res flatMap {ndc: NodeDesignatorComp => {edgesOfNode(ndc.NodeDes, Direction)} map {ei: EdgeInfo[ED] =>
-//           EdgeDesignatorComp(ei.ID.id)}
-//        }).toSet -- all_layers
-//    	all_layers = all_layers ++ res
-//    })
-//    res map (node(_).get) toSet
-//  }
-
   def nodeID(NodeDes: NodeDesignator): Option[Any] = NodeDes match {
     case NodeIDDesignator(id) => Some(id)
     case _ => node(NodeDes) match {
@@ -270,20 +257,11 @@ trait Graph[ND, ED] {
     }
   }
 
-  // def addNode(Data: ND): Graph[ND, ED]
-  def addNode(Data: ND): G
+  def addNode(Data: ND): Graph[ND, ED]
   def addEdge(Data: ED, SrcNode: NodeDesignator, DstNode: NodeDesignator): Graph[ND, ED]
-
-//  def addEdge(Data: ED, SrcNodeData: ND, DstNodeData: ND): EdgeInfo[ED] = addEdge(Data, NodeDataDesignator(SrcNodeData),
-//   NodeDataDesignator(DstNodeData))
-
-  //def addEdges(Data: ED, NodePairs: Seq[Tuple2[NodeDesignator, NodeDesignator]]): Set[EdgeInfo]
   def removeNode(NodeDes: NodeDesignator): Graph[ND, ED]
-
   def removeNode(NodeData: ND): Graph[ND, ED] = removeNode(NodeDataDesignator(NodeData))
-
   def removeEdge(EdgeDes: EdgeDesignator): Graph[ND, ED]
-
   def removeEdge(EdgeData: ED): Graph[ND, ED] = removeEdge(EdgeDataDesignator(EdgeData))
 
   def reverseEdge(EdgeDes: EdgeDesignator): Graph[ND, ED] = {
@@ -384,14 +362,37 @@ trait Graph[ND, ED] {
   }
 
   override def hashCode = {
-    val nodes_hash = (nodes zip (1 to nodeCount)) map {kv: Tuple2[NodeInfo[ND], Int] => {kv._1.Data.hashCode * kv._2}} sum
-    val edges_hash = (edges zip (1 to edgeCount)) map {kv: Tuple2[EdgeInfo[ED], Int] => {kv._1.Data.hashCode * kv._2}} sum;
+    val nodes_hash = (nodes zip (1 to nodeCount)) map {kv: (NodeInfo[ND], Int) => {kv._1.Data.hashCode * kv._2}} sum
+    val edges_hash = (edges zip (1 to edgeCount)) map {kv: (EdgeInfo[ED], Int) => {kv._1.Data.hashCode * kv._2}} sum;
     nodes_hash + edges_hash
   }
-//  def subgraph(SubDesignator: SubgraphDesignator) = SubDesignator match {
-//    case NodesSubgraphDesignator(nodes) => {
-//        var res = clear
-//        nodes.
-//    }
-//  }
+
+  /**
+   * Uaktualnia dane wezla. Wlasciwa implementacja powinna byc zawarta w klasie
+   * implementujacej. Powinno byc zachowane id wezla.
+   */
+  def updateNode(NodeDes: NodeDesignator, NewData: ND): Graph[ND, ED] =
+   throw new Exception("Method unimplemented.")
+
+  /**
+   * Uaktualnia dane krawedzi. Wlasciwa implementacja powinna byc zawarta w klasie
+   * implementujacej. Powinno byc zachowane id krawedzi.
+   */
+  def updateEdge(EdgeDes: EdgeDesignator, NewData: ED): Graph[ND, ED] =
+    throw new Exception("Method unimplemented.")
+
+  /**
+   * Zmienia przeciwlegly wzgledem danego wezla wezel krawedzi. Powinny byc
+   * zachowane id krawedzi i wezlow
+   */
+  def chngOppNode(nodeDes: NodeDesignator, edgeDes: EdgeDesignator,
+   newOppNodeDes: NodeDesignator): Graph[ND, ED] =
+   throw new Exception("Method unimplemented.")
+
+  /**
+   * Wyswietla info o grafie
+   */
+  def about() {
+    println(s"Basic graph characteristics: \r\nNode count: ${nodeCount}, edge count: ${edgeCount}.")
+  }
 }
