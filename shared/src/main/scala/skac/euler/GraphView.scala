@@ -18,6 +18,8 @@ object GraphView {
  */
 trait GraphView[ND, ED] {
   type G <: GraphView[ND, ED]
+  type ThisNodeInfo = NodeInfo[ND]
+  type ThisEdgeInfo = EdgeInfo[ED]
   type Edges = Set[EdgeInfo[ED]]
   type Nodes = Set[NodeDesignator]
   type NodeInfos = Set[NodeInfo[ND]]
@@ -241,4 +243,17 @@ trait GraphView[ND, ED] {
     val ei = edge(edgeDes).get
     ei.SrcNode === ei.DstNode
   }
+
+  /**
+   * Returns pair of nodes incident to an edge.
+   */
+  def incident(edgeDes: EdgeDesignator): (ThisNodeInfo, ThisNodeInfo) = {
+    val e = edge(edgeDes).get
+    (node(e.SrcNode).get, node(e.DstNode).get)    
+  }
+
+  /**
+   * Returns set of edges adjacent to a given edge.
+   */
+  def adjacent(edgeDes: EdgeDesignator): Set[ThisEdgeInfo] = ???
 }

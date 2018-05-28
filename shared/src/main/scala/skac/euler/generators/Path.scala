@@ -21,8 +21,7 @@ class Path[ND, ED](nodesNum: Int)
      // dodanie wezlow
      _ <- makeTimes(nodesNum, {graph: Graph[ND, ED] => graph + nodeDataGen(graph)})
      // dodanie krawedzi
-     res <- makeTimesWithIdx(NodesNum - 1, {(graph: Graph[ND, ED], idx: Int) =>
-       graph +-> (edgeDataGen(graph), idx.i, (idx + 1).i))
-     })
+     res <- makeTimesWithIdx(nodesNum - 1, {(graph: Graph[ND, ED], idx: Int) =>
+       graph +-> (edgeDataGen(graph), idx.i, (idx + 1).i)})
    } yield res
 }

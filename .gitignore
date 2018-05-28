@@ -6,4 +6,5 @@
 **/build/
 **/dist/
 /nbproject
+project/target/
 new_commit_msg.txt

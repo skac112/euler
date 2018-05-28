@@ -77,22 +77,86 @@
 [0m[[0mdebug[0m] [0m== resolving dependencies default#euler-build;0.1-SNAPSHOT->com.artima.supersafe#sbtplugin;1.1.3 [compile->default(compile)][0m
 [0m[[0minfo[0m] [0mResolving com.artima.supersafe#sbtplugin;1.1.3 ...[0m
 [0m[[0mdebug[0m] [0msbt-chain: Checking cache for: dependency: com.artima.supersafe#sbtplugin;1.1.3 {compile=[default(compile)]}[0m
-[0m[[0mdebug[0m] [0msbt-chain: module revision found in cache: com.artima.supersafe#sbtplugin;1.1.3[0m
-[0m[[0mdebug[0m] [0m	found com.artima.supersafe#sbtplugin;1.1.3 in sbt-chain[0m
+[0m[[0minfo[0m] [0mResolving com.artima.supersafe#sbtplugin;1.1.3 ...[0m
+[0m[[0mdebug[0m] [0msbt-chain-delegate: Checking cache for: dependency: com.artima.supersafe#sbtplugin;1.1.3 {compile=[default(compile)]}[0m
+[0m[[0mdebug[0m] [0m		tried https://repo.typesafe.com/typesafe/ivy-releases/com.artima.supersafe/sbtplugin/scala_2.10/sbt_0.13/1.1.3/ivys/ivy.xml[0m
+[0m[[0mdebug[0m] [0mCLIENT ERROR: Not Found url=https://repo.typesafe.com/typesafe/ivy-releases/com.artima.supersafe/sbtplugin/scala_2.10/sbt_0.13/1.1.3/ivys/ivy.xml[0m
+[0m[[0mdebug[0m] [0m	typesafe-ivy-releases: no ivy file found for com.artima.supersafe#sbtplugin;1.1.3[0m
+[0m[[0mdebug[0m] [0m		tried https://repo.scala-sbt.org/scalasbt/sbt-plugin-releases/com.artima.supersafe/sbtplugin/scala_2.10/sbt_0.13/1.1.3/ivys/ivy.xml[0m
+[0m[[0mdebug[0m] [0mCLIENT ERROR: Not Found url=https://repo.scala-sbt.org/scalasbt/sbt-plugin-releases/com.artima.supersafe/sbtplugin/scala_2.10/sbt_0.13/1.1.3/ivys/ivy.xml[0m
+[0m[[0mdebug[0m] [0m	sbt-plugin-releases: no ivy file found for com.artima.supersafe#sbtplugin;1.1.3[0m
+[0m[[0mdebug[0m] [0m		tried /home/slawek/.ivy2/local/com.artima.supersafe/sbtplugin/scala_2.10/sbt_0.13/1.1.3/ivys/ivy.xml[0m
+[0m[[0mdebug[0m] [0m	local: no ivy file found for com.artima.supersafe#sbtplugin;1.1.3[0m
+[0m[[0mdebug[0m] [0m		tried https://repo1.maven.org/maven2/com/artima/supersafe/sbtplugin_2.10_0.13/1.1.3/sbtplugin-1.1.3.pom[0m
+[0m[[0mdebug[0m] [0mCLIENT ERROR: Not Found url=https://repo1.maven.org/maven2/com/artima/supersafe/sbtplugin_2.10_0.13/1.1.3/sbtplugin-1.1.3.pom[0m
+[0m[[0mdebug[0m] [0m	public: no ivy file found for com.artima.supersafe#sbtplugin;1.1.3[0m
+[0m[[0mdebug[0m] [0m		tried http://repo.artima.com/releases/com/artima/supersafe/sbtplugin_2.10_0.13/1.1.3/sbtplugin-1.1.3.pom[0m
+[0m[[0mdebug[0m] [0m	Artima Maven Repository: found md file for com.artima.supersafe#sbtplugin;1.1.3[0m
+[0m[[0mdebug[0m] [0m		=> http://repo.artima.com/releases/com/artima/supersafe/sbtplugin_2.10_0.13/1.1.3/sbtplugin-1.1.3.pom (1.1.3)[0m
+[0m[[0mdebug[0m] [0mdownloading http://repo.artima.com/releases/com/artima/supersafe/sbtplugin_2.10_0.13/1.1.3/sbtplugin-1.1.3.pom ...[0m
+[0m[[0mdebug[0m] [0m	Artima Maven Repository: downloading http://repo.artima.com/releases/com/artima/supersafe/sbtplugin_2.10_0.13/1.1.3/sbtplugin-1.1.3.pom[0m
+[0m[[0mdebug[0m] [0m	Artima Maven Repository: downloading http://repo.artima.com/releases/com/artima/supersafe/sbtplugin_2.10_0.13/1.1.3/sbtplugin-1.1.3.pom.sha1[0m
+[0m[[0mdebug[0m] [0msha1 OK for http://repo.artima.com/releases/com/artima/supersafe/sbtplugin_2.10_0.13/1.1.3/sbtplugin-1.1.3.pom[0m
+[0m[[0mdebug[0m] [0m	[SUCCESSFUL ] com.artima.supersafe#sbtplugin;1.1.3!sbtplugin.pom(pom.original) (1059ms)[0m
+[0m[[0mdebug[0m] [0m		tried https://repo.typesafe.com/typesafe/ivy-releases/com.artima.supersafe/sbtplugin/1.1.3/jars/sbtplugin.jar[0m
+[0m[[0mdebug[0m] [0mCLIENT ERROR: Not Found url=https://repo.typesafe.com/typesafe/ivy-releases/com.artima.supersafe/sbtplugin/1.1.3/jars/sbtplugin.jar[0m
+[0m[[0mdebug[0m] [0m		tried https://repo.scala-sbt.org/scalasbt/sbt-plugin-releases/com.artima.supersafe/sbtplugin/1.1.3/jars/sbtplugin.jar[0m
+[0m[[0mdebug[0m] [0mCLIENT ERROR: Not Found url=https://repo.scala-sbt.org/scalasbt/sbt-plugin-releases/com.artima.supersafe/sbtplugin/1.1.3/jars/sbtplugin.jar[0m
+[0m[[0mdebug[0m] [0m		tried /home/slawek/.ivy2/local/com.artima.supersafe/sbtplugin/1.1.3/jars/sbtplugin.jar[0m
+[0m[[0mdebug[0m] [0m		tried https://repo1.maven.org/maven2/com/artima/supersafe/sbtplugin/1.1.3/sbtplugin-1.1.3.jar[0m
+[0m[[0mdebug[0m] [0mCLIENT ERROR: Not Found url=https://repo1.maven.org/maven2/com/artima/supersafe/sbtplugin/1.1.3/sbtplugin-1.1.3.jar[0m
+[0m[[0mdebug[0m] [0m		tried http://repo.artima.com/releases/com/artima/supersafe/sbtplugin/1.1.3/sbtplugin-1.1.3.jar[0m
+[0m[[0mdebug[0m] [0mCLIENT ERROR: Not Found url=http://repo.artima.com/releases/com/artima/supersafe/sbtplugin/1.1.3/sbtplugin-1.1.3.jar[0m
+[0m[[0mdebug[0m] [0m	found com.artima.supersafe#sbtplugin;1.1.3 in Artima Maven Repository[0m
 [0m[[0mdebug[0m] [0m== resolving dependencies default#euler-build;0.1-SNAPSHOT->com.artima.supersafe#sbtplugin;1.1.3 [compile->runtime][0m
 [0m[[0mdebug[0m] [0m== resolving dependencies default#euler-build;0.1-SNAPSHOT->com.artima.supersafe#sbtplugin;1.1.3 [compile->compile][0m
 [0m[[0mdebug[0m] [0m== resolving dependencies default#euler-build;0.1-SNAPSHOT->com.artima.supersafe#sbtplugin;1.1.3 [compile->master][0m
 [0m[[0mdebug[0m] [0m== resolving dependencies default#euler-build;0.1-SNAPSHOT->org.scala-js#sbt-scalajs;0.6.21 [compile->default(compile)][0m
 [0m[[0minfo[0m] [0mResolving org.scala-js#sbt-scalajs;0.6.21 ...[0m
 [0m[[0mdebug[0m] [0msbt-chain: Checking cache for: dependency: org.scala-js#sbt-scalajs;0.6.21 {compile=[default(compile)]}[0m
-[0m[[0mdebug[0m] [0msbt-chain: module revision found in cache: org.scala-js#sbt-scalajs;0.6.21[0m
-[0m[[0mdebug[0m] [0m	found org.scala-js#sbt-scalajs;0.6.21 in sbt-chain[0m
+[0m[[0minfo[0m] [0mResolving org.scala-js#sbt-scalajs;0.6.21 ...[0m
+[0m[[0mdebug[0m] [0msbt-chain-delegate: Checking cache for: dependency: org.scala-js#sbt-scalajs;0.6.21 {compile=[default(compile)]}[0m
+[0m[[0mdebug[0m] [0m		tried https://repo.typesafe.com/typesafe/ivy-releases/org.scala-js/sbt-scalajs/scala_2.10/sbt_0.13/0.6.21/ivys/ivy.xml[0m
+[0m[[0mdebug[0m] [0mCLIENT ERROR: Not Found url=https://repo.typesafe.com/typesafe/ivy-releases/org.scala-js/sbt-scalajs/scala_2.10/sbt_0.13/0.6.21/ivys/ivy.xml[0m
+[0m[[0mdebug[0m] [0m	typesafe-ivy-releases: no ivy file found for org.scala-js#sbt-scalajs;0.6.21[0m
+[0m[[0mdebug[0m] [0m		tried https://repo.scala-sbt.org/scalasbt/sbt-plugin-releases/org.scala-js/sbt-scalajs/scala_2.10/sbt_0.13/0.6.21/ivys/ivy.xml[0m
+[0m[[0mdebug[0m] [0m	sbt-plugin-releases: found md file for org.scala-js#sbt-scalajs;0.6.21[0m
+[0m[[0mdebug[0m] [0m		=> https://repo.scala-sbt.org/scalasbt/sbt-plugin-releases/org.scala-js/sbt-scalajs/scala_2.10/sbt_0.13/0.6.21/ivys/ivy.xml (0.6.21)[0m
+[0m[[0mdebug[0m] [0mdownloading https://repo.scala-sbt.org/scalasbt/sbt-plugin-releases/org.scala-js/sbt-scalajs/scala_2.10/sbt_0.13/0.6.21/ivys/ivy.xml ...[0m
+[0m[[0mdebug[0m] [0m	sbt-plugin-releases: downloading https://repo.scala-sbt.org/scalasbt/sbt-plugin-releases/org.scala-js/sbt-scalajs/scala_2.10/sbt_0.13/0.6.21/ivys/ivy.xml[0m
+[0m[[0mdebug[0m] [0m	sbt-plugin-releases: downloading https://repo.scala-sbt.org/scalasbt/sbt-plugin-releases/org.scala-js/sbt-scalajs/scala_2.10/sbt_0.13/0.6.21/ivys/ivy.xml.sha1[0m
+[0m[[0mdebug[0m] [0msha1 OK for https://repo.scala-sbt.org/scalasbt/sbt-plugin-releases/org.scala-js/sbt-scalajs/scala_2.10/sbt_0.13/0.6.21/ivys/ivy.xml[0m
+[0m[[0mdebug[0m] [0m	[SUCCESSFUL ] org.scala-js#sbt-scalajs;0.6.21!ivy.xml(ivy.original) (2929ms)[0m
+[0m[[0mdebug[0m] [0m	found org.scala-js#sbt-scalajs;0.6.21 in sbt-plugin-releases[0m
 [0m[[0mdebug[0m] [0m	[0.6.21] org.scala-js#sbt-scalajs;0.6.21[0m
 [0m[[0mdebug[0m] [0m== resolving dependencies org.scala-js#sbt-scalajs;0.6.21->org.scala-js#scalajs-tools_2.10;0.6.21 [compile->default(compile)][0m
 [0m[[0minfo[0m] [0mResolving org.scala-js#scalajs-tools_2.10;0.6.21 ...[0m
 [0m[[0mdebug[0m] [0msbt-chain: Checking cache for: dependency: org.scala-js#scalajs-tools_2.10;0.6.21 {compile=[default(compile)]}[0m
-[0m[[0mdebug[0m] [0msbt-chain: module revision found in cache: org.scala-js#scalajs-tools_2.10;0.6.21[0m
-[0m[[0mdebug[0m] [0m	found org.scala-js#scalajs-tools_2.10;0.6.21 in sbt-chain[0m
+[0m[[0minfo[0m] [0mResolving org.scala-js#scalajs-tools_2.10;0.6.21 ...[0m
+[0m[[0mdebug[0m] [0msbt-chain-delegate: Checking cache for: dependency: org.scala-js#scalajs-tools_2.10;0.6.21 {compile=[default(compile)]}[0m
+[0m[[0mdebug[0m] [0m		tried https://repo.typesafe.com/typesafe/ivy-releases/org.scala-js/scalajs-tools_2.10/0.6.21/ivys/ivy.xml[0m
+[0m[[0mdebug[0m] [0mCLIENT ERROR: Not Found url=https://repo.typesafe.com/typesafe/ivy-releases/org.scala-js/scalajs-tools_2.10/0.6.21/ivys/ivy.xml[0m
+[0m[[0mdebug[0m] [0m	typesafe-ivy-releases: no ivy file found for org.scala-js#scalajs-tools_2.10;0.6.21[0m
+[0m[[0mdebug[0m] [0m		tried https://repo.scala-sbt.org/scalasbt/sbt-plugin-releases/org.scala-js/scalajs-tools_2.10/0.6.21/ivys/ivy.xml[0m
+[0m[[0mdebug[0m] [0mCLIENT ERROR: Not Found url=https://repo.scala-sbt.org/scalasbt/sbt-plugin-releases/org.scala-js/scalajs-tools_2.10/0.6.21/ivys/ivy.xml[0m
+[0m[[0mdebug[0m] [0m	sbt-plugin-releases: no ivy file found for org.scala-js#scalajs-tools_2.10;0.6.21[0m
+[0m[[0mdebug[0m] [0m		tried /home/slawek/.ivy2/local/org.scala-js/scalajs-tools_2.10/0.6.21/ivys/ivy.xml[0m
+[0m[[0mdebug[0m] [0m	local: no ivy file found for org.scala-js#scalajs-tools_2.10;0.6.21[0m
+[0m[[0mdebug[0m] [0m		tried https://repo1.maven.org/maven2/org/scala-js/scalajs-tools_2.10/0.6.21/scalajs-tools_2.10-0.6.21.pom[0m
+[0m[[0mdebug[0m] [0m	public: found md file for org.scala-js#scalajs-tools_2.10;0.6.21[0m
+[0m[[0mdebug[0m] [0m		=> https://repo1.maven.org/maven2/org/scala-js/scalajs-tools_2.10/0.6.21/scalajs-tools_2.10-0.6.21.pom (0.6.21)[0m
+[0m[[0mdebug[0m] [0mdownloading https://repo1.maven.org/maven2/org/scala-js/scalajs-tools_2.10/0.6.21/scalajs-tools_2.10-0.6.21.pom ...[0m
+[0m[[0mdebug[0m] [0m	public: downloading https://repo1.maven.org/maven2/org/scala-js/scalajs-tools_2.10/0.6.21/scalajs-tools_2.10-0.6.21.pom[0m
+[0m[[0mdebug[0m] [0m	public: downloading https://repo1.maven.org/maven2/org/scala-js/scalajs-tools_2.10/0.6.21/scalajs-tools_2.10-0.6.21.pom.sha1[0m
+[0m[[0mdebug[0m] [0msha1 OK for https://repo1.maven.org/maven2/org/scala-js/scalajs-tools_2.10/0.6.21/scalajs-tools_2.10-0.6.21.pom[0m
+[0m[[0mdebug[0m] [0m	[SUCCESSFUL ] org.scala-js#scalajs-tools_2.10;0.6.21!scalajs-tools_2.10.pom(pom.original) (3694ms)[0m
+[0m[[0mdebug[0m] [0m		tried https://repo.typesafe.com/typesafe/ivy-releases/org.scala-js/scalajs-tools_2.10/0.6.21/jars/scalajs-tools_2.10.jar[0m
+[0m[[0mdebug[0m] [0mCLIENT ERROR: Not Found url=https://repo.typesafe.com/typesafe/ivy-releases/org.scala-js/scalajs-tools_2.10/0.6.21/jars/scalajs-tools_2.10.jar[0m
+[0m[[0mdebug[0m] [0m		tried https://repo.scala-sbt.org/scalasbt/sbt-plugin-releases/org.scala-js/scalajs-tools_2.10/0.6.21/jars/scalajs-tools_2.10.jar[0m
+[0m[[0mdebug[0m] [0mCLIENT ERROR: Not Found url=https://repo.scala-sbt.org/scalasbt/sbt-plugin-releases/org.scala-js/scalajs-tools_2.10/0.6.21/jars/scalajs-tools_2.10.jar[0m
+[0m[[0mdebug[0m] [0m		tried /home/slawek/.ivy2/local/org.scala-js/scalajs-tools_2.10/0.6.21/jars/scalajs-tools_2.10.jar[0m
+[0m[[0mdebug[0m] [0m		tried https://repo1.maven.org/maven2/org/scala-js/scalajs-tools_2.10/0.6.21/scalajs-tools_2.10-0.6.21.jar[0m
+[0m[[0mdebug[0m] [0m	found org.scala-js#scalajs-tools_2.10;0.6.21 in public[0m
 [0m[[0mdebug[0m] [0m== resolving dependencies org.scala-js#sbt-scalajs;0.6.21->org.scala-js#scalajs-tools_2.10;0.6.21 [compile->runtime][0m
 [0m[[0mdebug[0m] [0m== resolving dependencies org.scala-js#sbt-scalajs;0.6.21->org.scala-js#scalajs-tools_2.10;0.6.21 [compile->compile][0m
 [0m[[0mdebug[0m] [0m== resolving dependencies org.scala-js#scalajs-tools_2.10;0.6.21->org.scala-lang#scala-library;2.10.6 [compile->master(compile)][0m
@@ -100,8 +164,31 @@
 [0m[[0mdebug[0m] [0m== resolving dependencies org.scala-js#scalajs-tools_2.10;0.6.21->org.scala-js#scalajs-ir_2.10;0.6.21 [compile->master(compile)][0m
 [0m[[0minfo[0m] [0mResolving org.scala-js#scalajs-ir_2.10;0.6.21 ...[0m
 [0m[[0mdebug[0m] [0msbt-chain: Checking cache for: dependency: org.scala-js#scalajs-ir_2.10;0.6.21 {compile=[compile(*), master(compile)], runtime=[runtime(*)]}[0m
-[0m[[0mdebug[0m] [0msbt-chain: module revision found in cache: org.scala-js#scalajs-ir_2.10;0.6.21[0m
-[0m[[0mdebug[0m] [0m	found org.scala-js#scalajs-ir_2.10;0.6.21 in sbt-chain[0m
+[0m[[0minfo[0m] [0mResolving org.scala-js#scalajs-ir_2.10;0.6.21 ...[0m
+[0m[[0mdebug[0m] [0msbt-chain-delegate: Checking cache for: dependency: org.scala-js#scalajs-ir_2.10;0.6.21 {compile=[compile(*), master(compile)], runtime=[runtime(*)]}[0m
+[0m[[0mdebug[0m] [0m		tried https://repo.typesafe.com/typesafe/ivy-releases/org.scala-js/scalajs-ir_2.10/0.6.21/ivys/ivy.xml[0m
+[0m[[0mdebug[0m] [0mCLIENT ERROR: Not Found url=https://repo.typesafe.com/typesafe/ivy-releases/org.scala-js/scalajs-ir_2.10/0.6.21/ivys/ivy.xml[0m
+[0m[[0mdebug[0m] [0m	typesafe-ivy-releases: no ivy file found for org.scala-js#scalajs-ir_2.10;0.6.21[0m
+[0m[[0mdebug[0m] [0m		tried https://repo.scala-sbt.org/scalasbt/sbt-plugin-releases/org.scala-js/scalajs-ir_2.10/0.6.21/ivys/ivy.xml[0m
+[0m[[0mdebug[0m] [0mCLIENT ERROR: Not Found url=https://repo.scala-sbt.org/scalasbt/sbt-plugin-releases/org.scala-js/scalajs-ir_2.10/0.6.21/ivys/ivy.xml[0m
+[0m[[0mdebug[0m] [0m	sbt-plugin-releases: no ivy file found for org.scala-js#scalajs-ir_2.10;0.6.21[0m
+[0m[[0mdebug[0m] [0m		tried /home/slawek/.ivy2/local/org.scala-js/scalajs-ir_2.10/0.6.21/ivys/ivy.xml[0m
+[0m[[0mdebug[0m] [0m	local: no ivy file found for org.scala-js#scalajs-ir_2.10;0.6.21[0m
+[0m[[0mdebug[0m] [0m		tried https://repo1.maven.org/maven2/org/scala-js/scalajs-ir_2.10/0.6.21/scalajs-ir_2.10-0.6.21.pom[0m
+[0m[[0mdebug[0m] [0m	public: found md file for org.scala-js#scalajs-ir_2.10;0.6.21[0m
+[0m[[0mdebug[0m] [0m		=> https://repo1.maven.org/maven2/org/scala-js/scalajs-ir_2.10/0.6.21/scalajs-ir_2.10-0.6.21.pom (0.6.21)[0m
+[0m[[0mdebug[0m] [0mdownloading https://repo1.maven.org/maven2/org/scala-js/scalajs-ir_2.10/0.6.21/scalajs-ir_2.10-0.6.21.pom ...[0m
+[0m[[0mdebug[0m] [0m	public: downloading https://repo1.maven.org/maven2/org/scala-js/scalajs-ir_2.10/0.6.21/scalajs-ir_2.10-0.6.21.pom[0m
+[0m[[0mdebug[0m] [0m	public: downloading https://repo1.maven.org/maven2/org/scala-js/scalajs-ir_2.10/0.6.21/scalajs-ir_2.10-0.6.21.pom.sha1[0m
+[0m[[0mdebug[0m] [0msha1 OK for https://repo1.maven.org/maven2/org/scala-js/scalajs-ir_2.10/0.6.21/scalajs-ir_2.10-0.6.21.pom[0m
+[0m[[0mdebug[0m] [0m	[SUCCESSFUL ] org.scala-js#scalajs-ir_2.10;0.6.21!scalajs-ir_2.10.pom(pom.original) (955ms)[0m
+[0m[[0mdebug[0m] [0m		tried https://repo.typesafe.com/typesafe/ivy-releases/org.scala-js/scalajs-ir_2.10/0.6.21/jars/scalajs-ir_2.10.jar[0m
+[0m[[0mdebug[0m] [0mCLIENT ERROR: Not Found url=https://repo.typesafe.com/typesafe/ivy-releases/org.scala-js/scalajs-ir_2.10/0.6.21/jars/scalajs-ir_2.10.jar[0m
+[0m[[0mdebug[0m] [0m		tried https://repo.scala-sbt.org/scalasbt/sbt-plugin-releases/org.scala-js/scalajs-ir_2.10/0.6.21/jars/scalajs-ir_2.10.jar[0m
+[0m[[0mdebug[0m] [0mCLIENT ERROR: Not Found url=https://repo.scala-sbt.org/scalasbt/sbt-plugin-releases/org.scala-js/scalajs-ir_2.10/0.6.21/jars/scalajs-ir_2.10.jar[0m
+[0m[[0mdebug[0m] [0m		tried /home/slawek/.ivy2/local/org.scala-js/scalajs-ir_2.10/0.6.21/jars/scalajs-ir_2.10.jar[0m
+[0m[[0mdebug[0m] [0m		tried https://repo1.maven.org/maven2/org/scala-js/scalajs-ir_2.10/0.6.21/scalajs-ir_2.10-0.6.21.jar[0m
+[0m[[0mdebug[0m] [0m	found org.scala-js#scalajs-ir_2.10;0.6.21 in public[0m
 [0m[[0mdebug[0m] [0m	[0.6.21] org.scala-js#scalajs-ir_2.10;0.6.21[0m
 [0m[[0mdebug[0m] [0m== resolving dependencies org.scala-js#scalajs-tools_2.10;0.6.21->org.scala-js#scalajs-ir_2.10;0.6.21 [compile->compile(*)][0m
 [0m[[0mdebug[0m] [0m== resolving dependencies org.scala-js#scalajs-ir_2.10;0.6.21->org.scala-lang#scala-library;2.10.6 [compile->master(compile)][0m
@@ -113,14 +200,124 @@
 [0m[[0mdebug[0m] [0m== resolving dependencies org.scala-js#scalajs-tools_2.10;0.6.21->org.scala-js#closure-compiler-java-6;v20160517 [compile->master(compile)][0m
 [0m[[0minfo[0m] [0mResolving org.scala-js#closure-compiler-java-6;v20160517 ...[0m
 [0m[[0mdebug[0m] [0msbt-chain: Checking cache for: dependency: org.scala-js#closure-compiler-java-6;v20160517 {compile=[compile(*), master(compile)], runtime=[runtime(*)]}[0m
-[0m[[0mdebug[0m] [0msbt-chain: module revision found in cache: org.scala-js#closure-compiler-java-6;v20160517[0m
-[0m[[0mdebug[0m] [0m	found org.scala-js#closure-compiler-java-6;v20160517 in sbt-chain[0m
+[0m[[0minfo[0m] [0mResolving org.scala-js#closure-compiler-java-6;v20160517 ...[0m
+[0m[[0mdebug[0m] [0msbt-chain-delegate: Checking cache for: dependency: org.scala-js#closure-compiler-java-6;v20160517 {compile=[compile(*), master(compile)], runtime=[runtime(*)]}[0m
+[0m[[0mdebug[0m] [0m		tried https://repo.typesafe.com/typesafe/ivy-releases/org.scala-js/closure-compiler-java-6/v20160517/ivys/ivy.xml[0m
+[0m[[0mdebug[0m] [0mCLIENT ERROR: Not Found url=https://repo.typesafe.com/typesafe/ivy-releases/org.scala-js/closure-compiler-java-6/v20160517/ivys/ivy.xml[0m
+[0m[[0mdebug[0m] [0m	typesafe-ivy-releases: no ivy file found for org.scala-js#closure-compiler-java-6;v20160517[0m
+[0m[[0mdebug[0m] [0m		tried https://repo.scala-sbt.org/scalasbt/sbt-plugin-releases/org.scala-js/closure-compiler-java-6/v20160517/ivys/ivy.xml[0m
+[0m[[0mdebug[0m] [0mCLIENT ERROR: Not Found url=https://repo.scala-sbt.org/scalasbt/sbt-plugin-releases/org.scala-js/closure-compiler-java-6/v20160517/ivys/ivy.xml[0m
+[0m[[0mdebug[0m] [0m	sbt-plugin-releases: no ivy file found for org.scala-js#closure-compiler-java-6;v20160517[0m
+[0m[[0mdebug[0m] [0m		tried /home/slawek/.ivy2/local/org.scala-js/closure-compiler-java-6/v20160517/ivys/ivy.xml[0m
+[0m[[0mdebug[0m] [0m	local: no ivy file found for org.scala-js#closure-compiler-java-6;v20160517[0m
+[0m[[0mdebug[0m] [0m		tried https://repo1.maven.org/maven2/org/scala-js/closure-compiler-java-6/v20160517/closure-compiler-java-6-v20160517.pom[0m
+[0m[[0mdebug[0m] [0m	public: found md file for org.scala-js#closure-compiler-java-6;v20160517[0m
+[0m[[0mdebug[0m] [0m		=> https://repo1.maven.org/maven2/org/scala-js/closure-compiler-java-6/v20160517/closure-compiler-java-6-v20160517.pom (v20160517)[0m
+[0m[[0mdebug[0m] [0mdownloading https://repo1.maven.org/maven2/org/scala-js/closure-compiler-java-6/v20160517/closure-compiler-java-6-v20160517.pom ...[0m
+[0m[[0mdebug[0m] [0m	public: downloading https://repo1.maven.org/maven2/org/scala-js/closure-compiler-java-6/v20160517/closure-compiler-java-6-v20160517.pom[0m
+[0m[[0mdebug[0m] [0m	public: downloading https://repo1.maven.org/maven2/org/scala-js/closure-compiler-java-6/v20160517/closure-compiler-java-6-v20160517.pom.sha1[0m
+[0m[[0mdebug[0m] [0msha1 OK for https://repo1.maven.org/maven2/org/scala-js/closure-compiler-java-6/v20160517/closure-compiler-java-6-v20160517.pom[0m
+[0m[[0mdebug[0m] [0m	[SUCCESSFUL ] org.scala-js#closure-compiler-java-6;v20160517!closure-compiler-java-6.pom(pom.original) (548ms)[0m
+[0m[[0minfo[0m] [0mResolving org.scala-js#closure-compiler-main-java-6;v20160517 ...[0m
+[0m[[0mdebug[0m] [0msbt-chain: Checking cache for: dependency: org.scala-js#closure-compiler-main-java-6;v20160517 {}[0m
+[0m[[0minfo[0m] [0mResolving org.scala-js#closure-compiler-main-java-6;v20160517 ...[0m
+[0m[[0mdebug[0m] [0msbt-chain-delegate: Checking cache for: dependency: org.scala-js#closure-compiler-main-java-6;v20160517 {}[0m
+[0m[[0mdebug[0m] [0m		tried https://repo.typesafe.com/typesafe/ivy-releases/org.scala-js/closure-compiler-main-java-6/v20160517/ivys/ivy.xml[0m
+[0m[[0mdebug[0m] [0mCLIENT ERROR: Not Found url=https://repo.typesafe.com/typesafe/ivy-releases/org.scala-js/closure-compiler-main-java-6/v20160517/ivys/ivy.xml[0m
+[0m[[0mdebug[0m] [0m	typesafe-ivy-releases: no ivy file found for org.scala-js#closure-compiler-main-java-6;v20160517[0m
+[0m[[0mdebug[0m] [0m		tried https://repo.scala-sbt.org/scalasbt/sbt-plugin-releases/org.scala-js/closure-compiler-main-java-6/v20160517/ivys/ivy.xml[0m
+[0m[[0mdebug[0m] [0mCLIENT ERROR: Not Found url=https://repo.scala-sbt.org/scalasbt/sbt-plugin-releases/org.scala-js/closure-compiler-main-java-6/v20160517/ivys/ivy.xml[0m
+[0m[[0mdebug[0m] [0m	sbt-plugin-releases: no ivy file found for org.scala-js#closure-compiler-main-java-6;v20160517[0m
+[0m[[0mdebug[0m] [0m		tried /home/slawek/.ivy2/local/org.scala-js/closure-compiler-main-java-6/v20160517/ivys/ivy.xml[0m
+[0m[[0mdebug[0m] [0m	local: no ivy file found for org.scala-js#closure-compiler-main-java-6;v20160517[0m
+[0m[[0mdebug[0m] [0m		tried https://repo1.maven.org/maven2/org/scala-js/closure-compiler-main-java-6/v20160517/closure-compiler-main-java-6-v20160517.pom[0m
+[0m[[0mdebug[0m] [0m	public: found md file for org.scala-js#closure-compiler-main-java-6;v20160517[0m
+[0m[[0mdebug[0m] [0m		=> https://repo1.maven.org/maven2/org/scala-js/closure-compiler-main-java-6/v20160517/closure-compiler-main-java-6-v20160517.pom (v20160517)[0m
+[0m[[0mdebug[0m] [0mdownloading https://repo1.maven.org/maven2/org/scala-js/closure-compiler-main-java-6/v20160517/closure-compiler-main-java-6-v20160517.pom ...[0m
+[0m[[0mdebug[0m] [0m	public: downloading https://repo1.maven.org/maven2/org/scala-js/closure-compiler-main-java-6/v20160517/closure-compiler-main-java-6-v20160517.pom[0m
+[0m[[0mdebug[0m] [0m	public: downloading https://repo1.maven.org/maven2/org/scala-js/closure-compiler-main-java-6/v20160517/closure-compiler-main-java-6-v20160517.pom.sha1[0m
+[0m[[0mdebug[0m] [0msha1 OK for https://repo1.maven.org/maven2/org/scala-js/closure-compiler-main-java-6/v20160517/closure-compiler-main-java-6-v20160517.pom[0m
+[0m[[0mdebug[0m] [0m	[SUCCESSFUL ] org.scala-js#closure-compiler-main-java-6;v20160517!closure-compiler-main-java-6.pom(pom.original) (1104ms)[0m
+[0m[[0minfo[0m] [0mResolving org.scala-js#closure-compiler-parent-java-6;v20160517 ...[0m
+[0m[[0mdebug[0m] [0msbt-chain: Checking cache for: dependency: org.scala-js#closure-compiler-parent-java-6;v20160517 {}[0m
+[0m[[0minfo[0m] [0mResolving org.scala-js#closure-compiler-parent-java-6;v20160517 ...[0m
+[0m[[0mdebug[0m] [0msbt-chain-delegate: Checking cache for: dependency: org.scala-js#closure-compiler-parent-java-6;v20160517 {}[0m
+[0m[[0mdebug[0m] [0m		tried https://repo.typesafe.com/typesafe/ivy-releases/org.scala-js/closure-compiler-parent-java-6/v20160517/ivys/ivy.xml[0m
+[0m[[0mdebug[0m] [0mCLIENT ERROR: Not Found url=https://repo.typesafe.com/typesafe/ivy-releases/org.scala-js/closure-compiler-parent-java-6/v20160517/ivys/ivy.xml[0m
+[0m[[0mdebug[0m] [0m	typesafe-ivy-releases: no ivy file found for org.scala-js#closure-compiler-parent-java-6;v20160517[0m
+[0m[[0mdebug[0m] [0m		tried https://repo.scala-sbt.org/scalasbt/sbt-plugin-releases/org.scala-js/closure-compiler-parent-java-6/v20160517/ivys/ivy.xml[0m
+[0m[[0mdebug[0m] [0mCLIENT ERROR: Not Found url=https://repo.scala-sbt.org/scalasbt/sbt-plugin-releases/org.scala-js/closure-compiler-parent-java-6/v20160517/ivys/ivy.xml[0m
+[0m[[0mdebug[0m] [0m	sbt-plugin-releases: no ivy file found for org.scala-js#closure-compiler-parent-java-6;v20160517[0m
+[0m[[0mdebug[0m] [0m		tried /home/slawek/.ivy2/local/org.scala-js/closure-compiler-parent-java-6/v20160517/ivys/ivy.xml[0m
+[0m[[0mdebug[0m] [0m	local: no ivy file found for org.scala-js#closure-compiler-parent-java-6;v20160517[0m
+[0m[[0mdebug[0m] [0m		tried https://repo1.maven.org/maven2/org/scala-js/closure-compiler-parent-java-6/v20160517/closure-compiler-parent-java-6-v20160517.pom[0m
+[0m[[0mdebug[0m] [0m	public: found md file for org.scala-js#closure-compiler-parent-java-6;v20160517[0m
+[0m[[0mdebug[0m] [0m		=> https://repo1.maven.org/maven2/org/scala-js/closure-compiler-parent-java-6/v20160517/closure-compiler-parent-java-6-v20160517.pom (v20160517)[0m
+[0m[[0mdebug[0m] [0mdownloading https://repo1.maven.org/maven2/org/scala-js/closure-compiler-parent-java-6/v20160517/closure-compiler-parent-java-6-v20160517.pom ...[0m
+[0m[[0mdebug[0m] [0m	public: downloading https://repo1.maven.org/maven2/org/scala-js/closure-compiler-parent-java-6/v20160517/closure-compiler-parent-java-6-v20160517.pom[0m
+[0m[[0mdebug[0m] [0m	public: downloading https://repo1.maven.org/maven2/org/scala-js/closure-compiler-parent-java-6/v20160517/closure-compiler-parent-java-6-v20160517.pom.sha1[0m
+[0m[[0mdebug[0m] [0msha1 OK for https://repo1.maven.org/maven2/org/scala-js/closure-compiler-parent-java-6/v20160517/closure-compiler-parent-java-6-v20160517.pom[0m
+[0m[[0mdebug[0m] [0m	[SUCCESSFUL ] org.scala-js#closure-compiler-parent-java-6;v20160517!closure-compiler-parent-java-6.pom(pom.original) (192ms)[0m
+[0m[[0minfo[0m] [0mResolving org.sonatype.oss#oss-parent;9 ...[0m
+[0m[[0mdebug[0m] [0msbt-chain: Checking cache for: dependency: org.sonatype.oss#oss-parent;9 {}[0m
+[0m[[0mdebug[0m] [0msbt-chain: module revision found in cache: org.sonatype.oss#oss-parent;9[0m
+[0m[[0mdebug[0m] [0m		tried https://repo.typesafe.com/typesafe/ivy-releases/org.scala-js/closure-compiler-parent-java-6/v20160517/jars/closure-compiler-parent-java-6.jar[0m
+[0m[[0mdebug[0m] [0mCLIENT ERROR: Not Found url=https://repo.typesafe.com/typesafe/ivy-releases/org.scala-js/closure-compiler-parent-java-6/v20160517/jars/closure-compiler-parent-java-6.jar[0m
+[0m[[0mdebug[0m] [0m		tried https://repo.scala-sbt.org/scalasbt/sbt-plugin-releases/org.scala-js/closure-compiler-parent-java-6/v20160517/jars/closure-compiler-parent-java-6.jar[0m
+[0m[[0mdebug[0m] [0mCLIENT ERROR: Not Found url=https://repo.scala-sbt.org/scalasbt/sbt-plugin-releases/org.scala-js/closure-compiler-parent-java-6/v20160517/jars/closure-compiler-parent-java-6.jar[0m
+[0m[[0mdebug[0m] [0m		tried /home/slawek/.ivy2/local/org.scala-js/closure-compiler-parent-java-6/v20160517/jars/closure-compiler-parent-java-6.jar[0m
+[0m[[0mdebug[0m] [0m		tried https://repo1.maven.org/maven2/org/scala-js/closure-compiler-parent-java-6/v20160517/closure-compiler-parent-java-6-v20160517.jar[0m
+[0m[[0mdebug[0m] [0mCLIENT ERROR: Not Found url=https://repo1.maven.org/maven2/org/scala-js/closure-compiler-parent-java-6/v20160517/closure-compiler-parent-java-6-v20160517.jar[0m
+[0m[[0mdebug[0m] [0m		tried http://repo.artima.com/releases/org/scala-js/closure-compiler-parent-java-6/v20160517/closure-compiler-parent-java-6-v20160517.jar[0m
+[0m[[0mdebug[0m] [0mCLIENT ERROR: Not Found url=http://repo.artima.com/releases/org/scala-js/closure-compiler-parent-java-6/v20160517/closure-compiler-parent-java-6-v20160517.jar[0m
+[0m[[0mdebug[0m] [0m		tried https://repo.typesafe.com/typesafe/ivy-releases/org.scala-js/closure-compiler-main-java-6/v20160517/jars/closure-compiler-main-java-6.jar[0m
+[0m[[0mdebug[0m] [0mCLIENT ERROR: Not Found url=https://repo.typesafe.com/typesafe/ivy-releases/org.scala-js/closure-compiler-main-java-6/v20160517/jars/closure-compiler-main-java-6.jar[0m
+[0m[[0mdebug[0m] [0m		tried https://repo.scala-sbt.org/scalasbt/sbt-plugin-releases/org.scala-js/closure-compiler-main-java-6/v20160517/jars/closure-compiler-main-java-6.jar[0m
+[0m[[0mdebug[0m] [0mCLIENT ERROR: Not Found url=https://repo.scala-sbt.org/scalasbt/sbt-plugin-releases/org.scala-js/closure-compiler-main-java-6/v20160517/jars/closure-compiler-main-java-6.jar[0m
+[0m[[0mdebug[0m] [0m		tried /home/slawek/.ivy2/local/org.scala-js/closure-compiler-main-java-6/v20160517/jars/closure-compiler-main-java-6.jar[0m
+[0m[[0mdebug[0m] [0m		tried https://repo1.maven.org/maven2/org/scala-js/closure-compiler-main-java-6/v20160517/closure-compiler-main-java-6-v20160517.jar[0m
+[0m[[0mdebug[0m] [0mCLIENT ERROR: Not Found url=https://repo1.maven.org/maven2/org/scala-js/closure-compiler-main-java-6/v20160517/closure-compiler-main-java-6-v20160517.jar[0m
+[0m[[0mdebug[0m] [0m		tried http://repo.artima.com/releases/org/scala-js/closure-compiler-main-java-6/v20160517/closure-compiler-main-java-6-v20160517.jar[0m
+[0m[[0mdebug[0m] [0mCLIENT ERROR: Not Found url=http://repo.artima.com/releases/org/scala-js/closure-compiler-main-java-6/v20160517/closure-compiler-main-java-6-v20160517.jar[0m
+[0m[[0mdebug[0m] [0m		tried https://repo.typesafe.com/typesafe/ivy-releases/org.scala-js/closure-compiler-java-6/v20160517/jars/closure-compiler-java-6.jar[0m
+[0m[[0mdebug[0m] [0mCLIENT ERROR: Not Found url=https://repo.typesafe.com/typesafe/ivy-releases/org.scala-js/closure-compiler-java-6/v20160517/jars/closure-compiler-java-6.jar[0m
+[0m[[0mdebug[0m] [0m		tried https://repo.scala-sbt.org/scalasbt/sbt-plugin-releases/org.scala-js/closure-compiler-java-6/v20160517/jars/closure-compiler-java-6.jar[0m
+[0m[[0mdebug[0m] [0mCLIENT ERROR: Not Found url=https://repo.scala-sbt.org/scalasbt/sbt-plugin-releases/org.scala-js/closure-compiler-java-6/v20160517/jars/closure-compiler-java-6.jar[0m
+[0m[[0mdebug[0m] [0m		tried /home/slawek/.ivy2/local/org.scala-js/closure-compiler-java-6/v20160517/jars/closure-compiler-java-6.jar[0m
+[0m[[0mdebug[0m] [0m		tried https://repo1.maven.org/maven2/org/scala-js/closure-compiler-java-6/v20160517/closure-compiler-java-6-v20160517.jar[0m
+[0m[[0mdebug[0m] [0m	found org.scala-js#closure-compiler-java-6;v20160517 in public[0m
 [0m[[0mdebug[0m] [0m== resolving dependencies org.scala-js#scalajs-tools_2.10;0.6.21->org.scala-js#closure-compiler-java-6;v20160517 [compile->compile(*)][0m
 [0m[[0mdebug[0m] [0m== resolving dependencies org.scala-js#closure-compiler-java-6;v20160517->org.scala-js#closure-compiler-externs-java-6;v20160517 [compile->master(compile)][0m
 [0m[[0minfo[0m] [0mResolving org.scala-js#closure-compiler-externs-java-6;v20160517 ...[0m
 [0m[[0mdebug[0m] [0msbt-chain: Checking cache for: dependency: org.scala-js#closure-compiler-externs-java-6;v20160517 {compile=[compile(*), master(compile)], runtime=[runtime(*)]}[0m
-[0m[[0mdebug[0m] [0msbt-chain: module revision found in cache: org.scala-js#closure-compiler-externs-java-6;v20160517[0m
-[0m[[0mdebug[0m] [0m	found org.scala-js#closure-compiler-externs-java-6;v20160517 in sbt-chain[0m
+[0m[[0minfo[0m] [0mResolving org.scala-js#closure-compiler-externs-java-6;v20160517 ...[0m
+[0m[[0mdebug[0m] [0msbt-chain-delegate: Checking cache for: dependency: org.scala-js#closure-compiler-externs-java-6;v20160517 {compile=[compile(*), master(compile)], runtime=[runtime(*)]}[0m
+[0m[[0mdebug[0m] [0m		tried https://repo.typesafe.com/typesafe/ivy-releases/org.scala-js/closure-compiler-externs-java-6/v20160517/ivys/ivy.xml[0m
+[0m[[0mdebug[0m] [0mCLIENT ERROR: Not Found url=https://repo.typesafe.com/typesafe/ivy-releases/org.scala-js/closure-compiler-externs-java-6/v20160517/ivys/ivy.xml[0m
+[0m[[0mdebug[0m] [0m	typesafe-ivy-releases: no ivy file found for org.scala-js#closure-compiler-externs-java-6;v20160517[0m
+[0m[[0mdebug[0m] [0m		tried https://repo.scala-sbt.org/scalasbt/sbt-plugin-releases/org.scala-js/closure-compiler-externs-java-6/v20160517/ivys/ivy.xml[0m
+[0m[[0mdebug[0m] [0mCLIENT ERROR: Not Found url=https://repo.scala-sbt.org/scalasbt/sbt-plugin-releases/org.scala-js/closure-compiler-externs-java-6/v20160517/ivys/ivy.xml[0m
+[0m[[0mdebug[0m] [0m	sbt-plugin-releases: no ivy file found for org.scala-js#closure-compiler-externs-java-6;v20160517[0m
+[0m[[0mdebug[0m] [0m		tried /home/slawek/.ivy2/local/org.scala-js/closure-compiler-externs-java-6/v20160517/ivys/ivy.xml[0m
+[0m[[0mdebug[0m] [0m	local: no ivy file found for org.scala-js#closure-compiler-externs-java-6;v20160517[0m
+[0m[[0mdebug[0m] [0m		tried https://repo1.maven.org/maven2/org/scala-js/closure-compiler-externs-java-6/v20160517/closure-compiler-externs-java-6-v20160517.pom[0m
+[0m[[0mdebug[0m] [0m	public: found md file for org.scala-js#closure-compiler-externs-java-6;v20160517[0m
+[0m[[0mdebug[0m] [0m		=> https://repo1.maven.org/maven2/org/scala-js/closure-compiler-externs-java-6/v20160517/closure-compiler-externs-java-6-v20160517.pom (v20160517)[0m
+[0m[[0mdebug[0m] [0mdownloading https://repo1.maven.org/maven2/org/scala-js/closure-compiler-externs-java-6/v20160517/closure-compiler-externs-java-6-v20160517.pom ...[0m
+[0m[[0mdebug[0m] [0m	public: downloading https://repo1.maven.org/maven2/org/scala-js/closure-compiler-externs-java-6/v20160517/closure-compiler-externs-java-6-v20160517.pom[0m
+[0m[[0mdebug[0m] [0m	public: downloading https://repo1.maven.org/maven2/org/scala-js/closure-compiler-externs-java-6/v20160517/closure-compiler-externs-java-6-v20160517.pom.sha1[0m
+[0m[[0mdebug[0m] [0msha1 OK for https://repo1.maven.org/maven2/org/scala-js/closure-compiler-externs-java-6/v20160517/closure-compiler-externs-java-6-v20160517.pom[0m
+[0m[[0mdebug[0m] [0m	[SUCCESSFUL ] org.scala-js#closure-compiler-externs-java-6;v20160517!closure-compiler-externs-java-6.pom(pom.original) (494ms)[0m
+[0m[[0minfo[0m] [0mResolving org.scala-js#closure-compiler-parent-java-6;v20160517 ...[0m
+[0m[[0mdebug[0m] [0msbt-chain: Checking cache for: dependency: org.scala-js#closure-compiler-parent-java-6;v20160517 {}[0m
+[0m[[0mdebug[0m] [0msbt-chain: module revision found in cache: org.scala-js#closure-compiler-parent-java-6;v20160517[0m
+[0m[[0mdebug[0m] [0m		tried https://repo.typesafe.com/typesafe/ivy-releases/org.scala-js/closure-compiler-externs-java-6/v20160517/jars/closure-compiler-externs-java-6.jar[0m
+[0m[[0mdebug[0m] [0mCLIENT ERROR: Not Found url=https://repo.typesafe.com/typesafe/ivy-releases/org.scala-js/closure-compiler-externs-java-6/v20160517/jars/closure-compiler-externs-java-6.jar[0m
+[0m[[0mdebug[0m] [0m		tried https://repo.scala-sbt.org/scalasbt/sbt-plugin-releases/org.scala-js/closure-compiler-externs-java-6/v20160517/jars/closure-compiler-externs-java-6.jar[0m
+[0m[[0mdebug[0m] [0mCLIENT ERROR: Not Found url=https://repo.scala-sbt.org/scalasbt/sbt-plugin-releases/org.scala-js/closure-compiler-externs-java-6/v20160517/jars/closure-compiler-externs-java-6.jar[0m
+[0m[[0mdebug[0m] [0m		tried /home/slawek/.ivy2/local/org.scala-js/closure-compiler-externs-java-6/v20160517/jars/closure-compiler-externs-java-6.jar[0m
+[0m[[0mdebug[0m] [0m		tried https://repo1.maven.org/maven2/org/scala-js/closure-compiler-externs-java-6/v20160517/closure-compiler-externs-java-6-v20160517.jar[0m
+[0m[[0mdebug[0m] [0m	found org.scala-js#closure-compiler-externs-java-6;v20160517 in public[0m
 [0m[[0mdebug[0m] [0m== resolving dependencies org.scala-js#closure-compiler-java-6;v20160517->org.scala-js#closure-compiler-externs-java-6;v20160517 [compile->compile(*)][0m
 [0m[[0mdebug[0m] [0m== resolving dependencies org.scala-js#closure-compiler-java-6;v20160517->args4j#args4j;2.0.26 [compile->master(compile)][0m
 [0m[[0minfo[0m] [0mResolving args4j#args4j;2.0.26 ...[0m
@@ -131,8 +328,63 @@
 [0m[[0mdebug[0m] [0m== resolving dependencies org.scala-js#closure-compiler-java-6;v20160517->com.google.guava#guava;19.0 [compile->master(compile)][0m
 [0m[[0minfo[0m] [0mResolving com.google.guava#guava;19.0 ...[0m
 [0m[[0mdebug[0m] [0msbt-chain: Checking cache for: dependency: com.google.guava#guava;19.0 {compile=[compile(*), master(compile)], runtime=[runtime(*)]}[0m
-[0m[[0mdebug[0m] [0msbt-chain: module revision found in cache: com.google.guava#guava;19.0[0m
-[0m[[0mdebug[0m] [0m	found com.google.guava#guava;19.0 in sbt-chain[0m
+[0m[[0minfo[0m] [0mResolving com.google.guava#guava;19.0 ...[0m
+[0m[[0mdebug[0m] [0msbt-chain-delegate: Checking cache for: dependency: com.google.guava#guava;19.0 {compile=[compile(*), master(compile)], runtime=[runtime(*)]}[0m
+[0m[[0mdebug[0m] [0m		tried https://repo.typesafe.com/typesafe/ivy-releases/com.google.guava/guava/19.0/ivys/ivy.xml[0m
+[0m[[0mdebug[0m] [0mCLIENT ERROR: Not Found url=https://repo.typesafe.com/typesafe/ivy-releases/com.google.guava/guava/19.0/ivys/ivy.xml[0m
+[0m[[0mdebug[0m] [0m	typesafe-ivy-releases: no ivy file found for com.google.guava#guava;19.0[0m
+[0m[[0mdebug[0m] [0m		tried https://repo.scala-sbt.org/scalasbt/sbt-plugin-releases/com.google.guava/guava/19.0/ivys/ivy.xml[0m
+[0m[[0mdebug[0m] [0mCLIENT ERROR: Not Found url=https://repo.scala-sbt.org/scalasbt/sbt-plugin-releases/com.google.guava/guava/19.0/ivys/ivy.xml[0m
+[0m[[0mdebug[0m] [0m	sbt-plugin-releases: no ivy file found for com.google.guava#guava;19.0[0m
+[0m[[0mdebug[0m] [0m		tried /home/slawek/.ivy2/local/com.google.guava/guava/19.0/ivys/ivy.xml[0m
+[0m[[0mdebug[0m] [0m	local: no ivy file found for com.google.guava#guava;19.0[0m
+[0m[[0mdebug[0m] [0m		tried https://repo1.maven.org/maven2/com/google/guava/guava/19.0/guava-19.0.pom[0m
+[0m[[0mdebug[0m] [0m	public: found md file for com.google.guava#guava;19.0[0m
+[0m[[0mdebug[0m] [0m		=> https://repo1.maven.org/maven2/com/google/guava/guava/19.0/guava-19.0.pom (19.0)[0m
+[0m[[0mdebug[0m] [0mdownloading https://repo1.maven.org/maven2/com/google/guava/guava/19.0/guava-19.0.pom ...[0m
+[0m[[0mdebug[0m] [0m	public: downloading https://repo1.maven.org/maven2/com/google/guava/guava/19.0/guava-19.0.pom[0m
+[0m[[0mdebug[0m] [0m	public: downloading https://repo1.maven.org/maven2/com/google/guava/guava/19.0/guava-19.0.pom.sha1[0m
+[0m[[0mdebug[0m] [0msha1 OK for https://repo1.maven.org/maven2/com/google/guava/guava/19.0/guava-19.0.pom[0m
+[0m[[0mdebug[0m] [0m	[SUCCESSFUL ] com.google.guava#guava;19.0!guava.pom(pom.original) (608ms)[0m
+[0m[[0minfo[0m] [0mResolving com.google.guava#guava-parent;19.0 ...[0m
+[0m[[0mdebug[0m] [0msbt-chain: Checking cache for: dependency: com.google.guava#guava-parent;19.0 {}[0m
+[0m[[0minfo[0m] [0mResolving com.google.guava#guava-parent;19.0 ...[0m
+[0m[[0mdebug[0m] [0msbt-chain-delegate: Checking cache for: dependency: com.google.guava#guava-parent;19.0 {}[0m
+[0m[[0mdebug[0m] [0m		tried https://repo.typesafe.com/typesafe/ivy-releases/com.google.guava/guava-parent/19.0/ivys/ivy.xml[0m
+[0m[[0mdebug[0m] [0mCLIENT ERROR: Not Found url=https://repo.typesafe.com/typesafe/ivy-releases/com.google.guava/guava-parent/19.0/ivys/ivy.xml[0m
+[0m[[0mdebug[0m] [0m	typesafe-ivy-releases: no ivy file found for com.google.guava#guava-parent;19.0[0m
+[0m[[0mdebug[0m] [0m		tried https://repo.scala-sbt.org/scalasbt/sbt-plugin-releases/com.google.guava/guava-parent/19.0/ivys/ivy.xml[0m
+[0m[[0mdebug[0m] [0mCLIENT ERROR: Not Found url=https://repo.scala-sbt.org/scalasbt/sbt-plugin-releases/com.google.guava/guava-parent/19.0/ivys/ivy.xml[0m
+[0m[[0mdebug[0m] [0m	sbt-plugin-releases: no ivy file found for com.google.guava#guava-parent;19.0[0m
+[0m[[0mdebug[0m] [0m		tried /home/slawek/.ivy2/local/com.google.guava/guava-parent/19.0/ivys/ivy.xml[0m
+[0m[[0mdebug[0m] [0m	local: no ivy file found for com.google.guava#guava-parent;19.0[0m
+[0m[[0mdebug[0m] [0m		tried https://repo1.maven.org/maven2/com/google/guava/guava-parent/19.0/guava-parent-19.0.pom[0m
+[0m[[0mdebug[0m] [0m	public: found md file for com.google.guava#guava-parent;19.0[0m
+[0m[[0mdebug[0m] [0m		=> https://repo1.maven.org/maven2/com/google/guava/guava-parent/19.0/guava-parent-19.0.pom (19.0)[0m
+[0m[[0mdebug[0m] [0mdownloading https://repo1.maven.org/maven2/com/google/guava/guava-parent/19.0/guava-parent-19.0.pom ...[0m
+[0m[[0mdebug[0m] [0m	public: downloading https://repo1.maven.org/maven2/com/google/guava/guava-parent/19.0/guava-parent-19.0.pom[0m
+[0m[[0mdebug[0m] [0m	public: downloading https://repo1.maven.org/maven2/com/google/guava/guava-parent/19.0/guava-parent-19.0.pom.sha1[0m
+[0m[[0mdebug[0m] [0msha1 OK for https://repo1.maven.org/maven2/com/google/guava/guava-parent/19.0/guava-parent-19.0.pom[0m
+[0m[[0mdebug[0m] [0m	[SUCCESSFUL ] com.google.guava#guava-parent;19.0!guava-parent.pom(pom.original) (908ms)[0m
+[0m[[0minfo[0m] [0mResolving org.sonatype.oss#oss-parent;7 ...[0m
+[0m[[0mdebug[0m] [0msbt-chain: Checking cache for: dependency: org.sonatype.oss#oss-parent;7 {}[0m
+[0m[[0mdebug[0m] [0msbt-chain: module revision found in cache: org.sonatype.oss#oss-parent;7[0m
+[0m[[0mdebug[0m] [0m		tried https://repo.typesafe.com/typesafe/ivy-releases/com.google.guava/guava-parent/19.0/jars/guava-parent.jar[0m
+[0m[[0mdebug[0m] [0mCLIENT ERROR: Not Found url=https://repo.typesafe.com/typesafe/ivy-releases/com.google.guava/guava-parent/19.0/jars/guava-parent.jar[0m
+[0m[[0mdebug[0m] [0m		tried https://repo.scala-sbt.org/scalasbt/sbt-plugin-releases/com.google.guava/guava-parent/19.0/jars/guava-parent.jar[0m
+[0m[[0mdebug[0m] [0mCLIENT ERROR: Not Found url=https://repo.scala-sbt.org/scalasbt/sbt-plugin-releases/com.google.guava/guava-parent/19.0/jars/guava-parent.jar[0m
+[0m[[0mdebug[0m] [0m		tried /home/slawek/.ivy2/local/com.google.guava/guava-parent/19.0/jars/guava-parent.jar[0m
+[0m[[0mdebug[0m] [0m		tried https://repo1.maven.org/maven2/com/google/guava/guava-parent/19.0/guava-parent-19.0.jar[0m
+[0m[[0mdebug[0m] [0mCLIENT ERROR: Not Found url=https://repo1.maven.org/maven2/com/google/guava/guava-parent/19.0/guava-parent-19.0.jar[0m
+[0m[[0mdebug[0m] [0m		tried http://repo.artima.com/releases/com/google/guava/guava-parent/19.0/guava-parent-19.0.jar[0m
+[0m[[0mdebug[0m] [0mCLIENT ERROR: Not Found url=http://repo.artima.com/releases/com/google/guava/guava-parent/19.0/guava-parent-19.0.jar[0m
+[0m[[0mdebug[0m] [0m		tried https://repo.typesafe.com/typesafe/ivy-releases/com.google.guava/guava/19.0/bundles/guava.jar[0m
+[0m[[0mdebug[0m] [0mCLIENT ERROR: Not Found url=https://repo.typesafe.com/typesafe/ivy-releases/com.google.guava/guava/19.0/bundles/guava.jar[0m
+[0m[[0mdebug[0m] [0m		tried https://repo.scala-sbt.org/scalasbt/sbt-plugin-releases/com.google.guava/guava/19.0/bundles/guava.jar[0m
+[0m[[0mdebug[0m] [0mCLIENT ERROR: Not Found url=https://repo.scala-sbt.org/scalasbt/sbt-plugin-releases/com.google.guava/guava/19.0/bundles/guava.jar[0m
+[0m[[0mdebug[0m] [0m		tried /home/slawek/.ivy2/local/com.google.guava/guava/19.0/bundles/guava.jar[0m
+[0m[[0mdebug[0m] [0m		tried https://repo1.maven.org/maven2/com/google/guava/guava/19.0/guava-19.0.jar[0m
+[0m[[0mdebug[0m] [0m	found com.google.guava#guava;19.0 in public[0m
 [0m[[0mdebug[0m] [0m== resolving dependencies org.scala-js#closure-compiler-java-6;v20160517->com.google.guava#guava;19.0 [compile->compile(*)][0m
 [0m[[0mdebug[0m] [0m== resolving dependencies org.scala-js#closure-compiler-java-6;v20160517->com.google.protobuf#protobuf-java;2.5.0 [compile->master(compile)][0m
 [0m[[0minfo[0m] [0mResolving com.google.protobuf#protobuf-java;2.5.0 ...[0m
@@ -188,8 +440,31 @@
 [0m[[0mdebug[0m] [0m== resolving dependencies org.scala-js#sbt-scalajs;0.6.21->org.scala-js#scalajs-js-envs_2.10;0.6.21 [compile->default(compile)][0m
 [0m[[0minfo[0m] [0mResolving org.scala-js#scalajs-js-envs_2.10;0.6.21 ...[0m
 [0m[[0mdebug[0m] [0msbt-chain: Checking cache for: dependency: org.scala-js#scalajs-js-envs_2.10;0.6.21 {compile=[default(compile)]}[0m
-[0m[[0mdebug[0m] [0msbt-chain: module revision found in cache: org.scala-js#scalajs-js-envs_2.10;0.6.21[0m
-[0m[[0mdebug[0m] [0m	found org.scala-js#scalajs-js-envs_2.10;0.6.21 in sbt-chain[0m
+[0m[[0minfo[0m] [0mResolving org.scala-js#scalajs-js-envs_2.10;0.6.21 ...[0m
+[0m[[0mdebug[0m] [0msbt-chain-delegate: Checking cache for: dependency: org.scala-js#scalajs-js-envs_2.10;0.6.21 {compile=[default(compile)]}[0m
+[0m[[0mdebug[0m] [0m		tried https://repo.typesafe.com/typesafe/ivy-releases/org.scala-js/scalajs-js-envs_2.10/0.6.21/ivys/ivy.xml[0m
+[0m[[0mdebug[0m] [0mCLIENT ERROR: Not Found url=https://repo.typesafe.com/typesafe/ivy-releases/org.scala-js/scalajs-js-envs_2.10/0.6.21/ivys/ivy.xml[0m
+[0m[[0mdebug[0m] [0m	typesafe-ivy-releases: no ivy file found for org.scala-js#scalajs-js-envs_2.10;0.6.21[0m
+[0m[[0mdebug[0m] [0m		tried https://repo.scala-sbt.org/scalasbt/sbt-plugin-releases/org.scala-js/scalajs-js-envs_2.10/0.6.21/ivys/ivy.xml[0m
+[0m[[0mdebug[0m] [0mCLIENT ERROR: Not Found url=https://repo.scala-sbt.org/scalasbt/sbt-plugin-releases/org.scala-js/scalajs-js-envs_2.10/0.6.21/ivys/ivy.xml[0m
+[0m[[0mdebug[0m] [0m	sbt-plugin-releases: no ivy file found for org.scala-js#scalajs-js-envs_2.10;0.6.21[0m
+[0m[[0mdebug[0m] [0m		tried /home/slawek/.ivy2/local/org.scala-js/scalajs-js-envs_2.10/0.6.21/ivys/ivy.xml[0m
+[0m[[0mdebug[0m] [0m	local: no ivy file found for org.scala-js#scalajs-js-envs_2.10;0.6.21[0m
+[0m[[0mdebug[0m] [0m		tried https://repo1.maven.org/maven2/org/scala-js/scalajs-js-envs_2.10/0.6.21/scalajs-js-envs_2.10-0.6.21.pom[0m
+[0m[[0mdebug[0m] [0m	public: found md file for org.scala-js#scalajs-js-envs_2.10;0.6.21[0m
+[0m[[0mdebug[0m] [0m		=> https://repo1.maven.org/maven2/org/scala-js/scalajs-js-envs_2.10/0.6.21/scalajs-js-envs_2.10-0.6.21.pom (0.6.21)[0m
+[0m[[0mdebug[0m] [0mdownloading https://repo1.maven.org/maven2/org/scala-js/scalajs-js-envs_2.10/0.6.21/scalajs-js-envs_2.10-0.6.21.pom ...[0m
+[0m[[0mdebug[0m] [0m	public: downloading https://repo1.maven.org/maven2/org/scala-js/scalajs-js-envs_2.10/0.6.21/scalajs-js-envs_2.10-0.6.21.pom[0m
+[0m[[0mdebug[0m] [0m	public: downloading https://repo1.maven.org/maven2/org/scala-js/scalajs-js-envs_2.10/0.6.21/scalajs-js-envs_2.10-0.6.21.pom.sha1[0m
+[0m[[0mdebug[0m] [0msha1 OK for https://repo1.maven.org/maven2/org/scala-js/scalajs-js-envs_2.10/0.6.21/scalajs-js-envs_2.10-0.6.21.pom[0m
+[0m[[0mdebug[0m] [0m	[SUCCESSFUL ] org.scala-js#scalajs-js-envs_2.10;0.6.21!scalajs-js-envs_2.10.pom(pom.original) (583ms)[0m
+[0m[[0mdebug[0m] [0m		tried https://repo.typesafe.com/typesafe/ivy-releases/org.scala-js/scalajs-js-envs_2.10/0.6.21/jars/scalajs-js-envs_2.10.jar[0m
+[0m[[0mdebug[0m] [0mCLIENT ERROR: Not Found url=https://repo.typesafe.com/typesafe/ivy-releases/org.scala-js/scalajs-js-envs_2.10/0.6.21/jars/scalajs-js-envs_2.10.jar[0m
+[0m[[0mdebug[0m] [0m		tried https://repo.scala-sbt.org/scalasbt/sbt-plugin-releases/org.scala-js/scalajs-js-envs_2.10/0.6.21/jars/scalajs-js-envs_2.10.jar[0m
+[0m[[0mdebug[0m] [0mCLIENT ERROR: Not Found url=https://repo.scala-sbt.org/scalasbt/sbt-plugin-releases/org.scala-js/scalajs-js-envs_2.10/0.6.21/jars/scalajs-js-envs_2.10.jar[0m
+[0m[[0mdebug[0m] [0m		tried /home/slawek/.ivy2/local/org.scala-js/scalajs-js-envs_2.10/0.6.21/jars/scalajs-js-envs_2.10.jar[0m
+[0m[[0mdebug[0m] [0m		tried https://repo1.maven.org/maven2/org/scala-js/scalajs-js-envs_2.10/0.6.21/scalajs-js-envs_2.10-0.6.21.jar[0m
+[0m[[0mdebug[0m] [0m	found org.scala-js#scalajs-js-envs_2.10;0.6.21 in public[0m
 [0m[[0mdebug[0m] [0m== resolving dependencies org.scala-js#sbt-scalajs;0.6.21->org.scala-js#scalajs-js-envs_2.10;0.6.21 [compile->runtime][0m
 [0m[[0mdebug[0m] [0m== resolving dependencies org.scala-js#sbt-scalajs;0.6.21->org.scala-js#scalajs-js-envs_2.10;0.6.21 [compile->compile][0m
 [0m[[0mdebug[0m] [0m== resolving dependencies org.scala-js#scalajs-js-envs_2.10;0.6.21->org.scala-lang#scala-library;2.10.6 [compile->master(compile)][0m
@@ -209,8 +484,34 @@
 [0m[[0mdebug[0m] [0m== resolving dependencies org.scala-js#scalajs-js-envs_2.10;0.6.21->org.webjars#envjs;1.2 [compile->master(compile)][0m
 [0m[[0minfo[0m] [0mResolving org.webjars#envjs;1.2 ...[0m
 [0m[[0mdebug[0m] [0msbt-chain: Checking cache for: dependency: org.webjars#envjs;1.2 {compile=[compile(*), master(compile)], runtime=[runtime(*)]}[0m
-[0m[[0mdebug[0m] [0msbt-chain: module revision found in cache: org.webjars#envjs;1.2[0m
-[0m[[0mdebug[0m] [0m	found org.webjars#envjs;1.2 in sbt-chain[0m
+[0m[[0minfo[0m] [0mResolving org.webjars#envjs;1.2 ...[0m
+[0m[[0mdebug[0m] [0msbt-chain-delegate: Checking cache for: dependency: org.webjars#envjs;1.2 {compile=[compile(*), master(compile)], runtime=[runtime(*)]}[0m
+[0m[[0mdebug[0m] [0m		tried https://repo.typesafe.com/typesafe/ivy-releases/org.webjars/envjs/1.2/ivys/ivy.xml[0m
+[0m[[0mdebug[0m] [0mCLIENT ERROR: Not Found url=https://repo.typesafe.com/typesafe/ivy-releases/org.webjars/envjs/1.2/ivys/ivy.xml[0m
+[0m[[0mdebug[0m] [0m	typesafe-ivy-releases: no ivy file found for org.webjars#envjs;1.2[0m
+[0m[[0mdebug[0m] [0m		tried https://repo.scala-sbt.org/scalasbt/sbt-plugin-releases/org.webjars/envjs/1.2/ivys/ivy.xml[0m
+[0m[[0mdebug[0m] [0mCLIENT ERROR: Not Found url=https://repo.scala-sbt.org/scalasbt/sbt-plugin-releases/org.webjars/envjs/1.2/ivys/ivy.xml[0m
+[0m[[0mdebug[0m] [0m	sbt-plugin-releases: no ivy file found for org.webjars#envjs;1.2[0m
+[0m[[0mdebug[0m] [0m		tried /home/slawek/.ivy2/local/org.webjars/envjs/1.2/ivys/ivy.xml[0m
+[0m[[0mdebug[0m] [0m	local: no ivy file found for org.webjars#envjs;1.2[0m
+[0m[[0mdebug[0m] [0m		tried https://repo1.maven.org/maven2/org/webjars/envjs/1.2/envjs-1.2.pom[0m
+[0m[[0mdebug[0m] [0m	public: found md file for org.webjars#envjs;1.2[0m
+[0m[[0mdebug[0m] [0m		=> https://repo1.maven.org/maven2/org/webjars/envjs/1.2/envjs-1.2.pom (1.2)[0m
+[0m[[0mdebug[0m] [0mdownloading https://repo1.maven.org/maven2/org/webjars/envjs/1.2/envjs-1.2.pom ...[0m
+[0m[[0mdebug[0m] [0m	public: downloading https://repo1.maven.org/maven2/org/webjars/envjs/1.2/envjs-1.2.pom[0m
+[0m[[0mdebug[0m] [0m	public: downloading https://repo1.maven.org/maven2/org/webjars/envjs/1.2/envjs-1.2.pom.sha1[0m
+[0m[[0mdebug[0m] [0msha1 OK for https://repo1.maven.org/maven2/org/webjars/envjs/1.2/envjs-1.2.pom[0m
+[0m[[0mdebug[0m] [0m	[SUCCESSFUL ] org.webjars#envjs;1.2!envjs.pom(pom.original) (187ms)[0m
+[0m[[0minfo[0m] [0mResolving org.sonatype.oss#oss-parent;7 ...[0m
+[0m[[0mdebug[0m] [0msbt-chain: Checking cache for: dependency: org.sonatype.oss#oss-parent;7 {}[0m
+[0m[[0mdebug[0m] [0msbt-chain: module revision found in cache: org.sonatype.oss#oss-parent;7[0m
+[0m[[0mdebug[0m] [0m		tried https://repo.typesafe.com/typesafe/ivy-releases/org.webjars/envjs/1.2/jars/envjs.jar[0m
+[0m[[0mdebug[0m] [0mCLIENT ERROR: Not Found url=https://repo.typesafe.com/typesafe/ivy-releases/org.webjars/envjs/1.2/jars/envjs.jar[0m
+[0m[[0mdebug[0m] [0m		tried https://repo.scala-sbt.org/scalasbt/sbt-plugin-releases/org.webjars/envjs/1.2/jars/envjs.jar[0m
+[0m[[0mdebug[0m] [0mCLIENT ERROR: Not Found url=https://repo.scala-sbt.org/scalasbt/sbt-plugin-releases/org.webjars/envjs/1.2/jars/envjs.jar[0m
+[0m[[0mdebug[0m] [0m		tried /home/slawek/.ivy2/local/org.webjars/envjs/1.2/jars/envjs.jar[0m
+[0m[[0mdebug[0m] [0m		tried https://repo1.maven.org/maven2/org/webjars/envjs/1.2/envjs-1.2.jar[0m
+[0m[[0mdebug[0m] [0m	found org.webjars#envjs;1.2 in public[0m
 [0m[[0mdebug[0m] [0m== resolving dependencies org.scala-js#scalajs-js-envs_2.10;0.6.21->org.webjars#envjs;1.2 [compile->compile(*)][0m
 [0m[[0mdebug[0m] [0m== resolving dependencies org.scala-js#scalajs-js-envs_2.10;0.6.21->org.webjars#envjs;1.2 [compile->runtime(*)][0m
 [0m[[0mdebug[0m] [0m== resolving dependencies org.scala-js#scalajs-js-envs_2.10;0.6.21->org.webjars#envjs;1.2 [compile->compile][0m
@@ -226,8 +527,31 @@
 [0m[[0mdebug[0m] [0m== resolving dependencies org.scala-js#sbt-scalajs;0.6.21->org.scala-js#scalajs-sbt-test-adapter_2.10;0.6.21 [compile->default(compile)][0m
 [0m[[0minfo[0m] [0mResolving org.scala-js#scalajs-sbt-test-adapter_2.10;0.6.21 ...[0m
 [0m[[0mdebug[0m] [0msbt-chain: Checking cache for: dependency: org.scala-js#scalajs-sbt-test-adapter_2.10;0.6.21 {compile=[default(compile)]}[0m
-[0m[[0mdebug[0m] [0msbt-chain: module revision found in cache: org.scala-js#scalajs-sbt-test-adapter_2.10;0.6.21[0m
-[0m[[0mdebug[0m] [0m	found org.scala-js#scalajs-sbt-test-adapter_2.10;0.6.21 in sbt-chain[0m
+[0m[[0minfo[0m] [0mResolving org.scala-js#scalajs-sbt-test-adapter_2.10;0.6.21 ...[0m
+[0m[[0mdebug[0m] [0msbt-chain-delegate: Checking cache for: dependency: org.scala-js#scalajs-sbt-test-adapter_2.10;0.6.21 {compile=[default(compile)]}[0m
+[0m[[0mdebug[0m] [0m		tried https://repo.typesafe.com/typesafe/ivy-releases/org.scala-js/scalajs-sbt-test-adapter_2.10/0.6.21/ivys/ivy.xml[0m
+[0m[[0mdebug[0m] [0mCLIENT ERROR: Not Found url=https://repo.typesafe.com/typesafe/ivy-releases/org.scala-js/scalajs-sbt-test-adapter_2.10/0.6.21/ivys/ivy.xml[0m
+[0m[[0mdebug[0m] [0m	typesafe-ivy-releases: no ivy file found for org.scala-js#scalajs-sbt-test-adapter_2.10;0.6.21[0m
+[0m[[0mdebug[0m] [0m		tried https://repo.scala-sbt.org/scalasbt/sbt-plugin-releases/org.scala-js/scalajs-sbt-test-adapter_2.10/0.6.21/ivys/ivy.xml[0m
+[0m[[0mdebug[0m] [0mCLIENT ERROR: Not Found url=https://repo.scala-sbt.org/scalasbt/sbt-plugin-releases/org.scala-js/scalajs-sbt-test-adapter_2.10/0.6.21/ivys/ivy.xml[0m
+[0m[[0mdebug[0m] [0m	sbt-plugin-releases: no ivy file found for org.scala-js#scalajs-sbt-test-adapter_2.10;0.6.21[0m
+[0m[[0mdebug[0m] [0m		tried /home/slawek/.ivy2/local/org.scala-js/scalajs-sbt-test-adapter_2.10/0.6.21/ivys/ivy.xml[0m
+[0m[[0mdebug[0m] [0m	local: no ivy file found for org.scala-js#scalajs-sbt-test-adapter_2.10;0.6.21[0m
+[0m[[0mdebug[0m] [0m		tried https://repo1.maven.org/maven2/org/scala-js/scalajs-sbt-test-adapter_2.10/0.6.21/scalajs-sbt-test-adapter_2.10-0.6.21.pom[0m
+[0m[[0mdebug[0m] [0m	public: found md file for org.scala-js#scalajs-sbt-test-adapter_2.10;0.6.21[0m
+[0m[[0mdebug[0m] [0m		=> https://repo1.maven.org/maven2/org/scala-js/scalajs-sbt-test-adapter_2.10/0.6.21/scalajs-sbt-test-adapter_2.10-0.6.21.pom (0.6.21)[0m
+[0m[[0mdebug[0m] [0mdownloading https://repo1.maven.org/maven2/org/scala-js/scalajs-sbt-test-adapter_2.10/0.6.21/scalajs-sbt-test-adapter_2.10-0.6.21.pom ...[0m
+[0m[[0mdebug[0m] [0m	public: downloading https://repo1.maven.org/maven2/org/scala-js/scalajs-sbt-test-adapter_2.10/0.6.21/scalajs-sbt-test-adapter_2.10-0.6.21.pom[0m
+[0m[[0mdebug[0m] [0m	public: downloading https://repo1.maven.org/maven2/org/scala-js/scalajs-sbt-test-adapter_2.10/0.6.21/scalajs-sbt-test-adapter_2.10-0.6.21.pom.sha1[0m
+[0m[[0mdebug[0m] [0msha1 OK for https://repo1.maven.org/maven2/org/scala-js/scalajs-sbt-test-adapter_2.10/0.6.21/scalajs-sbt-test-adapter_2.10-0.6.21.pom[0m
+[0m[[0mdebug[0m] [0m	[SUCCESSFUL ] org.scala-js#scalajs-sbt-test-adapter_2.10;0.6.21!scalajs-sbt-test-adapter_2.10.pom(pom.original) (192ms)[0m
+[0m[[0mdebug[0m] [0m		tried https://repo.typesafe.com/typesafe/ivy-releases/org.scala-js/scalajs-sbt-test-adapter_2.10/0.6.21/jars/scalajs-sbt-test-adapter_2.10.jar[0m
+[0m[[0mdebug[0m] [0mCLIENT ERROR: Not Found url=https://repo.typesafe.com/typesafe/ivy-releases/org.scala-js/scalajs-sbt-test-adapter_2.10/0.6.21/jars/scalajs-sbt-test-adapter_2.10.jar[0m
+[0m[[0mdebug[0m] [0m		tried https://repo.scala-sbt.org/scalasbt/sbt-plugin-releases/org.scala-js/scalajs-sbt-test-adapter_2.10/0.6.21/jars/scalajs-sbt-test-adapter_2.10.jar[0m
+[0m[[0mdebug[0m] [0mCLIENT ERROR: Not Found url=https://repo.scala-sbt.org/scalasbt/sbt-plugin-releases/org.scala-js/scalajs-sbt-test-adapter_2.10/0.6.21/jars/scalajs-sbt-test-adapter_2.10.jar[0m
+[0m[[0mdebug[0m] [0m		tried /home/slawek/.ivy2/local/org.scala-js/scalajs-sbt-test-adapter_2.10/0.6.21/jars/scalajs-sbt-test-adapter_2.10.jar[0m
+[0m[[0mdebug[0m] [0m		tried https://repo1.maven.org/maven2/org/scala-js/scalajs-sbt-test-adapter_2.10/0.6.21/scalajs-sbt-test-adapter_2.10-0.6.21.jar[0m
+[0m[[0mdebug[0m] [0m	found org.scala-js#scalajs-sbt-test-adapter_2.10;0.6.21 in public[0m
 [0m[[0mdebug[0m] [0m== resolving dependencies org.scala-js#sbt-scalajs;0.6.21->org.scala-js#scalajs-sbt-test-adapter_2.10;0.6.21 [compile->runtime][0m
 [0m[[0mdebug[0m] [0m== resolving dependencies org.scala-js#sbt-scalajs;0.6.21->org.scala-js#scalajs-sbt-test-adapter_2.10;0.6.21 [compile->compile][0m
 [0m[[0mdebug[0m] [0m== resolving dependencies org.scala-js#scalajs-sbt-test-adapter_2.10;0.6.21->org.scala-lang#scala-library;2.10.6 [compile->master(compile)][0m
@@ -806,30 +1130,30 @@
 [0m[[0mdebug[0m] [0m	found org.scala-sbt#serialization_2.10;0.1.2 in sbt-chain[0m
 [0m[[0mdebug[0m] [0m== resolving dependencies org.scala-sbt#ivy;0.13.16->org.scala-sbt#serialization_2.10;0.1.2 [compile->runtime][0m
 [0m[[0mdebug[0m] [0m== resolving dependencies org.scala-sbt#ivy;0.13.16->org.scala-sbt#serialization_2.10;0.1.2 [compile->compile][0m
-[0m[[0mdebug[0m] [0m== resolving dependencies org.scala-sbt#serialization_2.10;0.1.2->org.scala-lang#scala-library;2.10.4 [compile->master(*)][0m
-[0m[[0mdebug[0m] [0m== resolving dependencies org.scala-sbt#serialization_2.10;0.1.2->org.scala-lang#scala-library;2.10.6 [compile->master(*)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies org.scala-sbt#serialization_2.10;0.1.2->org.scala-lang#scala-library;2.10.4 [compile->master(compile)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies org.scala-sbt#serialization_2.10;0.1.2->org.scala-lang#scala-library;2.10.6 [compile->master(compile)][0m
 [0m[[0mdebug[0m] [0m== resolving dependencies org.scala-sbt#serialization_2.10;0.1.2->org.scala-lang#scala-library;2.10.4 [compile->compile(*)][0m
 [0m[[0mdebug[0m] [0m== resolving dependencies org.scala-sbt#serialization_2.10;0.1.2->org.scala-lang#scala-library;2.10.6 [compile->compile(*)][0m
-[0m[[0mdebug[0m] [0m== resolving dependencies org.scala-sbt#serialization_2.10;0.1.2->org.scala-lang.modules#scala-pickling_2.10;0.10.1 [compile->master(*)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies org.scala-sbt#serialization_2.10;0.1.2->org.scala-lang.modules#scala-pickling_2.10;0.10.1 [compile->master(compile)][0m
 [0m[[0minfo[0m] [0mResolving org.scala-lang.modules#scala-pickling_2.10;0.10.1 ...[0m
-[0m[[0mdebug[0m] [0msbt-chain: Checking cache for: dependency: org.scala-lang.modules#scala-pickling_2.10;0.10.1 {compile=[compile(*), master(*)], runtime=[runtime(*)]}[0m
+[0m[[0mdebug[0m] [0msbt-chain: Checking cache for: dependency: org.scala-lang.modules#scala-pickling_2.10;0.10.1 {compile=[compile(*), master(compile)], runtime=[runtime(*)]}[0m
 [0m[[0mdebug[0m] [0msbt-chain: module revision found in cache: org.scala-lang.modules#scala-pickling_2.10;0.10.1[0m
 [0m[[0mdebug[0m] [0m	found org.scala-lang.modules#scala-pickling_2.10;0.10.1 in sbt-chain[0m
 [0m[[0mdebug[0m] [0m== resolving dependencies org.scala-sbt#serialization_2.10;0.1.2->org.scala-lang.modules#scala-pickling_2.10;0.10.1 [compile->compile(*)][0m
-[0m[[0mdebug[0m] [0m== resolving dependencies org.scala-lang.modules#scala-pickling_2.10;0.10.1->org.scala-lang#scala-compiler;2.10.5 [compile->master(*)][0m
-[0m[[0mdebug[0m] [0m== resolving dependencies org.scala-lang.modules#scala-pickling_2.10;0.10.1->org.scala-lang#scala-compiler;2.10.6 [compile->master(*)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies org.scala-lang.modules#scala-pickling_2.10;0.10.1->org.scala-lang#scala-compiler;2.10.5 [compile->master(compile)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies org.scala-lang.modules#scala-pickling_2.10;0.10.1->org.scala-lang#scala-compiler;2.10.6 [compile->master(compile)][0m
 [0m[[0mdebug[0m] [0m== resolving dependencies org.scala-lang.modules#scala-pickling_2.10;0.10.1->org.scala-lang#scala-compiler;2.10.5 [compile->compile(*)][0m
 [0m[[0mdebug[0m] [0m== resolving dependencies org.scala-lang.modules#scala-pickling_2.10;0.10.1->org.scala-lang#scala-compiler;2.10.6 [compile->compile(*)][0m
-[0m[[0mdebug[0m] [0m== resolving dependencies org.scala-lang.modules#scala-pickling_2.10;0.10.1->org.scala-lang#scala-library;2.10.5 [compile->master(*)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies org.scala-lang.modules#scala-pickling_2.10;0.10.1->org.scala-lang#scala-library;2.10.5 [compile->master(compile)][0m
 [0m[[0mdebug[0m] [0m== resolving dependencies org.scala-lang.modules#scala-pickling_2.10;0.10.1->org.scala-lang#scala-library;2.10.5 [compile->compile(*)][0m
 [0m[[0mdebug[0m] [0m== resolving dependencies org.scala-lang.modules#scala-pickling_2.10;0.10.1->org.scala-lang#scala-library;2.10.6 [compile->compile(*)][0m
-[0m[[0mdebug[0m] [0m== resolving dependencies org.scala-lang.modules#scala-pickling_2.10;0.10.1->org.scala-lang#scala-reflect;2.10.5 [compile->master(*)][0m
-[0m[[0mdebug[0m] [0m== resolving dependencies org.scala-lang.modules#scala-pickling_2.10;0.10.1->org.scala-lang#scala-reflect;2.10.6 [compile->master(*)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies org.scala-lang.modules#scala-pickling_2.10;0.10.1->org.scala-lang#scala-reflect;2.10.5 [compile->master(compile)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies org.scala-lang.modules#scala-pickling_2.10;0.10.1->org.scala-lang#scala-reflect;2.10.6 [compile->master(compile)][0m
 [0m[[0mdebug[0m] [0m== resolving dependencies org.scala-lang.modules#scala-pickling_2.10;0.10.1->org.scala-lang#scala-reflect;2.10.5 [compile->compile(*)][0m
 [0m[[0mdebug[0m] [0m== resolving dependencies org.scala-lang.modules#scala-pickling_2.10;0.10.1->org.scala-lang#scala-reflect;2.10.6 [compile->compile(*)][0m
-[0m[[0mdebug[0m] [0m== resolving dependencies org.scala-lang.modules#scala-pickling_2.10;0.10.1->org.scalamacros#quasiquotes_2.10;2.0.1 [compile->master(*)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies org.scala-lang.modules#scala-pickling_2.10;0.10.1->org.scalamacros#quasiquotes_2.10;2.0.1 [compile->master(compile)][0m
 [0m[[0minfo[0m] [0mResolving org.scalamacros#quasiquotes_2.10;2.0.1 ...[0m
-[0m[[0mdebug[0m] [0msbt-chain: Checking cache for: dependency: org.scalamacros#quasiquotes_2.10;2.0.1 {compile=[compile(*), master(*)], runtime=[runtime(*)]}[0m
+[0m[[0mdebug[0m] [0msbt-chain: Checking cache for: dependency: org.scalamacros#quasiquotes_2.10;2.0.1 {compile=[compile(*), master(compile)], runtime=[runtime(*)]}[0m
 [0m[[0mdebug[0m] [0msbt-chain: module revision found in cache: org.scalamacros#quasiquotes_2.10;2.0.1[0m
 [0m[[0mdebug[0m] [0m	found org.scalamacros#quasiquotes_2.10;2.0.1 in sbt-chain[0m
 [0m[[0mdebug[0m] [0m== resolving dependencies org.scala-lang.modules#scala-pickling_2.10;0.10.1->org.scalamacros#quasiquotes_2.10;2.0.1 [compile->compile(*)][0m
@@ -858,9 +1182,9 @@
 [0m[[0mdebug[0m] [0m== resolving dependencies org.scalamacros#quasiquotes_2.10;2.0.1->org.scala-lang#scala-reflect;2.10.4 [runtime->runtime(*)][0m
 [0m[[0mdebug[0m] [0m== resolving dependencies org.scalamacros#quasiquotes_2.10;2.0.1->org.scala-lang#scala-reflect;2.10.6 [runtime->runtime(*)][0m
 [0m[[0mdebug[0m] [0m== resolving dependencies org.scalamacros#quasiquotes_2.10;2.0.1->org.scala-lang#scala-reflect;2.10.6 [runtime->compile][0m
-[0m[[0mdebug[0m] [0m== resolving dependencies org.scala-sbt#serialization_2.10;0.1.2->org.json4s#json4s-core_2.10;3.2.10 [compile->master(*)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies org.scala-sbt#serialization_2.10;0.1.2->org.json4s#json4s-core_2.10;3.2.10 [compile->master(compile)][0m
 [0m[[0minfo[0m] [0mResolving org.json4s#json4s-core_2.10;3.2.10 ...[0m
-[0m[[0mdebug[0m] [0msbt-chain: Checking cache for: dependency: org.json4s#json4s-core_2.10;3.2.10 {compile=[compile(*), master(*)], runtime=[runtime(*)]}[0m
+[0m[[0mdebug[0m] [0msbt-chain: Checking cache for: dependency: org.json4s#json4s-core_2.10;3.2.10 {compile=[compile(*), master(compile)], runtime=[runtime(*)]}[0m
 [0m[[0mdebug[0m] [0msbt-chain: module revision found in cache: org.json4s#json4s-core_2.10;3.2.10[0m
 [0m[[0mdebug[0m] [0m	found org.json4s#json4s-core_2.10;3.2.10 in sbt-chain[0m
 [0m[[0mdebug[0m] [0m== resolving dependencies org.scala-sbt#serialization_2.10;0.1.2->org.json4s#json4s-core_2.10;3.2.10 [compile->compile(*)][0m
@@ -900,9 +1224,9 @@
 [0m[[0mdebug[0m] [0m== resolving dependencies org.json4s#json4s-ast_2.10;3.2.10->org.scala-lang#scala-library;2.10.6 [runtime->compile][0m
 [0m[[0mdebug[0m] [0m== resolving dependencies org.json4s#json4s-core_2.10;3.2.10->com.thoughtworks.paranamer#paranamer;2.6 [runtime->runtime(*)][0m
 [0m[[0mdebug[0m] [0m== resolving dependencies org.json4s#json4s-core_2.10;3.2.10->com.thoughtworks.paranamer#paranamer;2.6 [runtime->compile][0m
-[0m[[0mdebug[0m] [0m== resolving dependencies org.scala-sbt#serialization_2.10;0.1.2->org.spire-math#jawn-parser_2.10;0.6.0 [compile->master(*)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies org.scala-sbt#serialization_2.10;0.1.2->org.spire-math#jawn-parser_2.10;0.6.0 [compile->master(compile)][0m
 [0m[[0minfo[0m] [0mResolving org.spire-math#jawn-parser_2.10;0.6.0 ...[0m
-[0m[[0mdebug[0m] [0msbt-chain: Checking cache for: dependency: org.spire-math#jawn-parser_2.10;0.6.0 {compile=[compile(*), master(*)], runtime=[runtime(*)]}[0m
+[0m[[0mdebug[0m] [0msbt-chain: Checking cache for: dependency: org.spire-math#jawn-parser_2.10;0.6.0 {compile=[compile(*), master(compile)], runtime=[runtime(*)]}[0m
 [0m[[0mdebug[0m] [0msbt-chain: module revision found in cache: org.spire-math#jawn-parser_2.10;0.6.0[0m
 [0m[[0mdebug[0m] [0m	found org.spire-math#jawn-parser_2.10;0.6.0 in sbt-chain[0m
 [0m[[0mdebug[0m] [0m== resolving dependencies org.scala-sbt#serialization_2.10;0.1.2->org.spire-math#jawn-parser_2.10;0.6.0 [compile->compile(*)][0m
@@ -915,9 +1239,9 @@
 [0m[[0mdebug[0m] [0m== resolving dependencies org.spire-math#jawn-parser_2.10;0.6.0->org.scala-lang#scala-library;2.10.4 [runtime->runtime(*)][0m
 [0m[[0mdebug[0m] [0m== resolving dependencies org.spire-math#jawn-parser_2.10;0.6.0->org.scala-lang#scala-library;2.10.6 [runtime->runtime(*)][0m
 [0m[[0mdebug[0m] [0m== resolving dependencies org.spire-math#jawn-parser_2.10;0.6.0->org.scala-lang#scala-library;2.10.6 [runtime->compile][0m
-[0m[[0mdebug[0m] [0m== resolving dependencies org.scala-sbt#serialization_2.10;0.1.2->org.spire-math#json4s-support_2.10;0.6.0 [compile->master(*)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies org.scala-sbt#serialization_2.10;0.1.2->org.spire-math#json4s-support_2.10;0.6.0 [compile->master(compile)][0m
 [0m[[0minfo[0m] [0mResolving org.spire-math#json4s-support_2.10;0.6.0 ...[0m
-[0m[[0mdebug[0m] [0msbt-chain: Checking cache for: dependency: org.spire-math#json4s-support_2.10;0.6.0 {compile=[compile(*), master(*)], runtime=[runtime(*)]}[0m
+[0m[[0mdebug[0m] [0msbt-chain: Checking cache for: dependency: org.spire-math#json4s-support_2.10;0.6.0 {compile=[compile(*), master(compile)], runtime=[runtime(*)]}[0m
 [0m[[0mdebug[0m] [0msbt-chain: module revision found in cache: org.spire-math#json4s-support_2.10;0.6.0[0m
 [0m[[0mdebug[0m] [0m	found org.spire-math#json4s-support_2.10;0.6.0 in sbt-chain[0m
 [0m[[0mdebug[0m] [0m== resolving dependencies org.scala-sbt#serialization_2.10;0.1.2->org.spire-math#json4s-support_2.10;0.6.0 [compile->compile(*)][0m
@@ -1465,24 +1789,24 @@
 [0m[[0mdebug[0m] [0m== resolving dependencies org.scala-sbt#ivy;0.13.16->org.scala-sbt#serialization_2.10;0.1.2 [compile->default(compile)][0m
 [0m[[0mdebug[0m] [0m== resolving dependencies org.scala-sbt#ivy;0.13.16->org.scala-sbt#serialization_2.10;0.1.2 [compile->runtime][0m
 [0m[[0mdebug[0m] [0m== resolving dependencies org.scala-sbt#ivy;0.13.16->org.scala-sbt#serialization_2.10;0.1.2 [compile->compile][0m
-[0m[[0mdebug[0m] [0m== resolving dependencies org.scala-sbt#serialization_2.10;0.1.2->org.scala-lang#scala-library;2.10.4 [compile->master(*)][0m
-[0m[[0mdebug[0m] [0m== resolving dependencies org.scala-sbt#serialization_2.10;0.1.2->org.scala-lang#scala-library;2.10.6 [compile->master(*)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies org.scala-sbt#serialization_2.10;0.1.2->org.scala-lang#scala-library;2.10.4 [compile->master(compile)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies org.scala-sbt#serialization_2.10;0.1.2->org.scala-lang#scala-library;2.10.6 [compile->master(compile)][0m
 [0m[[0mdebug[0m] [0m== resolving dependencies org.scala-sbt#serialization_2.10;0.1.2->org.scala-lang#scala-library;2.10.4 [compile->compile(*)][0m
 [0m[[0mdebug[0m] [0m== resolving dependencies org.scala-sbt#serialization_2.10;0.1.2->org.scala-lang#scala-library;2.10.6 [compile->compile(*)][0m
-[0m[[0mdebug[0m] [0m== resolving dependencies org.scala-sbt#serialization_2.10;0.1.2->org.scala-lang.modules#scala-pickling_2.10;0.10.1 [compile->master(*)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies org.scala-sbt#serialization_2.10;0.1.2->org.scala-lang.modules#scala-pickling_2.10;0.10.1 [compile->master(compile)][0m
 [0m[[0mdebug[0m] [0m== resolving dependencies org.scala-sbt#serialization_2.10;0.1.2->org.scala-lang.modules#scala-pickling_2.10;0.10.1 [compile->compile(*)][0m
-[0m[[0mdebug[0m] [0m== resolving dependencies org.scala-lang.modules#scala-pickling_2.10;0.10.1->org.scala-lang#scala-compiler;2.10.5 [compile->master(*)][0m
-[0m[[0mdebug[0m] [0m== resolving dependencies org.scala-lang.modules#scala-pickling_2.10;0.10.1->org.scala-lang#scala-compiler;2.10.6 [compile->master(*)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies org.scala-lang.modules#scala-pickling_2.10;0.10.1->org.scala-lang#scala-compiler;2.10.5 [compile->master(compile)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies org.scala-lang.modules#scala-pickling_2.10;0.10.1->org.scala-lang#scala-compiler;2.10.6 [compile->master(compile)][0m
 [0m[[0mdebug[0m] [0m== resolving dependencies org.scala-lang.modules#scala-pickling_2.10;0.10.1->org.scala-lang#scala-compiler;2.10.5 [compile->compile(*)][0m
 [0m[[0mdebug[0m] [0m== resolving dependencies org.scala-lang.modules#scala-pickling_2.10;0.10.1->org.scala-lang#scala-compiler;2.10.6 [compile->compile(*)][0m
-[0m[[0mdebug[0m] [0m== resolving dependencies org.scala-lang.modules#scala-pickling_2.10;0.10.1->org.scala-lang#scala-library;2.10.5 [compile->master(*)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies org.scala-lang.modules#scala-pickling_2.10;0.10.1->org.scala-lang#scala-library;2.10.5 [compile->master(compile)][0m
 [0m[[0mdebug[0m] [0m== resolving dependencies org.scala-lang.modules#scala-pickling_2.10;0.10.1->org.scala-lang#scala-library;2.10.5 [compile->compile(*)][0m
 [0m[[0mdebug[0m] [0m== resolving dependencies org.scala-lang.modules#scala-pickling_2.10;0.10.1->org.scala-lang#scala-library;2.10.6 [compile->compile(*)][0m
-[0m[[0mdebug[0m] [0m== resolving dependencies org.scala-lang.modules#scala-pickling_2.10;0.10.1->org.scala-lang#scala-reflect;2.10.5 [compile->master(*)][0m
-[0m[[0mdebug[0m] [0m== resolving dependencies org.scala-lang.modules#scala-pickling_2.10;0.10.1->org.scala-lang#scala-reflect;2.10.6 [compile->master(*)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies org.scala-lang.modules#scala-pickling_2.10;0.10.1->org.scala-lang#scala-reflect;2.10.5 [compile->master(compile)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies org.scala-lang.modules#scala-pickling_2.10;0.10.1->org.scala-lang#scala-reflect;2.10.6 [compile->master(compile)][0m
 [0m[[0mdebug[0m] [0m== resolving dependencies org.scala-lang.modules#scala-pickling_2.10;0.10.1->org.scala-lang#scala-reflect;2.10.5 [compile->compile(*)][0m
 [0m[[0mdebug[0m] [0m== resolving dependencies org.scala-lang.modules#scala-pickling_2.10;0.10.1->org.scala-lang#scala-reflect;2.10.6 [compile->compile(*)][0m
-[0m[[0mdebug[0m] [0m== resolving dependencies org.scala-lang.modules#scala-pickling_2.10;0.10.1->org.scalamacros#quasiquotes_2.10;2.0.1 [compile->master(*)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies org.scala-lang.modules#scala-pickling_2.10;0.10.1->org.scalamacros#quasiquotes_2.10;2.0.1 [compile->master(compile)][0m
 [0m[[0mdebug[0m] [0m== resolving dependencies org.scala-lang.modules#scala-pickling_2.10;0.10.1->org.scalamacros#quasiquotes_2.10;2.0.1 [compile->compile(*)][0m
 [0m[[0mdebug[0m] [0m== resolving dependencies org.scalamacros#quasiquotes_2.10;2.0.1->org.scala-lang#scala-library;2.10.4 [compile->master(*)][0m
 [0m[[0mdebug[0m] [0m== resolving dependencies org.scalamacros#quasiquotes_2.10;2.0.1->org.scala-lang#scala-library;2.10.4 [compile->compile(*)][0m
@@ -1490,7 +1814,7 @@
 [0m[[0mdebug[0m] [0m== resolving dependencies org.scalamacros#quasiquotes_2.10;2.0.1->org.scala-lang#scala-reflect;2.10.4 [compile->master(*)][0m
 [0m[[0mdebug[0m] [0m== resolving dependencies org.scalamacros#quasiquotes_2.10;2.0.1->org.scala-lang#scala-reflect;2.10.4 [compile->compile(*)][0m
 [0m[[0mdebug[0m] [0m== resolving dependencies org.scalamacros#quasiquotes_2.10;2.0.1->org.scala-lang#scala-reflect;2.10.6 [compile->compile(*)][0m
-[0m[[0mdebug[0m] [0m== resolving dependencies org.scala-sbt#serialization_2.10;0.1.2->org.json4s#json4s-core_2.10;3.2.10 [compile->master(*)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies org.scala-sbt#serialization_2.10;0.1.2->org.json4s#json4s-core_2.10;3.2.10 [compile->master(compile)][0m
 [0m[[0mdebug[0m] [0m== resolving dependencies org.scala-sbt#serialization_2.10;0.1.2->org.json4s#json4s-core_2.10;3.2.10 [compile->compile(*)][0m
 [0m[[0mdebug[0m] [0mexcluding dependency: org.scala-lang#scalap;2.10.0 {compile=[compile(*), master(*)], runtime=[runtime(*)]} in compile[0m
 [0m[[0mdebug[0m] [0m== resolving dependencies org.json4s#json4s-core_2.10;3.2.10->org.scala-lang#scala-library;2.10.0 [compile->master(*)][0m
@@ -1507,13 +1831,13 @@
 [0m[[0mdebug[0m] [0m== resolving dependencies org.json4s#json4s-core_2.10;3.2.10->com.thoughtworks.paranamer#paranamer;2.6 [compile->master(*)][0m
 [0m[[0mdebug[0m] [0mexcluding dependency: org.scala-lang#scalap;2.10.0 {compile=[compile(*), master(*)], runtime=[runtime(*)]} in compile[0m
 [0m[[0mdebug[0m] [0m== resolving dependencies org.json4s#json4s-core_2.10;3.2.10->com.thoughtworks.paranamer#paranamer;2.6 [compile->compile(*)][0m
-[0m[[0mdebug[0m] [0m== resolving dependencies org.scala-sbt#serialization_2.10;0.1.2->org.spire-math#jawn-parser_2.10;0.6.0 [compile->master(*)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies org.scala-sbt#serialization_2.10;0.1.2->org.spire-math#jawn-parser_2.10;0.6.0 [compile->master(compile)][0m
 [0m[[0mdebug[0m] [0m== resolving dependencies org.scala-sbt#serialization_2.10;0.1.2->org.spire-math#jawn-parser_2.10;0.6.0 [compile->compile(*)][0m
 [0m[[0mdebug[0m] [0m== resolving dependencies org.spire-math#jawn-parser_2.10;0.6.0->org.scala-lang#scala-library;2.10.4 [compile->master(*)][0m
 [0m[[0mdebug[0m] [0m== resolving dependencies org.spire-math#jawn-parser_2.10;0.6.0->org.scala-lang#scala-library;2.10.6 [compile->master(*)][0m
 [0m[[0mdebug[0m] [0m== resolving dependencies org.spire-math#jawn-parser_2.10;0.6.0->org.scala-lang#scala-library;2.10.4 [compile->compile(*)][0m
 [0m[[0mdebug[0m] [0m== resolving dependencies org.spire-math#jawn-parser_2.10;0.6.0->org.scala-lang#scala-library;2.10.6 [compile->compile(*)][0m
-[0m[[0mdebug[0m] [0m== resolving dependencies org.scala-sbt#serialization_2.10;0.1.2->org.spire-math#json4s-support_2.10;0.6.0 [compile->master(*)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies org.scala-sbt#serialization_2.10;0.1.2->org.spire-math#json4s-support_2.10;0.6.0 [compile->master(compile)][0m
 [0m[[0mdebug[0m] [0m== resolving dependencies org.scala-sbt#serialization_2.10;0.1.2->org.spire-math#json4s-support_2.10;0.6.0 [compile->compile(*)][0m
 [0m[[0mdebug[0m] [0m== resolving dependencies org.spire-math#json4s-support_2.10;0.6.0->org.scala-lang#scala-library;2.10.4 [compile->master(*)][0m
 [0m[[0mdebug[0m] [0m== resolving dependencies org.spire-math#json4s-support_2.10;0.6.0->org.scala-lang#scala-library;2.10.6 [compile->master(*)][0m
@@ -2168,24 +2492,24 @@
 [0m[[0mdebug[0m] [0m== resolving dependencies org.scala-sbt#ivy;0.13.16->org.scala-sbt#serialization_2.10;0.1.2 [compile->default(compile)][0m
 [0m[[0mdebug[0m] [0m== resolving dependencies org.scala-sbt#ivy;0.13.16->org.scala-sbt#serialization_2.10;0.1.2 [compile->runtime][0m
 [0m[[0mdebug[0m] [0m== resolving dependencies org.scala-sbt#ivy;0.13.16->org.scala-sbt#serialization_2.10;0.1.2 [compile->compile][0m
-[0m[[0mdebug[0m] [0m== resolving dependencies org.scala-sbt#serialization_2.10;0.1.2->org.scala-lang#scala-library;2.10.4 [compile->master(*)][0m
-[0m[[0mdebug[0m] [0m== resolving dependencies org.scala-sbt#serialization_2.10;0.1.2->org.scala-lang#scala-library;2.10.6 [compile->master(*)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies org.scala-sbt#serialization_2.10;0.1.2->org.scala-lang#scala-library;2.10.4 [compile->master(compile)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies org.scala-sbt#serialization_2.10;0.1.2->org.scala-lang#scala-library;2.10.6 [compile->master(compile)][0m
 [0m[[0mdebug[0m] [0m== resolving dependencies org.scala-sbt#serialization_2.10;0.1.2->org.scala-lang#scala-library;2.10.4 [compile->compile(*)][0m
 [0m[[0mdebug[0m] [0m== resolving dependencies org.scala-sbt#serialization_2.10;0.1.2->org.scala-lang#scala-library;2.10.6 [compile->compile(*)][0m
-[0m[[0mdebug[0m] [0m== resolving dependencies org.scala-sbt#serialization_2.10;0.1.2->org.scala-lang.modules#scala-pickling_2.10;0.10.1 [compile->master(*)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies org.scala-sbt#serialization_2.10;0.1.2->org.scala-lang.modules#scala-pickling_2.10;0.10.1 [compile->master(compile)][0m
 [0m[[0mdebug[0m] [0m== resolving dependencies org.scala-sbt#serialization_2.10;0.1.2->org.scala-lang.modules#scala-pickling_2.10;0.10.1 [compile->compile(*)][0m
-[0m[[0mdebug[0m] [0m== resolving dependencies org.scala-lang.modules#scala-pickling_2.10;0.10.1->org.scala-lang#scala-compiler;2.10.5 [compile->master(*)][0m
-[0m[[0mdebug[0m] [0m== resolving dependencies org.scala-lang.modules#scala-pickling_2.10;0.10.1->org.scala-lang#scala-compiler;2.10.6 [compile->master(*)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies org.scala-lang.modules#scala-pickling_2.10;0.10.1->org.scala-lang#scala-compiler;2.10.5 [compile->master(compile)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies org.scala-lang.modules#scala-pickling_2.10;0.10.1->org.scala-lang#scala-compiler;2.10.6 [compile->master(compile)][0m
 [0m[[0mdebug[0m] [0m== resolving dependencies org.scala-lang.modules#scala-pickling_2.10;0.10.1->org.scala-lang#scala-compiler;2.10.5 [compile->compile(*)][0m
 [0m[[0mdebug[0m] [0m== resolving dependencies org.scala-lang.modules#scala-pickling_2.10;0.10.1->org.scala-lang#scala-compiler;2.10.6 [compile->compile(*)][0m
-[0m[[0mdebug[0m] [0m== resolving dependencies org.scala-lang.modules#scala-pickling_2.10;0.10.1->org.scala-lang#scala-library;2.10.5 [compile->master(*)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies org.scala-lang.modules#scala-pickling_2.10;0.10.1->org.scala-lang#scala-library;2.10.5 [compile->master(compile)][0m
 [0m[[0mdebug[0m] [0m== resolving dependencies org.scala-lang.modules#scala-pickling_2.10;0.10.1->org.scala-lang#scala-library;2.10.5 [compile->compile(*)][0m
 [0m[[0mdebug[0m] [0m== resolving dependencies org.scala-lang.modules#scala-pickling_2.10;0.10.1->org.scala-lang#scala-library;2.10.6 [compile->compile(*)][0m
-[0m[[0mdebug[0m] [0m== resolving dependencies org.scala-lang.modules#scala-pickling_2.10;0.10.1->org.scala-lang#scala-reflect;2.10.5 [compile->master(*)][0m
-[0m[[0mdebug[0m] [0m== resolving dependencies org.scala-lang.modules#scala-pickling_2.10;0.10.1->org.scala-lang#scala-reflect;2.10.6 [compile->master(*)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies org.scala-lang.modules#scala-pickling_2.10;0.10.1->org.scala-lang#scala-reflect;2.10.5 [compile->master(compile)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies org.scala-lang.modules#scala-pickling_2.10;0.10.1->org.scala-lang#scala-reflect;2.10.6 [compile->master(compile)][0m
 [0m[[0mdebug[0m] [0m== resolving dependencies org.scala-lang.modules#scala-pickling_2.10;0.10.1->org.scala-lang#scala-reflect;2.10.5 [compile->compile(*)][0m
 [0m[[0mdebug[0m] [0m== resolving dependencies org.scala-lang.modules#scala-pickling_2.10;0.10.1->org.scala-lang#scala-reflect;2.10.6 [compile->compile(*)][0m
-[0m[[0mdebug[0m] [0m== resolving dependencies org.scala-lang.modules#scala-pickling_2.10;0.10.1->org.scalamacros#quasiquotes_2.10;2.0.1 [compile->master(*)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies org.scala-lang.modules#scala-pickling_2.10;0.10.1->org.scalamacros#quasiquotes_2.10;2.0.1 [compile->master(compile)][0m
 [0m[[0mdebug[0m] [0m== resolving dependencies org.scala-lang.modules#scala-pickling_2.10;0.10.1->org.scalamacros#quasiquotes_2.10;2.0.1 [compile->compile(*)][0m
 [0m[[0mdebug[0m] [0m== resolving dependencies org.scalamacros#quasiquotes_2.10;2.0.1->org.scala-lang#scala-library;2.10.4 [compile->master(*)][0m
 [0m[[0mdebug[0m] [0m== resolving dependencies org.scalamacros#quasiquotes_2.10;2.0.1->org.scala-lang#scala-library;2.10.4 [compile->compile(*)][0m
@@ -2193,7 +2517,7 @@
 [0m[[0mdebug[0m] [0m== resolving dependencies org.scalamacros#quasiquotes_2.10;2.0.1->org.scala-lang#scala-reflect;2.10.4 [compile->master(*)][0m
 [0m[[0mdebug[0m] [0m== resolving dependencies org.scalamacros#quasiquotes_2.10;2.0.1->org.scala-lang#scala-reflect;2.10.4 [compile->compile(*)][0m
 [0m[[0mdebug[0m] [0m== resolving dependencies org.scalamacros#quasiquotes_2.10;2.0.1->org.scala-lang#scala-reflect;2.10.6 [compile->compile(*)][0m
-[0m[[0mdebug[0m] [0m== resolving dependencies org.scala-sbt#serialization_2.10;0.1.2->org.json4s#json4s-core_2.10;3.2.10 [compile->master(*)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies org.scala-sbt#serialization_2.10;0.1.2->org.json4s#json4s-core_2.10;3.2.10 [compile->master(compile)][0m
 [0m[[0mdebug[0m] [0m== resolving dependencies org.scala-sbt#serialization_2.10;0.1.2->org.json4s#json4s-core_2.10;3.2.10 [compile->compile(*)][0m
 [0m[[0mdebug[0m] [0mexcluding dependency: org.scala-lang#scalap;2.10.0 {compile=[compile(*), master(*)], runtime=[runtime(*)]} in compile[0m
 [0m[[0mdebug[0m] [0m== resolving dependencies org.json4s#json4s-core_2.10;3.2.10->org.scala-lang#scala-library;2.10.0 [compile->master(*)][0m
@@ -2210,13 +2534,13 @@
 [0m[[0mdebug[0m] [0m== resolving dependencies org.json4s#json4s-core_2.10;3.2.10->com.thoughtworks.paranamer#paranamer;2.6 [compile->master(*)][0m
 [0m[[0mdebug[0m] [0mexcluding dependency: org.scala-lang#scalap;2.10.0 {compile=[compile(*), master(*)], runtime=[runtime(*)]} in compile[0m
 [0m[[0mdebug[0m] [0m== resolving dependencies org.json4s#json4s-core_2.10;3.2.10->com.thoughtworks.paranamer#paranamer;2.6 [compile->compile(*)][0m
-[0m[[0mdebug[0m] [0m== resolving dependencies org.scala-sbt#serialization_2.10;0.1.2->org.spire-math#jawn-parser_2.10;0.6.0 [compile->master(*)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies org.scala-sbt#serialization_2.10;0.1.2->org.spire-math#jawn-parser_2.10;0.6.0 [compile->master(compile)][0m
 [0m[[0mdebug[0m] [0m== resolving dependencies org.scala-sbt#serialization_2.10;0.1.2->org.spire-math#jawn-parser_2.10;0.6.0 [compile->compile(*)][0m
 [0m[[0mdebug[0m] [0m== resolving dependencies org.spire-math#jawn-parser_2.10;0.6.0->org.scala-lang#scala-library;2.10.4 [compile->master(*)][0m
 [0m[[0mdebug[0m] [0m== resolving dependencies org.spire-math#jawn-parser_2.10;0.6.0->org.scala-lang#scala-library;2.10.6 [compile->master(*)][0m
 [0m[[0mdebug[0m] [0m== resolving dependencies org.spire-math#jawn-parser_2.10;0.6.0->org.scala-lang#scala-library;2.10.4 [compile->compile(*)][0m
 [0m[[0mdebug[0m] [0m== resolving dependencies org.spire-math#jawn-parser_2.10;0.6.0->org.scala-lang#scala-library;2.10.6 [compile->compile(*)][0m
-[0m[[0mdebug[0m] [0m== resolving dependencies org.scala-sbt#serialization_2.10;0.1.2->org.spire-math#json4s-support_2.10;0.6.0 [compile->master(*)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies org.scala-sbt#serialization_2.10;0.1.2->org.spire-math#json4s-support_2.10;0.6.0 [compile->master(compile)][0m
 [0m[[0mdebug[0m] [0m== resolving dependencies org.scala-sbt#serialization_2.10;0.1.2->org.spire-math#json4s-support_2.10;0.6.0 [compile->compile(*)][0m
 [0m[[0mdebug[0m] [0m== resolving dependencies org.spire-math#json4s-support_2.10;0.6.0->org.scala-lang#scala-library;2.10.4 [compile->master(*)][0m
 [0m[[0mdebug[0m] [0m== resolving dependencies org.spire-math#json4s-support_2.10;0.6.0->org.scala-lang#scala-library;2.10.6 [compile->master(*)][0m
@@ -2502,28 +2826,78 @@
 [0m[[0mdebug[0m] [0m== resolving dependencies default#euler-build;0.1-SNAPSHOT->org.scala-lang#scalap;2.10.6 [ensime-internal->master][0m
 [0m[[0mdebug[0m] [0m	resolved ivy file produced in cache[0m
 [0m[[0mdebug[0m] [0m:: downloading artifacts ::[0m
-[0m[[0mdebug[0m] [0m	[NOT REQUIRED] com.artima.supersafe#sbtplugin;1.1.3!sbtplugin.jar[0m
-[0m[[0mdebug[0m] [0m	[NOT REQUIRED] org.scala-js#sbt-scalajs;0.6.21!sbt-scalajs.jar[0m
+[0m[[0mdebug[0m] [0m		tried http://repo.artima.com/releases/com/artima/supersafe/sbtplugin_2.10_0.13/1.1.3/sbtplugin-1.1.3.jar[0m
+[0m[[0minfo[0m] [0mdownloading http://repo.artima.com/releases/com/artima/supersafe/sbtplugin_2.10_0.13/1.1.3/sbtplugin-1.1.3.jar ...[0m
+[0m[[0mdebug[0m] [0m	Artima Maven Repository: downloading http://repo.artima.com/releases/com/artima/supersafe/sbtplugin_2.10_0.13/1.1.3/sbtplugin-1.1.3.jar[0m
+[0m[[0mdebug[0m] [0m	Artima Maven Repository: downloading http://repo.artima.com/releases/com/artima/supersafe/sbtplugin_2.10_0.13/1.1.3/sbtplugin-1.1.3.jar.sha1[0m
+[0m[[0mdebug[0m] [0msha1 OK for http://repo.artima.com/releases/com/artima/supersafe/sbtplugin_2.10_0.13/1.1.3/sbtplugin-1.1.3.jar[0m
+[0m[[0minfo[0m] [0m	[SUCCESSFUL ] com.artima.supersafe#sbtplugin;1.1.3!sbtplugin.jar (1693ms)[0m
+[0m[[0mdebug[0m] [0m		tried https://repo.scala-sbt.org/scalasbt/sbt-plugin-releases/org.scala-js/sbt-scalajs/scala_2.10/sbt_0.13/0.6.21/jars/sbt-scalajs.jar[0m
+[0m[[0minfo[0m] [0mdownloading https://repo.scala-sbt.org/scalasbt/sbt-plugin-releases/org.scala-js/sbt-scalajs/scala_2.10/sbt_0.13/0.6.21/jars/sbt-scalajs.jar ...[0m
+[0m[[0mdebug[0m] [0m	sbt-plugin-releases: downloading https://repo.scala-sbt.org/scalasbt/sbt-plugin-releases/org.scala-js/sbt-scalajs/scala_2.10/sbt_0.13/0.6.21/jars/sbt-scalajs.jar[0m
+[0m[[0mdebug[0m] [0m	sbt-plugin-releases: downloading https://repo.scala-sbt.org/scalasbt/sbt-plugin-releases/org.scala-js/sbt-scalajs/scala_2.10/sbt_0.13/0.6.21/jars/sbt-scalajs.jar.sha1[0m
+[0m[[0mdebug[0m] [0msha1 OK for https://repo.scala-sbt.org/scalasbt/sbt-plugin-releases/org.scala-js/sbt-scalajs/scala_2.10/sbt_0.13/0.6.21/jars/sbt-scalajs.jar[0m
+[0m[[0minfo[0m] [0m	[SUCCESSFUL ] org.scala-js#sbt-scalajs;0.6.21!sbt-scalajs.jar (5001ms)[0m
 [0m[[0mdebug[0m] [0m	[NOT REQUIRED] org.ensime#sbt-ensime;1.11.1!sbt-ensime.jar[0m
 [0m[[0mdebug[0m] [0m	[NOT REQUIRED] org.scala-lang#scalap;2.10.6!scalap.jar[0m
 [0m[[0mdebug[0m] [0m	[NOT REQUIRED] org.scalariform#scalariform_2.10;0.1.4!scalariform_2.10.jar[0m
 [0m[[0mdebug[0m] [0m	[NOT REQUIRED] org.scala-lang#scala-compiler;2.10.6!scala-compiler.jar[0m
 [0m[[0mdebug[0m] [0m	[NOT REQUIRED] org.scala-lang#scala-library;2.10.6!scala-library.jar[0m
 [0m[[0mdebug[0m] [0m	[NOT REQUIRED] org.scala-lang#scala-reflect;2.10.6!scala-reflect.jar[0m
-[0m[[0mdebug[0m] [0m	[NOT REQUIRED] org.scala-js#scalajs-tools_2.10;0.6.21!scalajs-tools_2.10.jar[0m
-[0m[[0mdebug[0m] [0m	[NOT REQUIRED] org.scala-js#scalajs-js-envs_2.10;0.6.21!scalajs-js-envs_2.10.jar[0m
-[0m[[0mdebug[0m] [0m	[NOT REQUIRED] org.scala-js#scalajs-sbt-test-adapter_2.10;0.6.21!scalajs-sbt-test-adapter_2.10.jar[0m
-[0m[[0mdebug[0m] [0m	[NOT REQUIRED] org.scala-js#scalajs-ir_2.10;0.6.21!scalajs-ir_2.10.jar[0m
-[0m[[0mdebug[0m] [0m	[NOT REQUIRED] org.scala-js#closure-compiler-java-6;v20160517!closure-compiler-java-6.jar[0m
+[0m[[0mdebug[0m] [0m		tried https://repo1.maven.org/maven2/org/scala-js/scalajs-tools_2.10/0.6.21/scalajs-tools_2.10-0.6.21.jar[0m
+[0m[[0minfo[0m] [0mdownloading https://repo1.maven.org/maven2/org/scala-js/scalajs-tools_2.10/0.6.21/scalajs-tools_2.10-0.6.21.jar ...[0m
+[0m[[0mdebug[0m] [0m	public: downloading https://repo1.maven.org/maven2/org/scala-js/scalajs-tools_2.10/0.6.21/scalajs-tools_2.10-0.6.21.jar[0m
+[0m[[0mdebug[0m] [0m	public: downloading https://repo1.maven.org/maven2/org/scala-js/scalajs-tools_2.10/0.6.21/scalajs-tools_2.10-0.6.21.jar.sha1[0m
+[0m[[0mdebug[0m] [0msha1 OK for https://repo1.maven.org/maven2/org/scala-js/scalajs-tools_2.10/0.6.21/scalajs-tools_2.10-0.6.21.jar[0m
+[0m[[0minfo[0m] [0m	[SUCCESSFUL ] org.scala-js#scalajs-tools_2.10;0.6.21!scalajs-tools_2.10.jar (1340ms)[0m
+[0m[[0mdebug[0m] [0m		tried https://repo1.maven.org/maven2/org/scala-js/scalajs-js-envs_2.10/0.6.21/scalajs-js-envs_2.10-0.6.21.jar[0m
+[0m[[0minfo[0m] [0mdownloading https://repo1.maven.org/maven2/org/scala-js/scalajs-js-envs_2.10/0.6.21/scalajs-js-envs_2.10-0.6.21.jar ...[0m
+[0m[[0mdebug[0m] [0m	public: downloading https://repo1.maven.org/maven2/org/scala-js/scalajs-js-envs_2.10/0.6.21/scalajs-js-envs_2.10-0.6.21.jar[0m
+[0m[[0mdebug[0m] [0m	public: downloading https://repo1.maven.org/maven2/org/scala-js/scalajs-js-envs_2.10/0.6.21/scalajs-js-envs_2.10-0.6.21.jar.sha1[0m
+[0m[[0mdebug[0m] [0msha1 OK for https://repo1.maven.org/maven2/org/scala-js/scalajs-js-envs_2.10/0.6.21/scalajs-js-envs_2.10-0.6.21.jar[0m
+[0m[[0minfo[0m] [0m	[SUCCESSFUL ] org.scala-js#scalajs-js-envs_2.10;0.6.21!scalajs-js-envs_2.10.jar (283ms)[0m
+[0m[[0mdebug[0m] [0m		tried https://repo1.maven.org/maven2/org/scala-js/scalajs-sbt-test-adapter_2.10/0.6.21/scalajs-sbt-test-adapter_2.10-0.6.21.jar[0m
+[0m[[0minfo[0m] [0mdownloading https://repo1.maven.org/maven2/org/scala-js/scalajs-sbt-test-adapter_2.10/0.6.21/scalajs-sbt-test-adapter_2.10-0.6.21.jar ...[0m
+[0m[[0mdebug[0m] [0m	public: downloading https://repo1.maven.org/maven2/org/scala-js/scalajs-sbt-test-adapter_2.10/0.6.21/scalajs-sbt-test-adapter_2.10-0.6.21.jar[0m
+[0m[[0mdebug[0m] [0m	public: downloading https://repo1.maven.org/maven2/org/scala-js/scalajs-sbt-test-adapter_2.10/0.6.21/scalajs-sbt-test-adapter_2.10-0.6.21.jar.sha1[0m
+[0m[[0mdebug[0m] [0msha1 OK for https://repo1.maven.org/maven2/org/scala-js/scalajs-sbt-test-adapter_2.10/0.6.21/scalajs-sbt-test-adapter_2.10-0.6.21.jar[0m
+[0m[[0minfo[0m] [0m	[SUCCESSFUL ] org.scala-js#scalajs-sbt-test-adapter_2.10;0.6.21!scalajs-sbt-test-adapter_2.10.jar (620ms)[0m
+[0m[[0mdebug[0m] [0m		tried https://repo1.maven.org/maven2/org/scala-js/scalajs-ir_2.10/0.6.21/scalajs-ir_2.10-0.6.21.jar[0m
+[0m[[0minfo[0m] [0mdownloading https://repo1.maven.org/maven2/org/scala-js/scalajs-ir_2.10/0.6.21/scalajs-ir_2.10-0.6.21.jar ...[0m
+[0m[[0mdebug[0m] [0m	public: downloading https://repo1.maven.org/maven2/org/scala-js/scalajs-ir_2.10/0.6.21/scalajs-ir_2.10-0.6.21.jar[0m
+[0m[[0mdebug[0m] [0m	public: downloading https://repo1.maven.org/maven2/org/scala-js/scalajs-ir_2.10/0.6.21/scalajs-ir_2.10-0.6.21.jar.sha1[0m
+[0m[[0mdebug[0m] [0msha1 OK for https://repo1.maven.org/maven2/org/scala-js/scalajs-ir_2.10/0.6.21/scalajs-ir_2.10-0.6.21.jar[0m
+[0m[[0minfo[0m] [0m	[SUCCESSFUL ] org.scala-js#scalajs-ir_2.10;0.6.21!scalajs-ir_2.10.jar (394ms)[0m
+[0m[[0mdebug[0m] [0m		tried https://repo1.maven.org/maven2/org/scala-js/closure-compiler-java-6/v20160517/closure-compiler-java-6-v20160517.jar[0m
+[0m[[0minfo[0m] [0mdownloading https://repo1.maven.org/maven2/org/scala-js/closure-compiler-java-6/v20160517/closure-compiler-java-6-v20160517.jar ...[0m
+[0m[[0mdebug[0m] [0m	public: downloading https://repo1.maven.org/maven2/org/scala-js/closure-compiler-java-6/v20160517/closure-compiler-java-6-v20160517.jar[0m
+[0m[[0mdebug[0m] [0m	public: downloading https://repo1.maven.org/maven2/org/scala-js/closure-compiler-java-6/v20160517/closure-compiler-java-6-v20160517.jar.sha1[0m
+[0m[[0mdebug[0m] [0msha1 OK for https://repo1.maven.org/maven2/org/scala-js/closure-compiler-java-6/v20160517/closure-compiler-java-6-v20160517.jar[0m
+[0m[[0minfo[0m] [0m	[SUCCESSFUL ] org.scala-js#closure-compiler-java-6;v20160517!closure-compiler-java-6.jar (1579ms)[0m
 [0m[[0mdebug[0m] [0m	[NOT REQUIRED] com.googlecode.json-simple#json-simple;1.1.1!json-simple.jar(bundle)[0m
-[0m[[0mdebug[0m] [0m	[NOT REQUIRED] org.scala-js#closure-compiler-externs-java-6;v20160517!closure-compiler-externs-java-6.jar[0m
+[0m[[0mdebug[0m] [0m		tried https://repo1.maven.org/maven2/org/scala-js/closure-compiler-externs-java-6/v20160517/closure-compiler-externs-java-6-v20160517.jar[0m
+[0m[[0minfo[0m] [0mdownloading https://repo1.maven.org/maven2/org/scala-js/closure-compiler-externs-java-6/v20160517/closure-compiler-externs-java-6-v20160517.jar ...[0m
+[0m[[0mdebug[0m] [0m	public: downloading https://repo1.maven.org/maven2/org/scala-js/closure-compiler-externs-java-6/v20160517/closure-compiler-externs-java-6-v20160517.jar[0m
+[0m[[0mdebug[0m] [0m	public: downloading https://repo1.maven.org/maven2/org/scala-js/closure-compiler-externs-java-6/v20160517/closure-compiler-externs-java-6-v20160517.jar.sha1[0m
+[0m[[0mdebug[0m] [0msha1 OK for https://repo1.maven.org/maven2/org/scala-js/closure-compiler-externs-java-6/v20160517/closure-compiler-externs-java-6-v20160517.jar[0m
+[0m[[0minfo[0m] [0m	[SUCCESSFUL ] org.scala-js#closure-compiler-externs-java-6;v20160517!closure-compiler-externs-java-6.jar (227ms)[0m
 [0m[[0mdebug[0m] [0m	[NOT REQUIRED] args4j#args4j;2.0.26!args4j.jar(bundle)[0m
-[0m[[0mdebug[0m] [0m	[NOT REQUIRED] com.google.guava#guava;19.0!guava.jar(bundle)[0m
+[0m[[0mdebug[0m] [0m		tried https://repo1.maven.org/maven2/com/google/guava/guava/19.0/guava-19.0.jar[0m
+[0m[[0minfo[0m] [0mdownloading https://repo1.maven.org/maven2/com/google/guava/guava/19.0/guava-19.0.jar ...[0m
+[0m[[0mdebug[0m] [0m	public: downloading https://repo1.maven.org/maven2/com/google/guava/guava/19.0/guava-19.0.jar[0m
+[0m[[0mdebug[0m] [0m	public: downloading https://repo1.maven.org/maven2/com/google/guava/guava/19.0/guava-19.0.jar.sha1[0m
+[0m[[0mdebug[0m] [0msha1 OK for https://repo1.maven.org/maven2/com/google/guava/guava/19.0/guava-19.0.jar[0m
+[0m[[0minfo[0m] [0m	[SUCCESSFUL ] com.google.guava#guava;19.0!guava.jar(bundle) (656ms)[0m
 [0m[[0mdebug[0m] [0m	[NOT REQUIRED] com.google.protobuf#protobuf-java;2.5.0!protobuf-java.jar(bundle)[0m
 [0m[[0mdebug[0m] [0m	[NOT REQUIRED] com.google.code.gson#gson;2.2.4!gson.jar[0m
 [0m[[0mdebug[0m] [0m	[NOT REQUIRED] com.google.code.findbugs#jsr305;1.3.9!jsr305.jar[0m
 [0m[[0mdebug[0m] [0m	[NOT REQUIRED] io.apigee#rhino;1.7R5pre4!rhino.jar[0m
-[0m[[0mdebug[0m] [0m	[NOT REQUIRED] org.webjars#envjs;1.2!envjs.jar[0m
+[0m[[0mdebug[0m] [0m		tried https://repo1.maven.org/maven2/org/webjars/envjs/1.2/envjs-1.2.jar[0m
+[0m[[0minfo[0m] [0mdownloading https://repo1.maven.org/maven2/org/webjars/envjs/1.2/envjs-1.2.jar ...[0m
+[0m[[0mdebug[0m] [0m	public: downloading https://repo1.maven.org/maven2/org/webjars/envjs/1.2/envjs-1.2.jar[0m
+[0m[[0mdebug[0m] [0m	public: downloading https://repo1.maven.org/maven2/org/webjars/envjs/1.2/envjs-1.2.jar.sha1[0m
+[0m[[0mdebug[0m] [0msha1 OK for https://repo1.maven.org/maven2/org/webjars/envjs/1.2/envjs-1.2.jar[0m
+[0m[[0minfo[0m] [0m	[SUCCESSFUL ] org.webjars#envjs;1.2!envjs.jar (220ms)[0m
 [0m[[0mdebug[0m] [0m	[NOT REQUIRED] org.scala-sbt#test-interface;1.0!test-interface.jar[0m
 [0m[[0mdebug[0m] [0m	[NOT REQUIRED] org.scala-sbt#sbt;0.13.16!sbt.jar[0m
 [0m[[0mdebug[0m] [0m	[NOT REQUIRED] org.scala-sbt#main;0.13.16!main.jar[0m
@@ -2574,7 +2948,7 @@
 [0m[[0mdebug[0m] [0m	[NOT REQUIRED] org.scala-sbt#template-resolver;0.1!template-resolver.jar[0m
 [0m[[0mdebug[0m] [0m	[NOT REQUIRED] org.scala-lang#jline;2.10.6!jline.jar[0m
 [0m[[0mdebug[0m] [0m	[NOT REQUIRED] org.fusesource.jansi#jansi;1.4!jansi.jar[0m
-[0m[[0mdebug[0m] [0m:: resolution report :: resolve 3730ms :: artifacts dl 183ms[0m
+[0m[[0mdebug[0m] [0m:: resolution report :: resolve 82896ms :: artifacts dl 12154ms[0m
 [0m[[0mdebug[0m] [0m	report for default#euler-build;0.1-SNAPSHOT compile produced in /media/windows/projekty/graphs/current/euler/project/target/scala-2.10/sbt-0.13/resolution-cache/reports/default-euler-build-compile.xml[0m
 [0m[[0mdebug[0m] [0m	report for default#euler-build;0.1-SNAPSHOT runtime produced in /media/windows/projekty/graphs/current/euler/project/target/scala-2.10/sbt-0.13/resolution-cache/reports/default-euler-build-runtime.xml[0m
 [0m[[0mdebug[0m] [0m	report for default#euler-build;0.1-SNAPSHOT test produced in /media/windows/projekty/graphs/current/euler/project/target/scala-2.10/sbt-0.13/resolution-cache/reports/default-euler-build-test.xml[0m
@@ -2589,5 +2963,5 @@
 [0m[[0mdebug[0m] [0m	report for default#euler-build;0.1-SNAPSHOT pom produced in /media/windows/projekty/graphs/current/euler/project/target/scala-2.10/sbt-0.13/resolution-cache/reports/default-euler-build-pom.xml[0m
 [0m[[0mdebug[0m] [0m	report for default#euler-build;0.1-SNAPSHOT scala-tool produced in /media/windows/projekty/graphs/current/euler/project/target/scala-2.10/sbt-0.13/resolution-cache/reports/default-euler-build-scala-tool.xml[0m
 [0m[[0mdebug[0m] [0m	report for default#euler-build;0.1-SNAPSHOT ensime-internal produced in /media/windows/projekty/graphs/current/euler/project/target/scala-2.10/sbt-0.13/resolution-cache/reports/default-euler-build-ensime-internal.xml[0m
-[0m[[0mdebug[0m] [0m	resolve done (3730ms resolve - 183ms download)[0m
+[0m[[0mdebug[0m] [0m	resolve done (82896ms resolve - 12154ms download)[0m
 [0m[[0minfo[0m] [0mDone updating.[0m

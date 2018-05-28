@@ -50,8 +50,7 @@ trait Graph[ND, ED] extends GraphView[ND, ED] {
    direction match {
     case NEIGHBOR_SIDE_FORWARD => ei.SrcNode === nd
     case NEIGHBOR_SIDE_BACKWARD => ei.DstNode === nd
-    case NEIGHBOR_SIDE_BOTH => ei.SrcNode === nd || ei.DstNode === nd
-  }
+    case NEIGHBOR_SIDE_BOTH => ei.SrcNode === nd || ei.DstNode === nd}
 
   protected val isInEdgeOfNode = (edge: EdgeInfo[ED], nd: NodeDesignator) =>
    edge.DstNode === nd
@@ -110,15 +109,15 @@ trait Graph[ND, ED] extends GraphView[ND, ED] {
     // this node does not exists in intermediate graph. For this reason,
     // possible data duplication from other graph are removed (but not these from
     // this graph)
-    val new_graph_2 = other.nodes.foldLeft(this) {(graph, node) => graph.node(node.Data) match {
+    val new_graph_2 = other.nodes.foldLeft(this) {(graph, node) => graph.node(node.Data.da) match {
       case Some(ex_node) => graph
-      case _ => graph + node.Data
-    }
+      case _ => graph + node.Data }}
+
     // adding edges - each edge of other graph is added only when data of this
     // edge does not exists in intermediate graph. For this reason,
-    // possible data duplication from other graph are removed (but nod these
+    // possible data duplication from other graph are removed (but not these
     // from these graph)
-    other.edges.foldLeft(new_graph_2) {(graph, edge) => graph.edge(edge.Data) match {
+    other.edges.foldLeft(new_graph_2) {(graph, edge) => graph.edge(edge.Data.eda) match {
       case Some(ex_node) => graph
       case _ => graph +-> (edge.Data, edge.SrcNode, edge.DstNode)}
     }
@@ -132,12 +131,16 @@ trait Graph[ND, ED] extends GraphView[ND, ED] {
   def +++(other: Graph[ND, ED]): Graph[ND, ED] = {
     val nodes_map = Map[NodeIDDesignator, NodeIDDesignator]()
     // adding nodes and building node-node map in modified this and
-    // other node
-    val (new_graph, nodes_map_2) = other.nodes.foldLeft((this, nodes_map)) {(kv, node) =>
-     (graph + node.Data, nodes_map + (node.ID.id -> this.node((this.nodeCount - 1).i).get.ID.id))}
+    // other graph
+    val (new_graph, nodes_map_2) = other.nodes.foldLeft((this, nodes_map)) {
+      case ((graph, nodes_map), node) => (graph + node.Data, nodes_map + (node.ID.id -> this.node((this.nodeCount - 1).i).get.ID.id))
+    }
 
-    other.edges.foldLeft(new_graph) {(graph, edge) => }
-    ...
+    other.edges.foldLeft(new_graph) {(graph, edge) =>
+      val inc_nodes = other.incident(edge)
+      val node_des_col = List(inc_nodes._1, inc_nodes._2).map {(ni: ThisNodeInfo) => nodes_map_2(ni.ID.id)}
+      graph +-> (edge.Data, node_des_col(0), node_des_col(1))
+    }
   }
 
   /**
@@ -207,7 +210,7 @@ trait Graph[ND, ED] extends GraphView[ND, ED] {
   /**
    * Adds a node and an edge joining source node with newly added node.
    */
-  def joinNode(srcNode: NodeDesigator, nodeData: ND, edgeData: ED): Graph[ND, ED] = {
+  def joinNode(srcNode: NodeDesignator, nodeData: ND, edgeData: ED): Graph[ND, ED] = {
     val node_count = addNode(nodeData).nodeCount
     addEdge(edgeData, srcNode, node_count.i)
   }
