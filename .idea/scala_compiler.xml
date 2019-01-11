@@ -1,6 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ScalaCompilerConfiguration">
+    <option name="incrementalityType" value="SBT" />
     <profile name="sbt 1" modules="euler" />
+    <profile name="sbt 2" modules="root,eulerJS">
+      <plugins>
+        <plugin path="$USER_HOME$/.ivy2/cache/com.artima.supersafe/supersafe_2.12.4/jars/supersafe_2.12.4-1.1.3.jar" />
+        <plugin path="$USER_HOME$/.ivy2/cache/org.scala-js/scalajs-compiler_2.12.4/jars/scalajs-compiler_2.12.4-0.6.21.jar" />
+      </plugins>
+    </profile>
+    <profile name="sbt 3" modules="eulerJVM">
+      <plugins>
+        <plugin path="$USER_HOME$/.ivy2/cache/com.artima.supersafe/supersafe_2.12.4/jars/supersafe_2.12.4-1.1.3.jar" />
+      </plugins>
+    </profile>
   </component>
 </project>

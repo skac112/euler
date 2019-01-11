@@ -17,11 +17,11 @@ import skac.euler.General._
  * {@link newEdgeInfo()}, {@link replaceNodeInfo()} oraz {@link replaceEdgeInfo()}. Klasa stanowi
  * podstawę implementacji mutowalnych i niemutowalnych.
  */
-abstract class AbstractGraph[ND, ED] extends Graph[ND, ED] {
+abstract class AbstractGraph[+ND, +ED] extends Graph[ND, ED] {
   import GraphView._
-  type NodesType <: Seq[NodeStruct[ND, ED]]
+  type NodesT <: Seq[NodeStruct[ND, ED]]
   //type ConcreteNodeStruct = NodeStruct[ND, ED]
-  protected val Nodes: NodesType
+  protected val Nodes: NodesT
 
   def nodeCount = Nodes.size
   def edgeCount = Nodes map {_.outEdges.size} sum
@@ -41,7 +41,7 @@ abstract class AbstractGraph[ND, ED] extends Graph[ND, ED] {
     case ni: NodeInfo[ND] => Some(ni)
   }
 
-  override def nodesOf(Data: ND) = (Data match {
+  override def nodesOf[SND >: ND](Data: SND): Set[NodeInfo[SND]] = (Data match {
       case data: AnyRef => Nodes map {_.nodeInfo} filter {_.Data match {
           case node_data: AnyRef => node_data eq data
           case other => other == data
@@ -50,7 +50,7 @@ abstract class AbstractGraph[ND, ED] extends Graph[ND, ED] {
     }).toSet
 
 
-  override def edgesOf(Data: ED) = (Data match {
+  override def edgesOf[SED >: ED](Data: SED): Set[EdgeInfo[SED]]  = (Data match {
       case data: AnyRef => edges filter {_.Data match {
           case edge_data: AnyRef => edge_data eq data
           case other => other == data
@@ -79,10 +79,10 @@ abstract class AbstractGraph[ND, ED] extends Graph[ND, ED] {
     }
   }
 
-  override def edgesBetween(NodeDes1: NodeDesignator, NodeDes2: NodeDesignator, Directed: Boolean) = {
+  override def edgesBetween[SED >: ED](NodeDes1: NodeDesignator, NodeDes2: NodeDesignator, Directed: Boolean) = {
     val node_struct = findNodeStruct(NodeDes1).get
-    (node_struct.outEdges.values.toSet filter {_.DstNode === NodeDes2}) |
-     (if (!Directed) node_struct.inEdges.values.toSet filter {_.SrcNode === NodeDes2} else Set[EdgeInfo[ED]]())
+    (node_struct.outEdges.values.toSet[EdgeInfo[SED]] filter {_.DstNode === NodeDes2}) |
+     (if (!Directed) node_struct.inEdges.values.toSet[EdgeInfo[SED]] filter {_.SrcNode === NodeDes2} else Set[EdgeInfo[SED]]())
   }
 
   def edge(EdgeDes: EdgeDesignator) = EdgeDes match {
@@ -109,13 +109,13 @@ abstract class AbstractGraph[ND, ED] extends Graph[ND, ED] {
     case ni: NodeInfo[ND] => Nodes find {_.nodeInfo == ni}
   }
 
-  override def edges(nd: NodeDesignator, direction: Int = NEIGHBOR_SIDE_BOTH): EdgeInfos = {
+  override def edges[SED >: ED](nd: NodeDesignator, direction: Int = NEIGHBOR_SIDE_BOTH): Set[EdgeInfo[SED]] = {
     val ns = findNodeStruct(nd).get
     (ns.inEdges.values.toSet ++ ns.outEdges.values.toSet) toSet
   }
 
-  override def inEdges(NodeDes: NodeDesignator) = findNodeStruct(NodeDes).get.inEdges.values toSet
-  override def outEdges(NodeDes: NodeDesignator) = findNodeStruct(NodeDes).get.outEdges.values toSet
+  override def inEdges[SED >: ED](NodeDes: NodeDesignator) = findNodeStruct(NodeDes).get.inEdges.values.toSet
+  override def outEdges[SED >: ED](NodeDes: NodeDesignator) = findNodeStruct(NodeDes).get.outEdges.values.toSet
   override def inDegree(NodeDes: NodeDesignator) = findNodeStruct(NodeDes).get.inEdges size
   override def outDegree(NodeDes: NodeDesignator) = findNodeStruct(NodeDes).get.outEdges size
 

@@ -9,6 +9,16 @@
 [0m[[0minfo[0m] [0mResolving org.scala-sbt#global-plugins;0.0 ...[0m
 [0m[[0mdebug[0m] [0msbt-chain: Checking cache for: dependency: org.scala-sbt#global-plugins;0.0 {compile=[default(compile)]}[0m
 [0m[[0mdebug[0m] [0m	found org.scala-sbt#global-plugins;0.0 in inter-project[0m
+[0m[[0mdebug[0m] [0m== resolving dependencies org.scala-sbt#global-plugins;0.0->org.jetbrains#sbt-structure-extractor;2017.2 [compile->default(compile)][0m
+[0m[[0minfo[0m] [0mResolving org.jetbrains#sbt-structure-extractor;2017.2 ...[0m
+[0m[[0mdebug[0m] [0msbt-chain: Checking cache for: dependency: org.jetbrains#sbt-structure-extractor;2017.2 {compile=[default(compile)]}[0m
+[0m[[0mdebug[0m] [0msbt-chain: module revision found in cache: org.jetbrains#sbt-structure-extractor;2017.2[0m
+[0m[[0mdebug[0m] [0m	found org.jetbrains#sbt-structure-extractor;2017.2 in sbt-chain[0m
+[0m[[0mdebug[0m] [0m== resolving dependencies org.scala-sbt#global-plugins;0.0->org.jetbrains#sbt-idea-shell;2017.2 [compile->default(compile)][0m
+[0m[[0minfo[0m] [0mResolving org.jetbrains#sbt-idea-shell;2017.2 ...[0m
+[0m[[0mdebug[0m] [0msbt-chain: Checking cache for: dependency: org.jetbrains#sbt-idea-shell;2017.2 {compile=[default(compile)]}[0m
+[0m[[0mdebug[0m] [0msbt-chain: module revision found in cache: org.jetbrains#sbt-idea-shell;2017.2[0m
+[0m[[0mdebug[0m] [0m	found org.jetbrains#sbt-idea-shell;2017.2 in sbt-chain[0m
 [0m[[0mdebug[0m] [0m== resolving dependencies org.scala-sbt#global-plugins;0.0->org.ensime#sbt-ensime;1.11.1 [compile->default(compile)][0m
 [0m[[0minfo[0m] [0mResolving org.ensime#sbt-ensime;1.11.1 ...[0m
 [0m[[0mdebug[0m] [0msbt-chain: Checking cache for: dependency: org.ensime#sbt-ensime;1.11.1 {compile=[default(compile)]}[0m
@@ -28,21 +38,21 @@
 [0m[[0mdebug[0m] [0msbt-chain: module revision found in cache: org.scala-lang#scala-compiler;2.10.6[0m
 [0m[[0mdebug[0m] [0m	found org.scala-lang#scala-compiler;2.10.6 in sbt-chain[0m
 [0m[[0mdebug[0m] [0m== resolving dependencies org.scala-lang#scalap;2.10.6->org.scala-lang#scala-compiler;2.10.6 [compile->compile(*)][0m
-[0m[[0mdebug[0m] [0m== resolving dependencies org.scala-lang#scala-compiler;2.10.6->org.scala-lang#scala-library;2.10.6 [compile->master(*)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies org.scala-lang#scala-compiler;2.10.6->org.scala-lang#scala-library;2.10.6 [compile->master(compile)][0m
 [0m[[0minfo[0m] [0mResolving org.scala-lang#scala-library;2.10.6 ...[0m
-[0m[[0mdebug[0m] [0msbt-chain: Checking cache for: dependency: org.scala-lang#scala-library;2.10.6 {compile=[compile(*), master(*)], runtime=[runtime(*)]}[0m
+[0m[[0mdebug[0m] [0msbt-chain: Checking cache for: dependency: org.scala-lang#scala-library;2.10.6 {compile=[compile(*), master(compile)], runtime=[runtime(*)]}[0m
 [0m[[0mdebug[0m] [0msbt-chain: module revision found in cache: org.scala-lang#scala-library;2.10.6[0m
 [0m[[0mdebug[0m] [0m	found org.scala-lang#scala-library;2.10.6 in sbt-chain[0m
 [0m[[0mdebug[0m] [0m	[2.10.6] org.scala-lang#scala-library;2.10.6[0m
 [0m[[0mdebug[0m] [0m== resolving dependencies org.scala-lang#scala-compiler;2.10.6->org.scala-lang#scala-library;2.10.6 [compile->compile(*)][0m
-[0m[[0mdebug[0m] [0m== resolving dependencies org.scala-lang#scala-compiler;2.10.6->org.scala-lang#scala-reflect;2.10.6 [compile->master(*)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies org.scala-lang#scala-compiler;2.10.6->org.scala-lang#scala-reflect;2.10.6 [compile->master(compile)][0m
 [0m[[0minfo[0m] [0mResolving org.scala-lang#scala-reflect;2.10.6 ...[0m
-[0m[[0mdebug[0m] [0msbt-chain: Checking cache for: dependency: org.scala-lang#scala-reflect;2.10.6 {compile=[compile(*), master(*)], runtime=[runtime(*)]}[0m
+[0m[[0mdebug[0m] [0msbt-chain: Checking cache for: dependency: org.scala-lang#scala-reflect;2.10.6 {compile=[compile(*), master(compile)], runtime=[runtime(*)]}[0m
 [0m[[0mdebug[0m] [0msbt-chain: module revision found in cache: org.scala-lang#scala-reflect;2.10.6[0m
 [0m[[0mdebug[0m] [0m	found org.scala-lang#scala-reflect;2.10.6 in sbt-chain[0m
 [0m[[0mdebug[0m] [0m	[2.10.6] org.scala-lang#scala-reflect;2.10.6[0m
 [0m[[0mdebug[0m] [0m== resolving dependencies org.scala-lang#scala-compiler;2.10.6->org.scala-lang#scala-reflect;2.10.6 [compile->compile(*)][0m
-[0m[[0mdebug[0m] [0m== resolving dependencies org.scala-lang#scala-reflect;2.10.6->org.scala-lang#scala-library;2.10.6 [compile->master(*)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies org.scala-lang#scala-reflect;2.10.6->org.scala-lang#scala-library;2.10.6 [compile->master(compile)][0m
 [0m[[0mdebug[0m] [0m== resolving dependencies org.scala-lang#scala-reflect;2.10.6->org.scala-lang#scala-library;2.10.6 [compile->compile(*)][0m
 [0m[[0mdebug[0m] [0m== resolving dependencies org.ensime#sbt-ensime;1.11.1->org.scala-lang#scalap;2.10.6 [compile->runtime(*)][0m
 [0m[[0mdebug[0m] [0m== resolving dependencies org.ensime#sbt-ensime;1.11.1->org.scala-lang#scalap;2.10.6 [compile->compile][0m
@@ -90,6 +100,10 @@
 [0m[[0mdebug[0m] [0m		tried https://repo1.maven.org/maven2/com/artima/supersafe/sbtplugin_2.10_0.13/1.1.3/sbtplugin-1.1.3.pom[0m
 [0m[[0mdebug[0m] [0mCLIENT ERROR: Not Found url=https://repo1.maven.org/maven2/com/artima/supersafe/sbtplugin_2.10_0.13/1.1.3/sbtplugin-1.1.3.pom[0m
 [0m[[0mdebug[0m] [0m	public: no ivy file found for com.artima.supersafe#sbtplugin;1.1.3[0m
+[0m[[0mdebug[0m] [0m		tried /home/slawek/.sbt/preloaded/com.artima.supersafe/sbtplugin/1.1.3/ivys/ivy.xml[0m
+[0m[[0mdebug[0m] [0m	local-preloaded-ivy: no ivy file found for com.artima.supersafe#sbtplugin;1.1.3[0m
+[0m[[0mdebug[0m] [0m		tried file:////home/slawek/.sbt/preloaded/com/artima/supersafe/sbtplugin_2.10_0.13/1.1.3/sbtplugin-1.1.3.pom[0m
+[0m[[0mdebug[0m] [0m	local-preloaded: no ivy file found for com.artima.supersafe#sbtplugin;1.1.3[0m
 [0m[[0mdebug[0m] [0m		tried http://repo.artima.com/releases/com/artima/supersafe/sbtplugin_2.10_0.13/1.1.3/sbtplugin-1.1.3.pom[0m
 [0m[[0mdebug[0m] [0m	Artima Maven Repository: found md file for com.artima.supersafe#sbtplugin;1.1.3[0m
 [0m[[0mdebug[0m] [0m		=> http://repo.artima.com/releases/com/artima/supersafe/sbtplugin_2.10_0.13/1.1.3/sbtplugin-1.1.3.pom (1.1.3)[0m
@@ -97,7 +111,7 @@
 [0m[[0mdebug[0m] [0m	Artima Maven Repository: downloading http://repo.artima.com/releases/com/artima/supersafe/sbtplugin_2.10_0.13/1.1.3/sbtplugin-1.1.3.pom[0m
 [0m[[0mdebug[0m] [0m	Artima Maven Repository: downloading http://repo.artima.com/releases/com/artima/supersafe/sbtplugin_2.10_0.13/1.1.3/sbtplugin-1.1.3.pom.sha1[0m
 [0m[[0mdebug[0m] [0msha1 OK for http://repo.artima.com/releases/com/artima/supersafe/sbtplugin_2.10_0.13/1.1.3/sbtplugin-1.1.3.pom[0m
-[0m[[0mdebug[0m] [0m	[SUCCESSFUL ] com.artima.supersafe#sbtplugin;1.1.3!sbtplugin.pom(pom.original) (1059ms)[0m
+[0m[[0mdebug[0m] [0m	[SUCCESSFUL ] com.artima.supersafe#sbtplugin;1.1.3!sbtplugin.pom(pom.original) (1497ms)[0m
 [0m[[0mdebug[0m] [0m		tried https://repo.typesafe.com/typesafe/ivy-releases/com.artima.supersafe/sbtplugin/1.1.3/jars/sbtplugin.jar[0m
 [0m[[0mdebug[0m] [0mCLIENT ERROR: Not Found url=https://repo.typesafe.com/typesafe/ivy-releases/com.artima.supersafe/sbtplugin/1.1.3/jars/sbtplugin.jar[0m
 [0m[[0mdebug[0m] [0m		tried https://repo.scala-sbt.org/scalasbt/sbt-plugin-releases/com.artima.supersafe/sbtplugin/1.1.3/jars/sbtplugin.jar[0m
@@ -105,6 +119,8 @@
 [0m[[0mdebug[0m] [0m		tried /home/slawek/.ivy2/local/com.artima.supersafe/sbtplugin/1.1.3/jars/sbtplugin.jar[0m
 [0m[[0mdebug[0m] [0m		tried https://repo1.maven.org/maven2/com/artima/supersafe/sbtplugin/1.1.3/sbtplugin-1.1.3.jar[0m
 [0m[[0mdebug[0m] [0mCLIENT ERROR: Not Found url=https://repo1.maven.org/maven2/com/artima/supersafe/sbtplugin/1.1.3/sbtplugin-1.1.3.jar[0m
+[0m[[0mdebug[0m] [0m		tried /home/slawek/.sbt/preloaded/com.artima.supersafe/sbtplugin/1.1.3/jars/sbtplugin.jar[0m
+[0m[[0mdebug[0m] [0m		tried file:////home/slawek/.sbt/preloaded/com/artima/supersafe/sbtplugin/1.1.3/sbtplugin-1.1.3.jar[0m
 [0m[[0mdebug[0m] [0m		tried http://repo.artima.com/releases/com/artima/supersafe/sbtplugin/1.1.3/sbtplugin-1.1.3.jar[0m
 [0m[[0mdebug[0m] [0mCLIENT ERROR: Not Found url=http://repo.artima.com/releases/com/artima/supersafe/sbtplugin/1.1.3/sbtplugin-1.1.3.jar[0m
 [0m[[0mdebug[0m] [0m	found com.artima.supersafe#sbtplugin;1.1.3 in Artima Maven Repository[0m
@@ -126,7 +142,7 @@
 [0m[[0mdebug[0m] [0m	sbt-plugin-releases: downloading https://repo.scala-sbt.org/scalasbt/sbt-plugin-releases/org.scala-js/sbt-scalajs/scala_2.10/sbt_0.13/0.6.21/ivys/ivy.xml[0m
 [0m[[0mdebug[0m] [0m	sbt-plugin-releases: downloading https://repo.scala-sbt.org/scalasbt/sbt-plugin-releases/org.scala-js/sbt-scalajs/scala_2.10/sbt_0.13/0.6.21/ivys/ivy.xml.sha1[0m
 [0m[[0mdebug[0m] [0msha1 OK for https://repo.scala-sbt.org/scalasbt/sbt-plugin-releases/org.scala-js/sbt-scalajs/scala_2.10/sbt_0.13/0.6.21/ivys/ivy.xml[0m
-[0m[[0mdebug[0m] [0m	[SUCCESSFUL ] org.scala-js#sbt-scalajs;0.6.21!ivy.xml(ivy.original) (2929ms)[0m
+[0m[[0mdebug[0m] [0m	[SUCCESSFUL ] org.scala-js#sbt-scalajs;0.6.21!ivy.xml(ivy.original) (2151ms)[0m
 [0m[[0mdebug[0m] [0m	found org.scala-js#sbt-scalajs;0.6.21 in sbt-plugin-releases[0m
 [0m[[0mdebug[0m] [0m	[0.6.21] org.scala-js#sbt-scalajs;0.6.21[0m
 [0m[[0mdebug[0m] [0m== resolving dependencies org.scala-js#sbt-scalajs;0.6.21->org.scala-js#scalajs-tools_2.10;0.6.21 [compile->default(compile)][0m
@@ -149,7 +165,7 @@
 [0m[[0mdebug[0m] [0m	public: downloading https://repo1.maven.org/maven2/org/scala-js/scalajs-tools_2.10/0.6.21/scalajs-tools_2.10-0.6.21.pom[0m
 [0m[[0mdebug[0m] [0m	public: downloading https://repo1.maven.org/maven2/org/scala-js/scalajs-tools_2.10/0.6.21/scalajs-tools_2.10-0.6.21.pom.sha1[0m
 [0m[[0mdebug[0m] [0msha1 OK for https://repo1.maven.org/maven2/org/scala-js/scalajs-tools_2.10/0.6.21/scalajs-tools_2.10-0.6.21.pom[0m
-[0m[[0mdebug[0m] [0m	[SUCCESSFUL ] org.scala-js#scalajs-tools_2.10;0.6.21!scalajs-tools_2.10.pom(pom.original) (3694ms)[0m
+[0m[[0mdebug[0m] [0m	[SUCCESSFUL ] org.scala-js#scalajs-tools_2.10;0.6.21!scalajs-tools_2.10.pom(pom.original) (690ms)[0m
 [0m[[0mdebug[0m] [0m		tried https://repo.typesafe.com/typesafe/ivy-releases/org.scala-js/scalajs-tools_2.10/0.6.21/jars/scalajs-tools_2.10.jar[0m
 [0m[[0mdebug[0m] [0mCLIENT ERROR: Not Found url=https://repo.typesafe.com/typesafe/ivy-releases/org.scala-js/scalajs-tools_2.10/0.6.21/jars/scalajs-tools_2.10.jar[0m
 [0m[[0mdebug[0m] [0m		tried https://repo.scala-sbt.org/scalasbt/sbt-plugin-releases/org.scala-js/scalajs-tools_2.10/0.6.21/jars/scalajs-tools_2.10.jar[0m
@@ -181,7 +197,7 @@
 [0m[[0mdebug[0m] [0m	public: downloading https://repo1.maven.org/maven2/org/scala-js/scalajs-ir_2.10/0.6.21/scalajs-ir_2.10-0.6.21.pom[0m
 [0m[[0mdebug[0m] [0m	public: downloading https://repo1.maven.org/maven2/org/scala-js/scalajs-ir_2.10/0.6.21/scalajs-ir_2.10-0.6.21.pom.sha1[0m
 [0m[[0mdebug[0m] [0msha1 OK for https://repo1.maven.org/maven2/org/scala-js/scalajs-ir_2.10/0.6.21/scalajs-ir_2.10-0.6.21.pom[0m
-[0m[[0mdebug[0m] [0m	[SUCCESSFUL ] org.scala-js#scalajs-ir_2.10;0.6.21!scalajs-ir_2.10.pom(pom.original) (955ms)[0m
+[0m[[0mdebug[0m] [0m	[SUCCESSFUL ] org.scala-js#scalajs-ir_2.10;0.6.21!scalajs-ir_2.10.pom(pom.original) (273ms)[0m
 [0m[[0mdebug[0m] [0m		tried https://repo.typesafe.com/typesafe/ivy-releases/org.scala-js/scalajs-ir_2.10/0.6.21/jars/scalajs-ir_2.10.jar[0m
 [0m[[0mdebug[0m] [0mCLIENT ERROR: Not Found url=https://repo.typesafe.com/typesafe/ivy-releases/org.scala-js/scalajs-ir_2.10/0.6.21/jars/scalajs-ir_2.10.jar[0m
 [0m[[0mdebug[0m] [0m		tried https://repo.scala-sbt.org/scalasbt/sbt-plugin-releases/org.scala-js/scalajs-ir_2.10/0.6.21/jars/scalajs-ir_2.10.jar[0m
@@ -217,7 +233,7 @@
 [0m[[0mdebug[0m] [0m	public: downloading https://repo1.maven.org/maven2/org/scala-js/closure-compiler-java-6/v20160517/closure-compiler-java-6-v20160517.pom[0m
 [0m[[0mdebug[0m] [0m	public: downloading https://repo1.maven.org/maven2/org/scala-js/closure-compiler-java-6/v20160517/closure-compiler-java-6-v20160517.pom.sha1[0m
 [0m[[0mdebug[0m] [0msha1 OK for https://repo1.maven.org/maven2/org/scala-js/closure-compiler-java-6/v20160517/closure-compiler-java-6-v20160517.pom[0m
-[0m[[0mdebug[0m] [0m	[SUCCESSFUL ] org.scala-js#closure-compiler-java-6;v20160517!closure-compiler-java-6.pom(pom.original) (548ms)[0m
+[0m[[0mdebug[0m] [0m	[SUCCESSFUL ] org.scala-js#closure-compiler-java-6;v20160517!closure-compiler-java-6.pom(pom.original) (219ms)[0m
 [0m[[0minfo[0m] [0mResolving org.scala-js#closure-compiler-main-java-6;v20160517 ...[0m
 [0m[[0mdebug[0m] [0msbt-chain: Checking cache for: dependency: org.scala-js#closure-compiler-main-java-6;v20160517 {}[0m
 [0m[[0minfo[0m] [0mResolving org.scala-js#closure-compiler-main-java-6;v20160517 ...[0m
@@ -237,7 +253,7 @@
 [0m[[0mdebug[0m] [0m	public: downloading https://repo1.maven.org/maven2/org/scala-js/closure-compiler-main-java-6/v20160517/closure-compiler-main-java-6-v20160517.pom[0m
 [0m[[0mdebug[0m] [0m	public: downloading https://repo1.maven.org/maven2/org/scala-js/closure-compiler-main-java-6/v20160517/closure-compiler-main-java-6-v20160517.pom.sha1[0m
 [0m[[0mdebug[0m] [0msha1 OK for https://repo1.maven.org/maven2/org/scala-js/closure-compiler-main-java-6/v20160517/closure-compiler-main-java-6-v20160517.pom[0m
-[0m[[0mdebug[0m] [0m	[SUCCESSFUL ] org.scala-js#closure-compiler-main-java-6;v20160517!closure-compiler-main-java-6.pom(pom.original) (1104ms)[0m
+[0m[[0mdebug[0m] [0m	[SUCCESSFUL ] org.scala-js#closure-compiler-main-java-6;v20160517!closure-compiler-main-java-6.pom(pom.original) (263ms)[0m
 [0m[[0minfo[0m] [0mResolving org.scala-js#closure-compiler-parent-java-6;v20160517 ...[0m
 [0m[[0mdebug[0m] [0msbt-chain: Checking cache for: dependency: org.scala-js#closure-compiler-parent-java-6;v20160517 {}[0m
 [0m[[0minfo[0m] [0mResolving org.scala-js#closure-compiler-parent-java-6;v20160517 ...[0m
@@ -257,7 +273,7 @@
 [0m[[0mdebug[0m] [0m	public: downloading https://repo1.maven.org/maven2/org/scala-js/closure-compiler-parent-java-6/v20160517/closure-compiler-parent-java-6-v20160517.pom[0m
 [0m[[0mdebug[0m] [0m	public: downloading https://repo1.maven.org/maven2/org/scala-js/closure-compiler-parent-java-6/v20160517/closure-compiler-parent-java-6-v20160517.pom.sha1[0m
 [0m[[0mdebug[0m] [0msha1 OK for https://repo1.maven.org/maven2/org/scala-js/closure-compiler-parent-java-6/v20160517/closure-compiler-parent-java-6-v20160517.pom[0m
-[0m[[0mdebug[0m] [0m	[SUCCESSFUL ] org.scala-js#closure-compiler-parent-java-6;v20160517!closure-compiler-parent-java-6.pom(pom.original) (192ms)[0m
+[0m[[0mdebug[0m] [0m	[SUCCESSFUL ] org.scala-js#closure-compiler-parent-java-6;v20160517!closure-compiler-parent-java-6.pom(pom.original) (572ms)[0m
 [0m[[0minfo[0m] [0mResolving org.sonatype.oss#oss-parent;9 ...[0m
 [0m[[0mdebug[0m] [0msbt-chain: Checking cache for: dependency: org.sonatype.oss#oss-parent;9 {}[0m
 [0m[[0mdebug[0m] [0msbt-chain: module revision found in cache: org.sonatype.oss#oss-parent;9[0m
@@ -268,6 +284,8 @@
 [0m[[0mdebug[0m] [0m		tried /home/slawek/.ivy2/local/org.scala-js/closure-compiler-parent-java-6/v20160517/jars/closure-compiler-parent-java-6.jar[0m
 [0m[[0mdebug[0m] [0m		tried https://repo1.maven.org/maven2/org/scala-js/closure-compiler-parent-java-6/v20160517/closure-compiler-parent-java-6-v20160517.jar[0m
 [0m[[0mdebug[0m] [0mCLIENT ERROR: Not Found url=https://repo1.maven.org/maven2/org/scala-js/closure-compiler-parent-java-6/v20160517/closure-compiler-parent-java-6-v20160517.jar[0m
+[0m[[0mdebug[0m] [0m		tried /home/slawek/.sbt/preloaded/org.scala-js/closure-compiler-parent-java-6/v20160517/jars/closure-compiler-parent-java-6.jar[0m
+[0m[[0mdebug[0m] [0m		tried file:////home/slawek/.sbt/preloaded/org/scala-js/closure-compiler-parent-java-6/v20160517/closure-compiler-parent-java-6-v20160517.jar[0m
 [0m[[0mdebug[0m] [0m		tried http://repo.artima.com/releases/org/scala-js/closure-compiler-parent-java-6/v20160517/closure-compiler-parent-java-6-v20160517.jar[0m
 [0m[[0mdebug[0m] [0mCLIENT ERROR: Not Found url=http://repo.artima.com/releases/org/scala-js/closure-compiler-parent-java-6/v20160517/closure-compiler-parent-java-6-v20160517.jar[0m
 [0m[[0mdebug[0m] [0m		tried https://repo.typesafe.com/typesafe/ivy-releases/org.scala-js/closure-compiler-main-java-6/v20160517/jars/closure-compiler-main-java-6.jar[0m
@@ -277,6 +295,8 @@
 [0m[[0mdebug[0m] [0m		tried /home/slawek/.ivy2/local/org.scala-js/closure-compiler-main-java-6/v20160517/jars/closure-compiler-main-java-6.jar[0m
 [0m[[0mdebug[0m] [0m		tried https://repo1.maven.org/maven2/org/scala-js/closure-compiler-main-java-6/v20160517/closure-compiler-main-java-6-v20160517.jar[0m
 [0m[[0mdebug[0m] [0mCLIENT ERROR: Not Found url=https://repo1.maven.org/maven2/org/scala-js/closure-compiler-main-java-6/v20160517/closure-compiler-main-java-6-v20160517.jar[0m
+[0m[[0mdebug[0m] [0m		tried /home/slawek/.sbt/preloaded/org.scala-js/closure-compiler-main-java-6/v20160517/jars/closure-compiler-main-java-6.jar[0m
+[0m[[0mdebug[0m] [0m		tried file:////home/slawek/.sbt/preloaded/org/scala-js/closure-compiler-main-java-6/v20160517/closure-compiler-main-java-6-v20160517.jar[0m
 [0m[[0mdebug[0m] [0m		tried http://repo.artima.com/releases/org/scala-js/closure-compiler-main-java-6/v20160517/closure-compiler-main-java-6-v20160517.jar[0m
 [0m[[0mdebug[0m] [0mCLIENT ERROR: Not Found url=http://repo.artima.com/releases/org/scala-js/closure-compiler-main-java-6/v20160517/closure-compiler-main-java-6-v20160517.jar[0m
 [0m[[0mdebug[0m] [0m		tried https://repo.typesafe.com/typesafe/ivy-releases/org.scala-js/closure-compiler-java-6/v20160517/jars/closure-compiler-java-6.jar[0m
@@ -307,7 +327,7 @@
 [0m[[0mdebug[0m] [0m	public: downloading https://repo1.maven.org/maven2/org/scala-js/closure-compiler-externs-java-6/v20160517/closure-compiler-externs-java-6-v20160517.pom[0m
 [0m[[0mdebug[0m] [0m	public: downloading https://repo1.maven.org/maven2/org/scala-js/closure-compiler-externs-java-6/v20160517/closure-compiler-externs-java-6-v20160517.pom.sha1[0m
 [0m[[0mdebug[0m] [0msha1 OK for https://repo1.maven.org/maven2/org/scala-js/closure-compiler-externs-java-6/v20160517/closure-compiler-externs-java-6-v20160517.pom[0m
-[0m[[0mdebug[0m] [0m	[SUCCESSFUL ] org.scala-js#closure-compiler-externs-java-6;v20160517!closure-compiler-externs-java-6.pom(pom.original) (494ms)[0m
+[0m[[0mdebug[0m] [0m	[SUCCESSFUL ] org.scala-js#closure-compiler-externs-java-6;v20160517!closure-compiler-externs-java-6.pom(pom.original) (580ms)[0m
 [0m[[0minfo[0m] [0mResolving org.scala-js#closure-compiler-parent-java-6;v20160517 ...[0m
 [0m[[0mdebug[0m] [0msbt-chain: Checking cache for: dependency: org.scala-js#closure-compiler-parent-java-6;v20160517 {}[0m
 [0m[[0mdebug[0m] [0msbt-chain: module revision found in cache: org.scala-js#closure-compiler-parent-java-6;v20160517[0m
@@ -322,8 +342,93 @@
 [0m[[0mdebug[0m] [0m== resolving dependencies org.scala-js#closure-compiler-java-6;v20160517->args4j#args4j;2.0.26 [compile->master(compile)][0m
 [0m[[0minfo[0m] [0mResolving args4j#args4j;2.0.26 ...[0m
 [0m[[0mdebug[0m] [0msbt-chain: Checking cache for: dependency: args4j#args4j;2.0.26 {compile=[compile(*), master(compile)], runtime=[runtime(*)]}[0m
-[0m[[0mdebug[0m] [0msbt-chain: module revision found in cache: args4j#args4j;2.0.26[0m
-[0m[[0mdebug[0m] [0m	found args4j#args4j;2.0.26 in sbt-chain[0m
+[0m[[0minfo[0m] [0mResolving args4j#args4j;2.0.26 ...[0m
+[0m[[0mdebug[0m] [0msbt-chain-delegate: Checking cache for: dependency: args4j#args4j;2.0.26 {compile=[compile(*), master(compile)], runtime=[runtime(*)]}[0m
+[0m[[0mdebug[0m] [0m		tried https://repo.typesafe.com/typesafe/ivy-releases/args4j/args4j/2.0.26/ivys/ivy.xml[0m
+[0m[[0mdebug[0m] [0mCLIENT ERROR: Not Found url=https://repo.typesafe.com/typesafe/ivy-releases/args4j/args4j/2.0.26/ivys/ivy.xml[0m
+[0m[[0mdebug[0m] [0m	typesafe-ivy-releases: no ivy file found for args4j#args4j;2.0.26[0m
+[0m[[0mdebug[0m] [0m		tried https://repo.scala-sbt.org/scalasbt/sbt-plugin-releases/args4j/args4j/2.0.26/ivys/ivy.xml[0m
+[0m[[0mdebug[0m] [0mCLIENT ERROR: Not Found url=https://repo.scala-sbt.org/scalasbt/sbt-plugin-releases/args4j/args4j/2.0.26/ivys/ivy.xml[0m
+[0m[[0mdebug[0m] [0m	sbt-plugin-releases: no ivy file found for args4j#args4j;2.0.26[0m
+[0m[[0mdebug[0m] [0m		tried /home/slawek/.ivy2/local/args4j/args4j/2.0.26/ivys/ivy.xml[0m
+[0m[[0mdebug[0m] [0m	local: no ivy file found for args4j#args4j;2.0.26[0m
+[0m[[0mdebug[0m] [0m		tried https://repo1.maven.org/maven2/args4j/args4j/2.0.26/args4j-2.0.26.pom[0m
+[0m[[0mdebug[0m] [0m	public: found md file for args4j#args4j;2.0.26[0m
+[0m[[0mdebug[0m] [0m		=> https://repo1.maven.org/maven2/args4j/args4j/2.0.26/args4j-2.0.26.pom (2.0.26)[0m
+[0m[[0mdebug[0m] [0mdownloading https://repo1.maven.org/maven2/args4j/args4j/2.0.26/args4j-2.0.26.pom ...[0m
+[0m[[0mdebug[0m] [0m	public: downloading https://repo1.maven.org/maven2/args4j/args4j/2.0.26/args4j-2.0.26.pom[0m
+[0m[[0mdebug[0m] [0m	public: downloading https://repo1.maven.org/maven2/args4j/args4j/2.0.26/args4j-2.0.26.pom.sha1[0m
+[0m[[0mdebug[0m] [0msha1 OK for https://repo1.maven.org/maven2/args4j/args4j/2.0.26/args4j-2.0.26.pom[0m
+[0m[[0mdebug[0m] [0m	[SUCCESSFUL ] args4j#args4j;2.0.26!args4j.pom(pom.original) (174ms)[0m
+[0m[[0minfo[0m] [0mResolving args4j#args4j-site;2.0.26 ...[0m
+[0m[[0mdebug[0m] [0msbt-chain: Checking cache for: dependency: args4j#args4j-site;2.0.26 {}[0m
+[0m[[0minfo[0m] [0mResolving args4j#args4j-site;2.0.26 ...[0m
+[0m[[0mdebug[0m] [0msbt-chain-delegate: Checking cache for: dependency: args4j#args4j-site;2.0.26 {}[0m
+[0m[[0mdebug[0m] [0m		tried https://repo.typesafe.com/typesafe/ivy-releases/args4j/args4j-site/2.0.26/ivys/ivy.xml[0m
+[0m[[0mdebug[0m] [0mCLIENT ERROR: Not Found url=https://repo.typesafe.com/typesafe/ivy-releases/args4j/args4j-site/2.0.26/ivys/ivy.xml[0m
+[0m[[0mdebug[0m] [0m	typesafe-ivy-releases: no ivy file found for args4j#args4j-site;2.0.26[0m
+[0m[[0mdebug[0m] [0m		tried https://repo.scala-sbt.org/scalasbt/sbt-plugin-releases/args4j/args4j-site/2.0.26/ivys/ivy.xml[0m
+[0m[[0mdebug[0m] [0mCLIENT ERROR: Not Found url=https://repo.scala-sbt.org/scalasbt/sbt-plugin-releases/args4j/args4j-site/2.0.26/ivys/ivy.xml[0m
+[0m[[0mdebug[0m] [0m	sbt-plugin-releases: no ivy file found for args4j#args4j-site;2.0.26[0m
+[0m[[0mdebug[0m] [0m		tried /home/slawek/.ivy2/local/args4j/args4j-site/2.0.26/ivys/ivy.xml[0m
+[0m[[0mdebug[0m] [0m	local: no ivy file found for args4j#args4j-site;2.0.26[0m
+[0m[[0mdebug[0m] [0m		tried https://repo1.maven.org/maven2/args4j/args4j-site/2.0.26/args4j-site-2.0.26.pom[0m
+[0m[[0mdebug[0m] [0m	public: found md file for args4j#args4j-site;2.0.26[0m
+[0m[[0mdebug[0m] [0m		=> https://repo1.maven.org/maven2/args4j/args4j-site/2.0.26/args4j-site-2.0.26.pom (2.0.26)[0m
+[0m[[0mdebug[0m] [0mdownloading https://repo1.maven.org/maven2/args4j/args4j-site/2.0.26/args4j-site-2.0.26.pom ...[0m
+[0m[[0mdebug[0m] [0m	public: downloading https://repo1.maven.org/maven2/args4j/args4j-site/2.0.26/args4j-site-2.0.26.pom[0m
+[0m[[0mdebug[0m] [0m	public: downloading https://repo1.maven.org/maven2/args4j/args4j-site/2.0.26/args4j-site-2.0.26.pom.sha1[0m
+[0m[[0mdebug[0m] [0msha1 OK for https://repo1.maven.org/maven2/args4j/args4j-site/2.0.26/args4j-site-2.0.26.pom[0m
+[0m[[0mdebug[0m] [0m	[SUCCESSFUL ] args4j#args4j-site;2.0.26!args4j-site.pom(pom.original) (580ms)[0m
+[0m[[0minfo[0m] [0mResolving org.kohsuke#pom;6 ...[0m
+[0m[[0mdebug[0m] [0msbt-chain: Checking cache for: dependency: org.kohsuke#pom;6 {}[0m
+[0m[[0minfo[0m] [0mResolving org.kohsuke#pom;6 ...[0m
+[0m[[0mdebug[0m] [0msbt-chain-delegate: Checking cache for: dependency: org.kohsuke#pom;6 {}[0m
+[0m[[0mdebug[0m] [0m		tried https://repo.typesafe.com/typesafe/ivy-releases/org.kohsuke/pom/6/ivys/ivy.xml[0m
+[0m[[0mdebug[0m] [0mCLIENT ERROR: Not Found url=https://repo.typesafe.com/typesafe/ivy-releases/org.kohsuke/pom/6/ivys/ivy.xml[0m
+[0m[[0mdebug[0m] [0m	typesafe-ivy-releases: no ivy file found for org.kohsuke#pom;6[0m
+[0m[[0mdebug[0m] [0m		tried https://repo.scala-sbt.org/scalasbt/sbt-plugin-releases/org.kohsuke/pom/6/ivys/ivy.xml[0m
+[0m[[0mdebug[0m] [0mCLIENT ERROR: Not Found url=https://repo.scala-sbt.org/scalasbt/sbt-plugin-releases/org.kohsuke/pom/6/ivys/ivy.xml[0m
+[0m[[0mdebug[0m] [0m	sbt-plugin-releases: no ivy file found for org.kohsuke#pom;6[0m
+[0m[[0mdebug[0m] [0m		tried /home/slawek/.ivy2/local/org.kohsuke/pom/6/ivys/ivy.xml[0m
+[0m[[0mdebug[0m] [0m	local: no ivy file found for org.kohsuke#pom;6[0m
+[0m[[0mdebug[0m] [0m		tried https://repo1.maven.org/maven2/org/kohsuke/pom/6/pom-6.pom[0m
+[0m[[0mdebug[0m] [0m	public: found md file for org.kohsuke#pom;6[0m
+[0m[[0mdebug[0m] [0m		=> https://repo1.maven.org/maven2/org/kohsuke/pom/6/pom-6.pom (6)[0m
+[0m[[0mdebug[0m] [0mdownloading https://repo1.maven.org/maven2/org/kohsuke/pom/6/pom-6.pom ...[0m
+[0m[[0mdebug[0m] [0m	public: downloading https://repo1.maven.org/maven2/org/kohsuke/pom/6/pom-6.pom[0m
+[0m[[0mdebug[0m] [0m	public: downloading https://repo1.maven.org/maven2/org/kohsuke/pom/6/pom-6.pom.sha1[0m
+[0m[[0mdebug[0m] [0msha1 OK for https://repo1.maven.org/maven2/org/kohsuke/pom/6/pom-6.pom[0m
+[0m[[0mdebug[0m] [0m	[SUCCESSFUL ] org.kohsuke#pom;6!pom.pom(pom.original) (220ms)[0m
+[0m[[0mdebug[0m] [0m		tried https://repo.typesafe.com/typesafe/ivy-releases/org.kohsuke/pom/6/jars/pom.jar[0m
+[0m[[0mdebug[0m] [0mCLIENT ERROR: Not Found url=https://repo.typesafe.com/typesafe/ivy-releases/org.kohsuke/pom/6/jars/pom.jar[0m
+[0m[[0mdebug[0m] [0m		tried https://repo.scala-sbt.org/scalasbt/sbt-plugin-releases/org.kohsuke/pom/6/jars/pom.jar[0m
+[0m[[0mdebug[0m] [0mCLIENT ERROR: Not Found url=https://repo.scala-sbt.org/scalasbt/sbt-plugin-releases/org.kohsuke/pom/6/jars/pom.jar[0m
+[0m[[0mdebug[0m] [0m		tried /home/slawek/.ivy2/local/org.kohsuke/pom/6/jars/pom.jar[0m
+[0m[[0mdebug[0m] [0m		tried https://repo1.maven.org/maven2/org/kohsuke/pom/6/pom-6.jar[0m
+[0m[[0mdebug[0m] [0mCLIENT ERROR: Not Found url=https://repo1.maven.org/maven2/org/kohsuke/pom/6/pom-6.jar[0m
+[0m[[0mdebug[0m] [0m		tried /home/slawek/.sbt/preloaded/org.kohsuke/pom/6/jars/pom.jar[0m
+[0m[[0mdebug[0m] [0m		tried file:////home/slawek/.sbt/preloaded/org/kohsuke/pom/6/pom-6.jar[0m
+[0m[[0mdebug[0m] [0m		tried http://repo.artima.com/releases/org/kohsuke/pom/6/pom-6.jar[0m
+[0m[[0mdebug[0m] [0mCLIENT ERROR: Not Found url=http://repo.artima.com/releases/org/kohsuke/pom/6/pom-6.jar[0m
+[0m[[0mdebug[0m] [0m		tried https://repo.typesafe.com/typesafe/ivy-releases/args4j/args4j-site/2.0.26/jars/args4j-site.jar[0m
+[0m[[0mdebug[0m] [0mCLIENT ERROR: Not Found url=https://repo.typesafe.com/typesafe/ivy-releases/args4j/args4j-site/2.0.26/jars/args4j-site.jar[0m
+[0m[[0mdebug[0m] [0m		tried https://repo.scala-sbt.org/scalasbt/sbt-plugin-releases/args4j/args4j-site/2.0.26/jars/args4j-site.jar[0m
+[0m[[0mdebug[0m] [0mCLIENT ERROR: Not Found url=https://repo.scala-sbt.org/scalasbt/sbt-plugin-releases/args4j/args4j-site/2.0.26/jars/args4j-site.jar[0m
+[0m[[0mdebug[0m] [0m		tried /home/slawek/.ivy2/local/args4j/args4j-site/2.0.26/jars/args4j-site.jar[0m
+[0m[[0mdebug[0m] [0m		tried https://repo1.maven.org/maven2/args4j/args4j-site/2.0.26/args4j-site-2.0.26.jar[0m
+[0m[[0mdebug[0m] [0mCLIENT ERROR: Not Found url=https://repo1.maven.org/maven2/args4j/args4j-site/2.0.26/args4j-site-2.0.26.jar[0m
+[0m[[0mdebug[0m] [0m		tried /home/slawek/.sbt/preloaded/args4j/args4j-site/2.0.26/jars/args4j-site.jar[0m
+[0m[[0mdebug[0m] [0m		tried file:////home/slawek/.sbt/preloaded/args4j/args4j-site/2.0.26/args4j-site-2.0.26.jar[0m
+[0m[[0mdebug[0m] [0m		tried http://repo.artima.com/releases/args4j/args4j-site/2.0.26/args4j-site-2.0.26.jar[0m
+[0m[[0mdebug[0m] [0mCLIENT ERROR: Not Found url=http://repo.artima.com/releases/args4j/args4j-site/2.0.26/args4j-site-2.0.26.jar[0m
+[0m[[0mdebug[0m] [0m		tried https://repo.typesafe.com/typesafe/ivy-releases/args4j/args4j/2.0.26/bundles/args4j.jar[0m
+[0m[[0mdebug[0m] [0mCLIENT ERROR: Not Found url=https://repo.typesafe.com/typesafe/ivy-releases/args4j/args4j/2.0.26/bundles/args4j.jar[0m
+[0m[[0mdebug[0m] [0m		tried https://repo.scala-sbt.org/scalasbt/sbt-plugin-releases/args4j/args4j/2.0.26/bundles/args4j.jar[0m
+[0m[[0mdebug[0m] [0mCLIENT ERROR: Not Found url=https://repo.scala-sbt.org/scalasbt/sbt-plugin-releases/args4j/args4j/2.0.26/bundles/args4j.jar[0m
+[0m[[0mdebug[0m] [0m		tried /home/slawek/.ivy2/local/args4j/args4j/2.0.26/bundles/args4j.jar[0m
+[0m[[0mdebug[0m] [0m		tried https://repo1.maven.org/maven2/args4j/args4j/2.0.26/args4j-2.0.26.jar[0m
+[0m[[0mdebug[0m] [0m	found args4j#args4j;2.0.26 in public[0m
 [0m[[0mdebug[0m] [0m== resolving dependencies org.scala-js#closure-compiler-java-6;v20160517->args4j#args4j;2.0.26 [compile->compile(*)][0m
 [0m[[0mdebug[0m] [0m== resolving dependencies org.scala-js#closure-compiler-java-6;v20160517->com.google.guava#guava;19.0 [compile->master(compile)][0m
 [0m[[0minfo[0m] [0mResolving com.google.guava#guava;19.0 ...[0m
@@ -345,7 +450,7 @@
 [0m[[0mdebug[0m] [0m	public: downloading https://repo1.maven.org/maven2/com/google/guava/guava/19.0/guava-19.0.pom[0m
 [0m[[0mdebug[0m] [0m	public: downloading https://repo1.maven.org/maven2/com/google/guava/guava/19.0/guava-19.0.pom.sha1[0m
 [0m[[0mdebug[0m] [0msha1 OK for https://repo1.maven.org/maven2/com/google/guava/guava/19.0/guava-19.0.pom[0m
-[0m[[0mdebug[0m] [0m	[SUCCESSFUL ] com.google.guava#guava;19.0!guava.pom(pom.original) (608ms)[0m
+[0m[[0mdebug[0m] [0m	[SUCCESSFUL ] com.google.guava#guava;19.0!guava.pom(pom.original) (526ms)[0m
 [0m[[0minfo[0m] [0mResolving com.google.guava#guava-parent;19.0 ...[0m
 [0m[[0mdebug[0m] [0msbt-chain: Checking cache for: dependency: com.google.guava#guava-parent;19.0 {}[0m
 [0m[[0minfo[0m] [0mResolving com.google.guava#guava-parent;19.0 ...[0m
@@ -365,7 +470,7 @@
 [0m[[0mdebug[0m] [0m	public: downloading https://repo1.maven.org/maven2/com/google/guava/guava-parent/19.0/guava-parent-19.0.pom[0m
 [0m[[0mdebug[0m] [0m	public: downloading https://repo1.maven.org/maven2/com/google/guava/guava-parent/19.0/guava-parent-19.0.pom.sha1[0m
 [0m[[0mdebug[0m] [0msha1 OK for https://repo1.maven.org/maven2/com/google/guava/guava-parent/19.0/guava-parent-19.0.pom[0m
-[0m[[0mdebug[0m] [0m	[SUCCESSFUL ] com.google.guava#guava-parent;19.0!guava-parent.pom(pom.original) (908ms)[0m
+[0m[[0mdebug[0m] [0m	[SUCCESSFUL ] com.google.guava#guava-parent;19.0!guava-parent.pom(pom.original) (4424ms)[0m
 [0m[[0minfo[0m] [0mResolving org.sonatype.oss#oss-parent;7 ...[0m
 [0m[[0mdebug[0m] [0msbt-chain: Checking cache for: dependency: org.sonatype.oss#oss-parent;7 {}[0m
 [0m[[0mdebug[0m] [0msbt-chain: module revision found in cache: org.sonatype.oss#oss-parent;7[0m
@@ -376,6 +481,8 @@
 [0m[[0mdebug[0m] [0m		tried /home/slawek/.ivy2/local/com.google.guava/guava-parent/19.0/jars/guava-parent.jar[0m
 [0m[[0mdebug[0m] [0m		tried https://repo1.maven.org/maven2/com/google/guava/guava-parent/19.0/guava-parent-19.0.jar[0m
 [0m[[0mdebug[0m] [0mCLIENT ERROR: Not Found url=https://repo1.maven.org/maven2/com/google/guava/guava-parent/19.0/guava-parent-19.0.jar[0m
+[0m[[0mdebug[0m] [0m		tried /home/slawek/.sbt/preloaded/com.google.guava/guava-parent/19.0/jars/guava-parent.jar[0m
+[0m[[0mdebug[0m] [0m		tried file:////home/slawek/.sbt/preloaded/com/google/guava/guava-parent/19.0/guava-parent-19.0.jar[0m
 [0m[[0mdebug[0m] [0m		tried http://repo.artima.com/releases/com/google/guava/guava-parent/19.0/guava-parent-19.0.jar[0m
 [0m[[0mdebug[0m] [0mCLIENT ERROR: Not Found url=http://repo.artima.com/releases/com/google/guava/guava-parent/19.0/guava-parent-19.0.jar[0m
 [0m[[0mdebug[0m] [0m		tried https://repo.typesafe.com/typesafe/ivy-releases/com.google.guava/guava/19.0/bundles/guava.jar[0m
@@ -389,20 +496,95 @@
 [0m[[0mdebug[0m] [0m== resolving dependencies org.scala-js#closure-compiler-java-6;v20160517->com.google.protobuf#protobuf-java;2.5.0 [compile->master(compile)][0m
 [0m[[0minfo[0m] [0mResolving com.google.protobuf#protobuf-java;2.5.0 ...[0m
 [0m[[0mdebug[0m] [0msbt-chain: Checking cache for: dependency: com.google.protobuf#protobuf-java;2.5.0 {compile=[compile(*), master(compile)], runtime=[runtime(*)]}[0m
-[0m[[0mdebug[0m] [0msbt-chain: module revision found in cache: com.google.protobuf#protobuf-java;2.5.0[0m
-[0m[[0mdebug[0m] [0m	found com.google.protobuf#protobuf-java;2.5.0 in sbt-chain[0m
+[0m[[0minfo[0m] [0mResolving com.google.protobuf#protobuf-java;2.5.0 ...[0m
+[0m[[0mdebug[0m] [0msbt-chain-delegate: Checking cache for: dependency: com.google.protobuf#protobuf-java;2.5.0 {compile=[compile(*), master(compile)], runtime=[runtime(*)]}[0m
+[0m[[0mdebug[0m] [0m		tried https://repo.typesafe.com/typesafe/ivy-releases/com.google.protobuf/protobuf-java/2.5.0/ivys/ivy.xml[0m
+[0m[[0mdebug[0m] [0mCLIENT ERROR: Not Found url=https://repo.typesafe.com/typesafe/ivy-releases/com.google.protobuf/protobuf-java/2.5.0/ivys/ivy.xml[0m
+[0m[[0mdebug[0m] [0m	typesafe-ivy-releases: no ivy file found for com.google.protobuf#protobuf-java;2.5.0[0m
+[0m[[0mdebug[0m] [0m		tried https://repo.scala-sbt.org/scalasbt/sbt-plugin-releases/com.google.protobuf/protobuf-java/2.5.0/ivys/ivy.xml[0m
+[0m[[0mdebug[0m] [0mCLIENT ERROR: Not Found url=https://repo.scala-sbt.org/scalasbt/sbt-plugin-releases/com.google.protobuf/protobuf-java/2.5.0/ivys/ivy.xml[0m
+[0m[[0mdebug[0m] [0m	sbt-plugin-releases: no ivy file found for com.google.protobuf#protobuf-java;2.5.0[0m
+[0m[[0mdebug[0m] [0m		tried /home/slawek/.ivy2/local/com.google.protobuf/protobuf-java/2.5.0/ivys/ivy.xml[0m
+[0m[[0mdebug[0m] [0m	local: no ivy file found for com.google.protobuf#protobuf-java;2.5.0[0m
+[0m[[0mdebug[0m] [0m		tried https://repo1.maven.org/maven2/com/google/protobuf/protobuf-java/2.5.0/protobuf-java-2.5.0.pom[0m
+[0m[[0mdebug[0m] [0m	public: found md file for com.google.protobuf#protobuf-java;2.5.0[0m
+[0m[[0mdebug[0m] [0m		=> https://repo1.maven.org/maven2/com/google/protobuf/protobuf-java/2.5.0/protobuf-java-2.5.0.pom (2.5.0)[0m
+[0m[[0mdebug[0m] [0mdownloading https://repo1.maven.org/maven2/com/google/protobuf/protobuf-java/2.5.0/protobuf-java-2.5.0.pom ...[0m
+[0m[[0mdebug[0m] [0m	public: downloading https://repo1.maven.org/maven2/com/google/protobuf/protobuf-java/2.5.0/protobuf-java-2.5.0.pom[0m
+[0m[[0mdebug[0m] [0m	public: downloading https://repo1.maven.org/maven2/com/google/protobuf/protobuf-java/2.5.0/protobuf-java-2.5.0.pom.sha1[0m
+[0m[[0mdebug[0m] [0msha1 OK for https://repo1.maven.org/maven2/com/google/protobuf/protobuf-java/2.5.0/protobuf-java-2.5.0.pom[0m
+[0m[[0mdebug[0m] [0m	[SUCCESSFUL ] com.google.protobuf#protobuf-java;2.5.0!protobuf-java.pom(pom.original) (235ms)[0m
+[0m[[0minfo[0m] [0mResolving com.google#google;1 ...[0m
+[0m[[0mdebug[0m] [0msbt-chain: Checking cache for: dependency: com.google#google;1 {}[0m
+[0m[[0mdebug[0m] [0msbt-chain: module revision found in cache: com.google#google;1[0m
+[0m[[0mdebug[0m] [0m		tried https://repo.typesafe.com/typesafe/ivy-releases/com.google.protobuf/protobuf-java/2.5.0/bundles/protobuf-java.jar[0m
+[0m[[0mdebug[0m] [0mCLIENT ERROR: Not Found url=https://repo.typesafe.com/typesafe/ivy-releases/com.google.protobuf/protobuf-java/2.5.0/bundles/protobuf-java.jar[0m
+[0m[[0mdebug[0m] [0m		tried https://repo.scala-sbt.org/scalasbt/sbt-plugin-releases/com.google.protobuf/protobuf-java/2.5.0/bundles/protobuf-java.jar[0m
+[0m[[0mdebug[0m] [0mCLIENT ERROR: Not Found url=https://repo.scala-sbt.org/scalasbt/sbt-plugin-releases/com.google.protobuf/protobuf-java/2.5.0/bundles/protobuf-java.jar[0m
+[0m[[0mdebug[0m] [0m		tried /home/slawek/.ivy2/local/com.google.protobuf/protobuf-java/2.5.0/bundles/protobuf-java.jar[0m
+[0m[[0mdebug[0m] [0m		tried https://repo1.maven.org/maven2/com/google/protobuf/protobuf-java/2.5.0/protobuf-java-2.5.0.jar[0m
+[0m[[0mdebug[0m] [0m	found com.google.protobuf#protobuf-java;2.5.0 in public[0m
 [0m[[0mdebug[0m] [0m== resolving dependencies org.scala-js#closure-compiler-java-6;v20160517->com.google.protobuf#protobuf-java;2.5.0 [compile->compile(*)][0m
 [0m[[0mdebug[0m] [0m== resolving dependencies org.scala-js#closure-compiler-java-6;v20160517->com.google.code.gson#gson;2.2.4 [compile->master(compile)][0m
 [0m[[0minfo[0m] [0mResolving com.google.code.gson#gson;2.2.4 ...[0m
 [0m[[0mdebug[0m] [0msbt-chain: Checking cache for: dependency: com.google.code.gson#gson;2.2.4 {compile=[compile(*), master(compile)], runtime=[runtime(*)]}[0m
-[0m[[0mdebug[0m] [0msbt-chain: module revision found in cache: com.google.code.gson#gson;2.2.4[0m
-[0m[[0mdebug[0m] [0m	found com.google.code.gson#gson;2.2.4 in sbt-chain[0m
+[0m[[0minfo[0m] [0mResolving com.google.code.gson#gson;2.2.4 ...[0m
+[0m[[0mdebug[0m] [0msbt-chain-delegate: Checking cache for: dependency: com.google.code.gson#gson;2.2.4 {compile=[compile(*), master(compile)], runtime=[runtime(*)]}[0m
+[0m[[0mdebug[0m] [0m		tried https://repo.typesafe.com/typesafe/ivy-releases/com.google.code.gson/gson/2.2.4/ivys/ivy.xml[0m
+[0m[[0mdebug[0m] [0mCLIENT ERROR: Not Found url=https://repo.typesafe.com/typesafe/ivy-releases/com.google.code.gson/gson/2.2.4/ivys/ivy.xml[0m
+[0m[[0mdebug[0m] [0m	typesafe-ivy-releases: no ivy file found for com.google.code.gson#gson;2.2.4[0m
+[0m[[0mdebug[0m] [0m		tried https://repo.scala-sbt.org/scalasbt/sbt-plugin-releases/com.google.code.gson/gson/2.2.4/ivys/ivy.xml[0m
+[0m[[0mdebug[0m] [0mCLIENT ERROR: Not Found url=https://repo.scala-sbt.org/scalasbt/sbt-plugin-releases/com.google.code.gson/gson/2.2.4/ivys/ivy.xml[0m
+[0m[[0mdebug[0m] [0m	sbt-plugin-releases: no ivy file found for com.google.code.gson#gson;2.2.4[0m
+[0m[[0mdebug[0m] [0m		tried /home/slawek/.ivy2/local/com.google.code.gson/gson/2.2.4/ivys/ivy.xml[0m
+[0m[[0mdebug[0m] [0m	local: no ivy file found for com.google.code.gson#gson;2.2.4[0m
+[0m[[0mdebug[0m] [0m		tried https://repo1.maven.org/maven2/com/google/code/gson/gson/2.2.4/gson-2.2.4.pom[0m
+[0m[[0mdebug[0m] [0m	public: found md file for com.google.code.gson#gson;2.2.4[0m
+[0m[[0mdebug[0m] [0m		=> https://repo1.maven.org/maven2/com/google/code/gson/gson/2.2.4/gson-2.2.4.pom (2.2.4)[0m
+[0m[[0mdebug[0m] [0mdownloading https://repo1.maven.org/maven2/com/google/code/gson/gson/2.2.4/gson-2.2.4.pom ...[0m
+[0m[[0mdebug[0m] [0m	public: downloading https://repo1.maven.org/maven2/com/google/code/gson/gson/2.2.4/gson-2.2.4.pom[0m
+[0m[[0mdebug[0m] [0m	public: downloading https://repo1.maven.org/maven2/com/google/code/gson/gson/2.2.4/gson-2.2.4.pom.sha1[0m
+[0m[[0mdebug[0m] [0msha1 OK for https://repo1.maven.org/maven2/com/google/code/gson/gson/2.2.4/gson-2.2.4.pom[0m
+[0m[[0mdebug[0m] [0m	[SUCCESSFUL ] com.google.code.gson#gson;2.2.4!gson.pom(pom.original) (184ms)[0m
+[0m[[0minfo[0m] [0mResolving org.sonatype.oss#oss-parent;7 ...[0m
+[0m[[0mdebug[0m] [0msbt-chain: Checking cache for: dependency: org.sonatype.oss#oss-parent;7 {}[0m
+[0m[[0mdebug[0m] [0msbt-chain: module revision found in cache: org.sonatype.oss#oss-parent;7[0m
+[0m[[0mdebug[0m] [0m		tried https://repo.typesafe.com/typesafe/ivy-releases/com.google.code.gson/gson/2.2.4/jars/gson.jar[0m
+[0m[[0mdebug[0m] [0mCLIENT ERROR: Not Found url=https://repo.typesafe.com/typesafe/ivy-releases/com.google.code.gson/gson/2.2.4/jars/gson.jar[0m
+[0m[[0mdebug[0m] [0m		tried https://repo.scala-sbt.org/scalasbt/sbt-plugin-releases/com.google.code.gson/gson/2.2.4/jars/gson.jar[0m
+[0m[[0mdebug[0m] [0mCLIENT ERROR: Not Found url=https://repo.scala-sbt.org/scalasbt/sbt-plugin-releases/com.google.code.gson/gson/2.2.4/jars/gson.jar[0m
+[0m[[0mdebug[0m] [0m		tried /home/slawek/.ivy2/local/com.google.code.gson/gson/2.2.4/jars/gson.jar[0m
+[0m[[0mdebug[0m] [0m		tried https://repo1.maven.org/maven2/com/google/code/gson/gson/2.2.4/gson-2.2.4.jar[0m
+[0m[[0mdebug[0m] [0m	found com.google.code.gson#gson;2.2.4 in public[0m
 [0m[[0mdebug[0m] [0m== resolving dependencies org.scala-js#closure-compiler-java-6;v20160517->com.google.code.gson#gson;2.2.4 [compile->compile(*)][0m
 [0m[[0mdebug[0m] [0m== resolving dependencies org.scala-js#closure-compiler-java-6;v20160517->com.google.code.findbugs#jsr305;1.3.9 [compile->master(compile)][0m
 [0m[[0minfo[0m] [0mResolving com.google.code.findbugs#jsr305;1.3.9 ...[0m
 [0m[[0mdebug[0m] [0msbt-chain: Checking cache for: dependency: com.google.code.findbugs#jsr305;1.3.9 {compile=[compile(*), master(compile)], runtime=[runtime(*)]}[0m
-[0m[[0mdebug[0m] [0msbt-chain: module revision found in cache: com.google.code.findbugs#jsr305;1.3.9[0m
-[0m[[0mdebug[0m] [0m	found com.google.code.findbugs#jsr305;1.3.9 in sbt-chain[0m
+[0m[[0minfo[0m] [0mResolving com.google.code.findbugs#jsr305;1.3.9 ...[0m
+[0m[[0mdebug[0m] [0msbt-chain-delegate: Checking cache for: dependency: com.google.code.findbugs#jsr305;1.3.9 {compile=[compile(*), master(compile)], runtime=[runtime(*)]}[0m
+[0m[[0mdebug[0m] [0m		tried https://repo.typesafe.com/typesafe/ivy-releases/com.google.code.findbugs/jsr305/1.3.9/ivys/ivy.xml[0m
+[0m[[0mdebug[0m] [0mCLIENT ERROR: Not Found url=https://repo.typesafe.com/typesafe/ivy-releases/com.google.code.findbugs/jsr305/1.3.9/ivys/ivy.xml[0m
+[0m[[0mdebug[0m] [0m	typesafe-ivy-releases: no ivy file found for com.google.code.findbugs#jsr305;1.3.9[0m
+[0m[[0mdebug[0m] [0m		tried https://repo.scala-sbt.org/scalasbt/sbt-plugin-releases/com.google.code.findbugs/jsr305/1.3.9/ivys/ivy.xml[0m
+[0m[[0mdebug[0m] [0mCLIENT ERROR: Not Found url=https://repo.scala-sbt.org/scalasbt/sbt-plugin-releases/com.google.code.findbugs/jsr305/1.3.9/ivys/ivy.xml[0m
+[0m[[0mdebug[0m] [0m	sbt-plugin-releases: no ivy file found for com.google.code.findbugs#jsr305;1.3.9[0m
+[0m[[0mdebug[0m] [0m		tried /home/slawek/.ivy2/local/com.google.code.findbugs/jsr305/1.3.9/ivys/ivy.xml[0m
+[0m[[0mdebug[0m] [0m	local: no ivy file found for com.google.code.findbugs#jsr305;1.3.9[0m
+[0m[[0mdebug[0m] [0m		tried https://repo1.maven.org/maven2/com/google/code/findbugs/jsr305/1.3.9/jsr305-1.3.9.pom[0m
+[0m[[0mdebug[0m] [0m	public: found md file for com.google.code.findbugs#jsr305;1.3.9[0m
+[0m[[0mdebug[0m] [0m		=> https://repo1.maven.org/maven2/com/google/code/findbugs/jsr305/1.3.9/jsr305-1.3.9.pom (1.3.9)[0m
+[0m[[0mdebug[0m] [0mdownloading https://repo1.maven.org/maven2/com/google/code/findbugs/jsr305/1.3.9/jsr305-1.3.9.pom ...[0m
+[0m[[0mdebug[0m] [0m	public: downloading https://repo1.maven.org/maven2/com/google/code/findbugs/jsr305/1.3.9/jsr305-1.3.9.pom[0m
+[0m[[0mdebug[0m] [0m	public: downloading https://repo1.maven.org/maven2/com/google/code/findbugs/jsr305/1.3.9/jsr305-1.3.9.pom.sha1[0m
+[0m[[0mdebug[0m] [0msha1 OK for https://repo1.maven.org/maven2/com/google/code/findbugs/jsr305/1.3.9/jsr305-1.3.9.pom[0m
+[0m[[0mdebug[0m] [0m	[SUCCESSFUL ] com.google.code.findbugs#jsr305;1.3.9!jsr305.pom(pom.original) (426ms)[0m
+[0m[[0mdebug[0m] [0m		tried https://repo.typesafe.com/typesafe/ivy-releases/com.google.code.findbugs/jsr305/1.3.9/jars/jsr305.jar[0m
+[0m[[0mdebug[0m] [0mCLIENT ERROR: Not Found url=https://repo.typesafe.com/typesafe/ivy-releases/com.google.code.findbugs/jsr305/1.3.9/jars/jsr305.jar[0m
+[0m[[0mdebug[0m] [0m		tried https://repo.scala-sbt.org/scalasbt/sbt-plugin-releases/com.google.code.findbugs/jsr305/1.3.9/jars/jsr305.jar[0m
+[0m[[0mdebug[0m] [0mCLIENT ERROR: Not Found url=https://repo.scala-sbt.org/scalasbt/sbt-plugin-releases/com.google.code.findbugs/jsr305/1.3.9/jars/jsr305.jar[0m
+[0m[[0mdebug[0m] [0m		tried /home/slawek/.ivy2/local/com.google.code.findbugs/jsr305/1.3.9/jars/jsr305.jar[0m
+[0m[[0mdebug[0m] [0m		tried https://repo1.maven.org/maven2/com/google/code/findbugs/jsr305/1.3.9/jsr305-1.3.9.jar[0m
+[0m[[0mdebug[0m] [0m	found com.google.code.findbugs#jsr305;1.3.9 in public[0m
 [0m[[0mdebug[0m] [0m== resolving dependencies org.scala-js#closure-compiler-java-6;v20160517->com.google.code.findbugs#jsr305;1.3.9 [compile->compile(*)][0m
 [0m[[0mdebug[0m] [0m== resolving dependencies org.scala-js#scalajs-tools_2.10;0.6.21->org.scala-js#closure-compiler-java-6;v20160517 [compile->runtime(*)][0m
 [0m[[0mdebug[0m] [0m== resolving dependencies org.scala-js#scalajs-tools_2.10;0.6.21->org.scala-js#closure-compiler-java-6;v20160517 [compile->compile][0m
@@ -421,8 +603,31 @@
 [0m[[0mdebug[0m] [0m== resolving dependencies org.scala-js#scalajs-tools_2.10;0.6.21->com.googlecode.json-simple#json-simple;1.1.1 [compile->master(compile)][0m
 [0m[[0minfo[0m] [0mResolving com.googlecode.json-simple#json-simple;1.1.1 ...[0m
 [0m[[0mdebug[0m] [0msbt-chain: Checking cache for: dependency: com.googlecode.json-simple#json-simple;1.1.1 {compile=[compile(*), master(compile)], runtime=[runtime(*)]}[0m
-[0m[[0mdebug[0m] [0msbt-chain: module revision found in cache: com.googlecode.json-simple#json-simple;1.1.1[0m
-[0m[[0mdebug[0m] [0m	found com.googlecode.json-simple#json-simple;1.1.1 in sbt-chain[0m
+[0m[[0minfo[0m] [0mResolving com.googlecode.json-simple#json-simple;1.1.1 ...[0m
+[0m[[0mdebug[0m] [0msbt-chain-delegate: Checking cache for: dependency: com.googlecode.json-simple#json-simple;1.1.1 {compile=[compile(*), master(compile)], runtime=[runtime(*)]}[0m
+[0m[[0mdebug[0m] [0m		tried https://repo.typesafe.com/typesafe/ivy-releases/com.googlecode.json-simple/json-simple/1.1.1/ivys/ivy.xml[0m
+[0m[[0mdebug[0m] [0mCLIENT ERROR: Not Found url=https://repo.typesafe.com/typesafe/ivy-releases/com.googlecode.json-simple/json-simple/1.1.1/ivys/ivy.xml[0m
+[0m[[0mdebug[0m] [0m	typesafe-ivy-releases: no ivy file found for com.googlecode.json-simple#json-simple;1.1.1[0m
+[0m[[0mdebug[0m] [0m		tried https://repo.scala-sbt.org/scalasbt/sbt-plugin-releases/com.googlecode.json-simple/json-simple/1.1.1/ivys/ivy.xml[0m
+[0m[[0mdebug[0m] [0mCLIENT ERROR: Not Found url=https://repo.scala-sbt.org/scalasbt/sbt-plugin-releases/com.googlecode.json-simple/json-simple/1.1.1/ivys/ivy.xml[0m
+[0m[[0mdebug[0m] [0m	sbt-plugin-releases: no ivy file found for com.googlecode.json-simple#json-simple;1.1.1[0m
+[0m[[0mdebug[0m] [0m		tried /home/slawek/.ivy2/local/com.googlecode.json-simple/json-simple/1.1.1/ivys/ivy.xml[0m
+[0m[[0mdebug[0m] [0m	local: no ivy file found for com.googlecode.json-simple#json-simple;1.1.1[0m
+[0m[[0mdebug[0m] [0m		tried https://repo1.maven.org/maven2/com/googlecode/json-simple/json-simple/1.1.1/json-simple-1.1.1.pom[0m
+[0m[[0mdebug[0m] [0m	public: found md file for com.googlecode.json-simple#json-simple;1.1.1[0m
+[0m[[0mdebug[0m] [0m		=> https://repo1.maven.org/maven2/com/googlecode/json-simple/json-simple/1.1.1/json-simple-1.1.1.pom (1.1.1)[0m
+[0m[[0mdebug[0m] [0mdownloading https://repo1.maven.org/maven2/com/googlecode/json-simple/json-simple/1.1.1/json-simple-1.1.1.pom ...[0m
+[0m[[0mdebug[0m] [0m	public: downloading https://repo1.maven.org/maven2/com/googlecode/json-simple/json-simple/1.1.1/json-simple-1.1.1.pom[0m
+[0m[[0mdebug[0m] [0m	public: downloading https://repo1.maven.org/maven2/com/googlecode/json-simple/json-simple/1.1.1/json-simple-1.1.1.pom.sha1[0m
+[0m[[0mdebug[0m] [0msha1 OK for https://repo1.maven.org/maven2/com/googlecode/json-simple/json-simple/1.1.1/json-simple-1.1.1.pom[0m
+[0m[[0mdebug[0m] [0m	[SUCCESSFUL ] com.googlecode.json-simple#json-simple;1.1.1!json-simple.pom(pom.original) (187ms)[0m
+[0m[[0mdebug[0m] [0m		tried https://repo.typesafe.com/typesafe/ivy-releases/com.googlecode.json-simple/json-simple/1.1.1/bundles/json-simple.jar[0m
+[0m[[0mdebug[0m] [0mCLIENT ERROR: Not Found url=https://repo.typesafe.com/typesafe/ivy-releases/com.googlecode.json-simple/json-simple/1.1.1/bundles/json-simple.jar[0m
+[0m[[0mdebug[0m] [0m		tried https://repo.scala-sbt.org/scalasbt/sbt-plugin-releases/com.googlecode.json-simple/json-simple/1.1.1/bundles/json-simple.jar[0m
+[0m[[0mdebug[0m] [0mCLIENT ERROR: Not Found url=https://repo.scala-sbt.org/scalasbt/sbt-plugin-releases/com.googlecode.json-simple/json-simple/1.1.1/bundles/json-simple.jar[0m
+[0m[[0mdebug[0m] [0m		tried /home/slawek/.ivy2/local/com.googlecode.json-simple/json-simple/1.1.1/bundles/json-simple.jar[0m
+[0m[[0mdebug[0m] [0m		tried https://repo1.maven.org/maven2/com/googlecode/json-simple/json-simple/1.1.1/json-simple-1.1.1.jar[0m
+[0m[[0mdebug[0m] [0m	found com.googlecode.json-simple#json-simple;1.1.1 in public[0m
 [0m[[0mdebug[0m] [0m== resolving dependencies org.scala-js#scalajs-tools_2.10;0.6.21->com.googlecode.json-simple#json-simple;1.1.1 [compile->compile(*)][0m
 [0m[[0mdebug[0m] [0mexcluding dependency: junit#junit;4.10 {compile=[compile(*), master(compile)], runtime=[runtime(*)]} in compile[0m
 [0m[[0mdebug[0m] [0m== resolving dependencies org.scala-js#scalajs-tools_2.10;0.6.21->com.googlecode.json-simple#json-simple;1.1.1 [compile->runtime(*)][0m
@@ -457,7 +662,7 @@
 [0m[[0mdebug[0m] [0m	public: downloading https://repo1.maven.org/maven2/org/scala-js/scalajs-js-envs_2.10/0.6.21/scalajs-js-envs_2.10-0.6.21.pom[0m
 [0m[[0mdebug[0m] [0m	public: downloading https://repo1.maven.org/maven2/org/scala-js/scalajs-js-envs_2.10/0.6.21/scalajs-js-envs_2.10-0.6.21.pom.sha1[0m
 [0m[[0mdebug[0m] [0msha1 OK for https://repo1.maven.org/maven2/org/scala-js/scalajs-js-envs_2.10/0.6.21/scalajs-js-envs_2.10-0.6.21.pom[0m
-[0m[[0mdebug[0m] [0m	[SUCCESSFUL ] org.scala-js#scalajs-js-envs_2.10;0.6.21!scalajs-js-envs_2.10.pom(pom.original) (583ms)[0m
+[0m[[0mdebug[0m] [0m	[SUCCESSFUL ] org.scala-js#scalajs-js-envs_2.10;0.6.21!scalajs-js-envs_2.10.pom(pom.original) (269ms)[0m
 [0m[[0mdebug[0m] [0m		tried https://repo.typesafe.com/typesafe/ivy-releases/org.scala-js/scalajs-js-envs_2.10/0.6.21/jars/scalajs-js-envs_2.10.jar[0m
 [0m[[0mdebug[0m] [0mCLIENT ERROR: Not Found url=https://repo.typesafe.com/typesafe/ivy-releases/org.scala-js/scalajs-js-envs_2.10/0.6.21/jars/scalajs-js-envs_2.10.jar[0m
 [0m[[0mdebug[0m] [0m		tried https://repo.scala-sbt.org/scalasbt/sbt-plugin-releases/org.scala-js/scalajs-js-envs_2.10/0.6.21/jars/scalajs-js-envs_2.10.jar[0m
@@ -476,8 +681,34 @@
 [0m[[0mdebug[0m] [0m== resolving dependencies org.scala-js#scalajs-js-envs_2.10;0.6.21->io.apigee#rhino;1.7R5pre4 [compile->master(compile)][0m
 [0m[[0minfo[0m] [0mResolving io.apigee#rhino;1.7R5pre4 ...[0m
 [0m[[0mdebug[0m] [0msbt-chain: Checking cache for: dependency: io.apigee#rhino;1.7R5pre4 {compile=[compile(*), master(compile)], runtime=[runtime(*)]}[0m
-[0m[[0mdebug[0m] [0msbt-chain: module revision found in cache: io.apigee#rhino;1.7R5pre4[0m
-[0m[[0mdebug[0m] [0m	found io.apigee#rhino;1.7R5pre4 in sbt-chain[0m
+[0m[[0minfo[0m] [0mResolving io.apigee#rhino;1.7R5pre4 ...[0m
+[0m[[0mdebug[0m] [0msbt-chain-delegate: Checking cache for: dependency: io.apigee#rhino;1.7R5pre4 {compile=[compile(*), master(compile)], runtime=[runtime(*)]}[0m
+[0m[[0mdebug[0m] [0m		tried https://repo.typesafe.com/typesafe/ivy-releases/io.apigee/rhino/1.7R5pre4/ivys/ivy.xml[0m
+[0m[[0mdebug[0m] [0mCLIENT ERROR: Not Found url=https://repo.typesafe.com/typesafe/ivy-releases/io.apigee/rhino/1.7R5pre4/ivys/ivy.xml[0m
+[0m[[0mdebug[0m] [0m	typesafe-ivy-releases: no ivy file found for io.apigee#rhino;1.7R5pre4[0m
+[0m[[0mdebug[0m] [0m		tried https://repo.scala-sbt.org/scalasbt/sbt-plugin-releases/io.apigee/rhino/1.7R5pre4/ivys/ivy.xml[0m
+[0m[[0mdebug[0m] [0mCLIENT ERROR: Not Found url=https://repo.scala-sbt.org/scalasbt/sbt-plugin-releases/io.apigee/rhino/1.7R5pre4/ivys/ivy.xml[0m
+[0m[[0mdebug[0m] [0m	sbt-plugin-releases: no ivy file found for io.apigee#rhino;1.7R5pre4[0m
+[0m[[0mdebug[0m] [0m		tried /home/slawek/.ivy2/local/io.apigee/rhino/1.7R5pre4/ivys/ivy.xml[0m
+[0m[[0mdebug[0m] [0m	local: no ivy file found for io.apigee#rhino;1.7R5pre4[0m
+[0m[[0mdebug[0m] [0m		tried https://repo1.maven.org/maven2/io/apigee/rhino/1.7R5pre4/rhino-1.7R5pre4.pom[0m
+[0m[[0mdebug[0m] [0m	public: found md file for io.apigee#rhino;1.7R5pre4[0m
+[0m[[0mdebug[0m] [0m		=> https://repo1.maven.org/maven2/io/apigee/rhino/1.7R5pre4/rhino-1.7R5pre4.pom (1.7R5pre4)[0m
+[0m[[0mdebug[0m] [0mdownloading https://repo1.maven.org/maven2/io/apigee/rhino/1.7R5pre4/rhino-1.7R5pre4.pom ...[0m
+[0m[[0mdebug[0m] [0m	public: downloading https://repo1.maven.org/maven2/io/apigee/rhino/1.7R5pre4/rhino-1.7R5pre4.pom[0m
+[0m[[0mdebug[0m] [0m	public: downloading https://repo1.maven.org/maven2/io/apigee/rhino/1.7R5pre4/rhino-1.7R5pre4.pom.sha1[0m
+[0m[[0mdebug[0m] [0msha1 OK for https://repo1.maven.org/maven2/io/apigee/rhino/1.7R5pre4/rhino-1.7R5pre4.pom[0m
+[0m[[0mdebug[0m] [0m	[SUCCESSFUL ] io.apigee#rhino;1.7R5pre4!rhino.pom(pom.original) (520ms)[0m
+[0m[[0minfo[0m] [0mResolving org.sonatype.oss#oss-parent;7 ...[0m
+[0m[[0mdebug[0m] [0msbt-chain: Checking cache for: dependency: org.sonatype.oss#oss-parent;7 {}[0m
+[0m[[0mdebug[0m] [0msbt-chain: module revision found in cache: org.sonatype.oss#oss-parent;7[0m
+[0m[[0mdebug[0m] [0m		tried https://repo.typesafe.com/typesafe/ivy-releases/io.apigee/rhino/1.7R5pre4/jars/rhino.jar[0m
+[0m[[0mdebug[0m] [0mCLIENT ERROR: Not Found url=https://repo.typesafe.com/typesafe/ivy-releases/io.apigee/rhino/1.7R5pre4/jars/rhino.jar[0m
+[0m[[0mdebug[0m] [0m		tried https://repo.scala-sbt.org/scalasbt/sbt-plugin-releases/io.apigee/rhino/1.7R5pre4/jars/rhino.jar[0m
+[0m[[0mdebug[0m] [0mCLIENT ERROR: Not Found url=https://repo.scala-sbt.org/scalasbt/sbt-plugin-releases/io.apigee/rhino/1.7R5pre4/jars/rhino.jar[0m
+[0m[[0mdebug[0m] [0m		tried /home/slawek/.ivy2/local/io.apigee/rhino/1.7R5pre4/jars/rhino.jar[0m
+[0m[[0mdebug[0m] [0m		tried https://repo1.maven.org/maven2/io/apigee/rhino/1.7R5pre4/rhino-1.7R5pre4.jar[0m
+[0m[[0mdebug[0m] [0m	found io.apigee#rhino;1.7R5pre4 in public[0m
 [0m[[0mdebug[0m] [0m== resolving dependencies org.scala-js#scalajs-js-envs_2.10;0.6.21->io.apigee#rhino;1.7R5pre4 [compile->compile(*)][0m
 [0m[[0mdebug[0m] [0m== resolving dependencies org.scala-js#scalajs-js-envs_2.10;0.6.21->io.apigee#rhino;1.7R5pre4 [compile->runtime(*)][0m
 [0m[[0mdebug[0m] [0m== resolving dependencies org.scala-js#scalajs-js-envs_2.10;0.6.21->io.apigee#rhino;1.7R5pre4 [compile->compile][0m
@@ -501,7 +732,7 @@
 [0m[[0mdebug[0m] [0m	public: downloading https://repo1.maven.org/maven2/org/webjars/envjs/1.2/envjs-1.2.pom[0m
 [0m[[0mdebug[0m] [0m	public: downloading https://repo1.maven.org/maven2/org/webjars/envjs/1.2/envjs-1.2.pom.sha1[0m
 [0m[[0mdebug[0m] [0msha1 OK for https://repo1.maven.org/maven2/org/webjars/envjs/1.2/envjs-1.2.pom[0m
-[0m[[0mdebug[0m] [0m	[SUCCESSFUL ] org.webjars#envjs;1.2!envjs.pom(pom.original) (187ms)[0m
+[0m[[0mdebug[0m] [0m	[SUCCESSFUL ] org.webjars#envjs;1.2!envjs.pom(pom.original) (190ms)[0m
 [0m[[0minfo[0m] [0mResolving org.sonatype.oss#oss-parent;7 ...[0m
 [0m[[0mdebug[0m] [0msbt-chain: Checking cache for: dependency: org.sonatype.oss#oss-parent;7 {}[0m
 [0m[[0mdebug[0m] [0msbt-chain: module revision found in cache: org.sonatype.oss#oss-parent;7[0m
@@ -544,7 +775,7 @@
 [0m[[0mdebug[0m] [0m	public: downloading https://repo1.maven.org/maven2/org/scala-js/scalajs-sbt-test-adapter_2.10/0.6.21/scalajs-sbt-test-adapter_2.10-0.6.21.pom[0m
 [0m[[0mdebug[0m] [0m	public: downloading https://repo1.maven.org/maven2/org/scala-js/scalajs-sbt-test-adapter_2.10/0.6.21/scalajs-sbt-test-adapter_2.10-0.6.21.pom.sha1[0m
 [0m[[0mdebug[0m] [0msha1 OK for https://repo1.maven.org/maven2/org/scala-js/scalajs-sbt-test-adapter_2.10/0.6.21/scalajs-sbt-test-adapter_2.10-0.6.21.pom[0m
-[0m[[0mdebug[0m] [0m	[SUCCESSFUL ] org.scala-js#scalajs-sbt-test-adapter_2.10;0.6.21!scalajs-sbt-test-adapter_2.10.pom(pom.original) (192ms)[0m
+[0m[[0mdebug[0m] [0m	[SUCCESSFUL ] org.scala-js#scalajs-sbt-test-adapter_2.10;0.6.21!scalajs-sbt-test-adapter_2.10.pom(pom.original) (626ms)[0m
 [0m[[0mdebug[0m] [0m		tried https://repo.typesafe.com/typesafe/ivy-releases/org.scala-js/scalajs-sbt-test-adapter_2.10/0.6.21/jars/scalajs-sbt-test-adapter_2.10.jar[0m
 [0m[[0mdebug[0m] [0mCLIENT ERROR: Not Found url=https://repo.typesafe.com/typesafe/ivy-releases/org.scala-js/scalajs-sbt-test-adapter_2.10/0.6.21/jars/scalajs-sbt-test-adapter_2.10.jar[0m
 [0m[[0mdebug[0m] [0m		tried https://repo.scala-sbt.org/scalasbt/sbt-plugin-releases/org.scala-js/scalajs-sbt-test-adapter_2.10/0.6.21/jars/scalajs-sbt-test-adapter_2.10.jar[0m
@@ -579,6 +810,8 @@
 [0m[[0mdebug[0m] [0m== resolving dependencies for default#euler-build;0.1-SNAPSHOT [runtime][0m
 [0m[[0mdebug[0m] [0m== resolving dependencies for default#euler-build;0.1-SNAPSHOT [compile][0m
 [0m[[0mdebug[0m] [0m== resolving dependencies default#euler-build;0.1-SNAPSHOT->org.scala-sbt#global-plugins;0.0 [compile->default(compile)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies org.scala-sbt#global-plugins;0.0->org.jetbrains#sbt-structure-extractor;2017.2 [compile->default(compile)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies org.scala-sbt#global-plugins;0.0->org.jetbrains#sbt-idea-shell;2017.2 [compile->default(compile)][0m
 [0m[[0mdebug[0m] [0m== resolving dependencies org.scala-sbt#global-plugins;0.0->org.ensime#sbt-ensime;1.11.1 [compile->default(compile)][0m
 [0m[[0mdebug[0m] [0m== resolving dependencies org.scala-sbt#global-plugins;0.0->org.ensime#sbt-ensime;1.11.1 [compile->runtime][0m
 [0m[[0mdebug[0m] [0m== resolving dependencies org.scala-sbt#global-plugins;0.0->org.ensime#sbt-ensime;1.11.1 [compile->compile][0m
@@ -586,11 +819,11 @@
 [0m[[0mdebug[0m] [0m== resolving dependencies org.ensime#sbt-ensime;1.11.1->org.scala-lang#scalap;2.10.6 [compile->compile(*)][0m
 [0m[[0mdebug[0m] [0m== resolving dependencies org.scala-lang#scalap;2.10.6->org.scala-lang#scala-compiler;2.10.6 [compile->master(compile)][0m
 [0m[[0mdebug[0m] [0m== resolving dependencies org.scala-lang#scalap;2.10.6->org.scala-lang#scala-compiler;2.10.6 [compile->compile(*)][0m
-[0m[[0mdebug[0m] [0m== resolving dependencies org.scala-lang#scala-compiler;2.10.6->org.scala-lang#scala-library;2.10.6 [compile->master(*)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies org.scala-lang#scala-compiler;2.10.6->org.scala-lang#scala-library;2.10.6 [compile->master(compile)][0m
 [0m[[0mdebug[0m] [0m== resolving dependencies org.scala-lang#scala-compiler;2.10.6->org.scala-lang#scala-library;2.10.6 [compile->compile(*)][0m
-[0m[[0mdebug[0m] [0m== resolving dependencies org.scala-lang#scala-compiler;2.10.6->org.scala-lang#scala-reflect;2.10.6 [compile->master(*)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies org.scala-lang#scala-compiler;2.10.6->org.scala-lang#scala-reflect;2.10.6 [compile->master(compile)][0m
 [0m[[0mdebug[0m] [0m== resolving dependencies org.scala-lang#scala-compiler;2.10.6->org.scala-lang#scala-reflect;2.10.6 [compile->compile(*)][0m
-[0m[[0mdebug[0m] [0m== resolving dependencies org.scala-lang#scala-reflect;2.10.6->org.scala-lang#scala-library;2.10.6 [compile->master(*)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies org.scala-lang#scala-reflect;2.10.6->org.scala-lang#scala-library;2.10.6 [compile->master(compile)][0m
 [0m[[0mdebug[0m] [0m== resolving dependencies org.scala-lang#scala-reflect;2.10.6->org.scala-lang#scala-library;2.10.6 [compile->compile(*)][0m
 [0m[[0mdebug[0m] [0m== resolving dependencies org.ensime#sbt-ensime;1.11.1->org.scalariform#scalariform_2.10;0.1.4 [compile->master(compile)][0m
 [0m[[0mdebug[0m] [0m== resolving dependencies org.ensime#sbt-ensime;1.11.1->org.scalariform#scalariform_2.10;0.1.4 [compile->compile(*)][0m
@@ -710,6 +943,8 @@
 [0m[[0mdebug[0m] [0m== resolving dependencies for default#euler-build;0.1-SNAPSHOT [runtime][0m
 [0m[[0mdebug[0m] [0m== resolving dependencies for default#euler-build;0.1-SNAPSHOT [compile][0m
 [0m[[0mdebug[0m] [0m== resolving dependencies default#euler-build;0.1-SNAPSHOT->org.scala-sbt#global-plugins;0.0 [compile->default(compile)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies org.scala-sbt#global-plugins;0.0->org.jetbrains#sbt-structure-extractor;2017.2 [compile->default(compile)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies org.scala-sbt#global-plugins;0.0->org.jetbrains#sbt-idea-shell;2017.2 [compile->default(compile)][0m
 [0m[[0mdebug[0m] [0m== resolving dependencies org.scala-sbt#global-plugins;0.0->org.ensime#sbt-ensime;1.11.1 [compile->default(compile)][0m
 [0m[[0mdebug[0m] [0m== resolving dependencies org.scala-sbt#global-plugins;0.0->org.ensime#sbt-ensime;1.11.1 [compile->runtime][0m
 [0m[[0mdebug[0m] [0m== resolving dependencies org.scala-sbt#global-plugins;0.0->org.ensime#sbt-ensime;1.11.1 [compile->compile][0m
@@ -717,11 +952,11 @@
 [0m[[0mdebug[0m] [0m== resolving dependencies org.ensime#sbt-ensime;1.11.1->org.scala-lang#scalap;2.10.6 [compile->compile(*)][0m
 [0m[[0mdebug[0m] [0m== resolving dependencies org.scala-lang#scalap;2.10.6->org.scala-lang#scala-compiler;2.10.6 [compile->master(compile)][0m
 [0m[[0mdebug[0m] [0m== resolving dependencies org.scala-lang#scalap;2.10.6->org.scala-lang#scala-compiler;2.10.6 [compile->compile(*)][0m
-[0m[[0mdebug[0m] [0m== resolving dependencies org.scala-lang#scala-compiler;2.10.6->org.scala-lang#scala-library;2.10.6 [compile->master(*)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies org.scala-lang#scala-compiler;2.10.6->org.scala-lang#scala-library;2.10.6 [compile->master(compile)][0m
 [0m[[0mdebug[0m] [0m== resolving dependencies org.scala-lang#scala-compiler;2.10.6->org.scala-lang#scala-library;2.10.6 [compile->compile(*)][0m
-[0m[[0mdebug[0m] [0m== resolving dependencies org.scala-lang#scala-compiler;2.10.6->org.scala-lang#scala-reflect;2.10.6 [compile->master(*)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies org.scala-lang#scala-compiler;2.10.6->org.scala-lang#scala-reflect;2.10.6 [compile->master(compile)][0m
 [0m[[0mdebug[0m] [0m== resolving dependencies org.scala-lang#scala-compiler;2.10.6->org.scala-lang#scala-reflect;2.10.6 [compile->compile(*)][0m
-[0m[[0mdebug[0m] [0m== resolving dependencies org.scala-lang#scala-reflect;2.10.6->org.scala-lang#scala-library;2.10.6 [compile->master(*)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies org.scala-lang#scala-reflect;2.10.6->org.scala-lang#scala-library;2.10.6 [compile->master(compile)][0m
 [0m[[0mdebug[0m] [0m== resolving dependencies org.scala-lang#scala-reflect;2.10.6->org.scala-lang#scala-library;2.10.6 [compile->compile(*)][0m
 [0m[[0mdebug[0m] [0m== resolving dependencies org.ensime#sbt-ensime;1.11.1->org.scalariform#scalariform_2.10;0.1.4 [compile->master(compile)][0m
 [0m[[0mdebug[0m] [0m== resolving dependencies org.ensime#sbt-ensime;1.11.1->org.scalariform#scalariform_2.10;0.1.4 [compile->compile(*)][0m
@@ -877,11 +1112,11 @@
 [0m[[0mdebug[0m] [0m== resolving dependencies org.scala-sbt#classpath;0.13.16->org.scala-lang#scala-compiler;2.10.6 [compile->default(compile)][0m
 [0m[[0mdebug[0m] [0m== resolving dependencies org.scala-sbt#classpath;0.13.16->org.scala-lang#scala-compiler;2.10.6 [compile->runtime][0m
 [0m[[0mdebug[0m] [0m== resolving dependencies org.scala-sbt#classpath;0.13.16->org.scala-lang#scala-compiler;2.10.6 [compile->compile][0m
-[0m[[0mdebug[0m] [0m== resolving dependencies org.scala-lang#scala-compiler;2.10.6->org.scala-lang#scala-library;2.10.6 [compile->master(*)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies org.scala-lang#scala-compiler;2.10.6->org.scala-lang#scala-library;2.10.6 [compile->master(compile)][0m
 [0m[[0mdebug[0m] [0m== resolving dependencies org.scala-lang#scala-compiler;2.10.6->org.scala-lang#scala-library;2.10.6 [compile->compile(*)][0m
-[0m[[0mdebug[0m] [0m== resolving dependencies org.scala-lang#scala-compiler;2.10.6->org.scala-lang#scala-reflect;2.10.6 [compile->master(*)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies org.scala-lang#scala-compiler;2.10.6->org.scala-lang#scala-reflect;2.10.6 [compile->master(compile)][0m
 [0m[[0mdebug[0m] [0m== resolving dependencies org.scala-lang#scala-compiler;2.10.6->org.scala-lang#scala-reflect;2.10.6 [compile->compile(*)][0m
-[0m[[0mdebug[0m] [0m== resolving dependencies org.scala-lang#scala-reflect;2.10.6->org.scala-lang#scala-library;2.10.6 [compile->master(*)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies org.scala-lang#scala-reflect;2.10.6->org.scala-lang#scala-library;2.10.6 [compile->master(compile)][0m
 [0m[[0mdebug[0m] [0m== resolving dependencies org.scala-lang#scala-reflect;2.10.6->org.scala-lang#scala-library;2.10.6 [compile->compile(*)][0m
 [0m[[0mdebug[0m] [0m== resolving dependencies org.scala-lang#scala-compiler;2.10.6->org.scala-lang#scala-library;2.10.6 [runtime->runtime(*)][0m
 [0m[[0mdebug[0m] [0m== resolving dependencies org.scala-lang#scala-compiler;2.10.6->org.scala-lang#scala-library;2.10.6 [runtime->compile][0m
@@ -1157,10 +1392,10 @@
 [0m[[0mdebug[0m] [0msbt-chain: module revision found in cache: org.scalamacros#quasiquotes_2.10;2.0.1[0m
 [0m[[0mdebug[0m] [0m	found org.scalamacros#quasiquotes_2.10;2.0.1 in sbt-chain[0m
 [0m[[0mdebug[0m] [0m== resolving dependencies org.scala-lang.modules#scala-pickling_2.10;0.10.1->org.scalamacros#quasiquotes_2.10;2.0.1 [compile->compile(*)][0m
-[0m[[0mdebug[0m] [0m== resolving dependencies org.scalamacros#quasiquotes_2.10;2.0.1->org.scala-lang#scala-library;2.10.4 [compile->master(*)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies org.scalamacros#quasiquotes_2.10;2.0.1->org.scala-lang#scala-library;2.10.4 [compile->master(compile)][0m
 [0m[[0mdebug[0m] [0m== resolving dependencies org.scalamacros#quasiquotes_2.10;2.0.1->org.scala-lang#scala-library;2.10.4 [compile->compile(*)][0m
 [0m[[0mdebug[0m] [0m== resolving dependencies org.scalamacros#quasiquotes_2.10;2.0.1->org.scala-lang#scala-library;2.10.6 [compile->compile(*)][0m
-[0m[[0mdebug[0m] [0m== resolving dependencies org.scalamacros#quasiquotes_2.10;2.0.1->org.scala-lang#scala-reflect;2.10.4 [compile->master(*)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies org.scalamacros#quasiquotes_2.10;2.0.1->org.scala-lang#scala-reflect;2.10.4 [compile->master(compile)][0m
 [0m[[0mdebug[0m] [0m== resolving dependencies org.scalamacros#quasiquotes_2.10;2.0.1->org.scala-lang#scala-reflect;2.10.4 [compile->compile(*)][0m
 [0m[[0mdebug[0m] [0m== resolving dependencies org.scalamacros#quasiquotes_2.10;2.0.1->org.scala-lang#scala-reflect;2.10.6 [compile->compile(*)][0m
 [0m[[0mdebug[0m] [0m== resolving dependencies org.scala-sbt#serialization_2.10;0.1.2->org.scala-lang.modules#scala-pickling_2.10;0.10.1 [compile->runtime(*)][0m
@@ -1188,32 +1423,32 @@
 [0m[[0mdebug[0m] [0msbt-chain: module revision found in cache: org.json4s#json4s-core_2.10;3.2.10[0m
 [0m[[0mdebug[0m] [0m	found org.json4s#json4s-core_2.10;3.2.10 in sbt-chain[0m
 [0m[[0mdebug[0m] [0m== resolving dependencies org.scala-sbt#serialization_2.10;0.1.2->org.json4s#json4s-core_2.10;3.2.10 [compile->compile(*)][0m
-[0m[[0mdebug[0m] [0mexcluding dependency: org.scala-lang#scalap;2.10.0 {compile=[compile(*), master(*)], runtime=[runtime(*)]} in compile[0m
-[0m[[0mdebug[0m] [0m== resolving dependencies org.json4s#json4s-core_2.10;3.2.10->org.scala-lang#scala-library;2.10.0 [compile->master(*)][0m
-[0m[[0mdebug[0m] [0mexcluding dependency: org.scala-lang#scalap;2.10.0 {compile=[compile(*), master(*)], runtime=[runtime(*)]} in compile[0m
+[0m[[0mdebug[0m] [0mexcluding dependency: org.scala-lang#scalap;2.10.0 {compile=[compile(*), master(compile)], runtime=[runtime(*)]} in compile[0m
+[0m[[0mdebug[0m] [0m== resolving dependencies org.json4s#json4s-core_2.10;3.2.10->org.scala-lang#scala-library;2.10.0 [compile->master(compile)][0m
+[0m[[0mdebug[0m] [0mexcluding dependency: org.scala-lang#scalap;2.10.0 {compile=[compile(*), master(compile)], runtime=[runtime(*)]} in compile[0m
 [0m[[0mdebug[0m] [0m== resolving dependencies org.json4s#json4s-core_2.10;3.2.10->org.scala-lang#scala-library;2.10.0 [compile->compile(*)][0m
 [0m[[0mdebug[0m] [0m== resolving dependencies org.json4s#json4s-core_2.10;3.2.10->org.scala-lang#scala-library;2.10.6 [compile->compile(*)][0m
-[0m[[0mdebug[0m] [0m== resolving dependencies org.json4s#json4s-core_2.10;3.2.10->org.json4s#json4s-ast_2.10;3.2.10 [compile->master(*)][0m
-[0m[[0mdebug[0m] [0mexcluding dependency: org.scala-lang#scalap;2.10.0 {compile=[compile(*), master(*)], runtime=[runtime(*)]} in compile[0m
+[0m[[0mdebug[0m] [0m== resolving dependencies org.json4s#json4s-core_2.10;3.2.10->org.json4s#json4s-ast_2.10;3.2.10 [compile->master(compile)][0m
+[0m[[0mdebug[0m] [0mexcluding dependency: org.scala-lang#scalap;2.10.0 {compile=[compile(*), master(compile)], runtime=[runtime(*)]} in compile[0m
 [0m[[0minfo[0m] [0mResolving org.json4s#json4s-ast_2.10;3.2.10 ...[0m
-[0m[[0mdebug[0m] [0msbt-chain: Checking cache for: dependency: org.json4s#json4s-ast_2.10;3.2.10 {compile=[compile(*), master(*)], runtime=[runtime(*)]}[0m
+[0m[[0mdebug[0m] [0msbt-chain: Checking cache for: dependency: org.json4s#json4s-ast_2.10;3.2.10 {compile=[compile(*), master(compile)], runtime=[runtime(*)]}[0m
 [0m[[0mdebug[0m] [0msbt-chain: module revision found in cache: org.json4s#json4s-ast_2.10;3.2.10[0m
 [0m[[0mdebug[0m] [0m	found org.json4s#json4s-ast_2.10;3.2.10 in sbt-chain[0m
 [0m[[0mdebug[0m] [0m== resolving dependencies org.json4s#json4s-core_2.10;3.2.10->org.json4s#json4s-ast_2.10;3.2.10 [compile->compile(*)][0m
-[0m[[0mdebug[0m] [0m== resolving dependencies org.json4s#json4s-ast_2.10;3.2.10->org.scala-lang#scala-library;2.10.0 [compile->master(*)][0m
-[0m[[0mdebug[0m] [0m== resolving dependencies org.json4s#json4s-ast_2.10;3.2.10->org.scala-lang#scala-library;2.10.6 [compile->master(*)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies org.json4s#json4s-ast_2.10;3.2.10->org.scala-lang#scala-library;2.10.0 [compile->master(compile)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies org.json4s#json4s-ast_2.10;3.2.10->org.scala-lang#scala-library;2.10.6 [compile->master(compile)][0m
 [0m[[0mdebug[0m] [0m== resolving dependencies org.json4s#json4s-ast_2.10;3.2.10->org.scala-lang#scala-library;2.10.0 [compile->compile(*)][0m
 [0m[[0mdebug[0m] [0m== resolving dependencies org.json4s#json4s-ast_2.10;3.2.10->org.scala-lang#scala-library;2.10.6 [compile->compile(*)][0m
-[0m[[0mdebug[0m] [0m== resolving dependencies org.json4s#json4s-core_2.10;3.2.10->com.thoughtworks.paranamer#paranamer;2.6 [compile->master(*)][0m
-[0m[[0mdebug[0m] [0mexcluding dependency: org.scala-lang#scalap;2.10.0 {compile=[compile(*), master(*)], runtime=[runtime(*)]} in compile[0m
+[0m[[0mdebug[0m] [0m== resolving dependencies org.json4s#json4s-core_2.10;3.2.10->com.thoughtworks.paranamer#paranamer;2.6 [compile->master(compile)][0m
+[0m[[0mdebug[0m] [0mexcluding dependency: org.scala-lang#scalap;2.10.0 {compile=[compile(*), master(compile)], runtime=[runtime(*)]} in compile[0m
 [0m[[0minfo[0m] [0mResolving com.thoughtworks.paranamer#paranamer;2.6 ...[0m
-[0m[[0mdebug[0m] [0msbt-chain: Checking cache for: dependency: com.thoughtworks.paranamer#paranamer;2.6 {compile=[compile(*), master(*)], runtime=[runtime(*)]}[0m
+[0m[[0mdebug[0m] [0msbt-chain: Checking cache for: dependency: com.thoughtworks.paranamer#paranamer;2.6 {compile=[compile(*), master(compile)], runtime=[runtime(*)]}[0m
 [0m[[0mdebug[0m] [0msbt-chain: module revision found in cache: com.thoughtworks.paranamer#paranamer;2.6[0m
 [0m[[0mdebug[0m] [0m	found com.thoughtworks.paranamer#paranamer;2.6 in sbt-chain[0m
 [0m[[0mdebug[0m] [0m== resolving dependencies org.json4s#json4s-core_2.10;3.2.10->com.thoughtworks.paranamer#paranamer;2.6 [compile->compile(*)][0m
 [0m[[0mdebug[0m] [0m== resolving dependencies org.scala-sbt#serialization_2.10;0.1.2->org.json4s#json4s-core_2.10;3.2.10 [compile->runtime(*)][0m
 [0m[[0mdebug[0m] [0m== resolving dependencies org.scala-sbt#serialization_2.10;0.1.2->org.json4s#json4s-core_2.10;3.2.10 [compile->compile][0m
-[0m[[0mdebug[0m] [0mexcluding dependency: org.scala-lang#scalap;2.10.0 {compile=[compile(*), master(*)], runtime=[runtime(*)]} in runtime[0m
+[0m[[0mdebug[0m] [0mexcluding dependency: org.scala-lang#scalap;2.10.0 {compile=[compile(*), master(compile)], runtime=[runtime(*)]} in runtime[0m
 [0m[[0mdebug[0m] [0m== resolving dependencies org.json4s#json4s-core_2.10;3.2.10->org.scala-lang#scala-library;2.10.0 [runtime->runtime(*)][0m
 [0m[[0mdebug[0m] [0m== resolving dependencies org.json4s#json4s-core_2.10;3.2.10->org.scala-lang#scala-library;2.10.6 [runtime->runtime(*)][0m
 [0m[[0mdebug[0m] [0m== resolving dependencies org.json4s#json4s-core_2.10;3.2.10->org.scala-lang#scala-library;2.10.6 [runtime->compile][0m
@@ -1230,8 +1465,8 @@
 [0m[[0mdebug[0m] [0msbt-chain: module revision found in cache: org.spire-math#jawn-parser_2.10;0.6.0[0m
 [0m[[0mdebug[0m] [0m	found org.spire-math#jawn-parser_2.10;0.6.0 in sbt-chain[0m
 [0m[[0mdebug[0m] [0m== resolving dependencies org.scala-sbt#serialization_2.10;0.1.2->org.spire-math#jawn-parser_2.10;0.6.0 [compile->compile(*)][0m
-[0m[[0mdebug[0m] [0m== resolving dependencies org.spire-math#jawn-parser_2.10;0.6.0->org.scala-lang#scala-library;2.10.4 [compile->master(*)][0m
-[0m[[0mdebug[0m] [0m== resolving dependencies org.spire-math#jawn-parser_2.10;0.6.0->org.scala-lang#scala-library;2.10.6 [compile->master(*)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies org.spire-math#jawn-parser_2.10;0.6.0->org.scala-lang#scala-library;2.10.4 [compile->master(compile)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies org.spire-math#jawn-parser_2.10;0.6.0->org.scala-lang#scala-library;2.10.6 [compile->master(compile)][0m
 [0m[[0mdebug[0m] [0m== resolving dependencies org.spire-math#jawn-parser_2.10;0.6.0->org.scala-lang#scala-library;2.10.4 [compile->compile(*)][0m
 [0m[[0mdebug[0m] [0m== resolving dependencies org.spire-math#jawn-parser_2.10;0.6.0->org.scala-lang#scala-library;2.10.6 [compile->compile(*)][0m
 [0m[[0mdebug[0m] [0m== resolving dependencies org.scala-sbt#serialization_2.10;0.1.2->org.spire-math#jawn-parser_2.10;0.6.0 [compile->runtime(*)][0m
@@ -1245,13 +1480,13 @@
 [0m[[0mdebug[0m] [0msbt-chain: module revision found in cache: org.spire-math#json4s-support_2.10;0.6.0[0m
 [0m[[0mdebug[0m] [0m	found org.spire-math#json4s-support_2.10;0.6.0 in sbt-chain[0m
 [0m[[0mdebug[0m] [0m== resolving dependencies org.scala-sbt#serialization_2.10;0.1.2->org.spire-math#json4s-support_2.10;0.6.0 [compile->compile(*)][0m
-[0m[[0mdebug[0m] [0m== resolving dependencies org.spire-math#json4s-support_2.10;0.6.0->org.scala-lang#scala-library;2.10.4 [compile->master(*)][0m
-[0m[[0mdebug[0m] [0m== resolving dependencies org.spire-math#json4s-support_2.10;0.6.0->org.scala-lang#scala-library;2.10.6 [compile->master(*)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies org.spire-math#json4s-support_2.10;0.6.0->org.scala-lang#scala-library;2.10.4 [compile->master(compile)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies org.spire-math#json4s-support_2.10;0.6.0->org.scala-lang#scala-library;2.10.6 [compile->master(compile)][0m
 [0m[[0mdebug[0m] [0m== resolving dependencies org.spire-math#json4s-support_2.10;0.6.0->org.scala-lang#scala-library;2.10.4 [compile->compile(*)][0m
 [0m[[0mdebug[0m] [0m== resolving dependencies org.spire-math#json4s-support_2.10;0.6.0->org.scala-lang#scala-library;2.10.6 [compile->compile(*)][0m
-[0m[[0mdebug[0m] [0m== resolving dependencies org.spire-math#json4s-support_2.10;0.6.0->org.spire-math#jawn-parser_2.10;0.6.0 [compile->master(*)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies org.spire-math#json4s-support_2.10;0.6.0->org.spire-math#jawn-parser_2.10;0.6.0 [compile->master(compile)][0m
 [0m[[0mdebug[0m] [0m== resolving dependencies org.spire-math#json4s-support_2.10;0.6.0->org.spire-math#jawn-parser_2.10;0.6.0 [compile->compile(*)][0m
-[0m[[0mdebug[0m] [0m== resolving dependencies org.spire-math#json4s-support_2.10;0.6.0->org.json4s#json4s-ast_2.10;3.2.10 [compile->master(*)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies org.spire-math#json4s-support_2.10;0.6.0->org.json4s#json4s-ast_2.10;3.2.10 [compile->master(compile)][0m
 [0m[[0mdebug[0m] [0m== resolving dependencies org.spire-math#json4s-support_2.10;0.6.0->org.json4s#json4s-ast_2.10;3.2.10 [compile->compile(*)][0m
 [0m[[0mdebug[0m] [0m== resolving dependencies org.scala-sbt#serialization_2.10;0.1.2->org.spire-math#json4s-support_2.10;0.6.0 [compile->runtime(*)][0m
 [0m[[0mdebug[0m] [0m== resolving dependencies org.scala-sbt#serialization_2.10;0.1.2->org.spire-math#json4s-support_2.10;0.6.0 [compile->compile][0m
@@ -1489,6 +1724,8 @@
 [0m[[0mdebug[0m] [0m== resolving dependencies for default#euler-build;0.1-SNAPSHOT [compile-internal][0m
 [0m[[0mdebug[0m] [0m== resolving dependencies for default#euler-build;0.1-SNAPSHOT [compile][0m
 [0m[[0mdebug[0m] [0m== resolving dependencies default#euler-build;0.1-SNAPSHOT->org.scala-sbt#global-plugins;0.0 [compile->default(compile)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies org.scala-sbt#global-plugins;0.0->org.jetbrains#sbt-structure-extractor;2017.2 [compile->default(compile)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies org.scala-sbt#global-plugins;0.0->org.jetbrains#sbt-idea-shell;2017.2 [compile->default(compile)][0m
 [0m[[0mdebug[0m] [0m== resolving dependencies org.scala-sbt#global-plugins;0.0->org.ensime#sbt-ensime;1.11.1 [compile->default(compile)][0m
 [0m[[0mdebug[0m] [0m== resolving dependencies org.scala-sbt#global-plugins;0.0->org.ensime#sbt-ensime;1.11.1 [compile->runtime][0m
 [0m[[0mdebug[0m] [0m== resolving dependencies org.scala-sbt#global-plugins;0.0->org.ensime#sbt-ensime;1.11.1 [compile->compile][0m
@@ -1496,11 +1733,11 @@
 [0m[[0mdebug[0m] [0m== resolving dependencies org.ensime#sbt-ensime;1.11.1->org.scala-lang#scalap;2.10.6 [compile->compile(*)][0m
 [0m[[0mdebug[0m] [0m== resolving dependencies org.scala-lang#scalap;2.10.6->org.scala-lang#scala-compiler;2.10.6 [compile->master(compile)][0m
 [0m[[0mdebug[0m] [0m== resolving dependencies org.scala-lang#scalap;2.10.6->org.scala-lang#scala-compiler;2.10.6 [compile->compile(*)][0m
-[0m[[0mdebug[0m] [0m== resolving dependencies org.scala-lang#scala-compiler;2.10.6->org.scala-lang#scala-library;2.10.6 [compile->master(*)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies org.scala-lang#scala-compiler;2.10.6->org.scala-lang#scala-library;2.10.6 [compile->master(compile)][0m
 [0m[[0mdebug[0m] [0m== resolving dependencies org.scala-lang#scala-compiler;2.10.6->org.scala-lang#scala-library;2.10.6 [compile->compile(*)][0m
-[0m[[0mdebug[0m] [0m== resolving dependencies org.scala-lang#scala-compiler;2.10.6->org.scala-lang#scala-reflect;2.10.6 [compile->master(*)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies org.scala-lang#scala-compiler;2.10.6->org.scala-lang#scala-reflect;2.10.6 [compile->master(compile)][0m
 [0m[[0mdebug[0m] [0m== resolving dependencies org.scala-lang#scala-compiler;2.10.6->org.scala-lang#scala-reflect;2.10.6 [compile->compile(*)][0m
-[0m[[0mdebug[0m] [0m== resolving dependencies org.scala-lang#scala-reflect;2.10.6->org.scala-lang#scala-library;2.10.6 [compile->master(*)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies org.scala-lang#scala-reflect;2.10.6->org.scala-lang#scala-library;2.10.6 [compile->master(compile)][0m
 [0m[[0mdebug[0m] [0m== resolving dependencies org.scala-lang#scala-reflect;2.10.6->org.scala-lang#scala-library;2.10.6 [compile->compile(*)][0m
 [0m[[0mdebug[0m] [0m== resolving dependencies org.ensime#sbt-ensime;1.11.1->org.scalariform#scalariform_2.10;0.1.4 [compile->master(compile)][0m
 [0m[[0mdebug[0m] [0m== resolving dependencies org.ensime#sbt-ensime;1.11.1->org.scalariform#scalariform_2.10;0.1.4 [compile->compile(*)][0m
@@ -1808,44 +2045,44 @@
 [0m[[0mdebug[0m] [0m== resolving dependencies org.scala-lang.modules#scala-pickling_2.10;0.10.1->org.scala-lang#scala-reflect;2.10.6 [compile->compile(*)][0m
 [0m[[0mdebug[0m] [0m== resolving dependencies org.scala-lang.modules#scala-pickling_2.10;0.10.1->org.scalamacros#quasiquotes_2.10;2.0.1 [compile->master(compile)][0m
 [0m[[0mdebug[0m] [0m== resolving dependencies org.scala-lang.modules#scala-pickling_2.10;0.10.1->org.scalamacros#quasiquotes_2.10;2.0.1 [compile->compile(*)][0m
-[0m[[0mdebug[0m] [0m== resolving dependencies org.scalamacros#quasiquotes_2.10;2.0.1->org.scala-lang#scala-library;2.10.4 [compile->master(*)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies org.scalamacros#quasiquotes_2.10;2.0.1->org.scala-lang#scala-library;2.10.4 [compile->master(compile)][0m
 [0m[[0mdebug[0m] [0m== resolving dependencies org.scalamacros#quasiquotes_2.10;2.0.1->org.scala-lang#scala-library;2.10.4 [compile->compile(*)][0m
 [0m[[0mdebug[0m] [0m== resolving dependencies org.scalamacros#quasiquotes_2.10;2.0.1->org.scala-lang#scala-library;2.10.6 [compile->compile(*)][0m
-[0m[[0mdebug[0m] [0m== resolving dependencies org.scalamacros#quasiquotes_2.10;2.0.1->org.scala-lang#scala-reflect;2.10.4 [compile->master(*)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies org.scalamacros#quasiquotes_2.10;2.0.1->org.scala-lang#scala-reflect;2.10.4 [compile->master(compile)][0m
 [0m[[0mdebug[0m] [0m== resolving dependencies org.scalamacros#quasiquotes_2.10;2.0.1->org.scala-lang#scala-reflect;2.10.4 [compile->compile(*)][0m
 [0m[[0mdebug[0m] [0m== resolving dependencies org.scalamacros#quasiquotes_2.10;2.0.1->org.scala-lang#scala-reflect;2.10.6 [compile->compile(*)][0m
 [0m[[0mdebug[0m] [0m== resolving dependencies org.scala-sbt#serialization_2.10;0.1.2->org.json4s#json4s-core_2.10;3.2.10 [compile->master(compile)][0m
 [0m[[0mdebug[0m] [0m== resolving dependencies org.scala-sbt#serialization_2.10;0.1.2->org.json4s#json4s-core_2.10;3.2.10 [compile->compile(*)][0m
-[0m[[0mdebug[0m] [0mexcluding dependency: org.scala-lang#scalap;2.10.0 {compile=[compile(*), master(*)], runtime=[runtime(*)]} in compile[0m
-[0m[[0mdebug[0m] [0m== resolving dependencies org.json4s#json4s-core_2.10;3.2.10->org.scala-lang#scala-library;2.10.0 [compile->master(*)][0m
-[0m[[0mdebug[0m] [0mexcluding dependency: org.scala-lang#scalap;2.10.0 {compile=[compile(*), master(*)], runtime=[runtime(*)]} in compile[0m
+[0m[[0mdebug[0m] [0mexcluding dependency: org.scala-lang#scalap;2.10.0 {compile=[compile(*), master(compile)], runtime=[runtime(*)]} in compile[0m
+[0m[[0mdebug[0m] [0m== resolving dependencies org.json4s#json4s-core_2.10;3.2.10->org.scala-lang#scala-library;2.10.0 [compile->master(compile)][0m
+[0m[[0mdebug[0m] [0mexcluding dependency: org.scala-lang#scalap;2.10.0 {compile=[compile(*), master(compile)], runtime=[runtime(*)]} in compile[0m
 [0m[[0mdebug[0m] [0m== resolving dependencies org.json4s#json4s-core_2.10;3.2.10->org.scala-lang#scala-library;2.10.0 [compile->compile(*)][0m
 [0m[[0mdebug[0m] [0m== resolving dependencies org.json4s#json4s-core_2.10;3.2.10->org.scala-lang#scala-library;2.10.6 [compile->compile(*)][0m
-[0m[[0mdebug[0m] [0m== resolving dependencies org.json4s#json4s-core_2.10;3.2.10->org.json4s#json4s-ast_2.10;3.2.10 [compile->master(*)][0m
-[0m[[0mdebug[0m] [0mexcluding dependency: org.scala-lang#scalap;2.10.0 {compile=[compile(*), master(*)], runtime=[runtime(*)]} in compile[0m
+[0m[[0mdebug[0m] [0m== resolving dependencies org.json4s#json4s-core_2.10;3.2.10->org.json4s#json4s-ast_2.10;3.2.10 [compile->master(compile)][0m
+[0m[[0mdebug[0m] [0mexcluding dependency: org.scala-lang#scalap;2.10.0 {compile=[compile(*), master(compile)], runtime=[runtime(*)]} in compile[0m
 [0m[[0mdebug[0m] [0m== resolving dependencies org.json4s#json4s-core_2.10;3.2.10->org.json4s#json4s-ast_2.10;3.2.10 [compile->compile(*)][0m
-[0m[[0mdebug[0m] [0m== resolving dependencies org.json4s#json4s-ast_2.10;3.2.10->org.scala-lang#scala-library;2.10.0 [compile->master(*)][0m
-[0m[[0mdebug[0m] [0m== resolving dependencies org.json4s#json4s-ast_2.10;3.2.10->org.scala-lang#scala-library;2.10.6 [compile->master(*)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies org.json4s#json4s-ast_2.10;3.2.10->org.scala-lang#scala-library;2.10.0 [compile->master(compile)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies org.json4s#json4s-ast_2.10;3.2.10->org.scala-lang#scala-library;2.10.6 [compile->master(compile)][0m
 [0m[[0mdebug[0m] [0m== resolving dependencies org.json4s#json4s-ast_2.10;3.2.10->org.scala-lang#scala-library;2.10.0 [compile->compile(*)][0m
 [0m[[0mdebug[0m] [0m== resolving dependencies org.json4s#json4s-ast_2.10;3.2.10->org.scala-lang#scala-library;2.10.6 [compile->compile(*)][0m
-[0m[[0mdebug[0m] [0m== resolving dependencies org.json4s#json4s-core_2.10;3.2.10->com.thoughtworks.paranamer#paranamer;2.6 [compile->master(*)][0m
-[0m[[0mdebug[0m] [0mexcluding dependency: org.scala-lang#scalap;2.10.0 {compile=[compile(*), master(*)], runtime=[runtime(*)]} in compile[0m
+[0m[[0mdebug[0m] [0m== resolving dependencies org.json4s#json4s-core_2.10;3.2.10->com.thoughtworks.paranamer#paranamer;2.6 [compile->master(compile)][0m
+[0m[[0mdebug[0m] [0mexcluding dependency: org.scala-lang#scalap;2.10.0 {compile=[compile(*), master(compile)], runtime=[runtime(*)]} in compile[0m
 [0m[[0mdebug[0m] [0m== resolving dependencies org.json4s#json4s-core_2.10;3.2.10->com.thoughtworks.paranamer#paranamer;2.6 [compile->compile(*)][0m
 [0m[[0mdebug[0m] [0m== resolving dependencies org.scala-sbt#serialization_2.10;0.1.2->org.spire-math#jawn-parser_2.10;0.6.0 [compile->master(compile)][0m
 [0m[[0mdebug[0m] [0m== resolving dependencies org.scala-sbt#serialization_2.10;0.1.2->org.spire-math#jawn-parser_2.10;0.6.0 [compile->compile(*)][0m
-[0m[[0mdebug[0m] [0m== resolving dependencies org.spire-math#jawn-parser_2.10;0.6.0->org.scala-lang#scala-library;2.10.4 [compile->master(*)][0m
-[0m[[0mdebug[0m] [0m== resolving dependencies org.spire-math#jawn-parser_2.10;0.6.0->org.scala-lang#scala-library;2.10.6 [compile->master(*)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies org.spire-math#jawn-parser_2.10;0.6.0->org.scala-lang#scala-library;2.10.4 [compile->master(compile)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies org.spire-math#jawn-parser_2.10;0.6.0->org.scala-lang#scala-library;2.10.6 [compile->master(compile)][0m
 [0m[[0mdebug[0m] [0m== resolving dependencies org.spire-math#jawn-parser_2.10;0.6.0->org.scala-lang#scala-library;2.10.4 [compile->compile(*)][0m
 [0m[[0mdebug[0m] [0m== resolving dependencies org.spire-math#jawn-parser_2.10;0.6.0->org.scala-lang#scala-library;2.10.6 [compile->compile(*)][0m
 [0m[[0mdebug[0m] [0m== resolving dependencies org.scala-sbt#serialization_2.10;0.1.2->org.spire-math#json4s-support_2.10;0.6.0 [compile->master(compile)][0m
 [0m[[0mdebug[0m] [0m== resolving dependencies org.scala-sbt#serialization_2.10;0.1.2->org.spire-math#json4s-support_2.10;0.6.0 [compile->compile(*)][0m
-[0m[[0mdebug[0m] [0m== resolving dependencies org.spire-math#json4s-support_2.10;0.6.0->org.scala-lang#scala-library;2.10.4 [compile->master(*)][0m
-[0m[[0mdebug[0m] [0m== resolving dependencies org.spire-math#json4s-support_2.10;0.6.0->org.scala-lang#scala-library;2.10.6 [compile->master(*)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies org.spire-math#json4s-support_2.10;0.6.0->org.scala-lang#scala-library;2.10.4 [compile->master(compile)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies org.spire-math#json4s-support_2.10;0.6.0->org.scala-lang#scala-library;2.10.6 [compile->master(compile)][0m
 [0m[[0mdebug[0m] [0m== resolving dependencies org.spire-math#json4s-support_2.10;0.6.0->org.scala-lang#scala-library;2.10.4 [compile->compile(*)][0m
 [0m[[0mdebug[0m] [0m== resolving dependencies org.spire-math#json4s-support_2.10;0.6.0->org.scala-lang#scala-library;2.10.6 [compile->compile(*)][0m
-[0m[[0mdebug[0m] [0m== resolving dependencies org.spire-math#json4s-support_2.10;0.6.0->org.spire-math#jawn-parser_2.10;0.6.0 [compile->master(*)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies org.spire-math#json4s-support_2.10;0.6.0->org.spire-math#jawn-parser_2.10;0.6.0 [compile->master(compile)][0m
 [0m[[0mdebug[0m] [0m== resolving dependencies org.spire-math#json4s-support_2.10;0.6.0->org.spire-math#jawn-parser_2.10;0.6.0 [compile->compile(*)][0m
-[0m[[0mdebug[0m] [0m== resolving dependencies org.spire-math#json4s-support_2.10;0.6.0->org.json4s#json4s-ast_2.10;3.2.10 [compile->master(*)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies org.spire-math#json4s-support_2.10;0.6.0->org.json4s#json4s-ast_2.10;3.2.10 [compile->master(compile)][0m
 [0m[[0mdebug[0m] [0m== resolving dependencies org.spire-math#json4s-support_2.10;0.6.0->org.json4s#json4s-ast_2.10;3.2.10 [compile->compile(*)][0m
 [0m[[0mdebug[0m] [0m== resolving dependencies org.scala-sbt#serialization_2.10;0.1.2->org.scala-lang#scala-library;2.10.4 [runtime->runtime(*)][0m
 [0m[[0mdebug[0m] [0m== resolving dependencies org.scala-sbt#serialization_2.10;0.1.2->org.scala-lang#scala-library;2.10.6 [runtime->runtime(*)][0m
@@ -1871,7 +2108,7 @@
 [0m[[0mdebug[0m] [0m== resolving dependencies org.scalamacros#quasiquotes_2.10;2.0.1->org.scala-lang#scala-reflect;2.10.6 [runtime->compile][0m
 [0m[[0mdebug[0m] [0m== resolving dependencies org.scala-sbt#serialization_2.10;0.1.2->org.json4s#json4s-core_2.10;3.2.10 [runtime->runtime(*)][0m
 [0m[[0mdebug[0m] [0m== resolving dependencies org.scala-sbt#serialization_2.10;0.1.2->org.json4s#json4s-core_2.10;3.2.10 [runtime->compile][0m
-[0m[[0mdebug[0m] [0mexcluding dependency: org.scala-lang#scalap;2.10.0 {compile=[compile(*), master(*)], runtime=[runtime(*)]} in runtime[0m
+[0m[[0mdebug[0m] [0mexcluding dependency: org.scala-lang#scalap;2.10.0 {compile=[compile(*), master(compile)], runtime=[runtime(*)]} in runtime[0m
 [0m[[0mdebug[0m] [0m== resolving dependencies org.json4s#json4s-core_2.10;3.2.10->org.scala-lang#scala-library;2.10.0 [runtime->runtime(*)][0m
 [0m[[0mdebug[0m] [0m== resolving dependencies org.json4s#json4s-core_2.10;3.2.10->org.scala-lang#scala-library;2.10.6 [runtime->runtime(*)][0m
 [0m[[0mdebug[0m] [0m== resolving dependencies org.json4s#json4s-core_2.10;3.2.10->org.scala-lang#scala-library;2.10.6 [runtime->compile][0m
@@ -2059,6 +2296,8 @@
 [0m[[0mdebug[0m] [0m== resolving dependencies for default#euler-build;0.1-SNAPSHOT [runtime][0m
 [0m[[0mdebug[0m] [0m== resolving dependencies for default#euler-build;0.1-SNAPSHOT [compile][0m
 [0m[[0mdebug[0m] [0m== resolving dependencies default#euler-build;0.1-SNAPSHOT->org.scala-sbt#global-plugins;0.0 [compile->default(compile)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies org.scala-sbt#global-plugins;0.0->org.jetbrains#sbt-structure-extractor;2017.2 [compile->default(compile)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies org.scala-sbt#global-plugins;0.0->org.jetbrains#sbt-idea-shell;2017.2 [compile->default(compile)][0m
 [0m[[0mdebug[0m] [0m== resolving dependencies org.scala-sbt#global-plugins;0.0->org.ensime#sbt-ensime;1.11.1 [compile->default(compile)][0m
 [0m[[0mdebug[0m] [0m== resolving dependencies org.scala-sbt#global-plugins;0.0->org.ensime#sbt-ensime;1.11.1 [compile->runtime][0m
 [0m[[0mdebug[0m] [0m== resolving dependencies org.scala-sbt#global-plugins;0.0->org.ensime#sbt-ensime;1.11.1 [compile->compile][0m
@@ -2066,11 +2305,11 @@
 [0m[[0mdebug[0m] [0m== resolving dependencies org.ensime#sbt-ensime;1.11.1->org.scala-lang#scalap;2.10.6 [compile->compile(*)][0m
 [0m[[0mdebug[0m] [0m== resolving dependencies org.scala-lang#scalap;2.10.6->org.scala-lang#scala-compiler;2.10.6 [compile->master(compile)][0m
 [0m[[0mdebug[0m] [0m== resolving dependencies org.scala-lang#scalap;2.10.6->org.scala-lang#scala-compiler;2.10.6 [compile->compile(*)][0m
-[0m[[0mdebug[0m] [0m== resolving dependencies org.scala-lang#scala-compiler;2.10.6->org.scala-lang#scala-library;2.10.6 [compile->master(*)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies org.scala-lang#scala-compiler;2.10.6->org.scala-lang#scala-library;2.10.6 [compile->master(compile)][0m
 [0m[[0mdebug[0m] [0m== resolving dependencies org.scala-lang#scala-compiler;2.10.6->org.scala-lang#scala-library;2.10.6 [compile->compile(*)][0m
-[0m[[0mdebug[0m] [0m== resolving dependencies org.scala-lang#scala-compiler;2.10.6->org.scala-lang#scala-reflect;2.10.6 [compile->master(*)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies org.scala-lang#scala-compiler;2.10.6->org.scala-lang#scala-reflect;2.10.6 [compile->master(compile)][0m
 [0m[[0mdebug[0m] [0m== resolving dependencies org.scala-lang#scala-compiler;2.10.6->org.scala-lang#scala-reflect;2.10.6 [compile->compile(*)][0m
-[0m[[0mdebug[0m] [0m== resolving dependencies org.scala-lang#scala-reflect;2.10.6->org.scala-lang#scala-library;2.10.6 [compile->master(*)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies org.scala-lang#scala-reflect;2.10.6->org.scala-lang#scala-library;2.10.6 [compile->master(compile)][0m
 [0m[[0mdebug[0m] [0m== resolving dependencies org.scala-lang#scala-reflect;2.10.6->org.scala-lang#scala-library;2.10.6 [compile->compile(*)][0m
 [0m[[0mdebug[0m] [0m== resolving dependencies org.ensime#sbt-ensime;1.11.1->org.scalariform#scalariform_2.10;0.1.4 [compile->master(compile)][0m
 [0m[[0mdebug[0m] [0m== resolving dependencies org.ensime#sbt-ensime;1.11.1->org.scalariform#scalariform_2.10;0.1.4 [compile->compile(*)][0m
@@ -2192,6 +2431,8 @@
 [0m[[0mdebug[0m] [0m== resolving dependencies for default#euler-build;0.1-SNAPSHOT [runtime][0m
 [0m[[0mdebug[0m] [0m== resolving dependencies for default#euler-build;0.1-SNAPSHOT [compile][0m
 [0m[[0mdebug[0m] [0m== resolving dependencies default#euler-build;0.1-SNAPSHOT->org.scala-sbt#global-plugins;0.0 [compile->default(compile)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies org.scala-sbt#global-plugins;0.0->org.jetbrains#sbt-structure-extractor;2017.2 [compile->default(compile)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies org.scala-sbt#global-plugins;0.0->org.jetbrains#sbt-idea-shell;2017.2 [compile->default(compile)][0m
 [0m[[0mdebug[0m] [0m== resolving dependencies org.scala-sbt#global-plugins;0.0->org.ensime#sbt-ensime;1.11.1 [compile->default(compile)][0m
 [0m[[0mdebug[0m] [0m== resolving dependencies org.scala-sbt#global-plugins;0.0->org.ensime#sbt-ensime;1.11.1 [compile->runtime][0m
 [0m[[0mdebug[0m] [0m== resolving dependencies org.scala-sbt#global-plugins;0.0->org.ensime#sbt-ensime;1.11.1 [compile->compile][0m
@@ -2199,11 +2440,11 @@
 [0m[[0mdebug[0m] [0m== resolving dependencies org.ensime#sbt-ensime;1.11.1->org.scala-lang#scalap;2.10.6 [compile->compile(*)][0m
 [0m[[0mdebug[0m] [0m== resolving dependencies org.scala-lang#scalap;2.10.6->org.scala-lang#scala-compiler;2.10.6 [compile->master(compile)][0m
 [0m[[0mdebug[0m] [0m== resolving dependencies org.scala-lang#scalap;2.10.6->org.scala-lang#scala-compiler;2.10.6 [compile->compile(*)][0m
-[0m[[0mdebug[0m] [0m== resolving dependencies org.scala-lang#scala-compiler;2.10.6->org.scala-lang#scala-library;2.10.6 [compile->master(*)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies org.scala-lang#scala-compiler;2.10.6->org.scala-lang#scala-library;2.10.6 [compile->master(compile)][0m
 [0m[[0mdebug[0m] [0m== resolving dependencies org.scala-lang#scala-compiler;2.10.6->org.scala-lang#scala-library;2.10.6 [compile->compile(*)][0m
-[0m[[0mdebug[0m] [0m== resolving dependencies org.scala-lang#scala-compiler;2.10.6->org.scala-lang#scala-reflect;2.10.6 [compile->master(*)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies org.scala-lang#scala-compiler;2.10.6->org.scala-lang#scala-reflect;2.10.6 [compile->master(compile)][0m
 [0m[[0mdebug[0m] [0m== resolving dependencies org.scala-lang#scala-compiler;2.10.6->org.scala-lang#scala-reflect;2.10.6 [compile->compile(*)][0m
-[0m[[0mdebug[0m] [0m== resolving dependencies org.scala-lang#scala-reflect;2.10.6->org.scala-lang#scala-library;2.10.6 [compile->master(*)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies org.scala-lang#scala-reflect;2.10.6->org.scala-lang#scala-library;2.10.6 [compile->master(compile)][0m
 [0m[[0mdebug[0m] [0m== resolving dependencies org.scala-lang#scala-reflect;2.10.6->org.scala-lang#scala-library;2.10.6 [compile->compile(*)][0m
 [0m[[0mdebug[0m] [0m== resolving dependencies org.ensime#sbt-ensime;1.11.1->org.scalariform#scalariform_2.10;0.1.4 [compile->master(compile)][0m
 [0m[[0mdebug[0m] [0m== resolving dependencies org.ensime#sbt-ensime;1.11.1->org.scalariform#scalariform_2.10;0.1.4 [compile->compile(*)][0m
@@ -2511,44 +2752,44 @@
 [0m[[0mdebug[0m] [0m== resolving dependencies org.scala-lang.modules#scala-pickling_2.10;0.10.1->org.scala-lang#scala-reflect;2.10.6 [compile->compile(*)][0m
 [0m[[0mdebug[0m] [0m== resolving dependencies org.scala-lang.modules#scala-pickling_2.10;0.10.1->org.scalamacros#quasiquotes_2.10;2.0.1 [compile->master(compile)][0m
 [0m[[0mdebug[0m] [0m== resolving dependencies org.scala-lang.modules#scala-pickling_2.10;0.10.1->org.scalamacros#quasiquotes_2.10;2.0.1 [compile->compile(*)][0m
-[0m[[0mdebug[0m] [0m== resolving dependencies org.scalamacros#quasiquotes_2.10;2.0.1->org.scala-lang#scala-library;2.10.4 [compile->master(*)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies org.scalamacros#quasiquotes_2.10;2.0.1->org.scala-lang#scala-library;2.10.4 [compile->master(compile)][0m
 [0m[[0mdebug[0m] [0m== resolving dependencies org.scalamacros#quasiquotes_2.10;2.0.1->org.scala-lang#scala-library;2.10.4 [compile->compile(*)][0m
 [0m[[0mdebug[0m] [0m== resolving dependencies org.scalamacros#quasiquotes_2.10;2.0.1->org.scala-lang#scala-library;2.10.6 [compile->compile(*)][0m
-[0m[[0mdebug[0m] [0m== resolving dependencies org.scalamacros#quasiquotes_2.10;2.0.1->org.scala-lang#scala-reflect;2.10.4 [compile->master(*)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies org.scalamacros#quasiquotes_2.10;2.0.1->org.scala-lang#scala-reflect;2.10.4 [compile->master(compile)][0m
 [0m[[0mdebug[0m] [0m== resolving dependencies org.scalamacros#quasiquotes_2.10;2.0.1->org.scala-lang#scala-reflect;2.10.4 [compile->compile(*)][0m
 [0m[[0mdebug[0m] [0m== resolving dependencies org.scalamacros#quasiquotes_2.10;2.0.1->org.scala-lang#scala-reflect;2.10.6 [compile->compile(*)][0m
 [0m[[0mdebug[0m] [0m== resolving dependencies org.scala-sbt#serialization_2.10;0.1.2->org.json4s#json4s-core_2.10;3.2.10 [compile->master(compile)][0m
 [0m[[0mdebug[0m] [0m== resolving dependencies org.scala-sbt#serialization_2.10;0.1.2->org.json4s#json4s-core_2.10;3.2.10 [compile->compile(*)][0m
-[0m[[0mdebug[0m] [0mexcluding dependency: org.scala-lang#scalap;2.10.0 {compile=[compile(*), master(*)], runtime=[runtime(*)]} in compile[0m
-[0m[[0mdebug[0m] [0m== resolving dependencies org.json4s#json4s-core_2.10;3.2.10->org.scala-lang#scala-library;2.10.0 [compile->master(*)][0m
-[0m[[0mdebug[0m] [0mexcluding dependency: org.scala-lang#scalap;2.10.0 {compile=[compile(*), master(*)], runtime=[runtime(*)]} in compile[0m
+[0m[[0mdebug[0m] [0mexcluding dependency: org.scala-lang#scalap;2.10.0 {compile=[compile(*), master(compile)], runtime=[runtime(*)]} in compile[0m
+[0m[[0mdebug[0m] [0m== resolving dependencies org.json4s#json4s-core_2.10;3.2.10->org.scala-lang#scala-library;2.10.0 [compile->master(compile)][0m
+[0m[[0mdebug[0m] [0mexcluding dependency: org.scala-lang#scalap;2.10.0 {compile=[compile(*), master(compile)], runtime=[runtime(*)]} in compile[0m
 [0m[[0mdebug[0m] [0m== resolving dependencies org.json4s#json4s-core_2.10;3.2.10->org.scala-lang#scala-library;2.10.0 [compile->compile(*)][0m
 [0m[[0mdebug[0m] [0m== resolving dependencies org.json4s#json4s-core_2.10;3.2.10->org.scala-lang#scala-library;2.10.6 [compile->compile(*)][0m
-[0m[[0mdebug[0m] [0m== resolving dependencies org.json4s#json4s-core_2.10;3.2.10->org.json4s#json4s-ast_2.10;3.2.10 [compile->master(*)][0m
-[0m[[0mdebug[0m] [0mexcluding dependency: org.scala-lang#scalap;2.10.0 {compile=[compile(*), master(*)], runtime=[runtime(*)]} in compile[0m
+[0m[[0mdebug[0m] [0m== resolving dependencies org.json4s#json4s-core_2.10;3.2.10->org.json4s#json4s-ast_2.10;3.2.10 [compile->master(compile)][0m
+[0m[[0mdebug[0m] [0mexcluding dependency: org.scala-lang#scalap;2.10.0 {compile=[compile(*), master(compile)], runtime=[runtime(*)]} in compile[0m
 [0m[[0mdebug[0m] [0m== resolving dependencies org.json4s#json4s-core_2.10;3.2.10->org.json4s#json4s-ast_2.10;3.2.10 [compile->compile(*)][0m
-[0m[[0mdebug[0m] [0m== resolving dependencies org.json4s#json4s-ast_2.10;3.2.10->org.scala-lang#scala-library;2.10.0 [compile->master(*)][0m
-[0m[[0mdebug[0m] [0m== resolving dependencies org.json4s#json4s-ast_2.10;3.2.10->org.scala-lang#scala-library;2.10.6 [compile->master(*)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies org.json4s#json4s-ast_2.10;3.2.10->org.scala-lang#scala-library;2.10.0 [compile->master(compile)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies org.json4s#json4s-ast_2.10;3.2.10->org.scala-lang#scala-library;2.10.6 [compile->master(compile)][0m
 [0m[[0mdebug[0m] [0m== resolving dependencies org.json4s#json4s-ast_2.10;3.2.10->org.scala-lang#scala-library;2.10.0 [compile->compile(*)][0m
 [0m[[0mdebug[0m] [0m== resolving dependencies org.json4s#json4s-ast_2.10;3.2.10->org.scala-lang#scala-library;2.10.6 [compile->compile(*)][0m
-[0m[[0mdebug[0m] [0m== resolving dependencies org.json4s#json4s-core_2.10;3.2.10->com.thoughtworks.paranamer#paranamer;2.6 [compile->master(*)][0m
-[0m[[0mdebug[0m] [0mexcluding dependency: org.scala-lang#scalap;2.10.0 {compile=[compile(*), master(*)], runtime=[runtime(*)]} in compile[0m
+[0m[[0mdebug[0m] [0m== resolving dependencies org.json4s#json4s-core_2.10;3.2.10->com.thoughtworks.paranamer#paranamer;2.6 [compile->master(compile)][0m
+[0m[[0mdebug[0m] [0mexcluding dependency: org.scala-lang#scalap;2.10.0 {compile=[compile(*), master(compile)], runtime=[runtime(*)]} in compile[0m
 [0m[[0mdebug[0m] [0m== resolving dependencies org.json4s#json4s-core_2.10;3.2.10->com.thoughtworks.paranamer#paranamer;2.6 [compile->compile(*)][0m
 [0m[[0mdebug[0m] [0m== resolving dependencies org.scala-sbt#serialization_2.10;0.1.2->org.spire-math#jawn-parser_2.10;0.6.0 [compile->master(compile)][0m
 [0m[[0mdebug[0m] [0m== resolving dependencies org.scala-sbt#serialization_2.10;0.1.2->org.spire-math#jawn-parser_2.10;0.6.0 [compile->compile(*)][0m
-[0m[[0mdebug[0m] [0m== resolving dependencies org.spire-math#jawn-parser_2.10;0.6.0->org.scala-lang#scala-library;2.10.4 [compile->master(*)][0m
-[0m[[0mdebug[0m] [0m== resolving dependencies org.spire-math#jawn-parser_2.10;0.6.0->org.scala-lang#scala-library;2.10.6 [compile->master(*)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies org.spire-math#jawn-parser_2.10;0.6.0->org.scala-lang#scala-library;2.10.4 [compile->master(compile)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies org.spire-math#jawn-parser_2.10;0.6.0->org.scala-lang#scala-library;2.10.6 [compile->master(compile)][0m
 [0m[[0mdebug[0m] [0m== resolving dependencies org.spire-math#jawn-parser_2.10;0.6.0->org.scala-lang#scala-library;2.10.4 [compile->compile(*)][0m
 [0m[[0mdebug[0m] [0m== resolving dependencies org.spire-math#jawn-parser_2.10;0.6.0->org.scala-lang#scala-library;2.10.6 [compile->compile(*)][0m
 [0m[[0mdebug[0m] [0m== resolving dependencies org.scala-sbt#serialization_2.10;0.1.2->org.spire-math#json4s-support_2.10;0.6.0 [compile->master(compile)][0m
 [0m[[0mdebug[0m] [0m== resolving dependencies org.scala-sbt#serialization_2.10;0.1.2->org.spire-math#json4s-support_2.10;0.6.0 [compile->compile(*)][0m
-[0m[[0mdebug[0m] [0m== resolving dependencies org.spire-math#json4s-support_2.10;0.6.0->org.scala-lang#scala-library;2.10.4 [compile->master(*)][0m
-[0m[[0mdebug[0m] [0m== resolving dependencies org.spire-math#json4s-support_2.10;0.6.0->org.scala-lang#scala-library;2.10.6 [compile->master(*)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies org.spire-math#json4s-support_2.10;0.6.0->org.scala-lang#scala-library;2.10.4 [compile->master(compile)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies org.spire-math#json4s-support_2.10;0.6.0->org.scala-lang#scala-library;2.10.6 [compile->master(compile)][0m
 [0m[[0mdebug[0m] [0m== resolving dependencies org.spire-math#json4s-support_2.10;0.6.0->org.scala-lang#scala-library;2.10.4 [compile->compile(*)][0m
 [0m[[0mdebug[0m] [0m== resolving dependencies org.spire-math#json4s-support_2.10;0.6.0->org.scala-lang#scala-library;2.10.6 [compile->compile(*)][0m
-[0m[[0mdebug[0m] [0m== resolving dependencies org.spire-math#json4s-support_2.10;0.6.0->org.spire-math#jawn-parser_2.10;0.6.0 [compile->master(*)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies org.spire-math#json4s-support_2.10;0.6.0->org.spire-math#jawn-parser_2.10;0.6.0 [compile->master(compile)][0m
 [0m[[0mdebug[0m] [0m== resolving dependencies org.spire-math#json4s-support_2.10;0.6.0->org.spire-math#jawn-parser_2.10;0.6.0 [compile->compile(*)][0m
-[0m[[0mdebug[0m] [0m== resolving dependencies org.spire-math#json4s-support_2.10;0.6.0->org.json4s#json4s-ast_2.10;3.2.10 [compile->master(*)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies org.spire-math#json4s-support_2.10;0.6.0->org.json4s#json4s-ast_2.10;3.2.10 [compile->master(compile)][0m
 [0m[[0mdebug[0m] [0m== resolving dependencies org.spire-math#json4s-support_2.10;0.6.0->org.json4s#json4s-ast_2.10;3.2.10 [compile->compile(*)][0m
 [0m[[0mdebug[0m] [0m== resolving dependencies org.scala-sbt#serialization_2.10;0.1.2->org.scala-lang#scala-library;2.10.4 [runtime->runtime(*)][0m
 [0m[[0mdebug[0m] [0m== resolving dependencies org.scala-sbt#serialization_2.10;0.1.2->org.scala-lang#scala-library;2.10.6 [runtime->runtime(*)][0m
@@ -2574,7 +2815,7 @@
 [0m[[0mdebug[0m] [0m== resolving dependencies org.scalamacros#quasiquotes_2.10;2.0.1->org.scala-lang#scala-reflect;2.10.6 [runtime->compile][0m
 [0m[[0mdebug[0m] [0m== resolving dependencies org.scala-sbt#serialization_2.10;0.1.2->org.json4s#json4s-core_2.10;3.2.10 [runtime->runtime(*)][0m
 [0m[[0mdebug[0m] [0m== resolving dependencies org.scala-sbt#serialization_2.10;0.1.2->org.json4s#json4s-core_2.10;3.2.10 [runtime->compile][0m
-[0m[[0mdebug[0m] [0mexcluding dependency: org.scala-lang#scalap;2.10.0 {compile=[compile(*), master(*)], runtime=[runtime(*)]} in runtime[0m
+[0m[[0mdebug[0m] [0mexcluding dependency: org.scala-lang#scalap;2.10.0 {compile=[compile(*), master(compile)], runtime=[runtime(*)]} in runtime[0m
 [0m[[0mdebug[0m] [0m== resolving dependencies org.json4s#json4s-core_2.10;3.2.10->org.scala-lang#scala-library;2.10.0 [runtime->runtime(*)][0m
 [0m[[0mdebug[0m] [0m== resolving dependencies org.json4s#json4s-core_2.10;3.2.10->org.scala-lang#scala-library;2.10.6 [runtime->runtime(*)][0m
 [0m[[0mdebug[0m] [0m== resolving dependencies org.json4s#json4s-core_2.10;3.2.10->org.scala-lang#scala-library;2.10.6 [runtime->compile][0m
@@ -2770,16 +3011,16 @@
 [0m[[0mdebug[0m] [0m== resolving dependencies default#euler-build;0.1-SNAPSHOT->org.scala-lang#scala-compiler;2.10.6 [scala-tool->default][0m
 [0m[[0mdebug[0m] [0m== resolving dependencies default#euler-build;0.1-SNAPSHOT->org.scala-lang#scala-compiler;2.10.6 [scala-tool->runtime][0m
 [0m[[0mdebug[0m] [0m== resolving dependencies default#euler-build;0.1-SNAPSHOT->org.scala-lang#scala-compiler;2.10.6 [scala-tool->compile][0m
-[0m[[0mdebug[0m] [0m== resolving dependencies org.scala-lang#scala-compiler;2.10.6->org.scala-lang#scala-library;2.10.6 [compile->master(*)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies org.scala-lang#scala-compiler;2.10.6->org.scala-lang#scala-library;2.10.6 [compile->master(compile)][0m
 [0m[[0mdebug[0m] [0m== resolving dependencies org.scala-lang#scala-compiler;2.10.6->org.scala-lang#scala-library;2.10.6 [compile->compile(*)][0m
 [0m[[0mdebug[0m] [0m== resolving dependencies org.scala-lang#scala-compiler;2.10.6->org.scala-lang#scala-library;2.10.6 [compile->default][0m
 [0m[[0mdebug[0m] [0m== resolving dependencies org.scala-lang#scala-compiler;2.10.6->org.scala-lang#scala-library;2.10.6 [compile->runtime][0m
 [0m[[0mdebug[0m] [0m== resolving dependencies org.scala-lang#scala-compiler;2.10.6->org.scala-lang#scala-library;2.10.6 [compile->compile][0m
 [0m[[0mdebug[0m] [0m== resolving dependencies org.scala-lang#scala-compiler;2.10.6->org.scala-lang#scala-library;2.10.6 [compile->master][0m
 [0m[[0mdebug[0m] [0m== resolving dependencies org.scala-lang#scala-compiler;2.10.6->org.scala-lang#scala-library;2.10.6 [compile->optional(default)][0m
-[0m[[0mdebug[0m] [0m== resolving dependencies org.scala-lang#scala-compiler;2.10.6->org.scala-lang#scala-reflect;2.10.6 [compile->master(*)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies org.scala-lang#scala-compiler;2.10.6->org.scala-lang#scala-reflect;2.10.6 [compile->master(compile)][0m
 [0m[[0mdebug[0m] [0m== resolving dependencies org.scala-lang#scala-compiler;2.10.6->org.scala-lang#scala-reflect;2.10.6 [compile->compile(*)][0m
-[0m[[0mdebug[0m] [0m== resolving dependencies org.scala-lang#scala-reflect;2.10.6->org.scala-lang#scala-library;2.10.6 [compile->master(*)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies org.scala-lang#scala-reflect;2.10.6->org.scala-lang#scala-library;2.10.6 [compile->master(compile)][0m
 [0m[[0mdebug[0m] [0m== resolving dependencies org.scala-lang#scala-reflect;2.10.6->org.scala-lang#scala-library;2.10.6 [compile->compile(*)][0m
 [0m[[0mdebug[0m] [0m== resolving dependencies org.scala-lang#scala-compiler;2.10.6->org.scala-lang#scala-library;2.10.6 [runtime->runtime(*)][0m
 [0m[[0mdebug[0m] [0m== resolving dependencies org.scala-lang#scala-compiler;2.10.6->org.scala-lang#scala-library;2.10.6 [runtime->compile][0m
@@ -2789,15 +3030,15 @@
 [0m[[0mdebug[0m] [0m== resolving dependencies org.scala-lang#scala-reflect;2.10.6->org.scala-lang#scala-library;2.10.6 [runtime->compile][0m
 [0m[[0mdebug[0m] [0m== resolving dependencies default#euler-build;0.1-SNAPSHOT->org.scala-lang#scala-compiler;2.10.6 [scala-tool->master][0m
 [0m[[0mdebug[0m] [0m== resolving dependencies default#euler-build;0.1-SNAPSHOT->org.scala-lang#scala-compiler;2.10.6 [scala-tool->optional(default)][0m
-[0m[[0mdebug[0m] [0m== resolving dependencies org.scala-lang#scala-compiler;2.10.6->org.scala-lang#jline;2.10.6 [optional->master(*)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies org.scala-lang#scala-compiler;2.10.6->org.scala-lang#jline;2.10.6 [optional->master(compile)][0m
 [0m[[0minfo[0m] [0mResolving org.scala-lang#jline;2.10.6 ...[0m
-[0m[[0mdebug[0m] [0msbt-chain: Checking cache for: dependency: org.scala-lang#jline;2.10.6 {optional=[compile(*), master(*)]}[0m
+[0m[[0mdebug[0m] [0msbt-chain: Checking cache for: dependency: org.scala-lang#jline;2.10.6 {optional=[compile(*), master(compile)]}[0m
 [0m[[0mdebug[0m] [0msbt-chain: module revision found in cache: org.scala-lang#jline;2.10.6[0m
 [0m[[0mdebug[0m] [0m	found org.scala-lang#jline;2.10.6 in sbt-chain[0m
 [0m[[0mdebug[0m] [0m== resolving dependencies org.scala-lang#scala-compiler;2.10.6->org.scala-lang#jline;2.10.6 [optional->compile(*)][0m
-[0m[[0mdebug[0m] [0m== resolving dependencies org.scala-lang#jline;2.10.6->org.fusesource.jansi#jansi;1.4 [compile->master(*)][0m
+[0m[[0mdebug[0m] [0m== resolving dependencies org.scala-lang#jline;2.10.6->org.fusesource.jansi#jansi;1.4 [compile->master(compile)][0m
 [0m[[0minfo[0m] [0mResolving org.fusesource.jansi#jansi;1.4 ...[0m
-[0m[[0mdebug[0m] [0msbt-chain: Checking cache for: dependency: org.fusesource.jansi#jansi;1.4 {compile=[compile(*), master(*)], runtime=[runtime(*)]}[0m
+[0m[[0mdebug[0m] [0msbt-chain: Checking cache for: dependency: org.fusesource.jansi#jansi;1.4 {compile=[compile(*), master(compile)], runtime=[runtime(*)]}[0m
 [0m[[0mdebug[0m] [0msbt-chain: module revision found in cache: org.fusesource.jansi#jansi;1.4[0m
 [0m[[0mdebug[0m] [0m	found org.fusesource.jansi#jansi;1.4 in sbt-chain[0m
 [0m[[0mdebug[0m] [0m== resolving dependencies org.scala-lang#jline;2.10.6->org.fusesource.jansi#jansi;1.4 [compile->compile(*)][0m
@@ -2831,13 +3072,15 @@
 [0m[[0mdebug[0m] [0m	Artima Maven Repository: downloading http://repo.artima.com/releases/com/artima/supersafe/sbtplugin_2.10_0.13/1.1.3/sbtplugin-1.1.3.jar[0m
 [0m[[0mdebug[0m] [0m	Artima Maven Repository: downloading http://repo.artima.com/releases/com/artima/supersafe/sbtplugin_2.10_0.13/1.1.3/sbtplugin-1.1.3.jar.sha1[0m
 [0m[[0mdebug[0m] [0msha1 OK for http://repo.artima.com/releases/com/artima/supersafe/sbtplugin_2.10_0.13/1.1.3/sbtplugin-1.1.3.jar[0m
-[0m[[0minfo[0m] [0m	[SUCCESSFUL ] com.artima.supersafe#sbtplugin;1.1.3!sbtplugin.jar (1693ms)[0m
+[0m[[0minfo[0m] [0m	[SUCCESSFUL ] com.artima.supersafe#sbtplugin;1.1.3!sbtplugin.jar (774ms)[0m
 [0m[[0mdebug[0m] [0m		tried https://repo.scala-sbt.org/scalasbt/sbt-plugin-releases/org.scala-js/sbt-scalajs/scala_2.10/sbt_0.13/0.6.21/jars/sbt-scalajs.jar[0m
 [0m[[0minfo[0m] [0mdownloading https://repo.scala-sbt.org/scalasbt/sbt-plugin-releases/org.scala-js/sbt-scalajs/scala_2.10/sbt_0.13/0.6.21/jars/sbt-scalajs.jar ...[0m
 [0m[[0mdebug[0m] [0m	sbt-plugin-releases: downloading https://repo.scala-sbt.org/scalasbt/sbt-plugin-releases/org.scala-js/sbt-scalajs/scala_2.10/sbt_0.13/0.6.21/jars/sbt-scalajs.jar[0m
 [0m[[0mdebug[0m] [0m	sbt-plugin-releases: downloading https://repo.scala-sbt.org/scalasbt/sbt-plugin-releases/org.scala-js/sbt-scalajs/scala_2.10/sbt_0.13/0.6.21/jars/sbt-scalajs.jar.sha1[0m
 [0m[[0mdebug[0m] [0msha1 OK for https://repo.scala-sbt.org/scalasbt/sbt-plugin-releases/org.scala-js/sbt-scalajs/scala_2.10/sbt_0.13/0.6.21/jars/sbt-scalajs.jar[0m
-[0m[[0minfo[0m] [0m	[SUCCESSFUL ] org.scala-js#sbt-scalajs;0.6.21!sbt-scalajs.jar (5001ms)[0m
+[0m[[0minfo[0m] [0m	[SUCCESSFUL ] org.scala-js#sbt-scalajs;0.6.21!sbt-scalajs.jar (4836ms)[0m
+[0m[[0mdebug[0m] [0m	[NOT REQUIRED] org.jetbrains#sbt-structure-extractor;2017.2!sbt-structure-extractor.jar[0m
+[0m[[0mdebug[0m] [0m	[NOT REQUIRED] org.jetbrains#sbt-idea-shell;2017.2!sbt-idea-shell.jar[0m
 [0m[[0mdebug[0m] [0m	[NOT REQUIRED] org.ensime#sbt-ensime;1.11.1!sbt-ensime.jar[0m
 [0m[[0mdebug[0m] [0m	[NOT REQUIRED] org.scala-lang#scalap;2.10.6!scalap.jar[0m
 [0m[[0mdebug[0m] [0m	[NOT REQUIRED] org.scalariform#scalariform_2.10;0.1.4!scalariform_2.10.jar[0m
@@ -2849,55 +3092,85 @@
 [0m[[0mdebug[0m] [0m	public: downloading https://repo1.maven.org/maven2/org/scala-js/scalajs-tools_2.10/0.6.21/scalajs-tools_2.10-0.6.21.jar[0m
 [0m[[0mdebug[0m] [0m	public: downloading https://repo1.maven.org/maven2/org/scala-js/scalajs-tools_2.10/0.6.21/scalajs-tools_2.10-0.6.21.jar.sha1[0m
 [0m[[0mdebug[0m] [0msha1 OK for https://repo1.maven.org/maven2/org/scala-js/scalajs-tools_2.10/0.6.21/scalajs-tools_2.10-0.6.21.jar[0m
-[0m[[0minfo[0m] [0m	[SUCCESSFUL ] org.scala-js#scalajs-tools_2.10;0.6.21!scalajs-tools_2.10.jar (1340ms)[0m
+[0m[[0minfo[0m] [0m	[SUCCESSFUL ] org.scala-js#scalajs-tools_2.10;0.6.21!scalajs-tools_2.10.jar (1722ms)[0m
 [0m[[0mdebug[0m] [0m		tried https://repo1.maven.org/maven2/org/scala-js/scalajs-js-envs_2.10/0.6.21/scalajs-js-envs_2.10-0.6.21.jar[0m
 [0m[[0minfo[0m] [0mdownloading https://repo1.maven.org/maven2/org/scala-js/scalajs-js-envs_2.10/0.6.21/scalajs-js-envs_2.10-0.6.21.jar ...[0m
 [0m[[0mdebug[0m] [0m	public: downloading https://repo1.maven.org/maven2/org/scala-js/scalajs-js-envs_2.10/0.6.21/scalajs-js-envs_2.10-0.6.21.jar[0m
 [0m[[0mdebug[0m] [0m	public: downloading https://repo1.maven.org/maven2/org/scala-js/scalajs-js-envs_2.10/0.6.21/scalajs-js-envs_2.10-0.6.21.jar.sha1[0m
 [0m[[0mdebug[0m] [0msha1 OK for https://repo1.maven.org/maven2/org/scala-js/scalajs-js-envs_2.10/0.6.21/scalajs-js-envs_2.10-0.6.21.jar[0m
-[0m[[0minfo[0m] [0m	[SUCCESSFUL ] org.scala-js#scalajs-js-envs_2.10;0.6.21!scalajs-js-envs_2.10.jar (283ms)[0m
+[0m[[0minfo[0m] [0m	[SUCCESSFUL ] org.scala-js#scalajs-js-envs_2.10;0.6.21!scalajs-js-envs_2.10.jar (377ms)[0m
 [0m[[0mdebug[0m] [0m		tried https://repo1.maven.org/maven2/org/scala-js/scalajs-sbt-test-adapter_2.10/0.6.21/scalajs-sbt-test-adapter_2.10-0.6.21.jar[0m
 [0m[[0minfo[0m] [0mdownloading https://repo1.maven.org/maven2/org/scala-js/scalajs-sbt-test-adapter_2.10/0.6.21/scalajs-sbt-test-adapter_2.10-0.6.21.jar ...[0m
 [0m[[0mdebug[0m] [0m	public: downloading https://repo1.maven.org/maven2/org/scala-js/scalajs-sbt-test-adapter_2.10/0.6.21/scalajs-sbt-test-adapter_2.10-0.6.21.jar[0m
 [0m[[0mdebug[0m] [0m	public: downloading https://repo1.maven.org/maven2/org/scala-js/scalajs-sbt-test-adapter_2.10/0.6.21/scalajs-sbt-test-adapter_2.10-0.6.21.jar.sha1[0m
 [0m[[0mdebug[0m] [0msha1 OK for https://repo1.maven.org/maven2/org/scala-js/scalajs-sbt-test-adapter_2.10/0.6.21/scalajs-sbt-test-adapter_2.10-0.6.21.jar[0m
-[0m[[0minfo[0m] [0m	[SUCCESSFUL ] org.scala-js#scalajs-sbt-test-adapter_2.10;0.6.21!scalajs-sbt-test-adapter_2.10.jar (620ms)[0m
+[0m[[0minfo[0m] [0m	[SUCCESSFUL ] org.scala-js#scalajs-sbt-test-adapter_2.10;0.6.21!scalajs-sbt-test-adapter_2.10.jar (390ms)[0m
 [0m[[0mdebug[0m] [0m		tried https://repo1.maven.org/maven2/org/scala-js/scalajs-ir_2.10/0.6.21/scalajs-ir_2.10-0.6.21.jar[0m
 [0m[[0minfo[0m] [0mdownloading https://repo1.maven.org/maven2/org/scala-js/scalajs-ir_2.10/0.6.21/scalajs-ir_2.10-0.6.21.jar ...[0m
 [0m[[0mdebug[0m] [0m	public: downloading https://repo1.maven.org/maven2/org/scala-js/scalajs-ir_2.10/0.6.21/scalajs-ir_2.10-0.6.21.jar[0m
 [0m[[0mdebug[0m] [0m	public: downloading https://repo1.maven.org/maven2/org/scala-js/scalajs-ir_2.10/0.6.21/scalajs-ir_2.10-0.6.21.jar.sha1[0m
 [0m[[0mdebug[0m] [0msha1 OK for https://repo1.maven.org/maven2/org/scala-js/scalajs-ir_2.10/0.6.21/scalajs-ir_2.10-0.6.21.jar[0m
-[0m[[0minfo[0m] [0m	[SUCCESSFUL ] org.scala-js#scalajs-ir_2.10;0.6.21!scalajs-ir_2.10.jar (394ms)[0m
+[0m[[0minfo[0m] [0m	[SUCCESSFUL ] org.scala-js#scalajs-ir_2.10;0.6.21!scalajs-ir_2.10.jar (603ms)[0m
 [0m[[0mdebug[0m] [0m		tried https://repo1.maven.org/maven2/org/scala-js/closure-compiler-java-6/v20160517/closure-compiler-java-6-v20160517.jar[0m
 [0m[[0minfo[0m] [0mdownloading https://repo1.maven.org/maven2/org/scala-js/closure-compiler-java-6/v20160517/closure-compiler-java-6-v20160517.jar ...[0m
 [0m[[0mdebug[0m] [0m	public: downloading https://repo1.maven.org/maven2/org/scala-js/closure-compiler-java-6/v20160517/closure-compiler-java-6-v20160517.jar[0m
 [0m[[0mdebug[0m] [0m	public: downloading https://repo1.maven.org/maven2/org/scala-js/closure-compiler-java-6/v20160517/closure-compiler-java-6-v20160517.jar.sha1[0m
 [0m[[0mdebug[0m] [0msha1 OK for https://repo1.maven.org/maven2/org/scala-js/closure-compiler-java-6/v20160517/closure-compiler-java-6-v20160517.jar[0m
-[0m[[0minfo[0m] [0m	[SUCCESSFUL ] org.scala-js#closure-compiler-java-6;v20160517!closure-compiler-java-6.jar (1579ms)[0m
-[0m[[0mdebug[0m] [0m	[NOT REQUIRED] com.googlecode.json-simple#json-simple;1.1.1!json-simple.jar(bundle)[0m
+[0m[[0minfo[0m] [0m	[SUCCESSFUL ] org.scala-js#closure-compiler-java-6;v20160517!closure-compiler-java-6.jar (3449ms)[0m
+[0m[[0mdebug[0m] [0m		tried https://repo1.maven.org/maven2/com/googlecode/json-simple/json-simple/1.1.1/json-simple-1.1.1.jar[0m
+[0m[[0minfo[0m] [0mdownloading https://repo1.maven.org/maven2/com/googlecode/json-simple/json-simple/1.1.1/json-simple-1.1.1.jar ...[0m
+[0m[[0mdebug[0m] [0m	public: downloading https://repo1.maven.org/maven2/com/googlecode/json-simple/json-simple/1.1.1/json-simple-1.1.1.jar[0m
+[0m[[0mdebug[0m] [0m	public: downloading https://repo1.maven.org/maven2/com/googlecode/json-simple/json-simple/1.1.1/json-simple-1.1.1.jar.sha1[0m
+[0m[[0mdebug[0m] [0msha1 OK for https://repo1.maven.org/maven2/com/googlecode/json-simple/json-simple/1.1.1/json-simple-1.1.1.jar[0m
+[0m[[0minfo[0m] [0m	[SUCCESSFUL ] com.googlecode.json-simple#json-simple;1.1.1!json-simple.jar(bundle) (183ms)[0m
 [0m[[0mdebug[0m] [0m		tried https://repo1.maven.org/maven2/org/scala-js/closure-compiler-externs-java-6/v20160517/closure-compiler-externs-java-6-v20160517.jar[0m
 [0m[[0minfo[0m] [0mdownloading https://repo1.maven.org/maven2/org/scala-js/closure-compiler-externs-java-6/v20160517/closure-compiler-externs-java-6-v20160517.jar ...[0m
 [0m[[0mdebug[0m] [0m	public: downloading https://repo1.maven.org/maven2/org/scala-js/closure-compiler-externs-java-6/v20160517/closure-compiler-externs-java-6-v20160517.jar[0m
 [0m[[0mdebug[0m] [0m	public: downloading https://repo1.maven.org/maven2/org/scala-js/closure-compiler-externs-java-6/v20160517/closure-compiler-externs-java-6-v20160517.jar.sha1[0m
 [0m[[0mdebug[0m] [0msha1 OK for https://repo1.maven.org/maven2/org/scala-js/closure-compiler-externs-java-6/v20160517/closure-compiler-externs-java-6-v20160517.jar[0m
-[0m[[0minfo[0m] [0m	[SUCCESSFUL ] org.scala-js#closure-compiler-externs-java-6;v20160517!closure-compiler-externs-java-6.jar (227ms)[0m
-[0m[[0mdebug[0m] [0m	[NOT REQUIRED] args4j#args4j;2.0.26!args4j.jar(bundle)[0m
+[0m[[0minfo[0m] [0m	[SUCCESSFUL ] org.scala-js#closure-compiler-externs-java-6;v20160517!closure-compiler-externs-java-6.jar (222ms)[0m
+[0m[[0mdebug[0m] [0m		tried https://repo1.maven.org/maven2/args4j/args4j/2.0.26/args4j-2.0.26.jar[0m
+[0m[[0minfo[0m] [0mdownloading https://repo1.maven.org/maven2/args4j/args4j/2.0.26/args4j-2.0.26.jar ...[0m
+[0m[[0mdebug[0m] [0m	public: downloading https://repo1.maven.org/maven2/args4j/args4j/2.0.26/args4j-2.0.26.jar[0m
+[0m[[0mdebug[0m] [0m	public: downloading https://repo1.maven.org/maven2/args4j/args4j/2.0.26/args4j-2.0.26.jar.sha1[0m
+[0m[[0mdebug[0m] [0msha1 OK for https://repo1.maven.org/maven2/args4j/args4j/2.0.26/args4j-2.0.26.jar[0m
+[0m[[0minfo[0m] [0m	[SUCCESSFUL ] args4j#args4j;2.0.26!args4j.jar(bundle) (205ms)[0m
 [0m[[0mdebug[0m] [0m		tried https://repo1.maven.org/maven2/com/google/guava/guava/19.0/guava-19.0.jar[0m
 [0m[[0minfo[0m] [0mdownloading https://repo1.maven.org/maven2/com/google/guava/guava/19.0/guava-19.0.jar ...[0m
 [0m[[0mdebug[0m] [0m	public: downloading https://repo1.maven.org/maven2/com/google/guava/guava/19.0/guava-19.0.jar[0m
 [0m[[0mdebug[0m] [0m	public: downloading https://repo1.maven.org/maven2/com/google/guava/guava/19.0/guava-19.0.jar.sha1[0m
 [0m[[0mdebug[0m] [0msha1 OK for https://repo1.maven.org/maven2/com/google/guava/guava/19.0/guava-19.0.jar[0m
-[0m[[0minfo[0m] [0m	[SUCCESSFUL ] com.google.guava#guava;19.0!guava.jar(bundle) (656ms)[0m
-[0m[[0mdebug[0m] [0m	[NOT REQUIRED] com.google.protobuf#protobuf-java;2.5.0!protobuf-java.jar(bundle)[0m
-[0m[[0mdebug[0m] [0m	[NOT REQUIRED] com.google.code.gson#gson;2.2.4!gson.jar[0m
-[0m[[0mdebug[0m] [0m	[NOT REQUIRED] com.google.code.findbugs#jsr305;1.3.9!jsr305.jar[0m
-[0m[[0mdebug[0m] [0m	[NOT REQUIRED] io.apigee#rhino;1.7R5pre4!rhino.jar[0m
+[0m[[0minfo[0m] [0m	[SUCCESSFUL ] com.google.guava#guava;19.0!guava.jar(bundle) (1259ms)[0m
+[0m[[0mdebug[0m] [0m		tried https://repo1.maven.org/maven2/com/google/protobuf/protobuf-java/2.5.0/protobuf-java-2.5.0.jar[0m
+[0m[[0minfo[0m] [0mdownloading https://repo1.maven.org/maven2/com/google/protobuf/protobuf-java/2.5.0/protobuf-java-2.5.0.jar ...[0m
+[0m[[0mdebug[0m] [0m	public: downloading https://repo1.maven.org/maven2/com/google/protobuf/protobuf-java/2.5.0/protobuf-java-2.5.0.jar[0m
+[0m[[0mdebug[0m] [0m	public: downloading https://repo1.maven.org/maven2/com/google/protobuf/protobuf-java/2.5.0/protobuf-java-2.5.0.jar.sha1[0m
+[0m[[0mdebug[0m] [0msha1 OK for https://repo1.maven.org/maven2/com/google/protobuf/protobuf-java/2.5.0/protobuf-java-2.5.0.jar[0m
+[0m[[0minfo[0m] [0m	[SUCCESSFUL ] com.google.protobuf#protobuf-java;2.5.0!protobuf-java.jar(bundle) (478ms)[0m
+[0m[[0mdebug[0m] [0m		tried https://repo1.maven.org/maven2/com/google/code/gson/gson/2.2.4/gson-2.2.4.jar[0m
+[0m[[0minfo[0m] [0mdownloading https://repo1.maven.org/maven2/com/google/code/gson/gson/2.2.4/gson-2.2.4.jar ...[0m
+[0m[[0mdebug[0m] [0m	public: downloading https://repo1.maven.org/maven2/com/google/code/gson/gson/2.2.4/gson-2.2.4.jar[0m
+[0m[[0mdebug[0m] [0m	public: downloading https://repo1.maven.org/maven2/com/google/code/gson/gson/2.2.4/gson-2.2.4.jar.sha1[0m
+[0m[[0mdebug[0m] [0msha1 OK for https://repo1.maven.org/maven2/com/google/code/gson/gson/2.2.4/gson-2.2.4.jar[0m
+[0m[[0minfo[0m] [0m	[SUCCESSFUL ] com.google.code.gson#gson;2.2.4!gson.jar (273ms)[0m
+[0m[[0mdebug[0m] [0m		tried https://repo1.maven.org/maven2/com/google/code/findbugs/jsr305/1.3.9/jsr305-1.3.9.jar[0m
+[0m[[0minfo[0m] [0mdownloading https://repo1.maven.org/maven2/com/google/code/findbugs/jsr305/1.3.9/jsr305-1.3.9.jar ...[0m
+[0m[[0mdebug[0m] [0m	public: downloading https://repo1.maven.org/maven2/com/google/code/findbugs/jsr305/1.3.9/jsr305-1.3.9.jar[0m
+[0m[[0mdebug[0m] [0m	public: downloading https://repo1.maven.org/maven2/com/google/code/findbugs/jsr305/1.3.9/jsr305-1.3.9.jar.sha1[0m
+[0m[[0mdebug[0m] [0msha1 OK for https://repo1.maven.org/maven2/com/google/code/findbugs/jsr305/1.3.9/jsr305-1.3.9.jar[0m
+[0m[[0minfo[0m] [0m	[SUCCESSFUL ] com.google.code.findbugs#jsr305;1.3.9!jsr305.jar (180ms)[0m
+[0m[[0mdebug[0m] [0m		tried https://repo1.maven.org/maven2/io/apigee/rhino/1.7R5pre4/rhino-1.7R5pre4.jar[0m
+[0m[[0minfo[0m] [0mdownloading https://repo1.maven.org/maven2/io/apigee/rhino/1.7R5pre4/rhino-1.7R5pre4.jar ...[0m
+[0m[[0mdebug[0m] [0m	public: downloading https://repo1.maven.org/maven2/io/apigee/rhino/1.7R5pre4/rhino-1.7R5pre4.jar[0m
+[0m[[0mdebug[0m] [0m	public: downloading https://repo1.maven.org/maven2/io/apigee/rhino/1.7R5pre4/rhino-1.7R5pre4.jar.sha1[0m
+[0m[[0mdebug[0m] [0msha1 OK for https://repo1.maven.org/maven2/io/apigee/rhino/1.7R5pre4/rhino-1.7R5pre4.jar[0m
+[0m[[0minfo[0m] [0m	[SUCCESSFUL ] io.apigee#rhino;1.7R5pre4!rhino.jar (686ms)[0m
 [0m[[0mdebug[0m] [0m		tried https://repo1.maven.org/maven2/org/webjars/envjs/1.2/envjs-1.2.jar[0m
 [0m[[0minfo[0m] [0mdownloading https://repo1.maven.org/maven2/org/webjars/envjs/1.2/envjs-1.2.jar ...[0m
 [0m[[0mdebug[0m] [0m	public: downloading https://repo1.maven.org/maven2/org/webjars/envjs/1.2/envjs-1.2.jar[0m
 [0m[[0mdebug[0m] [0m	public: downloading https://repo1.maven.org/maven2/org/webjars/envjs/1.2/envjs-1.2.jar.sha1[0m
 [0m[[0mdebug[0m] [0msha1 OK for https://repo1.maven.org/maven2/org/webjars/envjs/1.2/envjs-1.2.jar[0m
-[0m[[0minfo[0m] [0m	[SUCCESSFUL ] org.webjars#envjs;1.2!envjs.jar (220ms)[0m
+[0m[[0minfo[0m] [0m	[SUCCESSFUL ] org.webjars#envjs;1.2!envjs.jar (227ms)[0m
 [0m[[0mdebug[0m] [0m	[NOT REQUIRED] org.scala-sbt#test-interface;1.0!test-interface.jar[0m
 [0m[[0mdebug[0m] [0m	[NOT REQUIRED] org.scala-sbt#sbt;0.13.16!sbt.jar[0m
 [0m[[0mdebug[0m] [0m	[NOT REQUIRED] org.scala-sbt#main;0.13.16!main.jar[0m
@@ -2948,7 +3221,7 @@
 [0m[[0mdebug[0m] [0m	[NOT REQUIRED] org.scala-sbt#template-resolver;0.1!template-resolver.jar[0m
 [0m[[0mdebug[0m] [0m	[NOT REQUIRED] org.scala-lang#jline;2.10.6!jline.jar[0m
 [0m[[0mdebug[0m] [0m	[NOT REQUIRED] org.fusesource.jansi#jansi;1.4!jansi.jar[0m
-[0m[[0mdebug[0m] [0m:: resolution report :: resolve 82896ms :: artifacts dl 12154ms[0m
+[0m[[0mdebug[0m] [0m:: resolution report :: resolve 76391ms :: artifacts dl 15947ms[0m
 [0m[[0mdebug[0m] [0m	report for default#euler-build;0.1-SNAPSHOT compile produced in /media/windows/projekty/graphs/current/euler/project/target/scala-2.10/sbt-0.13/resolution-cache/reports/default-euler-build-compile.xml[0m
 [0m[[0mdebug[0m] [0m	report for default#euler-build;0.1-SNAPSHOT runtime produced in /media/windows/projekty/graphs/current/euler/project/target/scala-2.10/sbt-0.13/resolution-cache/reports/default-euler-build-runtime.xml[0m
 [0m[[0mdebug[0m] [0m	report for default#euler-build;0.1-SNAPSHOT test produced in /media/windows/projekty/graphs/current/euler/project/target/scala-2.10/sbt-0.13/resolution-cache/reports/default-euler-build-test.xml[0m
@@ -2963,5 +3236,5 @@
 [0m[[0mdebug[0m] [0m	report for default#euler-build;0.1-SNAPSHOT pom produced in /media/windows/projekty/graphs/current/euler/project/target/scala-2.10/sbt-0.13/resolution-cache/reports/default-euler-build-pom.xml[0m
 [0m[[0mdebug[0m] [0m	report for default#euler-build;0.1-SNAPSHOT scala-tool produced in /media/windows/projekty/graphs/current/euler/project/target/scala-2.10/sbt-0.13/resolution-cache/reports/default-euler-build-scala-tool.xml[0m
 [0m[[0mdebug[0m] [0m	report for default#euler-build;0.1-SNAPSHOT ensime-internal produced in /media/windows/projekty/graphs/current/euler/project/target/scala-2.10/sbt-0.13/resolution-cache/reports/default-euler-build-ensime-internal.xml[0m
-[0m[[0mdebug[0m] [0m	resolve done (82896ms resolve - 12154ms download)[0m
+[0m[[0mdebug[0m] [0m	resolve done (76391ms resolve - 15947ms download)[0m
 [0m[[0minfo[0m] [0mDone updating.[0m

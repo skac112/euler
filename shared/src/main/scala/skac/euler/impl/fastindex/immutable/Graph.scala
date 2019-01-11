@@ -29,7 +29,7 @@ class Graph[ND, ED](pNodes: Vector[NodeStruct[ND, ED]] = Vector[NodeStruct[ND, E
   //override val Nodes = Vector[NodeStruct[ND, ED]]()
   override protected val Nodes = pNodes
 
-  override type NodesType = Vector[NodeStruct[ND, ED]]
+  override type NodesT = Vector[NodeStruct[ND, ED]]
   val NewNodeID: Int = Nodes.size + 1
   val NewEdgeID: Int = edges.size + 1
 
@@ -39,7 +39,7 @@ class Graph[ND, ED](pNodes: Vector[NodeStruct[ND, ED]] = Vector[NodeStruct[ND, E
    * w wewnętrznych strukturach danych reprezentujących węzły w celu
    * reprezentacji bogatszej informacji o węzłach (wag, nazw itp.).
    */
-  def newNodeInfo(Data: ND): NodeInfo[ND] = new NodeInfo(NewNodeID, Data)
+  def newNodeInfo[SND >: ND](Data: SND): NodeInfo[SND] = new NodeInfo(NewNodeID, Data)
 
   /**
    * Zwraca obiekt klasy EdgeInfo na podstawie danych krawędzi oraz desygnatorów
@@ -48,12 +48,12 @@ class Graph[ND, ED](pNodes: Vector[NodeStruct[ND, ED]] = Vector[NodeStruct[ND, E
    * w wewnętrznych strukturach danych reprezentujących krawędzie w celu
    * reprezentacji bogatszej informacji o krawędziach (wag, nazw itp.).
    */
-  def newEdgeInfo(Data: ED, SrcNode: NodeDesignator, DstNode: NodeDesignator): EdgeInfo[ED] =
+  def newEdgeInfo[SED >: ED](Data: SED, SrcNode: NodeDesignator, DstNode: NodeDesignator): EdgeInfo[SED] =
     new EdgeInfo(NewEdgeID, Data, SrcNode, DstNode)
 
-  def addNode(Data: ND): Graph[ND, ED] = {
+  def addNode[SND >: ND](Data: SND): Graph[SND, ED] = {
   // def addNode(Data: ND): G = {
-    val new_nodes: Vector[NodeStruct[ND, ED]] = (Nodes :+ NodeStruct(newNodeInfo(Data), Map[Any, EdgeInfo[ED]](), Map[Any, EdgeInfo[ED]]())).asInstanceOf[Vector[NodeStruct[ND, ED]]]
+    val new_nodes: Vector[NodeStruct[SND, ED]] = (Nodes :+ NodeStruct(newNodeInfo(Data), Map[Any, EdgeInfo[ED]](), Map[Any, EdgeInfo[ED]]()))
     newInstance(new_nodes)
   }
 
@@ -86,7 +86,7 @@ class Graph[ND, ED](pNodes: Vector[NodeStruct[ND, ED]] = Vector[NodeStruct[ND, E
     new_nodes
   }
 
-  def addEdge(Data: ED, SrcNode: NodeDesignator, DstNode: NodeDesignator): Graph[ND, ED] = {
+  def addEdge[SED >: ED](Data: SED, SrcNode: NodeDesignator, DstNode: NodeDesignator): Graph[ND, SED] = {
     // w kolekcji Nodes podmieniane są elementy klasy ConcreteNodeStruct dla źródłowego i docelowego
     // węzła. W węźle źródłowym mapa OutEdges różni się od pierwotnej dodaniem pozycji
     // odpowiadającej dodawanej krawędzi. Analogiczna zmiana dotyczy węzła docelowego, z tym, że
@@ -137,5 +137,5 @@ class Graph[ND, ED](pNodes: Vector[NodeStruct[ND, ED]] = Vector[NodeStruct[ND, E
     newInstance(new_nodes)
   }
 
-  def newInstance(Nodes: Vector[NodeStruct[ND, ED]]) = new Graph[ND, ED](Nodes)
+  def newInstance[SND >: ND, SED >: ED](Nodes: Vector[NodeStruct[SND, SED]]) = new Graph[SND, SED](Nodes)
 }

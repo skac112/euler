@@ -14,7 +14,7 @@ lazy val root = project.in(file(".")).
 lazy val euler = crossProject.in(file(".")).
   settings(
     name := "euler",
-    version := "0.4.0-SNAPSHOT",
+    version := "0.5.0-SNAPSHOT",
     organization := "skac",
     libraryDependencies += "org.scalaz" %%% "scalaz-core" % "7.2.13",
     libraryDependencies += "com.lihaoyi" %%% "utest" % "0.6.3" % "test",

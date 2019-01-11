@@ -12,7 +12,7 @@ import java.io.Writer
 import java.io.InputStream
 import java.io.OutputStream
 
-class GexfGraph extends skac.euler.impl.fastindex.mutable.Graph[GexfNode, GexfEdge] {
+class GexfGraph extends skac.euler.impl.fastindex.immutable.Graph[GexfNode, GexfEdge] {
 
   var NodeAttributes: AttrDefs = _
   var EdgeAttributes: AttrDefs = _
@@ -69,7 +69,7 @@ class GexfGraph extends skac.euler.impl.fastindex.mutable.Graph[GexfNode, GexfEd
 
   private def attToString(AttrValue: Any) = AttrValue match {
     // atrybut typu liststring
-    case seq: Seq[String] => seq.reduceLeft {_.toString + "|" + _.toString}
+    case seq: Seq[_] if seq.isInstanceOf[Seq[String]] => seq.asInstanceOf[Seq[String]].reduceLeft {_.toString + "|" + _.toString}
     // pozostale typy atrybutow
     case a => a.toString
   }

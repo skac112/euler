@@ -30,5 +30,5 @@ class WeightedGraph[ND, ED](pNodes: Vector[NodeStruct[ND, ED]] = Vector[NodeStru
     newInstance(new_nodes)
   }
 
-  override def newInstance(Nodes: Vector[NodeStruct[ND, ED]]) = new WeightedGraph[ND, ED](Nodes)
+  override def newInstance[SND >: ND, SED >: ED](Nodes: Vector[NodeStruct[SND, SED]]) = new WeightedGraph[SND, SED](Nodes)
 }

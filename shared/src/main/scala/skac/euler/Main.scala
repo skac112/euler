@@ -16,10 +16,10 @@ object Main extends App {
       System.out.println(System.currentTimeMillis - t)
     }}
 
-    (1000 to 10000 by 1000) foreach {i => {
-      var t = System.currentTimeMillis
-      var g: Graph[Any, Any] = new skac.euler.impl.fastindex.mutable.Graph[Any, Any]
-      var g2 = (1 to i).foldLeft(g) {(g, i) => g.addNode(i)}
-      System.out.println(System.currentTimeMillis - t)
-    }}
+//    (1000 to 10000 by 1000) foreach {i => {
+//      var t = System.currentTimeMillis
+//      var g: Graph[Any, Any] = new skac.euler.impl.fastindex.mutable.Graph[Any, Any]
+//      var g2 = (1 to i).foldLeft(g) {(g, i) => g.addNode(i)}
+//      System.out.println(System.currentTimeMillis - t)
+//    }}
 }

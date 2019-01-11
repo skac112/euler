@@ -16,16 +16,16 @@ object GraphView {
  * "read-only". Agnostic about structure as a whole (maybe infinite) - collections of all nodes or edges
   * can't be obtained. Base trait for graph.
  */
-trait GraphView[ND, ED] {
-  type G <: GraphView[ND, ED]
-  type ThisNodeInfo = NodeInfo[ND]
-  type ThisEdgeInfo = EdgeInfo[ED]
-  type Edges = Set[EdgeInfo[ED]]
-  type Nodes = Set[NodeDesignator]
-  type NodeInfos = Set[NodeInfo[ND]]
-  type EdgeInfos = Set[EdgeInfo[ED]]
+trait GraphView[+ND, +ED] {
   import General._
   import GraphView._
+//  type G <: GraphView[ND, ED]
+//  type ThisNodeInfo = NodeInfo[ND]
+//  type ThisEdgeInfo = EdgeInfo[ED]
+//  type Edges = Set[EdgeInfo[ED]]
+//  type NodesT = Set[NodeDesignator]
+//  type NodeInfos[SND >: ND] = Set[NodeInfo[SND]]
+//  type EdgeInfos[SED >: ED] = Set[EdgeInfo[SED]]
 
   /**
    * Obiekt umożliwiający porównywanie (z wykorzystaniem konwersji implicit) dwóch desygnatorów
@@ -70,21 +70,21 @@ trait GraphView[ND, ED] {
   implicit def NodeDesignator2NodeDesignatorComp(NodeDes: NodeDesignator) = NodeDesignatorComp(NodeDes)
   implicit def NodeDesignatorComp2NodeDesignator(NodeDesignatorComp: NodeDesignatorComp) = NodeDesignatorComp.NodeDes
   implicit def EdgeDesignator2EdgeDesignatorComp(EdgeDes: EdgeDesignator) = EdgeDesignatorComp(EdgeDes)
-  implicit def NodeInfo2NodeDesignator(NodeInfo: NodeInfo[ND]) = NodeIDDesignator(NodeInfo.ID)
-  implicit def NodeInfo2NodeDesignatorComp(NodeInfo: NodeInfo[ND]) = NodeDesignatorComp(NodeInfo.ID.id)
-  implicit def EdgeInfo2EdgeDesignator(EdgeInfo: EdgeInfo[ED]) = EdgeIDDesignator(EdgeInfo.ID)
-  implicit def EdgeInfo2EdgeDesignatorComp(EdgeInfo: EdgeInfo[ED]) = EdgeDesignatorComp(EdgeInfo.ID.eid)
+  implicit def NodeInfo2NodeDesignator[SND >: ND](NodeInfo: NodeInfo[SND]) = NodeIDDesignator(NodeInfo.ID)
+  implicit def NodeInfo2NodeDesignatorComp[SND >: ND](NodeInfo: NodeInfo[SND]) = NodeDesignatorComp(NodeInfo.ID.id)
+  implicit def EdgeInfo2EdgeDesignator[SED >: ED](EdgeInfo: EdgeInfo[SED]) = EdgeIDDesignator(EdgeInfo.ID)
+  implicit def EdgeInfo2EdgeDesignatorComp[SED >: ED](EdgeInfo: EdgeInfo[SED]) = EdgeDesignatorComp(EdgeInfo.ID.eid)
 
   def node(nodeDes: NodeDesignator): Option[NodeInfo[ND]]
 
   def edge(edgeDes: EdgeDesignator): Option[EdgeInfo[ED]]
 
-  def edges(nodeDes: NodeDesignator): EdgeInfos
+//  def edges[SED >: ED](nodeDes: NodeDesignator): Set[EdgeInfo[SED]]
 
   /**
    * Określa, czy dana krawędź znajduje się pomiędzy danymi węzłami.
    */
-  private def edgeIsBetween(ei: EdgeInfo[ED], nd1: NodeDesignator,
+  private def edgeIsBetween[SED >: ED](ei: EdgeInfo[SED], nd1: NodeDesignator,
    nd2: NodeDesignator, directed: Boolean) =
     (ei.SrcNode === nd1 && ei.DstNode === nd2 ||
     (!directed && ei.SrcNode === nd2 && ei.DstNode === nd1))
@@ -112,13 +112,12 @@ trait GraphView[ND, ED] {
     }
   }
 
-  def edgesBetween(nd1: NodeDesignator, nd2: NodeDesignator, directed: Boolean): EdgeInfos =
+  def edgesBetween[SED >: ED](nd1: NodeDesignator, nd2: NodeDesignator, directed: Boolean): Set[EdgeInfo[SED]] =
     if (directed) {
-      // edges from node 1 to node 2
-      outEdges(nd1) & inEdges(nd2)
+      outEdges[SED](nd1) & inEdges[SED](nd2)
     } else {
       // edges from node 1 to node 2 and from node 2 to node 1
-      (outEdges(nd1) & inEdges(nd2)) | (outEdges(nd2) & (inEdges(nd1)))
+      (outEdges[SED](nd1) & inEdges[SED](nd2)) | (outEdges[SED](nd2) & (inEdges[SED](nd1)))
     }
 
   /**
@@ -128,11 +127,11 @@ trait GraphView[ND, ED] {
     * @param Direction
     * @return Set of edges of node.
     */
-  def edges(nd: NodeDesignator, direction: Int = NEIGHBOR_SIDE_BOTH): EdgeInfos
+  def edges[SED >: ED](nd: NodeDesignator, direction: Int = NEIGHBOR_SIDE_BOTH): Set[EdgeInfo[SED]]
 
-  def inEdges(nd: NodeDesignator): EdgeInfos = edges(nd, NEIGHBOR_SIDE_BACKWARD)
+  def inEdges[SED >: ED](nd: NodeDesignator): Set[EdgeInfo[SED]] = edges[SED](nd, NEIGHBOR_SIDE_BACKWARD)
 
-  def outEdges(nd: NodeDesignator): EdgeInfos = edges(nd, NEIGHBOR_SIDE_FORWARD)
+  def outEdges[SED >: ED](nd: NodeDesignator): Set[EdgeInfo[SED]] = edges[SED](nd, NEIGHBOR_SIDE_FORWARD)
 
   def degree(nd: NodeDesignator) = edges(nd) size
 
@@ -140,7 +139,7 @@ trait GraphView[ND, ED] {
 
   def outDegree(nd: NodeDesignator): Int = outEdges(nd) size
 
-  def neighbors(nd: NodeDesignator, Direction: Int = NEIGHBOR_SIDE_BOTH): NodeInfos =
+  def neighbors[SND >: ND](nd: NodeDesignator, Direction: Int = NEIGHBOR_SIDE_BOTH): Set[NodeInfo[SND]] =
     edges(nd, Direction) filterNot { edgeIsLoop _ } map { e => node(oppositeNode(nd, e))} collect {
     case Some(ni) => ni}
 
@@ -149,7 +148,7 @@ trait GraphView[ND, ED] {
    * zwraca węzeł NodeDes, dla LayerIdx = 1 zbiór sąsiadów węzła NodeDes itd., dla LayerIdx zbiór
    * sąsiadów sąsiadów (z wyłączeniem sąsiadów i węzła danego) itd.
    */
-  def neighborLayer(NodeDes: NodeDesignator, LayerIdx: Int, Direction: Int): NodeInfos =
+  def neighborLayer[SND >: ND](NodeDes: NodeDesignator, LayerIdx: Int, Direction: Int): Set[NodeInfo[SND]] =
     neighborLayer(Set(NodeDes), LayerIdx, Direction)
 
   /**
@@ -157,7 +156,7 @@ trait GraphView[ND, ED] {
    * poczatkowego zbioru. Dozwolone przejscia po krawedziach (w przod, w tyl lub w obu kierunkach)
    * okreslone sa przez argument Direction
    */
-  def neighborLayer(Nodes: Set[NodeDesignator], LayerIdx: Int, Direction: Int): NodeInfos = {
+  def neighborLayer[SND >: ND](Nodes: Set[NodeDesignator], LayerIdx: Int, Direction: Int): Set[NodeInfo[SND]] = {
     var all_layers = smartNodeColl(Nodes)
     var res = smartNodeColl(Nodes)
     (0 until LayerIdx) foreach ((x: Int) => {
@@ -179,9 +178,9 @@ trait GraphView[ND, ED] {
    * Przyjecie numeracji warstw krawedzi od 1 sprawia, ze fragment grafu okreslony przez wezly i
    * krawedzie od 0 do okreslonej warstwy sa podgrafem grafu oryginalnego
    */
-  def edgeLayer(Nodes: Set[NodeDesignator], LayerIdx: Int, Direction: Int): EdgeInfos = {
+  def edgeLayer[SED >: ED](Nodes: Set[NodeDesignator], LayerIdx: Int, Direction: Int): Set[EdgeInfo[SED]] = {
     var all_node_layers = smartNodeColl(Nodes)
-    var res = Set[EdgeInfo[ED]]()
+    var res = Set[EdgeInfo[SED]]()
     var node_layer = smartNodeColl(Nodes)
     var prev_layer = node_layer
 
@@ -207,8 +206,8 @@ trait GraphView[ND, ED] {
     //edge_layer map (edge(_).get) toSet
   }
 
-  def edgeLayer(Node: NodeDesignator, LayerIdx: Int, Direction: Int): Set[EdgeInfo[ED]] =
-    edgeLayer(Set(Node), LayerIdx, Direction)
+  def edgeLayer[SED >: ED](Node: NodeDesignator, LayerIdx: Int, Direction: Int): Set[EdgeInfo[SED]] =
+    edgeLayer[SED](Set(Node), LayerIdx, Direction)
 
   def oppositeDirection(Direction: Int) = Direction match {
     case NEIGHBOR_SIDE_FORWARD => NEIGHBOR_SIDE_BACKWARD
@@ -247,7 +246,7 @@ trait GraphView[ND, ED] {
   /**
    * Returns pair of nodes incident to an edge.
    */
-  def incident(edgeDes: EdgeDesignator): (ThisNodeInfo, ThisNodeInfo) = {
+  def incident(edgeDes: EdgeDesignator): (NodeInfo[ND], NodeInfo[ND]) = {
     val e = edge(edgeDes).get
     (node(e.SrcNode).get, node(e.DstNode).get)    
   }
@@ -255,5 +254,5 @@ trait GraphView[ND, ED] {
   /**
    * Returns set of edges adjacent to a given edge.
    */
-  def adjacent(edgeDes: EdgeDesignator): Set[ThisEdgeInfo] = ???
+  def adjacent[SED >: ED](edgeDes: EdgeDesignator): Set[EdgeInfo[SED]] = ???
 }
