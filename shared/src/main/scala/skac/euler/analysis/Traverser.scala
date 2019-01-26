@@ -95,31 +95,31 @@ class Traverser[ND, ED, S, R](graphView: GraphView[ND, ED]) {
    edgeHandleFun: EdgeHandleFun,
    stimMergeFun: StimMergeFun,
    handleRes: R): R = if (nodes.isEmpty) {
-   // just passing result from earlier evaluation
-   handleRes
+    // just passing result from earlier evaluation
+    handleRes
   }
   else {
-     val in_sig = nodes.head
-     val (new_vis_nodes, new_vis_edges, n_propagation, new_res) = graphView.node(in_sig._1) match {
-       case Some(node_info) => {
-         val new_vis_nodes = visitedNodes + node_info.ID.id
-         val stimulus = in_sig._2
-         val (e_prop, new_res) = nodeHandleFun(node_info, stimulus, graphView, this, handleRes)
-         val new_res2: R = handleEdges(edgeHandleFun, e_prop, visitedEdges, new_res)
-         val new_vis_edges = visitedEdges ++ (e_prop.toHead map (_._1)).toSet ++
+    val in_sig = nodes.head
+    val (new_vis_nodes, new_vis_edges, n_propagation, new_res) = graphView.node(in_sig._1) match {
+      case Some(node_info) => {
+        val new_vis_nodes = visitedNodes + node_info.ID.id
+        val stimulus = in_sig._2
+        val (e_prop, new_res) = nodeHandleFun(node_info, stimulus, graphView, this, handleRes)
+        val new_res2: R = handleEdges(edgeHandleFun, e_prop, visitedEdges, new_res)
+        val new_vis_edges = visitedEdges ++ (e_prop.toHead map (_._1)).toSet ++
           (e_prop.toTail map (_._1)).toSet
-         val raw_n_prop = ePropToNProp(e_prop, node_info)
-         // filtering out signals to already traversed nodes
-         val n_prop: NPropagation[S] = filtOutVisNodes(raw_n_prop, new_vis_nodes)
-         // temporary result (of type R)
+        val raw_n_prop = ePropToNProp(e_prop, node_info)
+        // filtering out signals to already traversed nodes
+        val n_prop: NPropagation[S] = filtOutVisNodes(raw_n_prop, new_vis_nodes)
+        // temporary result (of type R)
         //  val new_res = handleFun(node_info, stimulus, graphView, this, handleRes)
-         (new_vis_nodes, new_vis_edges, n_prop, new_res2)
-       }
-       case None => (visitedNodes, visitedEdges, emptyNProp, handleRes)
-     }
-     val new_nodes = mergePropagation(nodes.tail, n_propagation, stimMergeFun)
-     doWalking(new_nodes, new_vis_nodes, new_vis_edges, nodeHandleFun, edgeHandleFun, stimMergeFun, new_res)
-   }
+        (new_vis_nodes, new_vis_edges, n_prop, new_res2)
+      }
+      case None => (visitedNodes, visitedEdges, emptyNProp, handleRes)
+    }
+    val new_nodes = mergePropagation(nodes.tail, n_propagation, stimMergeFun)
+    doWalking(new_nodes, new_vis_nodes, new_vis_edges, nodeHandleFun, edgeHandleFun, stimMergeFun, new_res)
+  }
 
    private def handleEdges(handleFun: EdgeHandleFun, ePropagation: EPropagation[S], visitedEdges: ESet, handleRes: R): R = {
      // function to filter out already handled (visited) edges

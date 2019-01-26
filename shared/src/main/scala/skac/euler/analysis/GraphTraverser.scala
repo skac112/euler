@@ -13,12 +13,12 @@ object GraphTraverser {
 /**
  * Traverser which produces a graph.
  */
-class GraphTraverser[ND, ED, ND2, ED2, S](graphView: GraphView[ND, ED])
- extends Traverser[ND, ED, S, Graph[ND2, ED2]](graphView) {
+class GraphTraverser[ND, ED, ND2, ED2, S, G <: Graph[ND2, ED2]](graphView: GraphView[ND, ED])
+ extends Traverser[ND, ED, S, G](graphView) {
   import Traverser._
-  type ResultGraph = Graph[ND2, ED2]
-  type NodeAddFun = (ThisNodeInfo, S, ThisGraphView, ThisTraverser, ResultGraph) => (EPropagation[S], Option[ND2])
-  type EdgeAddFun = (ThisEdgeInfo, S, ThisGraphView, ThisTraverser, ResultGraph) => Option[ED2]
+//  type ResultGraph = Graph[ND2, ED2]
+  type NodeAddFun = (ThisNodeInfo, S, ThisGraphView, ThisTraverser, G) => (EPropagation[S], Option[ND2])
+  type EdgeAddFun = (ThisEdgeInfo, S, ThisGraphView, ThisTraverser, G) => Option[ED2]
 
   /**
    * Map of nodes added in created graph (node infos from source graphview are
@@ -36,7 +36,7 @@ class GraphTraverser[ND, ED, ND2, ED2, S](graphView: GraphView[ND, ED])
    stimMergeFun: StimMergeFun,
    nodeAddFun: NodeAddFun,
    edgeAddFun: EdgeAddFun,
-   initGraph: ResultGraph): ResultGraph = {
+   initGraph: G): G = {
      // map of nodes added in created graph (node infos from source graphview are keys)
      addedNodes = Map()
      edgesToCheck = Map()
@@ -46,11 +46,11 @@ class GraphTraverser[ND, ED, ND2, ED2, S](graphView: GraphView[ND, ED])
 
   private def nodeHandleFun(nodeAddFun: NodeAddFun, edgeAddFun: EdgeAddFun) =
    (node: ThisNodeInfo, stim: S, graphView: ThisGraphView,
-    traverser: ThisTraverser, res: ResultGraph) => {
+    traverser: ThisTraverser, res: G) => {
       val (e_prop, node_data_o) = nodeAddFun(node, stim, graphView, traverser, res)
       val new_res = node_data_o match {
         case Some(node_data) => {
-          val res1 = res.addNode(node_data)
+          val res1 = res.addNode(node_data).asInstanceOf[G]
           // retrieving designator of added node (we can't rely on node data which can be
           // not unique)
           val added_node = res1.node((res.nodeCount).i).get
@@ -73,7 +73,7 @@ class GraphTraverser[ND, ED, ND2, ED2, S](graphView: GraphView[ND, ED])
    */
   private def edgeHandleFun(edgeAddFun: EdgeAddFun): EdgeHandleFun =
    (edge: EdgeIDDesignator, stim: S, graphView: ThisGraphView,
-   traverser: ThisTraverser, res: ResultGraph) => {
+   traverser: ThisTraverser, res: G) => {
      val ei = graphView.edge(edge).get
      val src_node = graphView.node(ei.SrcNode).get
      val dst_node = graphView.node(ei.DstNode).get
@@ -102,7 +102,7 @@ class GraphTraverser[ND, ED, ND2, ED2, S](graphView: GraphView[ND, ED])
    * is added in the result graph.
    */
   private def checkEdgeAdds(node: ThisNodeInfo, edgeAddFun: EdgeAddFun,
-   res: ResultGraph): ResultGraph = {
+   res: G): G = {
     val incident_edges = graphView.edges(node) map {_.ID.eid}
     // obtaining all key-value pairs of edges incident to given node contained
     // in edgesToCheck map.
@@ -111,7 +111,7 @@ class GraphTraverser[ND, ED, ND2, ED2, S](graphView: GraphView[ND, ED])
       kv: (EdgeIDDesignator, Option[S]) => (kv._1, kv._2.get)
      }
 
-    edges.foldLeft(res) {(curr_res: ResultGraph, kv: (EdgeIDDesignator, S)) => {
+    edges.foldLeft(res) {(curr_res: G, kv: (EdgeIDDesignator, S)) => {
       val ei = graphView.edge(kv._1).get
       val edge_add_res = edgeAddFun(ei, kv._2, graphView, this, res)
       handleEdgeAddFun(edge_add_res, ei, curr_res)
@@ -119,8 +119,7 @@ class GraphTraverser[ND, ED, ND2, ED2, S](graphView: GraphView[ND, ED])
   }
 
   private def handleEdgeAddFun(addRes: Option[ED2], edgeInfo: ThisEdgeInfo,
-   res: ResultGraph):
-   ResultGraph = addRes match {
+   res: G): G = addRes match {
     case Some(edge_data) => {
       // nodes in graphview
       val src_node = graphView.node(edgeInfo.SrcNode).get
@@ -128,7 +127,7 @@ class GraphTraverser[ND, ED, ND2, ED2, S](graphView: GraphView[ND, ED])
       // nodes in created graph
       val res_src_node = res.node(addedNodes(src_node)).get
       val res_dst_node = res.node(addedNodes(dst_node)).get
-      res.addEdge(edge_data, res_src_node, res_dst_node)
+      res.addEdge(edge_data, res_src_node, res_dst_node).asInstanceOf[G]
     }
     case _ => res
   }
