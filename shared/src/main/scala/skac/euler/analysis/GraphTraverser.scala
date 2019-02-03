@@ -13,12 +13,11 @@ object GraphTraverser {
 /**
  * Traverser which produces a graph.
  */
-class GraphTraverser[ND, ED, ND2, ED2, S, G <: Graph[ND2, ED2]](graphView: GraphView[ND, ED])
- extends Traverser[ND, ED, S, G](graphView) {
+abstract class GraphTraverser[ND, ED, ND2, ED2, S, G <: Graph[ND2, ED2]] extends Traverser[ND, ED, S, G] {
   import Traverser._
 //  type ResultGraph = Graph[ND2, ED2]
-  type NodeAddFun = (ThisNodeInfo, S, ThisGraphView, ThisTraverser, G) => (EPropagation[S], Option[ND2])
-  type EdgeAddFun = (ThisEdgeInfo, S, ThisGraphView, ThisTraverser, G) => Option[ED2]
+//  type NodeAddFun = (ThisNodeInfo, S, ThisGraphView, ThisTraverser, G) => (EPropagation[S], Option[ND2])
+//  type EdgeAddFun = (ThisEdgeInfo, S, ThisGraphView, ThisTraverser, G) => Option[ED2]
 
   /**
    * Map of nodes added in created graph (node infos from source graphview are
@@ -31,67 +30,73 @@ class GraphTraverser[ND, ED, ND2, ED2, S, G <: Graph[ND2, ED2]](graphView: Graph
    */
   var edgesToCheck: Map[EdgeIDDesignator, S] = _
 
-  def makeGraph(initNode: NodeDesignator,
-   initStim: S,
-   stimMergeFun: StimMergeFun,
-   nodeAddFun: NodeAddFun,
-   edgeAddFun: EdgeAddFun,
-   initGraph: G): G = {
-     // map of nodes added in created graph (node infos from source graphview are keys)
-     addedNodes = Map()
-     edgesToCheck = Map()
-     traverse(initNode, initStim, stimMergeFun, nodeHandleFun(nodeAddFun, edgeAddFun),
-      edgeHandleFun(edgeAddFun), initGraph)
-  }
+  def nodeAddFun(nInfo: ThisNodeInfo, stim: S, g: G): (EPropagation[S], Option[ND2])
 
-  private def nodeHandleFun(nodeAddFun: NodeAddFun, edgeAddFun: EdgeAddFun) =
-   (node: ThisNodeInfo, stim: S, graphView: ThisGraphView,
-    traverser: ThisTraverser, res: G) => {
-      val (e_prop, node_data_o) = nodeAddFun(node, stim, graphView, traverser, res)
-      val new_res = node_data_o match {
-        case Some(node_data) => {
-          val res1 = res.addNode(node_data).asInstanceOf[G]
-          // retrieving designator of added node (we can't rely on node data which can be
-          // not unique)
-          val added_node = res1.node((res.nodeCount).i).get
-          addedNodes = addedNodes + (node -> added_node.ID.id)
-          checkEdgeAdds(node, edgeAddFun, res1)
-        }
-        case _ => res
-      }
-      (e_prop, new_res)
-    }
+  def edgeAddFun(eInfo: ThisEdgeInfo, stim: S, g: G): Option[ED2]
 
   /**
-   * Function for handling an edge (submitted as EdgeHandleFun in invocation of
-   * method 'traverse' from parent class). For each edge to handle it checks if
-   * nodes corresponding to incident nodes of this edge have been added to
-   * result graph. If both such nodes have been added, an edge add function is
-   * called and appropriate edge is added in the result graph. If only one of
-   * such nodes has been added, an edge is added to edgesToCheck map. If none
-   * of such nodes have been added, it does nothing.
-   */
-  private def edgeHandleFun(edgeAddFun: EdgeAddFun): EdgeHandleFun =
-   (edge: EdgeIDDesignator, stim: S, graphView: ThisGraphView,
-   traverser: ThisTraverser, res: G) => {
-     val ei = graphView.edge(edge).get
-     val src_node = graphView.node(ei.SrcNode).get
-     val dst_node = graphView.node(ei.DstNode).get
-     if (addedNodes.contains(src_node) && addedNodes.contains(dst_node)) {
-       // both incident nodes in result graph have been added, so an edge can
-       // be added (optionally)
-       val edge_add_res = edgeAddFun(ei, stim, graphView, traverser, res)
-       handleEdgeAddFun(edge_add_res, ei, res)
-     }
-     else {
-       if (addedNodes.contains(src_node) || addedNodes.contains(dst_node)) {
-         // one incident node in result graph is added, so an item in edgesToCheck
-         // map is added - edge can be added later
-         edgesToCheck = edgesToCheck + (edge -> stim)
-       }
-       res
-     }
-   }
+    * Defines how signal in node propagates to edges and modifies current result.
+    *
+    * @param nInfo
+    * @param stim
+    * @param gv
+    * @param res
+    * @return
+    */
+  override def nodeHandleFun(nInfo: ThisNodeInfo,
+                             stim: S,
+                             res: G): (EPropagation[S], G) = {
+    val (e_prop, node_data_o) = nodeAddFun(nInfo, stim, res)
+    val new_res = node_data_o match {
+      case Some(node_data) => {
+        val res1 = res.addNode(node_data).asInstanceOf[G]
+        // retrieving designator of added node (we can't rely on node data which can be
+        // not unique)
+        val added_node = res1.node((res.nodeCount).i).get
+        addedNodes = addedNodes + (nInfo -> added_node.ID.id)
+        checkEdgeAdds(nInfo, res1)
+      }
+      case _ => res
+    }
+    (e_prop, new_res)
+  }
+
+  /**
+    * Function for handling an edge (submitted as EdgeHandleFun in invocation of
+    * method 'traverse' from parent class). For each edge to handle it checks if
+    * nodes corresponding to incident nodes of this edge have been added to
+    * result graph. If both such nodes have been added, an edge add function is
+    * called and appropriate edge is added in the result graph. If only one of
+    * such nodes has been added, an edge is added to edgesToCheck map. If none
+    * of such nodes have been added, it does nothing.
+    */
+  override def edgeHandleFun(eidDes: EdgeIDDesignator,
+                             stim: S,
+                             res: G): G = {
+    val ei = graphView.edge(eidDes).get
+    val src_node = graphView.node(ei.SrcNode).get
+    val dst_node = graphView.node(ei.DstNode).get
+    if (addedNodes.contains(src_node) && addedNodes.contains(dst_node)) {
+      // both incident nodes in result graph have been added, so an edge can
+      // be added (optionally)
+      val edge_add_res = edgeAddFun(ei, stim, res)
+      handleEdgeAddFun(edge_add_res, ei, res)
+    }
+    else {
+      if (addedNodes.contains(src_node) || addedNodes.contains(dst_node)) {
+        // one incident node in result graph is added, so an item in edgesToCheck
+        // map is added - edge can be added later
+        edgesToCheck = edgesToCheck + (eidDes -> stim)
+      }
+      res
+    }
+  }
+
+  override def apply(initNode: NodeDesignator, initStim: S, initGraph: G): G = {
+    addedNodes = Map()
+    edgesToCheck = Map()
+    apply(initNode, initStim, initGraph)
+  }
 
   /**
    * Checks edges to add for given node. It is assumed that for given node
@@ -101,8 +106,7 @@ class GraphTraverser[ND, ED, ND2, ED2, S, G <: Graph[ND2, ED2]](graphView: Graph
    * from edgesToCheckMap is removed. If the data is created, appropriate edge
    * is added in the result graph.
    */
-  private def checkEdgeAdds(node: ThisNodeInfo, edgeAddFun: EdgeAddFun,
-   res: G): G = {
+  private def checkEdgeAdds(node: ThisNodeInfo, res: G): G = {
     val incident_edges = graphView.edges(node) map {_.ID.eid}
     // obtaining all key-value pairs of edges incident to given node contained
     // in edgesToCheck map.
@@ -113,7 +117,7 @@ class GraphTraverser[ND, ED, ND2, ED2, S, G <: Graph[ND2, ED2]](graphView: Graph
 
     edges.foldLeft(res) {(curr_res: G, kv: (EdgeIDDesignator, S)) => {
       val ei = graphView.edge(kv._1).get
-      val edge_add_res = edgeAddFun(ei, kv._2, graphView, this, res)
+      val edge_add_res = edgeAddFun(ei, kv._2, res)
       handleEdgeAddFun(edge_add_res, ei, curr_res)
     }}
   }

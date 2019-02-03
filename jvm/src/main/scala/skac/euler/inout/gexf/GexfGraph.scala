@@ -144,7 +144,7 @@ class GexfGraph extends skac.euler.impl.fastindex.immutable.Graph[GexfNode, Gexf
   private def readNodes(RootNode: Elem, IdMap: scala.collection.mutable.Map[String, Any]) {
     RootNode \ "graph" \ "nodes" \ "node" foreach {xml_node => {
       val id = (xml_node \ "@id").text
-      IdMap(id) = NewNodeID
+      IdMap(id) = newNodeId
       val label = id
       val att_val_fun = strToAttVal(NodeAttributes) _
       //println(xml_node \ "attvalues")

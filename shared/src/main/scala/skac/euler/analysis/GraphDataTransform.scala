@@ -22,38 +22,42 @@ import GraphDataTransform._
   * @tparam TND
   * @tparam TED
   */
-class GraphDataTransform[SND, SED, TND, TED](source: Graph[SND, SED],
-                                             targetBase: Graph[TND, TED],
-                                             nodeTransFun: NodeTransFun[SND, SED, TND],
-                                             edgeTransFun: EdgeTransFun[SND, SED, TED]) {
-
+abstract class GraphDataTransform[SND, SED, TND, TED] extends Function1[Graph[SND, SED], Graph[TND, TED]] {
   type NodesMap = Map[NodeIDDesignator, NodeDesignator]
 
-  lazy val stateTrans = for {
-    _ <- State[Graph[TND, TED], Unit] {case g => (g.clear, ())}
-    // adding nodes
-    nodes_map <- State[Graph[TND, TED], NodesMap] { case g => {
-      (1 to source.nodeCount).foldLeft((g, Map[NodeIDDesignator, NodeDesignator]())) {
-        case ((g, map), idx) => {
-          val src_node = source.node(idx.i).get
-          val src_node_data = src_node.Data
-          g.addNode(nodeTransFun(src_node_data, idx.i, source))
-          (g, map + (src_node.ID.id -> idx.i))
+  def targetBase: Graph[TND, TED]
+
+  def nodeTransFun(srcNode: NodeInfo[SND], srcGraph: Graph[SND, SED]): TND
+
+  def edgeTransFun(srcEdge: EdgeInfo[SED], srgGraph: Graph[SND, SED]): TED
+
+  def apply(source: Graph[SND, SED]): Graph[TND, TED] = {
+    lazy val stateTrans = for {
+      _ <- State[Graph[TND, TED], Unit] { case g => (g.clear, ()) }
+      // adding nodes
+      nodes_map <- State[Graph[TND, TED], NodesMap] { case g => {
+        (1 to source.nodeCount).foldLeft((g, Map[NodeIDDesignator, NodeDesignator]())) {
+          case ((g, map), idx) => {
+            val src_node = source.node(idx.i).get
+            g.addNode(nodeTransFun(src_node, source))
+            (g, map + (src_node.ID.id -> idx.i))
+          }
         }
       }
-    }}
-    res <- State[Graph[TND, TED], Unit] { case g =>
-      val new_g = (1 to source.edgeCount).foldLeft(g) {
-        (g, idx) => {
-          val src_edge = source.edge(idx.ei).get
-          val src_edge_data = src_edge.Data
-          val src_node_id = source.node(src_edge.SrcNode).get.ID.id
-          val dst_node_id = source.node(src_edge.DstNode).get.ID.id
-          g.addEdge(edgeTransFun(src_edge_data, idx.ei, source), nodes_map(src_node_id), nodes_map(dst_node_id))
-        }}
-      (new_g, ())
-    }
-  } yield res
+      }
+      res <- State[Graph[TND, TED], Unit] { case g =>
+        val new_g = (1 to source.edgeCount).foldLeft(g) {
+          (g, idx) => {
+            val src_edge = source.edge(idx.ei).get
+            val src_node_id = source.node(src_edge.SrcNode).get.ID.id
+            val dst_node_id = source.node(src_edge.DstNode).get.ID.id
+            g.addEdge(edgeTransFun(src_edge, source), nodes_map(src_node_id), nodes_map(dst_node_id))
+          }
+        }
+        (new_g, ())
+      }
+    } yield res
 
-  def transform = stateTrans(targetBase)._1
+    stateTrans(targetBase)._1
+  }
 }

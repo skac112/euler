@@ -207,8 +207,8 @@ trait Graph[+ND, +ED] extends GraphView[ND, ED] {
    * Adds a node and an edge joining source node with newly added node.
    */
   def joinNode[SND >: ND, SED >: ED](srcNode: NodeDesignator, nodeData: SND, edgeData: SED): Graph[SND, SED] = {
-    val node_count = addNode(nodeData).nodeCount
-    addEdge[SED](edgeData, srcNode, node_count.i)
+    val g = addNode(nodeData)
+    addEdge[SED](edgeData, srcNode, g.nodeCount.i)
   }
 
   /**

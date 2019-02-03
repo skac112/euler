@@ -2,7 +2,7 @@ package skac.euler.impl.fastindex.immutable
 
 import skac.euler._
 import skac.euler.General._
-import skac.euler.impl.fastindex.generic._
+import skac.euler.impl.fastindex.generic.AbstractGraph
 
 /**
  * Podstawowa implementacja niemutowalna grafu zoptymalizowana pod kątem szybkiego dostępu
@@ -17,7 +17,8 @@ import skac.euler.impl.fastindex.generic._
  * strukturę grafu. W tym celu zdefiniowane są metody {@link newNodeInfo()},
  * {@link newEdgeInfo()}, {@link replaceNodeInfo()} oraz {@link replaceEdgeInfo()}.
  */
-class Graph[ND, ED](pNodes: Vector[NodeStruct[ND, ED]] = Vector[NodeStruct[ND, ED]]()) extends AbstractGraph[ND, ED] {
+class Graph[ND, ED](pNodes: Vector[NodeStruct[ND, ED]] = Vector[NodeStruct[ND, ED]](),
+                    newElemIdSeed: Option[Int] = None) extends AbstractGraph[ND, ED] {
 
   // type G = this.type
   type G = Graph[ND, ED]
@@ -26,12 +27,12 @@ class Graph[ND, ED](pNodes: Vector[NodeStruct[ND, ED]] = Vector[NodeStruct[ND, E
     this(Vector())
   }
 
-  //override val Nodes = Vector[NodeStruct[ND, ED]]()
-  override protected val Nodes = pNodes
+  override val Nodes = pNodes
 
   override type NodesT = Vector[NodeStruct[ND, ED]]
-  val NewNodeID: Int = Nodes.size + 1
-  val NewEdgeID: Int = edges.size + 1
+  lazy val newNodeId = newElemIdSeed.getOrElse(0)
+  lazy val newEdgeId = newNodeId
+  lazy val newNewElemIdSeed = Some(newElemIdSeed.getOrElse(0) + 1)
 
   /**
    * Zwraca obiekt klasy NodeInfo na podstawie danych węzła. Nadpisanie metody
@@ -39,7 +40,7 @@ class Graph[ND, ED](pNodes: Vector[NodeStruct[ND, ED]] = Vector[NodeStruct[ND, E
    * w wewnętrznych strukturach danych reprezentujących węzły w celu
    * reprezentacji bogatszej informacji o węzłach (wag, nazw itp.).
    */
-  def newNodeInfo[SND >: ND](Data: SND): NodeInfo[SND] = new NodeInfo(NewNodeID, Data)
+  def newNodeInfo[SND >: ND](Data: SND): NodeInfo[SND] = new NodeInfo(newNodeId, Data)
 
   /**
    * Zwraca obiekt klasy EdgeInfo na podstawie danych krawędzi oraz desygnatorów
@@ -49,11 +50,12 @@ class Graph[ND, ED](pNodes: Vector[NodeStruct[ND, ED]] = Vector[NodeStruct[ND, E
    * reprezentacji bogatszej informacji o krawędziach (wag, nazw itp.).
    */
   def newEdgeInfo[SED >: ED](Data: SED, SrcNode: NodeDesignator, DstNode: NodeDesignator): EdgeInfo[SED] =
-    new EdgeInfo(NewEdgeID, Data, SrcNode, DstNode)
+    new EdgeInfo(newEdgeId, Data, SrcNode, DstNode)
 
   def addNode[SND >: ND](Data: SND): Graph[SND, ED] = {
   // def addNode(Data: ND): G = {
-    val new_nodes: Vector[NodeStruct[SND, ED]] = (Nodes :+ NodeStruct(newNodeInfo(Data), Map[Any, EdgeInfo[ED]](), Map[Any, EdgeInfo[ED]]()))
+    val new_nodes: Vector[NodeStruct[SND, ED]] = (Nodes :+ NodeStruct(newNodeInfo(Data), Map[Any, EdgeInfo[ED]](),
+      Map[Any, EdgeInfo[ED]]()))
     newInstance(new_nodes)
   }
 
@@ -137,5 +139,6 @@ class Graph[ND, ED](pNodes: Vector[NodeStruct[ND, ED]] = Vector[NodeStruct[ND, E
     newInstance(new_nodes)
   }
 
-  def newInstance[SND >: ND, SED >: ED](Nodes: Vector[NodeStruct[SND, SED]]) = new Graph[SND, SED](Nodes)
+  def newInstance[SND >: ND, SED >: ED](Nodes: Vector[NodeStruct[SND, SED]]) =
+    new Graph[SND, SED](Nodes, newNewElemIdSeed)
 }
