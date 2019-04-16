@@ -17,21 +17,22 @@ import GraphDataTransform._
   * @param source
   * @param targetBase
   * @param nodeTrans
-  * @tparam SND
-  * @tparam SED
-  * @tparam TND
-  * @tparam TED
+  * @tparam SG source graph type
+  * @tparam SND source node data type
+  * @tparam SED source edge data type
+  * @tparam TND target node data type
+  * @tparam TED target edge data type
   */
-abstract class GraphDataTransform[SND, SED, TND, TED] extends Function1[Graph[SND, SED], Graph[TND, TED]] {
+abstract class GraphDataTransform[SG <: Graph[SND, SED], SND, SED, TND, TED] extends Function1[SG, Graph[TND, TED]] {
   type NodesMap = Map[NodeIDDesignator, NodeDesignator]
 
   def targetBase: Graph[TND, TED]
 
-  def nodeTransFun(srcNode: NodeInfo[SND], srcGraph: Graph[SND, SED]): TND
+  def nodeTransFun(srcNode: NodeInfo[SND], srcGraph: SG): TND
 
-  def edgeTransFun(srcEdge: EdgeInfo[SED], srgGraph: Graph[SND, SED]): TED
+  def edgeTransFun(srcEdge: EdgeInfo[SED], srgGraph: SG): TED
 
-  def apply(source: Graph[SND, SED]): Graph[TND, TED] = {
+  def apply(source: SG): Graph[TND, TED] = {
     lazy val stateTrans = for {
       _ <- State[Graph[TND, TED], Unit] { case g => (g.clear, ()) }
       // adding nodes

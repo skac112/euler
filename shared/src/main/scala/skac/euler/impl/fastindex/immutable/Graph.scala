@@ -28,11 +28,10 @@ class Graph[ND, ED](pNodes: Vector[NodeStruct[ND, ED]] = Vector[NodeStruct[ND, E
   }
 
   override val Nodes = pNodes
-
   override type NodesT = Vector[NodeStruct[ND, ED]]
-  lazy val newNodeId = newElemIdSeed.getOrElse(0)
-  lazy val newEdgeId = newNodeId
-  lazy val newNewElemIdSeed = Some(newElemIdSeed.getOrElse(0) + 1)
+  private lazy val newNodeId = newElemIdSeed.getOrElse(0)
+  private lazy val newEdgeId = newNodeId
+  protected lazy val newNewElemIdSeed = Some(newElemIdSeed.getOrElse(0) + 1)
 
   /**
    * Zwraca obiekt klasy NodeInfo na podstawie danych węzła. Nadpisanie metody
