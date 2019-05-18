@@ -3,7 +3,7 @@ package skac.euler.generators
 import skac.euler.Graph
 import skac.euler.General._
 import skac.euler._
-import scalaz._
+//import scalaz._
 
 /**
  * Generates an "elongated star graph". It is like a star graph now each "ray"
@@ -30,5 +30,5 @@ class ElongatedStar[ND, ED](LeavesNum: Int, rayNodeCnt: Int)
        makeTimes(LeavesNum, {graph: Graph[ND, ED] =>
          val leaf = nodeDataGen(graph)
          graph + leaf +-> (edgeDataGen(graph), cNode.da, leaf.da)
-       })(g)._1}
+       }).runS(g).value}
 }

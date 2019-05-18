@@ -1,9 +1,10 @@
 package skac.euler.analysis
 
+import cats.data.State
 import skac.euler._
 import skac.euler.General._
 
-import scalaz.State
+//import scalaz.State
 
 object GraphDataTransform {
   type NodeTransFun[SND, SED, TND] = (SND, NodeDesignator, Graph[SND, SED]) => TND
@@ -81,6 +82,6 @@ abstract class GraphDataTransform[SG <: Graph[SND, SED], SND, SED, TND, TED] ext
       }
     } yield res
 
-    stateTrans(targetBase)._1
+    stateTrans.runS(targetBase).value
   }
 }

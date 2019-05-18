@@ -14,9 +14,10 @@ lazy val root = project.in(file(".")).
 lazy val euler = crossProject.in(file(".")).
   settings(
     name := "euler",
-    version := "0.6.0-SNAPSHOT",
+    version := "0.7.0-SNAPSHOT",
     organization := "skac",
-    libraryDependencies += "org.scalaz" %%% "scalaz-core" % "7.2.13",
+//    libraryDependencies += "org.scalaz" %%% "scalaz-core" % "7.2.13",
+    libraryDependencies += "org.typelevel" %% "cats-core" % "1.2.0",
     libraryDependencies += "com.lihaoyi" %%% "utest" % "0.6.3" % "test",
     testFrameworks += new TestFramework("utest.runner.Framework")
   ).

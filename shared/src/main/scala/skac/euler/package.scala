@@ -1,6 +1,6 @@
 package skac
 
-import scalaz._
+import cats.data.State
 
 package object euler {
     type GraphTrans[ND, ED] = Graph[ND, ED] => Graph[ND, ED]

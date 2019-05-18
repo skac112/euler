@@ -1,6 +1,7 @@
 package skac.euler
 
 import General._
+
 import scala.collection.generic._
 
 object GraphView {

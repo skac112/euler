@@ -29,7 +29,7 @@ class Star[ND, ED](LeavesNum: Int)
      makeTimes(LeavesNum, {graph: Graph[ND, ED] =>
        val leaf = nodeDataGen(graph)
        graph + leaf +-> (edgeDataGen(graph), cNode.da, leaf.da)
-     })(g)._1
+     }).runS(g).value
 
     //  (1 to LeavesNum).foldLeft(g)({(graph, i) => {
     //    val leaf = nodeDataGen(g)
