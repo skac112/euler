@@ -4,7 +4,7 @@ import skac.euler._
 import java.io.Reader
 import skac.euler.General._
 
-class GexfReader[ND, ED](Deserializer: Deserializer[ND, ED]) {
+//class GexfReader[ND, ED](Deserializer: Deserializer[ND, ED]) {
 
 //  def open(Filename: String) = {
 //    val gexf_graph = new GexfGraph()
@@ -29,4 +29,4 @@ class GexfReader[ND, ED](Deserializer: Deserializer[ND, ED]) {
 //    GexfGraph.edges foreach {e => Deserializer.deserializeEdge(e.Data, node_map(e.SrcNode), node_map(e.DstNode))}
 //    graph
 //  }
-}
+//}

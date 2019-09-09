@@ -1,8 +1,12 @@
 package skac.euler.analysis
 
+import cats.Monad
 import skac.euler.General._
 import skac.euler._
 import skac.euler.GraphView._
+import cats._
+import cats.implicits._
+
 import scala.annotation._
 
 object Traverser {
@@ -32,11 +36,12 @@ object Traverser {
  **/
 import Traverser._
 
-abstract class Traverser[ND, ED, S, R] extends Function3[NodeDesignator, S, R, R] {
-  type ThisTraverser = Traverser[ND, ED, S, R]
-  type ThisGraphView = GraphView[ND, ED]
+abstract class Traverser[ND, ED, S, R, M[_] : Monad] extends Function3[NodeDesignator, S, R, M[R]] {
+  type ThisTraverser = Traverser[ND, ED, S, R, M]
+  type ThisGraphView = GraphView[ND, ED, M]
   type ThisNodeInfo = NodeInfo[ND]
   type ThisEdgeInfo = EdgeInfo[ED]
+//  implicit def m: Monad[M]
 
   /**
     * Function handling node traversal.
@@ -47,7 +52,7 @@ abstract class Traverser[ND, ED, S, R] extends Function3[NodeDesignator, S, R, R
 
 //  type StimMergeFun = (S, S) => S
 
-  def graphView: GraphView[ND, ED]
+  def graphView: GraphView[ND, ED, M]
 
   /**
     * Defines how signals merge.
@@ -64,7 +69,7 @@ abstract class Traverser[ND, ED, S, R] extends Function3[NodeDesignator, S, R, R
     * @param res
     * @return
     */
-  def nodeHandleFun(nInfo: ThisNodeInfo, stim: S, res: R): (EPropagation[S], R)
+  def nodeHandleFun(nInfo: ThisNodeInfo, stim: S, res: R): M[(EPropagation[S], R)]
 
   /**
     * Defines how signal in edge modifies current result.
@@ -73,7 +78,7 @@ abstract class Traverser[ND, ED, S, R] extends Function3[NodeDesignator, S, R, R
     * @param res
     * @return
     */
-  def edgeHandleFun(eidDes: EdgeIDDesignator, stim: S, res: R): R
+  def edgeHandleFun(eidDes: EdgeIDDesignator, stim: S, res: R): M[R]
 
   // type NSet = Set[NodeIDDesignator]
   // type ESet = Set[EdgeIDDesignator]
@@ -88,73 +93,117 @@ abstract class Traverser[ND, ED, S, R] extends Function3[NodeDesignator, S, R, R
 
   def apply(initNode: NodeDesignator,
             initStim: S,
-            initRes: R): R = {
-    val id_des = toIdDes(initNode)
-    val walk_list = SeqMap.empty.addToHead(id_des, initStim)
-    val visited_nodes = Set[NodeIDDesignator]()
-    val visited_edges = Set[EdgeIDDesignator]()
-    doWalking(walk_list, visited_nodes, visited_edges, initRes)
-  }
+            initRes: R): M[R] = for {
+    id_des <- graphView.idDes(initNode)
+    walk_list = SeqMap.empty.addToHead(id_des.get, initStim)
+    visited_nodes = Set[NodeIDDesignator]()
+    visited_edges = Set[EdgeIDDesignator]()
+    res <- doWalking(walk_list, visited_nodes, visited_edges, initRes)
+  } yield res
 
     /**
       * Converts any node designator to id node designator.
       */
-    private def toIdDes(nd: NodeDesignator): NodeIDDesignator = nd match {
-      case nd @ NodeIDDesignator(id) => nd
-      case _ => NodeIDDesignator(graphView.node(nd).get.ID)
-    }
+//    private def toIdDes(nd: NodeDesignator): NodeIDDesignator = nd match {
+//      case nd @ NodeIDDesignator(id) => nd
+//      case _ => NodeIDDesignator(graphView.node(nd).get.ID)
+//    }
 
-    @tailrec
     private def doWalking(nodes: Signals[S],
                           visitedNodes: NSet,
                           visitedEdges: ESet,
                           //  travFun: TravFun,
-                          handleRes: R): R = if (nodes.isEmpty) {
+                          handleRes: R): M[R] =
+    if (nodes.isEmpty) {
       // just passing result from earlier evaluation
-      handleRes
+      implicitly[Monad[M]].pure(handleRes)
     }
     else {
       val in_sig = nodes.head
-      val (new_vis_nodes, new_vis_edges, n_propagation, new_res) = graphView.node(in_sig._1) match {
-        case Some(node_info) => {
-          val new_vis_nodes = visitedNodes + node_info.ID.id
-          val stimulus = in_sig._2
-          val (e_prop, new_res) = nodeHandleFun(node_info, stimulus, handleRes)
-          val new_res2: R = handleEdges(e_prop, visitedEdges, new_res)
-          val new_vis_edges = visitedEdges ++ (e_prop.toHead map (_._1)).toSet ++
-            (e_prop.toTail map (_._1)).toSet
-          val raw_n_prop = ePropToNProp(e_prop, node_info)
-          // filtering out signals to already traversed nodes
-          val n_prop: NPropagation[S] = filtOutVisNodes(raw_n_prop, new_vis_nodes)
-          // temporary result (of type R)
-          //  val new_res = handleFun(node_info, stimulus, graphView, this, handleRes)
-          (new_vis_nodes, new_vis_edges, n_prop, new_res2)
+      for {
+        ni_o <- graphView.node(in_sig._1)
+        wave <- ni_o match {
+          case Some(node_info) => {
+            val new_vis_nodes = visitedNodes + node_info.ID.id
+            val stimulus = in_sig._2
+            for {
+              e_prop_new_res <- nodeHandleFun(node_info, stimulus, handleRes)
+              e_prop = e_prop_new_res._1
+              new_res = e_prop_new_res._2
+              new_res2 <- handleEdges(e_prop, visitedEdges, new_res)
+              new_vis_edges = visitedEdges ++ (e_prop.toHead map (_._1)).toSet ++
+                (e_prop.toTail map (_._1)).toSet
+              raw_n_prop <- ePropToNProp(e_prop, node_info)
+              // filtering out signals to already traversed nodes
+              n_prop = filtOutVisNodes(raw_n_prop, new_vis_nodes)
+            } yield (new_vis_nodes, new_vis_edges, n_prop, new_res2)
+
+          }
+          case None => implicitly[Monad[M]].pure((visitedNodes, visitedEdges, emptyNProp, handleRes))
         }
-        case None => (visitedNodes, visitedEdges, emptyNProp, handleRes)
-      }
-      val new_nodes = mergePropagation(nodes.tail, n_propagation)
-      doWalking(new_nodes, new_vis_nodes, new_vis_edges, new_res)
+        new_vis_nodes = wave._1
+        new_vis_edges = wave._2
+        n_propagation = wave._3
+        new_res = wave._4
+        new_nodes = mergePropagation(nodes.tail, n_propagation)
+        res <- doWalking(new_nodes, new_vis_nodes, new_vis_edges, new_res)
+      } yield res
     }
 
-    private def handleEdges(ePropagation: EPropagation[S], visitedEdges: ESet, handleRes: R): R = {
+
+//    else {
+//      val in_sig = nodes.head
+//      val (new_vis_nodes, new_vis_edges, n_propagation, new_res) = graphView.node(in_sig._1) match {
+//        case Some(node_info) => {
+//          val new_vis_nodes = visitedNodes + node_info.ID.id
+//          val stimulus = in_sig._2
+//          val (e_prop, new_res) = nodeHandleFun(node_info, stimulus, handleRes)
+//          val new_res2: R = handleEdges(e_prop, visitedEdges, new_res)
+//          val new_vis_edges = visitedEdges ++ (e_prop.toHead map (_._1)).toSet ++
+//            (e_prop.toTail map (_._1)).toSet
+//          val raw_n_prop = ePropToNProp(e_prop, node_info)
+//          // filtering out signals to already traversed nodes
+//          val n_prop: NPropagation[S] = filtOutVisNodes(raw_n_prop, new_vis_nodes)
+//          // temporary result (of type R)
+//          //  val new_res = handleFun(node_info, stimulus, graphView, this, handleRes)
+//          (new_vis_nodes, new_vis_edges, n_prop, new_res2)
+//        }
+//        case None => (visitedNodes, visitedEdges, emptyNProp, handleRes)
+//      }
+//      val new_nodes = mergePropagation(nodes.tail, n_propagation)
+//      doWalking(new_nodes, new_vis_nodes, new_vis_edges, new_res)
+//    }
+
+    private def handleEdges(ePropagation: EPropagation[S], visitedEdges: ESet, handleRes: R): M[R] = {
       // function to filter out already handled (visited) edges
       val filt_f = (es: ESignal[S]) => visitedEdges(es._1)
       // function to handle each edge
       val fun = (handleRes: R, e_sig: ESignal[S]) => edgeHandleFun(e_sig._1, e_sig._2, handleRes)
-      // handling edges in toHead part
-      val res1 = ePropagation.toHead.filterNot(filt_f).foldLeft(handleRes)(fun)
-      // handling edges in toTail part
-      ePropagation.toTail.filterNot(filt_f).foldLeft(res1)(fun)
+      for {
+        // handling edges in toHead part
+        res1 <- ePropagation.toHead.toList.filterNot(filt_f).foldM(handleRes)(fun)
+        // handling edges in toTail part
+        res <- ePropagation.toTail.toList.filterNot(filt_f).foldM(res1)(fun)
+      } yield res
     }
 
-    private def ePropToNProp(ePropagation: EPropagation[S], node: NodeInfo[ND]): NPropagation[S] = {
+    private def ePropToNProp(ePropagation: EPropagation[S], node: NodeInfo[ND]): M[NPropagation[S]] = {
       val nd = node.ID.id
-      val map_f = (es: ESignal[S]) => {
-        (toIdDes(graphView.oppositeNode(nd, es._1)), es._2)
-      }
-      val to_head = ePropagation.toHead map map_f
-      val to_tail = ePropagation.toTail map map_f
-      NPropagation[S](to_head, to_tail)
+
+      val map_f = (es: ESignal[S]) => for {
+        opp_node <- graphView.oppositeNode(nd, es._1)
+        id_des <- graphView.idDes(opp_node) map { _.get }
+      } yield (id_des, es._2)
+
+      for {
+        to_head <- ePropagation.toHead.toList traverse map_f
+        to_tail <- ePropagation.toTail.toList traverse map_f
+      } yield NPropagation(to_head, to_tail)
+//
+//
+//      val to_head = ePropagation.toHead map map_f
+//      val to_tail = ePropagation.toTail map map_f
+//      NPropagation[S](to_head, to_tail)
     }
 
   /**

@@ -23,10 +23,10 @@ abstract class AbstractGraph[+ND, +ED] extends Graph[ND, ED] {
   //type ConcreteNodeStruct = NodeStruct[ND, ED]
   protected val Nodes: NodesT
 
-  def nodeCount = Nodes.size
-  def edgeCount = Nodes map {_.outEdges.size} sum
+  override def nodeCount = Nodes.size
+  override def edgeCount = Nodes map {_.outEdges.size} sum
 
-  def node(NodeDes: NodeDesignator) = NodeDes match {
+  override def node[SND >: ND](NodeDes: NodeDesignator) = NodeDes match {
     case NodeIdxDesignator(idx) => Some(Nodes(idx).nodeInfo)
     case NodeIDDesignator(id) => Nodes map {_.nodeInfo} find {_.ID == id}
 
@@ -62,36 +62,55 @@ abstract class AbstractGraph[+ND, +ED] extends Graph[ND, ED] {
 
   override def nodes: Iterable[NodeInfo[ND]] = Nodes map {_.nodeInfo}
 
-  def isEdge(NodeDes1: NodeDesignator, NodeDes2: NodeDesignator, Directed: Boolean): Boolean = {
-    // jesli Directed, to uwzględnia tylko krawędzie wyjściowe, jesli nie, to także
-    // krawędzie wejściowe
-    val node_struct = findNodeStruct(NodeDes1).get;
-    (node_struct.outEdges.values map {_.DstNode} exists {_ === NodeDes2}) || (!Directed &&
-     (node_struct.inEdges.values map {_.SrcNode} exists {_ === NodeDes2}));
-  }
+//  override def isEdge(nd1: NodeDesignator, nd2: NodeDesignator, directed: Boolean): Boolean = {
+//    // jesli Directed, to uwzględnia tylko krawędzie wyjściowe, jesli nie, to także
+//    // krawędzie wejściowe
+//    val node_struct = findNodeStruct(nd1).get
+//    val nid2 = idDes(nd2).get
+//    val exists_dst_node = (edges: Map[Any, EdgeInfo[ED]]) => { edges.values exists {ei: EdgeInfo[ED] => idDes(ei.DstNode) == nid2 } }
+//    val exists_src_node = (edges: Map[Any, EdgeInfo[ED]]) => { edges.values exists {ei: EdgeInfo[ED] => idDes(ei.SrcNode) == nid2 } }
+//
+//    directed match {
+//      case true => exists_dst_node(node_struct.outEdges)
+//      case false => exists_dst_node(node_struct.outEdges) || exists_src_node(node_struct.inEdges)
+//    }
+//  }
 
-  override def edgeBetween(nd1: NodeDesignator, nd2: NodeDesignator, directed: Boolean) = {
+  override def edgeBetween[SED >: ED](nd1: NodeDesignator, nd2: NodeDesignator, directed: Boolean) = {
     val node_struct = findNodeStruct(nd1).get
-    node_struct.outEdges.values find {_.DstNode === nd2} match {
+    val nid2 = idDes(nd2).get
+    node_struct.outEdges.values find { ei: EdgeInfo[ED] => idDes(ei.DstNode) == nid2 } match {
       case Some(e) => Some(e)
-      case None if (!directed) => node_struct.inEdges map {_._2} find {_.SrcNode === nd2}
+      case None if (!directed) => node_struct.inEdges.values find { ei: EdgeInfo[ED] => idDes(ei.SrcNode) == nid2 }
       case _ => None
     }
   }
 
-  override def edgesBetween[SED >: ED](NodeDes1: NodeDesignator, NodeDes2: NodeDesignator, Directed: Boolean) = {
-    val node_struct = findNodeStruct(NodeDes1).get
-    (node_struct.outEdges.values.toSet[EdgeInfo[SED]] filter {_.DstNode === NodeDes2}) |
-     (if (!Directed) node_struct.inEdges.values.toSet[EdgeInfo[SED]] filter {_.SrcNode === NodeDes2} else Set[EdgeInfo[SED]]())
+  override def edgesBetween[SED >: ED](nd1: NodeDesignator, nd2: NodeDesignator, directed: Boolean) = {
+    val node_struct = findNodeStruct(nd1).get
+    val nid2 = idDes(nd2).get
+    val out_edges = node_struct.outEdges.values.toSet[EdgeInfo[SED]] filter { ei: EdgeInfo[_] => idDes(ei.DstNode) == nid2 }
+
+    val in_edges = if (!directed) {
+      node_struct.inEdges.values.toSet[EdgeInfo[SED]] filter { ei: EdgeInfo[_] => idDes(ei.SrcNode) == nid2 }
+    }
+    else {
+      Set[EdgeInfo[SED]]()
+    }
+
+    out_edges | in_edges
   }
 
-  def edge(EdgeDes: EdgeDesignator) = EdgeDes match {
+  override def edge[SED >: ED](EdgeDes: EdgeDesignator) = EdgeDes match {
     case EdgeIdxDesignator(idx) => Some((edges toSeq)(idx))
     case EdgeIDDesignator(id) => edges find {_.ID == id}
     case EdgeDataDesignator(data) => edges find {_.Data == data}
-    case EdgeNodesDesignator(node_des1, node_des2) => findNodeStruct(node_des1).get.outEdges.values find {_.DstNode === node_des2}
+    case EdgeNodesDesignator(node_des1, node_des2) => {
+      val nid2 = idDes(node_des2).get
+      findNodeStruct(node_des1).get.outEdges.values find { ei: EdgeInfo[_] => ei.DstNode == nid2 }
+    }
     case EdgePredDesignator(pred) => edges find {pred(_)}
-    case ei: EdgeInfo[ED] => Some(ei)
+    case ei: EdgeInfo[SED] => Some(ei)
   }
 
   protected def findNodeStruct(NodeDes: NodeDesignator): Option[NodeStruct[ND, ED]] = NodeDes match {

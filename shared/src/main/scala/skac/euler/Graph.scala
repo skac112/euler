@@ -1,9 +1,12 @@
 package skac.euler
 
 import General._
+import cats.{Id, Monad}
+
 import scala.collection.generic._
 
-trait Graph[+ND, +ED] extends GraphView[ND, ED] {
+trait Graph[+ND, +ED] extends GraphView[ND, ED, Id] {
+  override def m = Monad[Id]
   import General._
   import GraphView._
 
@@ -34,7 +37,7 @@ trait Graph[+ND, +ED] extends GraphView[ND, ED] {
   override def edges[SED >: ED](nd: NodeDesignator, direction: Int =
    NEIGHBOR_SIDE_BOTH): Set[EdgeInfo[SED]] = (edges filter { isEdgeOf(_, nd, direction)}).toSet[EdgeInfo[SED]]
 
-  override def inEdges[SED >: ED](nd: NodeDesignator): Set[EdgeInfo[SED]] = (edges filter (isInEdgeOfNode[SED](_, nd))).toSet[EdgeInfo[SED]]
+  override def inEdges[SED >: ED](nd: NodeDesignator): Set[EdgeInfo[SED]] = (edges filter (isInEdgeOfNode(_, nd))).toSet[EdgeInfo[SED]]
 
   override def outEdges[SED >: ED](nd: NodeDesignator): Set[EdgeInfo[SED]] = (edges filter (isOutEdgeOfNode(_, nd))).toSet[EdgeInfo[SED]]
 
@@ -42,18 +45,6 @@ trait Graph[+ND, +ED] extends GraphView[ND, ED] {
    * Returns all nodes of a graph.
    */
   def nodes: Iterable[NodeInfo[ND]] = (0 until nodeCount).view map {nodeForIdx(_).get}
-
-  private def isEdgeOf[SED >: ED](ei: EdgeInfo[SED], nd: NodeDesignator) =
-   ei.SrcNode === nd || ei.DstNode === nd
-
-  private def isEdgeOf[SED >: ED](ei: EdgeInfo[SED], nd: NodeDesignator, direction: Int) =
-   direction match {
-    case NEIGHBOR_SIDE_FORWARD => ei.SrcNode === nd
-    case NEIGHBOR_SIDE_BACKWARD => ei.DstNode === nd
-    case NEIGHBOR_SIDE_BOTH => ei.SrcNode === nd || ei.DstNode === nd}
-
-  private def isInEdgeOfNode[SED >: ED](edge: EdgeInfo[SED], nd: NodeDesignator) = edge.DstNode === nd
-  protected def isOutEdgeOfNode[SED >: ED](edge: EdgeInfo[SED], nd: NodeDesignator) = edge.SrcNode === nd
   def addNode[SND >: ND](Data: SND): Graph[SND, ED]
   def addEdge[SED >: ED](Data: SED, SrcNode: NodeDesignator, DstNode: NodeDesignator): Graph[ND, SED]
   def removeNode(NodeDes: NodeDesignator): Graph[ND, ED]

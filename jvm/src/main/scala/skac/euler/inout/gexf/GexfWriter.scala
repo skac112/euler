@@ -3,7 +3,7 @@ import skac.euler._
 import skac.euler.General._
 import java.io.Writer
 
-class GexfWriter[ND, ED](Serializer: Serializer[ND, ED]) {
+//class GexfWriter[ND, ED](Serializer: Serializer[ND, ED]) {
 
 //  def write(Graph: Graph[ND, ED], Writer: Writer) {
 //	val gexf_graph = translateToGexf(Graph)
@@ -40,4 +40,4 @@ class GexfWriter[ND, ED](Serializer: Serializer[ND, ED]) {
 //    Serializer.serializeGraph(Graph, gexf_graph)
 //    gexf_graph
 //  }
-}
+//}

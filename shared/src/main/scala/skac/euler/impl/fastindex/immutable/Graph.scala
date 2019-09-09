@@ -53,8 +53,8 @@ class Graph[ND, ED](pNodes: Vector[NodeStruct[ND, ED]] = Vector[NodeStruct[ND, E
 
   def addNode[SND >: ND](Data: SND): Graph[SND, ED] = {
   // def addNode(Data: ND): G = {
-    val new_nodes: Vector[NodeStruct[SND, ED]] = (Nodes :+ NodeStruct(newNodeInfo(Data), Map[Any, EdgeInfo[ED]](),
-      Map[Any, EdgeInfo[ED]]()))
+    val new_nodes: Vector[NodeStruct[SND, ED]] = Nodes :+ NodeStruct(newNodeInfo(Data), Map[Any, EdgeInfo[ED]](),
+      Map[Any, EdgeInfo[ED]]())
     newInstance(new_nodes)
   }
 

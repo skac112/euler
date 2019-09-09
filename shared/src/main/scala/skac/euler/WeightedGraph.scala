@@ -1,7 +1,8 @@
 package skac.euler
 import General._
+import cats.Id
 
-trait WeightedGraph[ND, ED] extends Graph[ND, ED] with WeightedGraphView[ND, ED] {
+trait WeightedGraph[ND, ED] extends Graph[ND, ED] with WeightedGraphView[ND, ED, Id] {
   import General._
 
   /**

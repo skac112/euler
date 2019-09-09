@@ -12,7 +12,7 @@ import java.io.Writer
 import java.io.InputStream
 import java.io.OutputStream
 
-class GexfGraph extends skac.euler.impl.fastindex.immutable.Graph[GexfNode, GexfEdge] {
+//class GexfGraph extends skac.euler.impl.fastindex.immutable.Graph[GexfNode, GexfEdge] {
 
 //  var NodeAttributes: AttrDefs = _
 //  var EdgeAttributes: AttrDefs = _
@@ -226,4 +226,4 @@ class GexfGraph extends skac.euler.impl.fastindex.immutable.Graph[GexfNode, Gexf
 //		  }
 //	  }}}
 //  }
-}
+//}

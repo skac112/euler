@@ -4,6 +4,8 @@ import skac.euler.General._
 import skac.euler._
 import skac.euler.GraphView._
 import scala.annotation._
+import cats._
+import cats.implicits._
 
 object GraphTraverser {
   // type NodeAddFun[S] = (ThisNodeInfo, S, ThisGraphView, ThisTraverser, ResultGraph) => (EPropagation[S], Option[ND2])
@@ -13,7 +15,7 @@ object GraphTraverser {
 /**
  * Traverser which produces a graph.
  */
-abstract class GraphTraverser[ND, ED, ND2, ED2, S, G <: Graph[ND2, ED2]] extends Traverser[ND, ED, S, G] {
+abstract class GraphTraverser[ND, ED, ND2, ED2, S, G <: Graph[ND2, ED2], M[_] : Monad] extends Traverser[ND, ED, S, G, M] {
   import Traverser._
 //  type ResultGraph = Graph[ND2, ED2]
 //  type NodeAddFun = (ThisNodeInfo, S, ThisGraphView, ThisTraverser, G) => (EPropagation[S], Option[ND2])
@@ -30,9 +32,9 @@ abstract class GraphTraverser[ND, ED, ND2, ED2, S, G <: Graph[ND2, ED2]] extends
    */
   var edgesToCheck: Map[EdgeIDDesignator, S] = _
 
-  def nodeAddFun(nInfo: ThisNodeInfo, stim: S, g: G): (EPropagation[S], Option[ND2])
+  def nodeAddFun(nInfo: ThisNodeInfo, stim: S, g: G): M[(EPropagation[S], Option[ND2])]
 
-  def edgeAddFun(eInfo: ThisEdgeInfo, stim: S, g: G): Option[ED2]
+  def edgeAddFun(eInfo: ThisEdgeInfo, stim: S, g: G): M[Option[ED2]]
 
   /**
     * Defines how signal in node propagates to edges and modifies current result.
@@ -45,21 +47,24 @@ abstract class GraphTraverser[ND, ED, ND2, ED2, S, G <: Graph[ND2, ED2]] extends
     */
   override def nodeHandleFun(nInfo: ThisNodeInfo,
                              stim: S,
-                             res: G): (EPropagation[S], G) = {
-    val (e_prop, node_data_o) = nodeAddFun(nInfo, stim, res)
-    val new_res = node_data_o match {
+                             res: G): M[(EPropagation[S], G)] = for {
+    node_add_fun_res <- nodeAddFun(nInfo, stim, res)
+    e_prop = node_add_fun_res._1
+    node_data_o = node_add_fun_res._2
+    new_res <- node_data_o match {
       case Some(node_data) => {
         val res1 = res.addNode(node_data).asInstanceOf[G]
         // retrieving designator of added node (we can't rely on node data which can be
         // not unique)
-        val added_node = res1.node((res.nodeCount).i).get
+        val added_node = res1.node(res.nodeCount.i).get
         addedNodes = addedNodes + (nInfo -> added_node.ID.id)
         checkEdgeAdds(nInfo, res1)
       }
-      case _ => res
+      case _ => pureG(res)
     }
-    (e_prop, new_res)
-  }
+  } yield (e_prop, new_res)
+
+  private def pureG(g: G): M[G] = implicitly[Monad[M]].pure(g)
 
   /**
     * Function for handling an edge (submitted as EdgeHandleFun in invocation of
@@ -72,15 +77,20 @@ abstract class GraphTraverser[ND, ED, ND2, ED2, S, G <: Graph[ND2, ED2]] extends
     */
   override def edgeHandleFun(eidDes: EdgeIDDesignator,
                              stim: S,
-                             res: G): G = {
-    val ei = graphView.edge(eidDes).get
-    val src_node = graphView.node(ei.SrcNode).get
-    val dst_node = graphView.node(ei.DstNode).get
-    if (addedNodes.contains(src_node) && addedNodes.contains(dst_node)) {
-      // both incident nodes in result graph have been added, so an edge can
-      // be added (optionally)
-      val edge_add_res = edgeAddFun(ei, stim, res)
-      handleEdgeAddFun(edge_add_res, ei, res)
+                             res: G): M[G] = for {
+    ei_o <- graphView.edge(eidDes)
+    ei = ei_o.get
+    src_node_o <- graphView.node(ei.SrcNode)
+    dst_node_o <- graphView.node(ei.DstNode)
+    src_node = src_node_o.get
+    dst_node = dst_node_o.get
+    new_res <- if (addedNodes.contains(src_node) && addedNodes.contains(dst_node)) {
+      for {
+        // both incident nodes in result graph have been added, so an edge can
+        // be added (optionally)
+        edge_add_res <- edgeAddFun(ei, stim, res)
+        new_res2 <- handleEdgeAddFun(edge_add_res, ei, res)
+      } yield new_res2
     }
     else {
       if (addedNodes.contains(src_node) || addedNodes.contains(dst_node)) {
@@ -88,14 +98,14 @@ abstract class GraphTraverser[ND, ED, ND2, ED2, S, G <: Graph[ND2, ED2]] extends
         // map is added - edge can be added later
         edgesToCheck = edgesToCheck + (eidDes -> stim)
       }
-      res
+      pureG(res)
     }
-  }
+  } yield res
 
-  override def apply(initNode: NodeDesignator, initStim: S, initGraph: G): G = {
+  override def apply(initNode: NodeDesignator, initStim: S, initGraph: G): M[G] = {
     addedNodes = Map()
     edgesToCheck = Map()
-    apply(initNode, initStim, initGraph)
+    super.apply(initNode, initStim, initGraph)
   }
 
   /**
@@ -106,33 +116,32 @@ abstract class GraphTraverser[ND, ED, ND2, ED2, S, G <: Graph[ND2, ED2]] extends
    * from edgesToCheckMap is removed. If the data is created, appropriate edge
    * is added in the result graph.
    */
-  private def checkEdgeAdds(node: ThisNodeInfo, res: G): G = {
-    val incident_edges = graphView.edges(node) map {_.ID.eid}
+  private def checkEdgeAdds(node: ThisNodeInfo, res: G): M[G] = for {
+    incident_edges <- graphView.edges(node) map { edges => edges.map { _.ID.eid }}
     // obtaining all key-value pairs of edges incident to given node contained
     // in edgesToCheck map.
-    val edges: Set[(EdgeIDDesignator, S)] = incident_edges map {inc_edge =>
+    edges = incident_edges map {inc_edge =>
      (inc_edge -> edgesToCheck.get(inc_edge))} filter {kv: (EdgeIDDesignator, Option[S]) => !kv._2.isEmpty} map {
       kv: (EdgeIDDesignator, Option[S]) => (kv._1, kv._2.get)
      }
+    new_res <- edges.toList.foldM(res) { (curr_res: G, kv: (EdgeIDDesignator, S)) => for {
+      ei <- graphView.edge(kv._1) map { _.get }
+      edge_add_res <- edgeAddFun(ei, kv._2, res)
+      curr_new_res <- handleEdgeAddFun(edge_add_res, ei, curr_res)
+    } yield curr_new_res }
+  } yield new_res
 
-    edges.foldLeft(res) {(curr_res: G, kv: (EdgeIDDesignator, S)) => {
-      val ei = graphView.edge(kv._1).get
-      val edge_add_res = edgeAddFun(ei, kv._2, res)
-      handleEdgeAddFun(edge_add_res, ei, curr_res)
-    }}
-  }
-
-  private def handleEdgeAddFun(addRes: Option[ED2], edgeInfo: ThisEdgeInfo,
-   res: G): G = addRes match {
-    case Some(edge_data) => {
+  private def handleEdgeAddFun(addRes: Option[ED2], edgeInfo: ThisEdgeInfo, res: G): M[G] = addRes match {
+    case Some(edge_data) => for {
       // nodes in graphview
-      val src_node = graphView.node(edgeInfo.SrcNode).get
-      val dst_node = graphView.node(edgeInfo.DstNode).get
+      src_node_o <- graphView.node(edgeInfo.SrcNode)
+      src_node = src_node_o.get
+      dst_node_o <- graphView.node(edgeInfo.DstNode)
+      dst_node = dst_node_o.get
       // nodes in created graph
-      val res_src_node = res.node(addedNodes(src_node)).get
-      val res_dst_node = res.node(addedNodes(dst_node)).get
-      res.addEdge(edge_data, res_src_node, res_dst_node).asInstanceOf[G]
-    }
-    case _ => res
+      res_src_node = res.node(addedNodes(src_node)).get
+      res_dst_node = res.node(addedNodes(dst_node)).get
+    } yield res.addEdge(edge_data, res_src_node, res_dst_node).asInstanceOf[G]
+    case _ => implicitly[Monad[M]].pure(res)
   }
 }
