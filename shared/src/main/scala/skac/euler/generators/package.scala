@@ -7,7 +7,7 @@ package object generators {
   private var nextNodeNum: Int = _
   private var nextEdgeNum: Int = _
 
-  def assignWeightsByDegree[ND, ED](startGraph: WeightedGraph[ND, ED], directed: Boolean = false): WeightedGraph[ND, ED] = {
+  def assignWeightsByDegree[G <: WeightedGraph[G, _, _]](startGraph: G, directed: Boolean = false): G = {
     var graph = startGraph
     val factor = 10
 
@@ -27,7 +27,7 @@ package object generators {
 
   private def sampleDesc = "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt."
 
-  def assignDescriptions[ND, ED](startGraph: DescribedGraph[ND, ED]): DescribedGraph[ND, ED] = {
+  def assignDescriptions[G <: DescribedGraph[G, _, _]](startGraph: G): G = {
     var graph = startGraph
 
     for {i <- 0 until startGraph.nodeCount

@@ -9,10 +9,10 @@ import skac.euler._
  * nodeDataGen should give unique data for each invocation beause generating
  * is bases on this assumption.
  */
-class Star[ND, ED](LeavesNum: Int)
- (implicit startGraph: Graph[ND, ED],
- nodeDataGen: Graph[ND, ED] => ND,
- edgeDataGen: Graph[ND, ED] => ED) extends GraphGenerator[ND, ED] {
+class Star[G <: Graph[G, ND, ED], ND, ED](LeavesNum: Int)
+ (implicit startGraph: G,
+ nodeDataGen: G => ND,
+ edgeDataGen: G => ED) extends GraphGenerator[G, ND, ED] {
 
   var g = startGraph
 
@@ -26,34 +26,9 @@ class Star[ND, ED](LeavesNum: Int)
      cNode = nodeDataGen(g)
      g = g + cNode
      // uzycie monady stanu (w makeTimes) - wykonanie funkcji LeavesNum razy
-     makeTimes(LeavesNum, {graph: Graph[ND, ED] =>
+     makeTimes[G, ND, ED](LeavesNum, {graph: G =>
        val leaf = nodeDataGen(graph)
        graph + leaf +-> (edgeDataGen(graph), cNode.da, leaf.da)
      }).runS(g).value
-
-    //  (1 to LeavesNum).foldLeft(g)({(graph, i) => {
-    //    val leaf = nodeDataGen(g)
-    //    graph + leaf +-> (edgeDataGen(g), cNode.da, leaf.da)
-    //  }})
-
-    //  1 to LeavesNum foreach {_ => {
-    //    val leaf = nodeDataGen(g)
-    //    g = g + leaf
-    //    g = g +-> (edgeDataGen(g), cNode.da, leaf.da)
-    //  }}
-    //  g
   }
-
-  // override def generate = {
-  //   var Graph: Graph[ND, ED] = startGraph
-  //   Graph = Graph.clear
-  //   InternalNode = nodeDataGen()
-  //   Graph = Graph + InternalNode
-  //   1 to LeavesNum foreach {_ => {
-  //     val leaf = nodeDataGen()
-  //     Graph = Graph + leaf
-  //     Graph = Graph +-> (edgeDataGen(), InternalNode.da, leaf.da)
-  //   }}
-  //   Graph
-  // }
 }

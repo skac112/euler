@@ -7,11 +7,11 @@ package skac.euler
 
 import cats.Id
 
-trait DescribedGraph[ND, ED] extends Graph[ND, ED] with DescribedGraphView[ND, ED, Id] {
+trait DescribedGraph[G <: DescribedGraph[G, ND, ED], ND, ED] extends Graph[G, ND, ED] with DescribedGraphView[ND, ED, Id] {
   import General._
 
-  def setNodeName(NodeDes: NodeDesignator, Name: String): DescribedGraph[ND, ED]
-  def setNodeDesc(NodeDes: NodeDesignator, Desc: String): DescribedGraph[ND, ED]
-  def setEdgeName(EdgeDes: EdgeDesignator, Name: String): DescribedGraph[ND, ED]
-  def setEdgeDesc(EdgeDes: EdgeDesignator, Desc: String): DescribedGraph[ND, ED]
+  def setNodeName(NodeDes: NodeDesignator, Name: String): G
+  def setNodeDesc(NodeDes: NodeDesignator, Desc: String): G
+  def setEdgeName(EdgeDes: EdgeDesignator, Name: String): G
+  def setEdgeDesc(EdgeDes: EdgeDesignator, Desc: String): G
 }

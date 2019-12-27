@@ -2,11 +2,11 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/euler-sources.iml" filepath="$PROJECT_DIR$/.idea/modules/euler-sources.iml" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/eulerJS.iml" filepath="$PROJECT_DIR$/.idea/modules/eulerJS.iml" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/eulerJVM.iml" filepath="$PROJECT_DIR$/.idea/modules/eulerJVM.iml" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/root.iml" filepath="$PROJECT_DIR$/.idea/modules/root.iml" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/root-build.iml" filepath="$PROJECT_DIR$/.idea/modules/root-build.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/euler-build.iml" filepath="$PROJECT_DIR$/.idea/modules/euler-build.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/euler-sources.iml" filepath="$PROJECT_DIR$/.idea/modules/euler-sources.iml" group="euler" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/eulerJS.iml" filepath="$PROJECT_DIR$/.idea/modules/eulerJS.iml" group="euler" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/eulerJVM.iml" filepath="$PROJECT_DIR$/.idea/modules/eulerJVM.iml" group="euler" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/projekty-euler.iml" filepath="$PROJECT_DIR$/.idea/modules/projekty-euler.iml" group="euler" />
     </modules>
   </component>
 </project>

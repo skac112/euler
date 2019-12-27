@@ -4,8 +4,8 @@ import skac.euler._
 import skac.euler.General._
 import skac.euler.impl.fastindex.generic._
 
-class DescWeightedGraph[ND, ED](pNodes: Vector[NodeStruct[ND, ED]] = Vector[NodeStruct[ND, ED]]())
- extends WeightedGraph[ND, ED] with skac.euler.WeightedGraph[ND, ED] with skac.euler.DescribedGraph[ND, ED] {
+class DescWeightedGraph[G <: DescWeightedGraph[G, ND, ED], ND, ED](pNodes: Vector[NodeStruct[ND, ED]] = Vector[NodeStruct[ND, ED]]())
+ extends WeightedGraph[G, ND, ED] with skac.euler.WeightedGraph[G, ND, ED] with skac.euler.DescribedGraph[G, ND, ED] {
 
   class NodeInfo[ND](override val ID: Any, override val Data: ND, override val Weight: Double,
    val Name: String, val Desc: String) extends super.NodeInfo(ID, Data, Weight) {
@@ -51,5 +51,5 @@ class DescWeightedGraph[ND, ED](pNodes: Vector[NodeStruct[ND, ED]] = Vector[Node
     newInstance(new_nodes)
   }
 
-  override def newInstance[SND >: ND, SED >: ED](Nodes: Vector[NodeStruct[SND, SED]]) = new DescWeightedGraph[SND, SED](Nodes)
+  override def newInstance(Nodes: Vector[NodeStruct[ND, ED]]): G = new DescWeightedGraph[G, ND, ED](Nodes).asInstanceOf[G]
 }

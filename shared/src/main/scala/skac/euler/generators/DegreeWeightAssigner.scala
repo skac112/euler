@@ -7,9 +7,9 @@ import skac.euler.General._
  * Przypisuje wagi węzłom i krawędziom danego grafu. Wagi węzłów równe są ich stopniom. Wagi
  * krawędzi równe są średniej wag węzłów krawędzi.
  */
-class DegreeWeightAssigner[ND, ED] extends Function2[WeightedGraph[ND, ED], Boolean, WeightedGraph[ND, ED]] {
+class DegreeWeightAssigner[G <: WeightedGraph[G, _, _]] extends ((G, Boolean) => G) {
 
-  override def apply(StartGraph: WeightedGraph[ND, ED], Directed: Boolean): WeightedGraph[ND, ED] = {
+  override def apply(StartGraph: G, Directed: Boolean): G = {
     var graph = StartGraph
 
     for (i <- 0 to StartGraph.nodeCount - 1) graph = graph.setNodeWeight(i.i, graph.degree(i.i))

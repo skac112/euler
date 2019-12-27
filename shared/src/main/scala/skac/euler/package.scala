@@ -3,8 +3,8 @@ package skac
 import cats.data.State
 
 package object euler {
-    type GraphTrans[ND, ED] = Graph[ND, ED] => Graph[ND, ED]
-    type GraphTransIdx[ND, ED] = (Graph[ND, ED], Int) => Graph[ND, ED]
+    type GraphTrans[G <: Graph[G, _, _]] = (G) => G
+    type GraphTransIdx[G <: Graph[G, _, _]] = (G, Int) => G
 
   /**
     * Transforms graph specified number od times using specified function.
@@ -14,11 +14,11 @@ package object euler {
     * @tparam ED
     * @return
     */
-    def makeTimes[ND, ED](count: Int, f: GraphTrans[ND, ED]) = State[Graph[ND, ED], Unit] {
+    def makeTimes[G <: Graph[G, ND, ED], ND, ED](count: Int, f: GraphTrans[G]) = State[G, Unit] {
       case g => ((1 to count).foldLeft(g){(graph, i) => f(graph)}, ())
     }
 
-    def makeTimesWithIdx[ND, ED](count: Int, f: GraphTransIdx[ND, ED]) = State[Graph[ND, ED], Unit] {
+    def makeTimesWithIdx[G <: Graph[G, ND, ED], ND, ED](count: Int, f: GraphTransIdx[G]) = State[G, Unit] {
       case g => ((0 until count).foldLeft(g){(graph, i) => f(graph, i)}, ())
     }
 }

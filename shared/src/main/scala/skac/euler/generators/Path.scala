@@ -9,18 +9,18 @@ import skac.euler._
 /**
  * Generates a path graph (https://en.wikipedia.org/wiki/Path_graph).
  */
-class Path[ND, ED](nodesNum: Int)
- (implicit startGraph: Graph[ND, ED],
- nodeDataGen: Graph[ND, ED] => ND,
- edgeDataGen: Graph[ND, ED] => ED) extends GraphGenerator[ND, ED] {
+class Path[G <: Graph[G, ND, ED], ND, ED](nodesNum: Int)
+ (implicit startGraph: G,
+ nodeDataGen: G => ND,
+ edgeDataGen: G => ED) extends GraphGenerator[G, ND, ED] {
    override def generate() = stateTrans.runS(startGraph).value
 
    lazy val stateTrans = for {
-     _ <- State[Graph[ND, ED], Unit] {case graph => (graph.clear, ())}
+     _ <- State[G, Unit] {case graph => (graph.clear, ())}
      // dodanie wezlow
-     _ <- makeTimes(nodesNum, {graph: Graph[ND, ED] => graph + nodeDataGen(graph)})
+     _ <- makeTimes[G, ND, ED](nodesNum, {graph: G => graph + nodeDataGen(graph)})
      // dodanie krawedzi
-     res <- makeTimesWithIdx(nodesNum - 1, {(graph: Graph[ND, ED], idx: Int) =>
+     res <- makeTimesWithIdx[G, ND, ED](nodesNum - 1, {(graph: G, idx: Int) =>
        graph +-> (edgeDataGen(graph), idx.i, (idx + 1).i)})
    } yield res
 }

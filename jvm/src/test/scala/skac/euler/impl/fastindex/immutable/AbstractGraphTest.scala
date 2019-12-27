@@ -2,7 +2,7 @@ package skac.euler.impl.fastindex.immutable
 import skac.euler.Spec
 import skac.euler.General._
 
-class GraphTest extends Spec {
+class AbstractGraphTest extends Spec {
   // "An immutable fastindexgraph" should "be created" in {
   //   val g = new skac.euler.impl.fastindex.immutable.Graph[Any, Any]
   // }

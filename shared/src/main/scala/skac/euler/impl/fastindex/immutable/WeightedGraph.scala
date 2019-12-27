@@ -1,11 +1,11 @@
 package skac.euler.impl.fastindex.immutable
 
-import skac.euler._
+import skac.euler.{WeightedGraph, _}
 import skac.euler.General._
 import skac.euler.impl.fastindex.generic._
 
-class WeightedGraph[ND, ED](pNodes: Vector[NodeStruct[ND, ED]] = Vector[NodeStruct[ND, ED]]())
- extends Graph[ND, ED] with skac.euler.WeightedGraph[ND, ED] {
+class WeightedGraph[G <: WeightedGraph[G, ND, ED], ND, ED](pNodes: Vector[NodeStruct[ND, ED]] = Vector[NodeStruct[ND, ED]]())
+ extends AbstractGraph[G, ND, ED] with skac.euler.WeightedGraph[G, ND, ED] {
 
   class NodeInfo[ND](override val ID: Any, override val Data: ND, val Weight: Double) extends skac.euler.General.NodeInfo(ID, Data) {
     def copy(Weight: Double = this.Weight) = new NodeInfo(ID, Data, Weight)
@@ -30,5 +30,5 @@ class WeightedGraph[ND, ED](pNodes: Vector[NodeStruct[ND, ED]] = Vector[NodeStru
     newInstance(new_nodes)
   }
 
-  override def newInstance[SND >: ND, SED >: ED](Nodes: Vector[NodeStruct[SND, SED]]) = new WeightedGraph[SND, SED](Nodes)
+  override def newInstance(Nodes: Vector[NodeStruct[ND, ED]]): G = new WeightedGraph[G, ND, ED](Nodes).asInstanceOf[G]
 }

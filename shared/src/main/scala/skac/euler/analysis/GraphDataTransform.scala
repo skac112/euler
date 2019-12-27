@@ -7,14 +7,15 @@ import skac.euler.General._
 //import scalaz.State
 
 object GraphDataTransform {
-  type NodeTransFun[SND, SED, TND] = (SND, NodeDesignator, Graph[SND, SED]) => TND
-  type EdgeTransFun[SND, SED, TED] = (SED, EdgeDesignator, Graph[SND, SED]) => TED
+//  type NodeTransFun[SND, SED, TND] = (SND, NodeDesignator, Graph[SND, SED]) => TND
+//  type EdgeTransFun[SND, SED, TED] = (SED, EdgeDesignator, Graph[SND, SED]) => TED
 }
 
 import GraphDataTransform._
 
 /**
-  * Generates graph with the same structure (isomorphic) as a source graph but with different data.
+  * Generates graph with the same structure (isomorphic) as a source graph but with different data and of different
+ * (potentially) class.
   * @param source
   * @param targetBase
   * @param nodeTrans
@@ -24,11 +25,11 @@ import GraphDataTransform._
   * @tparam TND target node data type
   * @tparam TED target edge data type
   */
-abstract class GraphDataTransform[SG <: Graph[SND, SED], SND, SED, TND, TED] extends Function1[SG, Graph[TND, TED]] {
+abstract class GraphDataTransform[SG <: Graph[SG, SND, SED], TG <: Graph[TG, TND, TED], SND, SED, TND, TED] extends ((SG) => TG) {
   type NodesMap = Map[NodeIDDesignator, NodeDesignator]
   type InitData
 
-  def targetBase: Graph[TND, TED]
+  def targetBase: TG
 
   /**
     * Generates node data for a given source node.
@@ -39,14 +40,6 @@ abstract class GraphDataTransform[SG <: Graph[SND, SED], SND, SED, TND, TED] ext
   def nodeData(srcNode: NodeInfo[SND], srcGraph: SG, initData: InitData): TND
 
   /**
-    * This method enables descendant class to calculate initial data before method for generating
-    * destination node and edge data are called. This data will be supplied to methods generating
-    * node and edge data.
-    * @return
-    */
-  def initData(srcGraph: SG): InitData
-
-  /**
     * Generates edge data for a given source edge.
     * @param srcEdge
     * @param srgGraph
@@ -54,12 +47,20 @@ abstract class GraphDataTransform[SG <: Graph[SND, SED], SND, SED, TND, TED] ext
     */
   def edgeData(srcEdge: EdgeInfo[SED], srgGraph: SG, initData: InitData): TED
 
-  def apply(source: SG): Graph[TND, TED] = {
+  /**
+   * This method enables descendant class to calculate initial data before method for generating
+   * destination node and edge data are called. This data will be supplied to methods generating
+   * node and edge data.
+   * @return
+   */
+  def initData(srcGraph: SG): InitData
+
+  def apply(source: SG): TG = {
     val init_data = initData(source)
     lazy val stateTrans = for {
-      _ <- State[Graph[TND, TED], Unit] { case g => (g.clear, ()) }
+      _ <- State[TG, Unit] { case g => (g.clear, ()) }
       // adding nodes
-      nodes_map <- State[Graph[TND, TED], NodesMap] { case g => {
+      nodes_map <- State[TG, NodesMap] { case g => {
         (1 to source.nodeCount).foldLeft((g, Map[NodeIDDesignator, NodeDesignator]())) {
           case ((g, map), idx) => {
             val src_node = source.node(idx.i).get
@@ -69,7 +70,7 @@ abstract class GraphDataTransform[SG <: Graph[SND, SED], SND, SED, TND, TED] ext
         }
       }
       }
-      res <- State[Graph[TND, TED], Unit] { case g =>
+      res <- State[TG, Unit] { case g =>
         val new_g = (1 to source.edgeCount).foldLeft(g) {
           (g, idx) => {
             val src_edge = source.edge(idx.ei).get

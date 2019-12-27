@@ -8,11 +8,11 @@ import skac.euler.General._
  * Generuje graf przypadkowy o ustalonej liczbie krawędzi i węzłów. Krawędzie tworzone są pomiędzy
  * losowo wybranymi węzłami.
  */
-class RandomGenerator[ND, ED](nodeCount: Int, edgeCount: Int, directed: Boolean = false)
- (implicit startGraph: Graph[ND, ED],
- nodeDataGen: Graph[ND, ED] => ND,
- edgeDataGen: Graph[ND, ED] => ED)
- extends GraphGenerator[ND, ED] {
+class RandomGenerator[G <: Graph[G, ND, ED], ND, ED](nodeCount: Int, edgeCount: Int, directed: Boolean = false)
+ (implicit startGraph: G,
+ nodeDataGen: G => ND,
+ edgeDataGen: G => ED)
+ extends GraphGenerator[G, ND, ED] {
 
   val random = new Random
   var g: G = startGraph

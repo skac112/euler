@@ -15,7 +15,7 @@ object GraphTraverser {
 /**
  * Traverser which produces a graph.
  */
-abstract class GraphTraverser[ND, ED, ND2, ED2, S, G <: Graph[ND2, ED2], M[_] : Monad] extends Traverser[ND, ED, S, G, M] {
+abstract class GraphTraverser[ND, ED, ND2, ED2, S, G <: Graph[G, ND2, ED2], M[_] : Monad] extends Traverser[ND, ED, S, G, M] {
   import Traverser._
 //  type ResultGraph = Graph[ND2, ED2]
 //  type NodeAddFun = (ThisNodeInfo, S, ThisGraphView, ThisTraverser, G) => (EPropagation[S], Option[ND2])

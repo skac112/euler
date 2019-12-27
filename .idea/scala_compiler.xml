@@ -2,8 +2,13 @@
 <project version="4">
   <component name="ScalaCompilerConfiguration">
     <option name="incrementalityType" value="SBT" />
-    <profile name="sbt 1" modules="euler,eulerJVM" />
-    <profile name="sbt 4" modules="eulerJS,root">
+    <profile name="sbt 1" modules="eulerJVM,jvm-euler,projekty-euler" />
+    <profile name="sbt 2" modules="eulerJS">
+      <plugins>
+        <plugin path="$USER_HOME$/.cache/coursier/v1/https/repo1.maven.org/maven2/org/scala-js/scalajs-compiler_2.12.8/0.6.28/scalajs-compiler_2.12.8-0.6.28.jar" />
+      </plugins>
+    </profile>
+    <profile name="sbt 4" modules="euler,root">
       <plugins>
         <plugin path="$USER_HOME$/.cache/coursier/v1/https/repo1.maven.org/maven2/org/scala-js/scalajs-compiler_2.12.4/0.6.21/scalajs-compiler_2.12.4-0.6.21.jar" />
       </plugins>

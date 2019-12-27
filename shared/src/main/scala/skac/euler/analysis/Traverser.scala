@@ -36,7 +36,7 @@ object Traverser {
  **/
 import Traverser._
 
-abstract class Traverser[ND, ED, S, R, M[_] : Monad] extends Function3[NodeDesignator, S, R, M[R]] {
+abstract class Traverser[ND, ED, S, R, M[_] : Monad] extends ((NodeDesignator, S, R) => M[R]) {
   type ThisTraverser = Traverser[ND, ED, S, R, M]
   type ThisGraphView = GraphView[ND, ED, M]
   type ThisNodeInfo = NodeInfo[ND]
