@@ -2,7 +2,6 @@ package skac.euler.impl.fastindex.immutable
 
 import skac.euler._
 import skac.euler.General._
-import skac.euler.impl.fastindex.generic.AbstractGraph
 
 /**
  * Podstawowa implementacja niemutowalna grafu zoptymalizowana pod kątem szybkiego dostępu
@@ -18,7 +17,8 @@ import skac.euler.impl.fastindex.generic.AbstractGraph
  * {@link newEdgeInfo()}, {@link replaceNodeInfo()} oraz {@link replaceEdgeInfo()}.
  */
 abstract class AbstractGraph[G <: AbstractGraph[G, ND, ED], ND, ED](pNodes: Vector[NodeStruct[ND, ED]] = Vector[NodeStruct[ND, ED]](),
-                                                                    newElemIdSeed: Option[Int] = None) extends skac.euler.impl.fastindex.generic.AbstractGraph[G, ND, ED] {
+                                                                    newElemIdSeed: Option[Int] = None)
+  extends skac.euler.impl.fastindex.generic.AbstractGraph[G, ND, ED] {
 
 //   type G = this.type
 //  type G = Graph[ND, ED]
@@ -39,7 +39,7 @@ abstract class AbstractGraph[G <: AbstractGraph[G, ND, ED], ND, ED](pNodes: Vect
    * w wewnętrznych strukturach danych reprezentujących węzły w celu
    * reprezentacji bogatszej informacji o węzłach (wag, nazw itp.).
    */
-  def newNodeInfo(Data: ND): NodeInfo[ND] = new NodeInfo(newNodeId, Data)
+  def newNodeInfo(data: ND): NodeInfo[ND] = new NodeInfo(newNodeId, data)
 
   /**
    * Zwraca obiekt klasy EdgeInfo na podstawie danych krawędzi oraz desygnatorów
@@ -48,23 +48,23 @@ abstract class AbstractGraph[G <: AbstractGraph[G, ND, ED], ND, ED](pNodes: Vect
    * w wewnętrznych strukturach danych reprezentujących krawędzie w celu
    * reprezentacji bogatszej informacji o krawędziach (wag, nazw itp.).
    */
-  def newEdgeInfo(Data: ED, SrcNode: NodeDesignator, DstNode: NodeDesignator): EdgeInfo[ED] =
-    new EdgeInfo(newEdgeId, Data, SrcNode, DstNode)
+  def newEdgeInfo(data: ED, srcNode: NodeDesignator, dstNode: NodeDesignator): EdgeInfo[ED] =
+    new EdgeInfo(newEdgeId, data, srcNode, dstNode)
 
-  def addNode(Data: ND): G = {
-    val new_nodes: Vector[NodeStruct[ND, ED]] = Nodes :+ NodeStruct(newNodeInfo(Data), Map[Any, EdgeInfo[ED]](),
+  override def addNode(data: ND): G = {
+    val new_nodes: Vector[NodeStruct[ND, ED]] = Nodes :+ NodeStruct(newNodeInfo(data), Map[Any, EdgeInfo[ED]](),
       Map[Any, EdgeInfo[ED]]())
-    newInstance(new_nodes).asInstanceOf[G]
+    newInstance(new_nodes)
   }
 
   /**
    * Zwraca kolekcję Nodes, w której w stosunku do kolekcji tego grafu zmieniona jest tylko jedna
    * instancja NodeInfo w jednym z obiektów NodeStruct
    */
-  def replaceNodeInfo(NodeDes: NodeDesignator, ReplaceFun: (NodeInfo[ND]) => NodeInfo[ND]) = {
-    val node_struct = findNodeStruct(NodeDes).get.asInstanceOf[NodeStruct[ND, ED]]
+  def replaceNodeInfo(nodeDes: NodeDesignator, replaceFun: (NodeInfo[ND]) => NodeInfo[ND]) = {
+    val node_struct = findNodeStruct(nodeDes).get.asInstanceOf[NodeStruct[ND, ED]]
     val old_node_info = node_struct.nodeInfo.asInstanceOf[NodeInfo[ND]]
-    val new_node_struct = node_struct.copy(NodeInfo = ReplaceFun(node_struct.NodeInfo.asInstanceOf[NodeInfo[ND]])).asInstanceOf[NodeStruct[ND, ED]]
+    val new_node_struct = node_struct.copy(NodeInfo = replaceFun(node_struct.NodeInfo.asInstanceOf[NodeInfo[ND]])).asInstanceOf[NodeStruct[ND, ED]]
     val new_nodes = Nodes updated (Nodes.indexOf(node_struct), new_node_struct)
     new_nodes
   }
@@ -73,29 +73,29 @@ abstract class AbstractGraph[G <: AbstractGraph[G, ND, ED], ND, ED](pNodes: Vect
    * Zwraca kolekcję Nodes, w której w stosunku do tego kolekcji grafu zmienione są tylko instancje
    * EdgeInfo w 2 strukturach NodeStruct (odpowiadających węzłowi źródłowemu i docelowemu)
    */
-  protected def replaceEdgeInfo(EdgeDes: EdgeDesignator, ReplaceFun: (EdgeInfo[ED]) => EdgeInfo[ED]) = {
-    val e = edge(EdgeDes).get.asInstanceOf[EdgeInfo[ED]]
+  protected def replaceEdgeInfo(edgeDes: EdgeDesignator, replaceFun: (EdgeInfo[ED]) => EdgeInfo[ED]) = {
+    val e = edge(edgeDes).get.asInstanceOf[EdgeInfo[ED]]
     val edge_id = e.ID
     val src_node_struct = findNodeStruct(e.SrcNode).get.asInstanceOf[NodeStruct[ND, ED]]
     val dst_node_struct = findNodeStruct(e.DstNode).get.asInstanceOf[NodeStruct[ND, ED]]
 
     val new_nodes = (src_node_struct :: dst_node_struct :: Nil).foldLeft(Nodes) {(n, ns) =>
-      {n updated (n.indexOf(ns), ns.copy(InEdges = ns.InEdges + (e.ID -> ReplaceFun(e)),
-                                         OutEdges = ns.OutEdges + (e.ID -> ReplaceFun(e))))}}
+      {n updated (n.indexOf(ns), ns.copy(InEdges = ns.InEdges + (e.ID -> replaceFun(e)),
+                                         OutEdges = ns.OutEdges + (e.ID -> replaceFun(e))))}}
 
     new_nodes
   }
 
-  def addEdge(Data: ED, SrcNode: NodeDesignator, DstNode: NodeDesignator): G = {
+  def addEdge(data: ED, srcNode: NodeDesignator, dstNode: NodeDesignator): G = {
     // w kolekcji Nodes podmieniane są elementy klasy ConcreteNodeStruct dla źródłowego i docelowego
     // węzła. W węźle źródłowym mapa OutEdges różni się od pierwotnej dodaniem pozycji
     // odpowiadającej dodawanej krawędzi. Analogiczna zmiana dotyczy węzła docelowego, z tym, że
     // dotyczy mapy InEdges
-    val src_node_id_des = NodeIDDesignator(node(SrcNode).get.ID)
-    val dst_node_id_des = NodeIDDesignator(node(DstNode).get.ID)
-    val edge_info = newEdgeInfo(Data, src_node_id_des, dst_node_id_des)
-    val src_node_struct = findNodeStruct(SrcNode).get.asInstanceOf[NodeStruct[ND, ED]]
-    val dst_node_struct = findNodeStruct(DstNode).get.asInstanceOf[NodeStruct[ND, ED]]
+    val src_node_id_des = NodeIDDesignator(node(srcNode).get.ID)
+    val dst_node_id_des = NodeIDDesignator(node(dstNode).get.ID)
+    val edge_info = newEdgeInfo(data, src_node_id_des, dst_node_id_des)
+    val src_node_struct = findNodeStruct(srcNode).get.asInstanceOf[NodeStruct[ND, ED]]
+    val dst_node_struct = findNodeStruct(dstNode).get.asInstanceOf[NodeStruct[ND, ED]]
     val new_out_edges = src_node_struct.OutEdges + (edge_info.ID -> edge_info)
     val new_src_node_struct = src_node_struct.copy(OutEdges = new_out_edges).asInstanceOf[NodeStruct[ND, ED]]
     val new_in_edges = dst_node_struct.InEdges + (edge_info.ID -> edge_info)
@@ -113,20 +113,20 @@ abstract class AbstractGraph[G <: AbstractGraph[G, ND, ED], ND, ED](pNodes: Vect
    * określonymi danymi. W przypadku, gdy desygnator jest typu predykat, usuwa wszystkie węzły
    * spełniające określony predykat.
    */
-  def removeNode(NodeDes: NodeDesignator): G = {
-    // usuniecie wchodzących do usuwanego węzła - krawędzie wychodzące zostaną usunięte
+  def removeNode(nodeDes: NodeDesignator): G = {
+    // usuniecie krawędzi wchodzących do usuwanego węzła - krawędzie wychodzące zostaną usunięte
     // automatycznie jako konsekwencja usunięcia struktury związanej z usuwanym węzłem
-    val res = inEdges(NodeDes).foldLeft(this) {(g, e) => g.removeEdge(e)}
-    val node_struct = findNodeStruct(NodeDes)
-    val new_nodes = Nodes filter {_ != node_struct.get}
+    val res = inEdges(nodeDes).foldLeft(this) { (g, e) => g.removeEdge(e)}
+    val node_struct = res.findNodeStruct(nodeDes)
+    val new_nodes = res.Nodes filter {_ != node_struct.get}
     newInstance(new_nodes)
   }
 
-  def removeEdge(EdgeDes: EdgeDesignator) = {
+  def removeEdge(edgeDes: EdgeDesignator) = {
     // w kolekcji Nodes podmieniane są elementy klasy NodeStruct dla źródłowego i docelowego
     // węzła. W każdej z tych 2 instancji struktur podmieniane są mapy krawędzi wchodzących i wychodzących
     // poprzez usunięcie (w stosunku do pierwotnych map) pozycji odpowiadających usuwanej krawędzi
-    val e = edge(EdgeDes).get
+    val e = edge(edgeDes).get
     val edge_id = e.ID
     val src_node_struct = findNodeStruct(e.SrcNode).get.asInstanceOf[NodeStruct[ND, ED]]
     val dst_node_struct = findNodeStruct(e.DstNode).get.asInstanceOf[NodeStruct[ND, ED]]
@@ -137,6 +137,6 @@ abstract class AbstractGraph[G <: AbstractGraph[G, ND, ED], ND, ED](pNodes: Vect
     newInstance(new_nodes)
   }
 
-  protected def newInstance(Nodes: Vector[NodeStruct[ND, ED]]): G
+  protected def newInstance(nodes: Vector[NodeStruct[ND, ED]]): G
 //    new CustomGraph[G, ND, ED](Nodes, newNewElemIdSeed).asInstanceOf[G]
 }

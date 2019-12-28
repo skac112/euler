@@ -8,7 +8,7 @@ import skac.euler.General._
  * Generuje graf przypadkowy o ustalonej liczbie krawędzi i węzłów. Krawędzie tworzone są pomiędzy
  * losowo wybranymi węzłami.
  */
-class RandomGenerator[G <: Graph[G, ND, ED], ND, ED](nodeCount: Int, edgeCount: Int, directed: Boolean = false)
+class RandomGenerator[G <: ModifiableGraph[G, ND, ED], ND, ED](nodeCount: Int, edgeCount: Int, directed: Boolean = false)
  (implicit startGraph: G,
  nodeDataGen: G => ND,
  edgeDataGen: G => ED)

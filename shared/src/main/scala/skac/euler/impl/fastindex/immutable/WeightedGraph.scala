@@ -7,12 +7,12 @@ import skac.euler.impl.fastindex.generic._
 class WeightedGraph[G <: WeightedGraph[G, ND, ED], ND, ED](pNodes: Vector[NodeStruct[ND, ED]] = Vector[NodeStruct[ND, ED]]())
  extends AbstractGraph[G, ND, ED] with skac.euler.WeightedGraph[G, ND, ED] {
 
-  class NodeInfo[ND](override val ID: Any, override val Data: ND, val Weight: Double) extends skac.euler.General.NodeInfo(ID, Data) {
+  class NodeInfo[ND](override val ID: Any, override val Data: ND, val Weight: Double) extends skac.euler.NodeInfo(ID, Data) {
     def copy(Weight: Double = this.Weight) = new NodeInfo(ID, Data, Weight)
   }
 
-  case class EdgeInfo[ED](override val ID: Any, override val Data: ED, override val SrcNode: skac.euler.General.NodeDesignator,
-   override val DstNode: NodeDesignator, val Weight: Double) extends skac.euler.General.EdgeInfo(ID, Data, SrcNode, DstNode) {
+  case class EdgeInfo[ED](override val ID: Any, override val Data: ED, override val SrcNode: NodeDesignator,
+   override val DstNode: NodeDesignator, val Weight: Double) extends skac.euler.EdgeInfo(ID, Data, SrcNode, DstNode) {
     def copy(Weight: Double = this.Weight) = new EdgeInfo(ID, Data, SrcNode, DstNode, Weight)
   }
 
@@ -30,5 +30,5 @@ class WeightedGraph[G <: WeightedGraph[G, ND, ED], ND, ED](pNodes: Vector[NodeSt
     newInstance(new_nodes)
   }
 
-  override def newInstance(Nodes: Vector[NodeStruct[ND, ED]]): G = new WeightedGraph[G, ND, ED](Nodes).asInstanceOf[G]
+  override def newInstance(nodes: Vector[NodeStruct[ND, ED]]): G = new WeightedGraph[G, ND, ED](nodes).asInstanceOf[G]
 }

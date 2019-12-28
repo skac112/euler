@@ -25,7 +25,7 @@ import GraphDataTransform._
   * @tparam TND target node data type
   * @tparam TED target edge data type
   */
-abstract class GraphDataTransform[SG <: Graph[SG, SND, SED], TG <: Graph[TG, TND, TED], SND, SED, TND, TED] extends ((SG) => TG) {
+abstract class GraphDataTransform[SG <: Graph[SG, SND, SED], +TG <: ModifiableGraph[TG, TND, TED], SND, SED, TND, TED] extends ((SG) => TG) {
   type NodesMap = Map[NodeIDDesignator, NodeDesignator]
   type InitData
 

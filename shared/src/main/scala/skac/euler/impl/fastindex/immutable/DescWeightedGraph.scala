@@ -15,8 +15,8 @@ class DescWeightedGraph[G <: DescWeightedGraph[G, ND, ED], ND, ED](pNodes: Vecto
 
   }
 
-  class EdgeInfo[ED](override val ID: Any, override val Data: ED, override val SrcNode: General.NodeDesignator,
-   override val DstNode: General.NodeDesignator, override val Weight: Double, val Name: String,
+  class EdgeInfo[ED](override val ID: Any, override val Data: ED, override val SrcNode: NodeDesignator,
+   override val DstNode: NodeDesignator, override val Weight: Double, val Name: String,
    val Desc: String) extends super.EdgeInfo(ID, Data, SrcNode, DstNode, Weight) {
 
     override def copy(Weight: Double = this.Weight) = new EdgeInfo(ID, Data, SrcNode, DstNode, Weight, Name, Desc)
@@ -32,24 +32,25 @@ class DescWeightedGraph[G <: DescWeightedGraph[G, ND, ED], ND, ED](pNodes: Vecto
   def getEdgeDesc(EdgeDes: EdgeDesignator): String = edge(EdgeDes).get.asInstanceOf[EdgeInfo[ED]].Desc
 
   def setNodeName(NodeDes: NodeDesignator, NewName: String) = {
-    val new_nodes = replaceNodeInfo(NodeDes, (n => n.asInstanceOf[NodeInfo[ND]] copy2 (Name = NewName)))
+    val new_nodes = replaceNodeInfo(NodeDes, (n: skac.euler.NodeInfo[ND]) => n.asInstanceOf[NodeInfo[ND]] copy2 (Name = NewName))
     newInstance(new_nodes)
   }
 
   def setNodeDesc(NodeDes: NodeDesignator, NewDesc: String) = {
-    val new_nodes = replaceNodeInfo(NodeDes, (n: skac.euler.General.NodeInfo[ND]) => n.asInstanceOf[NodeInfo[ND]] copy2 (Desc = NewDesc))
+    val new_nodes = replaceNodeInfo(NodeDes, (n: skac.euler.NodeInfo[ND]) => n.asInstanceOf[NodeInfo[ND]] copy2 (Desc = NewDesc))
     newInstance(new_nodes)
   }
 
   def setEdgeName(EdgeDes: EdgeDesignator, NewName: String) = {
-    val new_nodes = replaceEdgeInfo(EdgeDes, (e: skac.euler.General.EdgeInfo[ED]) => e.asInstanceOf[EdgeInfo[ED]] copy2 (Name = NewName))
+    val new_nodes = replaceEdgeInfo(EdgeDes, (e: skac.euler.EdgeInfo[ED]) => e.asInstanceOf[EdgeInfo[ED]] copy2 (Name = NewName))
     newInstance(new_nodes)
   }
 
   def setEdgeDesc(EdgeDes: EdgeDesignator, NewDesc: String) = {
-    val new_nodes = replaceEdgeInfo(EdgeDes, (e: skac.euler.General.EdgeInfo[ED]) => e.asInstanceOf[EdgeInfo[ED]] copy2 (Desc = NewDesc))
+    val new_nodes = replaceEdgeInfo(EdgeDes, (e: skac.euler.EdgeInfo[ED]) => e.asInstanceOf[EdgeInfo[ED]] copy2 (Desc = NewDesc))
     newInstance(new_nodes)
   }
 
-  override def newInstance(Nodes: Vector[NodeStruct[ND, ED]]): G = new DescWeightedGraph[G, ND, ED](Nodes).asInstanceOf[G]
+  // TO CHANGE!
+  override def newInstance(nodes: Vector[NodeStruct[ND, ED]]): G = new DescWeightedGraph[G, ND, ED](nodes).asInstanceOf[G]
 }

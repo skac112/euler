@@ -4,7 +4,7 @@
  */
 
 package skac.euler.impl.fastindex.immutable
-import skac.euler.General._
+import skac.euler._
 import skac.euler.impl.fastindex.generic._
 
 case class NodeStruct[+ND, +ED](NodeInfo: NodeInfo[ND], InEdges: Map[Any, EdgeInfo[ED]], OutEdges: Map[Any, EdgeInfo[ED]])

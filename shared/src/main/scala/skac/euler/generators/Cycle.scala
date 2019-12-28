@@ -5,7 +5,7 @@ import skac.euler.Graph
 import skac.euler.General._
 import skac.euler._
 
-class Cycle[G <: Graph[G, ND, ED], ND, ED](NodesNum: Int)
+class Cycle[G <: ModifiableGraph[G, ND, ED], ND, ED](nodesNum: Int)
  (implicit startGraph: G,
  nodeDataGen: G => ND,
  edgeDataGen: G => ED) extends GraphGenerator[G, ND, ED] {
@@ -14,9 +14,9 @@ class Cycle[G <: Graph[G, ND, ED], ND, ED](NodesNum: Int)
    lazy val stateTrans = for {
      _ <- State[G, Unit] {case graph => (graph.clear, ())}
      // dodanie wezlow
-     _ <- makeTimes[G, ND, ED](NodesNum, {graph: G => graph + nodeDataGen(graph)})
+     _ <- makeTimes[G, ND, ED](nodesNum, { graph: G => graph + nodeDataGen(graph)})
      // dodanie krawedzi
-     res <- makeTimesWithIdx[G, ND, ED](NodesNum, {(graph: G, index: Int) =>
+     res <- makeTimesWithIdx[G, ND, ED](nodesNum, { (graph: G, index: Int) =>
        val dst_index = (index + 1) % graph.nodeCount
        graph +-> (edgeDataGen(graph), graph.node(index.i).get, graph.node(dst_index.i).get)
      })

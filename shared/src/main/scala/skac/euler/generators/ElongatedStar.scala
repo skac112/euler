@@ -11,7 +11,7 @@ import skac.euler._
  * nodeDataGen should give unique data for each invocation beause generating
  * is bases on this assumption.
  */
-class ElongatedStar[G <: Graph[G, ND, ED], ND, ED](LeavesNum: Int, rayNodeCnt: Int)
+class ElongatedStar[G <: ModifiableGraph[G, ND, ED], ND, ED](LeavesNum: Int, rayNodeCnt: Int)
  (implicit startGraph: G,
  nodeDataGen: G => ND,
  edgeDataGen: G => ED) extends GraphGenerator[G, ND, ED] {

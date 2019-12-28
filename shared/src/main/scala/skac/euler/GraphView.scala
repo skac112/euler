@@ -1,6 +1,6 @@
 package skac.euler
 
-import General._
+//import General._
 //import cats.Monad
 import cats._
 import cats.implicits._

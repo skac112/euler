@@ -9,7 +9,7 @@ import skac.euler._
 /**
  * Generates a path graph (https://en.wikipedia.org/wiki/Path_graph).
  */
-class Path[G <: Graph[G, ND, ED], ND, ED](nodesNum: Int)
+class Path[G <: ModifiableGraph[G, ND, ED], ND, ED](nodesNum: Int)
  (implicit startGraph: G,
  nodeDataGen: G => ND,
  edgeDataGen: G => ED) extends GraphGenerator[G, ND, ED] {
