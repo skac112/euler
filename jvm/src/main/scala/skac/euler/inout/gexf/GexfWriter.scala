@@ -1,6 +1,5 @@
 package skac.euler.inout.gexf
 import skac.euler._
-import skac.euler.General._
 import java.io.Writer
 
 //class GexfWriter[ND, ED](Serializer: Serializer[ND, ED]) {

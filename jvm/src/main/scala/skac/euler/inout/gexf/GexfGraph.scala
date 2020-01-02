@@ -1,7 +1,6 @@
 package skac.euler.inout.gexf
 
 import skac.euler.Graph
-import skac.euler.General._
 import AttrDef._
 import java.io.Writer
 import java.util

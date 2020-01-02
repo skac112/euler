@@ -2,11 +2,19 @@
 <project version="4">
   <component name="ScalaCompilerConfiguration">
     <option name="incrementalityType" value="SBT" />
-    <profile name="sbt 1" modules="eulerJVM,jvm-euler,projekty-euler" />
+    <profile name="sbt 1" modules="jvm-euler" />
     <profile name="sbt 2" modules="eulerJS">
+      <parameters>
+        <parameter value="-Ypartial-unification" />
+      </parameters>
       <plugins>
         <plugin path="$USER_HOME$/.cache/coursier/v1/https/repo1.maven.org/maven2/org/scala-js/scalajs-compiler_2.12.8/0.6.28/scalajs-compiler_2.12.8-0.6.28.jar" />
       </plugins>
+    </profile>
+    <profile name="sbt 3" modules="eulerJVM,projekty-euler">
+      <parameters>
+        <parameter value="-Ypartial-unification" />
+      </parameters>
     </profile>
     <profile name="sbt 4" modules="euler,root">
       <plugins>

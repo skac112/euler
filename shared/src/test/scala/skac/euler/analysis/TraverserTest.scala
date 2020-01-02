@@ -5,15 +5,17 @@ import utest._
 import skac.euler._
 import skac.euler.generators._
 import skac.euler.analysis._
-import skac.euler.General._
 import skac.euler.analysis.Traverser._
+import skac.euler.AutoModifiableGraph._
 
 object TraverserTest extends TestSuite {
+  val starCnt = 10
   type G = skac.euler.impl.fastindex.immutable.Graph[Int, String]
+  type GP[ND, ED] = skac.euler.impl.fastindex.immutable.Graph[ND, ED]
   implicit var sg = new skac.euler.impl.fastindex.immutable.Graph[Int, String]()
-  implicit def newNodeData(g: skac.euler.Graph[_, Int, String]): Int = g.nodeCount + 1
-  implicit def newEdgeData(g: skac.euler.Graph[_, Int, String]): String = (g.edgeCount + 1).toString
-  val gen = new Star[G, Int, String](10)
+  implicit def newNodeData(g: AutoModifiableGraph[GP, Int, String]): Int = g.nodeCount + 1
+  implicit def newEdgeData(g: AutoModifiableGraph[GP, Int, String]): String = (g.edgeCount + 1).toString
+  val gen = new Star(starCnt, gTomg(sg), newNodeData, newEdgeData)
   val g = gen.generate()
 
   def tests = Tests {

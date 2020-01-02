@@ -16,7 +16,7 @@ import skac.euler._
  * {@link newEdgeInfo()}, {@link replaceNodeInfo()} oraz {@link replaceEdgeInfo()}. Klasa stanowi
  * podstawę implementacji mutowalnych i niemutowalnych.
  */
-abstract class AbstractGraph[+G <: AbstractGraph[G, ND, ED], ND, ED] extends ModifiableGraph[G, ND, ED] {
+abstract class AbstractGraph[+ND, +ED] extends Graph[ND, ED] {
   import GraphView._
   type NodesT <: Seq[NodeStruct[ND, ED]]
   //type ConcreteNodeStruct = NodeStruct[ND, ED]

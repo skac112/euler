@@ -1,6 +1,5 @@
 package skac.euler.inout.gexf
 
-import skac.euler.General._
 import skac.euler._
 
 //trait Deserializer[ND, ED] {

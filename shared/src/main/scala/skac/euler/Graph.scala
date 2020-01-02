@@ -1,13 +1,13 @@
 package skac.euler
 
-//import General._
 import cats.{Id, Monad}
 
 import scala.collection.generic._
 
-trait Graph[+G <: Graph[G, ND, ED], +ND, +ED] extends GraphView[ND, ED, Id] {
+trait Graph[+ND, +ED] extends GraphView[ND, ED, Id] {
+//  type NodeT = ND
+//  type EdgeT = ED
   override def m = Monad[Id]
-  import General._
   import GraphView._
 
   def nodeCount: Int
@@ -47,7 +47,7 @@ trait Graph[+G <: Graph[G, ND, ED], +ND, +ED] extends GraphView[ND, ED, Id] {
   def nodes: Iterable[NodeInfo[ND]] = (0 until nodeCount).view map {nodeForIdx(_).get}
 
   override def equals(other: Any) = other match {
-    case that: Graph[_, ND, ED] => ((that.nodes map {_.Data}) == (this.nodes map {_.Data})) &&
+    case that: Graph[ND, ED] => ((that.nodes map {_.Data}) == (this.nodes map {_.Data})) &&
       ((that.edges map {_.Data}) == (this.edges map {_.Data})) && (that.edges forall {e: EdgeInfo[ED] => {
         // funkcja okreslajaca dla kazdej krawedzi warunek rownosci wezla zrodlowego i koncowego
         val that_src_n = that.node(e.SrcNode).get

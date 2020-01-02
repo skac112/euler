@@ -1,7 +1,6 @@
 package skac.euler.generators
 
 import skac.euler.Graph
-import skac.euler.General._
 import skac.euler._
 //import scalaz._
 
@@ -11,10 +10,12 @@ import skac.euler._
  * nodeDataGen should give unique data for each invocation beause generating
  * is bases on this assumption.
  */
-class ElongatedStar[G <: ModifiableGraph[G, ND, ED], ND, ED](LeavesNum: Int, rayNodeCnt: Int)
- (implicit startGraph: G,
- nodeDataGen: G => ND,
- edgeDataGen: G => ED) extends GraphGenerator[G, ND, ED] {
+class ElongatedStar[G <: ModifiableGraph[G, ND, ED], ND, ED](
+  LeavesNum: Int,
+  rayNodeCnt: Int,
+  startGraph: G,
+  nodeDataGen: G => ND,
+  edgeDataGen: G => ED) extends GraphGenerator[G, ND, ED](startGraph, nodeDataGen, edgeDataGen) {
     var g = startGraph
 
     /**
@@ -23,12 +24,12 @@ class ElongatedStar[G <: ModifiableGraph[G, ND, ED], ND, ED](LeavesNum: Int, ray
     var cNode: ND = _
 
     override def generate() = {
-       g = g.clear
-       cNode = nodeDataGen(g)
-       g = g + cNode
+       val graph = g.clear
+       cNode = nodeDataGen(graph)
+       val graph2 = graph + cNode
        // uzycie monady stanu (w makeTimes) - wykonanie funkcji LeavesNum razy
        makeTimes[G, ND, ED](LeavesNum, {graph: G =>
          val leaf = nodeDataGen(graph)
          graph + leaf +-> (edgeDataGen(graph), cNode.da, leaf.da)
-       }).runS(g).value}
+       }).runS(graph2).value}
 }

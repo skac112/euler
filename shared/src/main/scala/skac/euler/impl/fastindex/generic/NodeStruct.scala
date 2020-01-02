@@ -1,7 +1,6 @@
 package skac.euler.impl.fastindex.generic
 
 import skac.euler._
-import skac.euler.General._
 
 trait NodeStruct[+ND, +ED] {
   def nodeInfo: NodeInfo[ND]

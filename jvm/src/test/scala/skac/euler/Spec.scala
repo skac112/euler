@@ -1,7 +1,6 @@
 package skac.euler
 
 import org.scalatest._
-import skac.euler.General._
 
 class Spec extends FlatSpec with Matchers {
 }

@@ -2,7 +2,7 @@ package skac.euler.inout.gexf
 
 import skac.euler._
 import java.io.Reader
-import skac.euler.General._
+
 
 //class GexfReader[ND, ED](Deserializer: Deserializer[ND, ED]) {
 

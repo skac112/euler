@@ -1,7 +1,6 @@
 package skac.euler.analysis
 
 import cats.Monad
-import skac.euler.General._
 import skac.euler._
 import skac.euler.GraphView._
 import cats._

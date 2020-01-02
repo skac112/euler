@@ -1,6 +1,5 @@
 package skac.euler.analysis
 
-import skac.euler.General._
 import skac.euler._
 import skac.euler.GraphView._
 import scala.annotation._
@@ -15,7 +14,8 @@ object GraphTraverser {
 /**
  * Traverser which produces a graph.
  */
-abstract class GraphTraverser[ND, ED, ND2, ED2, S, G <: ModifiableGraph[G, ND2, ED2], M[_] : Monad] extends Traverser[ND, ED, S, G, M] {
+abstract class GraphTraverser[ND, ED, ND2, ED2, S, G <: ModifiableGraph[G, ND2, ED2], M[_] : Monad]
+  extends Traverser[ND, ED, S, G, M] {
   import Traverser._
 //  type ResultGraph = Graph[ND2, ED2]
 //  type NodeAddFun = (ThisNodeInfo, S, ThisGraphView, ThisTraverser, G) => (EPropagation[S], Option[ND2])
@@ -53,7 +53,7 @@ abstract class GraphTraverser[ND, ED, ND2, ED2, S, G <: ModifiableGraph[G, ND2, 
     node_data_o = node_add_fun_res._2
     new_res <- node_data_o match {
       case Some(node_data) => {
-        val res1 = res.addNode(node_data).asInstanceOf[G]
+        val res1 = res.addNode(node_data)
         // retrieving designator of added node (we can't rely on node data which can be
         // not unique)
         val added_node = res1.node(res.nodeCount.i).get
@@ -141,7 +141,7 @@ abstract class GraphTraverser[ND, ED, ND2, ED2, S, G <: ModifiableGraph[G, ND2, 
       // nodes in created graph
       res_src_node = res.node(addedNodes(src_node)).get
       res_dst_node = res.node(addedNodes(dst_node)).get
-    } yield res.addEdge(edge_data, res_src_node, res_dst_node).asInstanceOf[G]
+    } yield res.addEdge(edge_data, res_src_node, res_dst_node)
     case _ => implicitly[Monad[M]].pure(res)
   }
 }

@@ -1,18 +1,20 @@
 package skac.euler.generators
 import skac.euler._
 import scala.util.Random
-import skac.euler.General._
 // import skac.euler.Graph._
 
 /**
  * Generuje graf przypadkowy o ustalonej liczbie krawędzi i węzłów. Krawędzie tworzone są pomiędzy
  * losowo wybranymi węzłami.
  */
-class RandomGenerator[G <: ModifiableGraph[G, ND, ED], ND, ED](nodeCount: Int, edgeCount: Int, directed: Boolean = false)
- (implicit startGraph: G,
- nodeDataGen: G => ND,
- edgeDataGen: G => ED)
- extends GraphGenerator[G, ND, ED] {
+class RandomGenerator[G <: ModifiableGraph[G, ND, ED], ND, ED](
+  nodeCount: Int,
+  edgeCount: Int,
+  directed: Boolean = false,
+  startGraph: G,
+  nodeDataGen: G => ND,
+  edgeDataGen: G => ED)
+ extends GraphGenerator[G, ND, ED](startGraph, nodeDataGen, edgeDataGen) {
 
   val random = new Random
   var g: G = startGraph

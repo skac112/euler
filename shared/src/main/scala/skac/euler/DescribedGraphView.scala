@@ -3,7 +3,6 @@ package skac.euler
 import cats.Monad
 
 trait DescribedGraphView[ND, ED, M[_]] extends GraphView[ND, ED, M] {
-  import General._
 
   def getNodeName(NodeDes: NodeDesignator): String
   def getNodeDesc(NodeDes: NodeDesignator): String

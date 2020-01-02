@@ -1,7 +1,6 @@
 package skac.euler.generators
 
 import skac.euler.Graph
-import skac.euler.General._
 import skac.euler._
 
 /**
@@ -9,10 +8,8 @@ import skac.euler._
  * nodeDataGen should give unique data for each invocation beause generating
  * is bases on this assumption.
  */
-class Star[G <: ModifiableGraph[G, ND, ED], ND, ED](LeavesNum: Int)
- (implicit startGraph: G,
- nodeDataGen: G => ND,
- edgeDataGen: G => ED) extends GraphGenerator[G, ND, ED] {
+class Star[G <: ModifiableGraph[G, ND, ED], ND, ED](LeavesNum: Int, startGraph: G, nodeDataGen: G => ND,
+ edgeDataGen: G => ED) extends GraphGenerator[G, ND, ED](startGraph, nodeDataGen, edgeDataGen) {
 
   var g = startGraph
 

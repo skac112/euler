@@ -2,17 +2,17 @@ package skac.euler.generators
 
 import cats.data.State
 import skac.euler.Graph
-import skac.euler.General._
 import skac.euler._
 //import scalaz._
 
 /**
  * Generates a path graph (https://en.wikipedia.org/wiki/Path_graph).
  */
-class Path[G <: ModifiableGraph[G, ND, ED], ND, ED](nodesNum: Int)
- (implicit startGraph: G,
- nodeDataGen: G => ND,
- edgeDataGen: G => ED) extends GraphGenerator[G, ND, ED] {
+class Path[G <: ModifiableGraph[G, ND, ED], ND, ED](
+  nodesNum: Int,
+  startGraph: G,
+  nodeDataGen: G => ND,
+  edgeDataGen: G => ED) extends GraphGenerator[G, ND, ED](startGraph, nodeDataGen, edgeDataGen) {
    override def generate() = stateTrans.runS(startGraph).value
 
    lazy val stateTrans = for {

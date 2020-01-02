@@ -1,7 +1,6 @@
 package skac.euler.impl.fastindex.mutable
 
 import skac.euler._
-import skac.euler.General._
 import skac.euler.impl.fastindex.generic._
 
 /**

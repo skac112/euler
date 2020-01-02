@@ -20,7 +20,6 @@ object GraphView {
   * can't be obtained. Base trait for graph.
  */
 trait GraphView[+ND, +ED, M[_]] {
-  import General._
   import GraphView._
   implicit def m: Monad[M]
 //  type G <: GraphView[ND, ED]

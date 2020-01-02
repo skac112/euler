@@ -1,7 +1,7 @@
 package skac.euler.inout.gexf
 
 import skac.euler.Graph
-import skac.euler.General._
+
 
 //trait Serializer[ND, ED] {
 //  def serializeNode(Node: NodeInfo[ND]): Attributes

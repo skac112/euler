@@ -1,6 +1,5 @@
 package skac.euler.impl.fastindex.immutable
 import skac.euler.Spec
-import skac.euler.General._
 
 class AbstractGraphTest extends Spec {
   // "An immutable fastindexgraph" should "be created" in {
