@@ -25,7 +25,7 @@ import GraphDataTransform._
   * @tparam TND target node data type
   * @tparam TED target edge data type
   */
-abstract class GraphDataTransform[SG <: Graph[SND, SED], TG <: ModifiableGraph[TG, TND, TED], SND, SED, TND, TED] extends ((SG) => TG) {
+abstract class GraphDataTransform[SG <: Graph[SND, SED], TG <: ModifiableGraph[TG, TND, TED], SND, SED, TND, TED](implicit m: GraphModifier[TG, TND, TED]) extends ((SG) => TG) {
   type NodesMap = Map[NodeIDDesignator, NodeDesignator]
   type InitData
 
@@ -55,7 +55,7 @@ abstract class GraphDataTransform[SG <: Graph[SND, SED], TG <: ModifiableGraph[T
    */
   def initData(srcGraph: SG): InitData
 
-  def apply(source: SG)(implicit m: GraphModifier[TG, TND, TED]): TG = {
+  override def apply(source: SG): TG = {
     val init_data = initData(source)
 //    val mg = ModifiableGraph.gTomg[TG, TND, TED](targetBase)
     lazy val stateTrans = for {
