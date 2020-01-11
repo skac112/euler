@@ -35,7 +35,7 @@ object Main extends App {
       System.out.println(System.currentTimeMillis - t)
     }}
 
-    def modify[G[ND, ED] <: Graph[ND, ED], ND, ED](g: G[ND, ED], data: ND)(implicit m: GraphModifier[G, ND, ED]): G[ND, ED] = {
+    def modify[G[ND, ED] <: Graph[ND, ED], ND, ED](g: G[ND, ED], data: ND)(implicit m: GraphModifier[G[ND, ED], ND, ED]): G[ND, ED] = {
       m.addNode(g, data)
     }
 

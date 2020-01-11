@@ -1,14 +1,14 @@
 package skac.euler
 
-trait GraphModifier[G[ND, ED] <: Graph[ND, ED], ND, ED] {
-  def addNode(g: G[ND, ED], data: ND): G[ND, ED]
-  def addEdge(g: G[ND, ED], data: ED, srcNode: NodeDesignator, dstNode: NodeDesignator): G[ND, ED]
-  def removeNode(g: G[ND, ED], nodeDes: NodeDesignator): G[ND, ED]
-  def removeEdge(g: G[ND, ED], edgeDes: EdgeDesignator): G[ND, ED]
-  def removeNode(g: G[ND, ED], nodeData: ND): G[ND, ED] = removeNode(g, NodeDataDesignator(nodeData))
-  def removeEdge(g: G[ND, ED], edgeData: ED): G[ND, ED] = removeEdge(g, EdgeDataDesignator(edgeData))
+trait GraphModifier[G <: Graph[ND, ED], ND, ED] {
+  def addNode(g: G, data: ND): G
+  def addEdge(g: G, data: ED, srcNode: NodeDesignator, dstNode: NodeDesignator): G
+  def removeNode(g: G, nodeDes: NodeDesignator): G
+  def removeEdge(g: G, edgeDes: EdgeDesignator): G
+  def removeNode(g: G, nodeData: ND): G = removeNode(g, NodeDataDesignator(nodeData))
+  def removeEdge(g: G, edgeData: ED): G = removeEdge(g, EdgeDataDesignator(edgeData))
 
-  def reverseEdge(g: G[ND, ED], edgeDes: EdgeDesignator): G[ND, ED] = {
+  def reverseEdge(g: G, edgeDes: EdgeDesignator): G = {
     val e = g.edge(edgeDes).get
     val g2 = removeEdge(g, edgeDes)
     addEdge(g2, e.Data, e.DstNode, e.SrcNode)
@@ -20,24 +20,24 @@ trait GraphModifier[G[ND, ED] <: Graph[ND, ED], ND, ED] {
    * wskazane jest, aby klasa implementująca nadpisywała tę metodę usuwając dane elementów w sposób
    * specyficzny dla ich wewnętrznej reprezentacji w danej klasie
    */
-  def clear(g: G[ND, ED]): G[ND, ED] = (1 to g.nodeCount).foldLeft(g) {(graph, idx) => removeNode(graph, 0.i)}
+  def clear(g: G): G = (1 to g.nodeCount).foldLeft(g) {(graph, idx) => removeNode(graph, 0.i)}
 
-  def +(g: G[ND, ED], data: ND) = addNode(g, data)
+  def +(g: G, data: ND) = addNode(g, data)
 
-  def +->(g: G[ND, ED], data: ED, srcNode: NodeDesignator, dstNode: NodeDesignator): G[ND, ED] = addEdge(g, data, srcNode, dstNode)
+  def +->(g: G, data: ED, srcNode: NodeDesignator, dstNode: NodeDesignator): G = addEdge(g, data, srcNode, dstNode)
 
   //def +=(Nodes: Traversable[ND]): Graph[ND, ED] = Nodes.foldLeft(this) {(graph, node_data) => graph += node_data}
 
-  def ++(g: G[ND, ED], nodes: ND*): G[ND, ED] = nodes.foldLeft(g) {(graph, node_data) => this + (graph, node_data)}
+  def ++(g: G, nodes: ND*): G = nodes.foldLeft(g) {(graph, node_data) => this + (graph, node_data)}
 
   //  def +=(Edges: Traversable[Tuple3[ED, NodeDesignator, NodeDesignator]]): Graph[ND, ED] = Edges.foldLeft(this) {
   //    (graph, edge) => graph += (edge._1, edge._2, edge._3)}
 
-  def ++->(g: G[ND, ED], edges: (ED, NodeDesignator, NodeDesignator)*): G[ND, ED] =
+  def ++->(g: G, edges: (ED, NodeDesignator, NodeDesignator)*): G =
     edges.foldLeft(g) { (graph, edge) => this +-> (graph, edge._1, edge._2, edge._3)}
 
-  def -(g: G[ND, ED], nodeDes: NodeDesignator): G[ND, ED] = removeNode(g, nodeDes)
-  def -->(g: G[ND, ED], edgeDes: EdgeDesignator): G[ND, ED] = removeEdge(g, edgeDes)
+  def -(g: G, nodeDes: NodeDesignator): G = removeNode(g, nodeDes)
+  def -->(g: G, edgeDes: EdgeDesignator): G = removeEdge(g, edgeDes)
 
   /**
    * Dodaje do grafu inny graf. Dodanie odbywa sie na zasadzie sumowania zbiorów wezlow i krawedzi, przy
@@ -47,7 +47,7 @@ trait GraphModifier[G[ND, ED] <: Graph[ND, ED], ND, ED] {
    * grafu. Nie wystapia wiec powtorzenia danych w ramach wezlow lub krawedzi (o ile nie bylo ich wczesniej w tym grafie).
    * Umozliwia to sensowne dodawanie grafow zgodnie z teoriomnogosciowymi intuicjami.
    */
-  def ++(g: G[ND, ED], other: Graph[ND, ED]): G[ND, ED] = {
+  def ++(g: G, other: Graph[ND, ED]): G = {
     // adding nodes - each node from other grah is added only when data of
     // this node does not exists in intermediate graph. For this reason,
     // possible data duplication from other graph are removed (but not these from
@@ -71,15 +71,15 @@ trait GraphModifier[G[ND, ED] <: Graph[ND, ED], ND, ED] {
    * effectively it creates a component in this graph containing exactly the
    * other graph.
    */
-  def +++(g: G[ND, ED], other: Graph[ND, ED]): G[ND, ED] = {
+  def +++(g: G, other: Graph[ND, ED]): G = {
     val nodes_map = Map[NodeIDDesignator, NodeIDDesignator]()
     // adding nodes and building node-node map in modified this and
     // other graph
-    val (new_graph, nodes_map_2) = other.nodes.foldLeft[(G[ND, ED], Map[NodeIDDesignator, NodeIDDesignator])]((g, nodes_map)) {
+    val (new_graph, nodes_map_2) = other.nodes.foldLeft[(G, Map[NodeIDDesignator, NodeIDDesignator])]((g, nodes_map)) {
       case ((graph, nodes_map), node) => (this + (graph, node.Data), nodes_map + (node.ID.id -> g.node((g.nodeCount - 1).i).get.ID.id))
     }
 
-    other.edges.foldLeft[G[ND, ED]](new_graph) {(graph, edge) =>
+    other.edges.foldLeft[G](new_graph) {(graph, edge) =>
       val inc_nodes = other.incident(edge)
       val node_des_col = List(inc_nodes._1, inc_nodes._2).map {(ni: NodeInfo[ND]) => nodes_map_2(ni.ID.id)}
       this +-> (graph, edge.Data, node_des_col(0), node_des_col(1))
@@ -92,7 +92,7 @@ trait GraphModifier[G[ND, ED] <: Graph[ND, ED], ND, ED] {
    * odejmowanie dokonywane jest na mutowalnej bieżącej instancji i zwracana jest bieżąca instancja)
    * albo w sposób niemutowalny, w którym odejmowanie następuje na kopii bieżącej instancji.
    */
-  def --(g: G[ND, ED], other: Graph[ND, ED]): G[ND, ED] = {
+  def --(g: G, other: Graph[ND, ED]): G = {
     // usuniecie węzłów z wynikowego grafu
     val new_graph_2 = other.nodes.foldLeft(g) { (graph, node) => this - (graph, node.Data.da)}
     // usunicie krawędzi z wynikowego grafu
@@ -103,14 +103,14 @@ trait GraphModifier[G[ND, ED] <: Graph[ND, ED], ND, ED] {
    * Uaktualnia dane wezla. Wlasciwa implementacja powinna byc zawarta w klasie
    * implementujacej. Powinno byc zachowane id wezla.
    */
-  def updateNode(NodeDes: NodeDesignator, NewData: ND): G[ND, ED] =
+  def updateNode(NodeDes: NodeDesignator, NewData: ND): G =
     throw new Exception("Method unimplemented.")
 
   /**
    * Uaktualnia dane krawedzi. Wlasciwa implementacja powinna byc zawarta w klasie
    * implementujacej. Powinno byc zachowane id krawedzi.
    */
-  def updateEdge(EdgeDes: EdgeDesignator, NewData: ED): G[ND, ED] =
+  def updateEdge(EdgeDes: EdgeDesignator, NewData: ED): G =
     throw new Exception("Method unimplemented.")
 
   /**
@@ -118,13 +118,13 @@ trait GraphModifier[G[ND, ED] <: Graph[ND, ED], ND, ED] {
    * zachowane id krawedzi i wezlow
    */
   def chngOppNode(nodeDes: NodeDesignator, edgeDes: EdgeDesignator,
-                  newOppNodeDes: NodeDesignator): G[ND, ED] =
+                  newOppNodeDes: NodeDesignator): G =
     throw new Exception("Method unimplemented.")
 
   /**
    * Adds a node and an edge joining source node with newly added node.
    */
-  def joinNode(g: G[ND, ED], srcNode: NodeDesignator, nodeData: ND, edgeData: ED): G[ND, ED] = {
+  def joinNode(g: G, srcNode: NodeDesignator, nodeData: ND, edgeData: ED): G = {
     val g2 = addNode(g, nodeData)
     addEdge(g2, edgeData, srcNode, g.nodeCount.i)
   }
@@ -132,6 +132,6 @@ trait GraphModifier[G[ND, ED] <: Graph[ND, ED], ND, ED] {
   /**
    * Adds another graph as in +++ and joins it with this graph by an edge.
    */
-  def joinGraph(g: G[ND, ED], srcNode: NodeDesignator, dstNode: NodeDesignator, edgeData: ED,
-                otherGraph: Graph[ND, ED]): G[ND, ED] = ???
+  def joinGraph(g: G, srcNode: NodeDesignator, dstNode: NodeDesignator, edgeData: ED,
+                otherGraph: Graph[ND, ED]): G = ???
 }

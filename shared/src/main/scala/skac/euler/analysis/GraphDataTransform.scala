@@ -25,11 +25,11 @@ import GraphDataTransform._
   * @tparam TND target node data type
   * @tparam TED target edge data type
   */
-abstract class GraphDataTransform[SG <: Graph[SND, SED], TG[TND, TED] <: Graph[TND, TED], SND, SED, TND, TED] extends ((SG) => TG[TND, TED]) {
+abstract class GraphDataTransform[SG <: Graph[SND, SED], TG <: ModifiableGraph[TG, TND, TED], SND, SED, TND, TED] extends ((SG) => TG) {
   type NodesMap = Map[NodeIDDesignator, NodeDesignator]
   type InitData
 
-  def targetBase: TG[TND, TED]
+  def targetBase: TG
 
   /**
     * Generates node data for a given source node.
@@ -55,13 +55,13 @@ abstract class GraphDataTransform[SG <: Graph[SND, SED], TG[TND, TED] <: Graph[T
    */
   def initData(srcGraph: SG): InitData
 
-  def apply(source: SG)(implicit m: GraphModifier[TG, TND, TED]): TG[TND, TED] = {
+  def apply(source: SG)(implicit m: GraphModifier[TG, TND, TED]): TG = {
     val init_data = initData(source)
 //    val mg = ModifiableGraph.gTomg[TG, TND, TED](targetBase)
     lazy val stateTrans = for {
-      _ <- State[TG[TND, TED], Unit] { case g => (g.clear, ())}
+      _ <- State[TG, Unit] { case g => (g.clear, ())}
       // adding nodes
-      nodes_map <- State[TG[TND, TED], NodesMap] { case g => {
+      nodes_map <- State[TG, NodesMap] { case g => {
         (1 to source.nodeCount).foldLeft((g, Map[NodeIDDesignator, NodeDesignator]())) {
           case ((g, map), idx) => {
             val src_node = source.node(idx.i).get
@@ -71,7 +71,7 @@ abstract class GraphDataTransform[SG <: Graph[SND, SED], TG[TND, TED] <: Graph[T
         }
       }
       }
-      res <- State[TG[TND, TED], Unit] { case g =>
+      res <- State[TG, Unit] { case g =>
         val new_g = (1 to source.edgeCount).foldLeft(g) {
           (g, idx) => {
             val src_edge = source.edge(idx.ei).get

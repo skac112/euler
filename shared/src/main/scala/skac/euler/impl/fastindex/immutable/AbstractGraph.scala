@@ -17,7 +17,7 @@ import skac.euler._
  */
 
 object AbstractGraph {
-  implicit def modifier[G[ND, ED] <: AbstractGraph[G[ND, ED], ND, ED], ND, ED] = new GraphModifier[G, ND, ED] {
+  implicit def modifier[G[ND, ED] <: AbstractGraph[G[ND, ED], ND, ED], ND, ED] = new GraphModifier[G[ND, ED], ND, ED] {
     override def addNode(g: G[ND, ED], data: ND): G[ND, ED] = {
       val new_nodes: Vector[NodeStruct[ND, ED]] = g.Nodes :+ NodeStruct(g.newNodeInfo(data), Map[Any, EdgeInfo[ED]](),
         Map[Any, EdgeInfo[ED]]())
