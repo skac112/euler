@@ -1,5 +1,14 @@
 package skac.euler
 
+object ModifiableGraph {
+  def modifier[G <: ModifiableGraph[G, ND, ED], ND, ED] = new GraphModifier[G, ND, ED] {
+    override def addNode(g: G, data: ND): G = g.addNode(data)
+    override def addEdge(g: G, data: ED, srcNode: NodeDesignator, dstNode: NodeDesignator): G = g.addEdge(data, srcNode, dstNode)
+    def removeNode(g: G, nodeDes: NodeDesignator): G = g.removeNode(nodeDes)
+    def removeEdge(g: G, edgeDes: EdgeDesignator): G = g.removeEdge(edgeDes)
+  }
+}
+
 trait ModifiableGraph[G <: ModifiableGraph[G, ND, ED], ND, ED] extends Graph[ND, ED] { self: G =>
   def addNode(data: ND): G
   def addEdge(data: ED, srcNode: NodeDesignator, dstNode: NodeDesignator): G

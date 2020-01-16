@@ -19,12 +19,8 @@ object Main extends App {
       var t = System.currentTimeMillis
       val g = skac.euler.impl.fastindex.immutable.Graph[Int, String]()
 
-//      val gn = new MyGraph()
-
-//      val m = skac.euler.impl.fastindex.immutable.AbstractGraph.modifier[G, Int, String]
-//      val mg: ModifiableGraph[_, Int, String] = AutoModifiableGraph.gTomg[GraphType, Int, String](g)
-      val g2 = (1 to i).foldLeft(g) {(g, i) => g.addNode(i)}
-//      val g2 = (1 to i).foldLeft(gn) {(g, i) => mgTog[MyGraph, Int, String](g.addNode(i))}
+      val g2: GraphType = (1 to i).foldLeft(g) {(g, i) => g.addNode(i)}
+//      val mg = AutoModifiableGraph.gTomg(g2)
       val gm1 = modify(g2, 10)
       val gm2 = modify2(g2, 20)
       val gm3 = modify3(g2, 10)
@@ -43,7 +39,7 @@ object Main extends App {
       mg.addNode(data)
     }
 
-    def modify3[ND, ED, G <: ModifiableGraph[G, ND, ED]](mg: ModifiableGraph[G, ND, ED], data: ND): G = {
+    def modify3[ND, ED, G[ND, ED] <: ModifiableGraph[G[ND, ED], ND, ED]](mg: G[ND, ED], data: ND): G[ND, ED] = {
       mg.addNode(data)
     }
 
