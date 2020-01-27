@@ -2,7 +2,7 @@ import sbtcrossproject.CrossPlugin.autoImport.{crossProject, CrossType}
 
 val sharedSettings = Seq(
   name := "euler",
-  version := "0.10.0",
+  version := "0.10.1",
   organization := "skac112",
   scalaVersion := "2.12.8",
   libraryDependencies += "org.typelevel" %% "cats-core" % "1.2.0",

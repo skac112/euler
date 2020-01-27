@@ -65,8 +65,8 @@ abstract class GraphDataTransform[SG <: Graph[SND, SED], TG <: Graph[TND, TED], 
         (0 until source.nodeCount).foldLeft((g, Map[NodeIDDesignator, NodeDesignator]())) {
           case ((g, map), idx) => {
             val src_node = source.node(idx.i).get
-            m.addNode(g, nodeData(src_node, source, init_data))
-            (g, map + (src_node.ID.id -> idx.i))
+            val new_g = m.addNode(g, nodeData(src_node, source, init_data))
+            (new_g, map + (src_node.ID.id -> idx.i))
           }
         }
       }
