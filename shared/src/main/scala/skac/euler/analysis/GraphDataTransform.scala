@@ -62,7 +62,7 @@ abstract class GraphDataTransform[SG <: Graph[SND, SED], TG <: Graph[TND, TED], 
       _ <- State[TG, Unit] { case g => (m.clear(g), ())}
       // adding nodes
       nodes_map <- State[TG, NodesMap] { case g => {
-        (1 to source.nodeCount).foldLeft((g, Map[NodeIDDesignator, NodeDesignator]())) {
+        (0 until source.nodeCount).foldLeft((g, Map[NodeIDDesignator, NodeDesignator]())) {
           case ((g, map), idx) => {
             val src_node = source.node(idx.i).get
             m.addNode(g, nodeData(src_node, source, init_data))
@@ -72,7 +72,7 @@ abstract class GraphDataTransform[SG <: Graph[SND, SED], TG <: Graph[TND, TED], 
       }
       }
       res <- State[TG, Unit] { case g =>
-        val new_g = (1 to source.edgeCount).foldLeft(g) {
+        val new_g = (0 until source.edgeCount).foldLeft(g) {
           (g, idx) => {
             val src_edge = source.edge(idx.ei).get
             val src_node_id = source.node(src_edge.SrcNode).get.ID.id
