@@ -1,6 +1,7 @@
 package skac.euler.analysis
 
 import cats.Id
+import cats.implicits._
 import utest._
 import skac.euler._
 import skac.euler.generators._
@@ -14,16 +15,16 @@ object AbstractGraphTraverserTest extends TestSuite {
   type G = skac.euler.impl.fastindex.immutable.Graph[Int, String]
   type GP[ND, ED] = skac.euler.impl.fastindex.immutable.Graph[ND, ED]
   implicit var sg = new skac.euler.impl.fastindex.immutable.Graph[Int, String]()
-  implicit def newNodeData(g: AutoModifiableGraph[GP, Int, String]): Int = g.nodeCount + 1
-  implicit def newEdgeData(g: AutoModifiableGraph[GP, Int, String]): String = (g.edgeCount + 1).toString
+  implicit def newNodeData(g: GP[Int, String]): Int = g.nodeCount + 1
+  implicit def newEdgeData(g: GP[Int, String]): String = (g.edgeCount + 1).toString
 //  implicit def newNodeData(g: G): Int = g.nodeCount + 1
 //  implicit def newEdgeData(g: G): String = (g.edgeCount + 1).toString
   // wygenerowanie gwiazdy
-  val gen = new Star(starCnt, gTomg(sg), newNodeData, newEdgeData)
+  val gen = new Star(starCnt, sg, newNodeData, newEdgeData)
   val g = gen.generate()
   val empty_g = new skac.euler.impl.fastindex.immutable.Graph[Int, String]()
 
-  def tests = Tests {
+  override def tests = Tests {
     'GraphTraverser - {
 //      val node_add_fun = (ni: gt.ThisNodeInfo, stim: Any, gv: gt.ThisGraphView, t: gt.ThisTraverser, rg: gt.ThisGraphView) => {
 //        val es_list = gv.edges(ni).toSeq map {ei => (ei.ID.eid, null)}
@@ -40,14 +41,25 @@ object AbstractGraphTraverserTest extends TestSuite {
 
 //      val stim_merge_fun = (s1: Any, s2: Any) => s1
 
-      val gt = new GraphTraverser[Int, String, Int, String, Any, AutoModifiableGraph[GP, Int, String], Id] {
-        override def nodeAddFun(nInfo: ThisNodeInfo, stim: Any, g: AutoModifiableGraph[GP, Int, String]): (EPropagation[Any], Option[Int]) = {
-          val es_list = graphView.edges(nInfo).toSeq map {ei => (ei.ID.eid, null)}
+      val gt = new GraphTraverser[Int, String, Int, String, Any, GP[Int, String], G, Id] {
+
+
+        /**
+         * Defines how signal is propagated through edges of a particular node (specified by nInfo) and optionally returns
+         * data of new node for produced graph. If new data is specified, new node will be added to produced graph.
+         *
+         * @param nInfo
+         * @param stim
+         * @param g
+         * @return
+         */
+        override def nodeAddFun(nInfo: ThisNodeInfo, stim: Any, gm: ThisGraphMapping): (EPropagation[Any], Option[Int]) = {
+          val es_list = gm.downSide.edges(nInfo).toSeq map {ei => (ei.ID.eid, null)}
           val e_prop = EPropagation[Any](es_list, Nil)
-          (e_prop, Some(g.nodeCount))
+          (e_prop, Some(gm.downSide.nodeCount))
         }
 
-        override def edgeAddFun(eInfo: ThisEdgeInfo, stim: Any, g: AutoModifiableGraph[GP, Int, String]): Option[String] = {
+        override def edgeAddFun(eInfo: ThisEdgeInfo, stim: Any, gm: ThisGraphMapping): Option[String] = {
           val sn_data = graphView.node(eInfo.SrcNode).get.Data
           val dn_data = graphView.node(eInfo.DstNode).get.Data
           val desc = s"$sn_data -> $dn_data"
@@ -57,7 +69,7 @@ object AbstractGraphTraverserTest extends TestSuite {
         /**
          * Function handling node traversal.
          */
-        override def graphView: GraphView[Int, String, Id] = g
+        override def graphView: G = g
 
         /**
          * Defines how signals merge.
@@ -69,10 +81,10 @@ object AbstractGraphTraverserTest extends TestSuite {
         override def stimMergeFun(stim1: Any, stim2: Any): Any = stim1
       }
 
-      val rg = gt(g.node(0.i).get, null, empty_g)
-      println(rg.nodeCount)
-      assert(rg.nodeCount == starCnt + 1)
-      assert(rg.edgeCount == starCnt)
+      val rg = gt.applyWithGraph(g.node(0.i).get, null, Map.empty, empty_g)
+      println(rg.upSide.nodeCount)
+      assert(rg.upSide.nodeCount == starCnt + 1)
+      assert(rg.upSide.edgeCount == starCnt)
     }
   }
 }

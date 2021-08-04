@@ -29,11 +29,13 @@ abstract class AbstractGraph[+ND, +ED] extends Graph[ND, ED] {
     case NodeIdxDesignator(idx) => Some(Nodes(idx).nodeInfo)
     case NodeIDDesignator(id) => Nodes map {_.nodeInfo} find {_.ID == id}
 
-    case NodeDataDesignator(data: AnyRef) => Nodes map {_.nodeInfo} find {_.Data match {
-        case node_data: AnyRef => node_data eq data
-        case node_data => node_data == data
-      }
-    }
+    case NodeDataDesignator(data: AnyRef) => Nodes map {_.nodeInfo} find { _.Data == data}
+
+//      {_.Data match {
+//        case node_data: AnyRef => node_data eq data
+//        case node_data => node_data == data
+//      }
+//    }
 
     case NodeDataDesignator(data) => Nodes map {_.nodeInfo} find {_.Data == data}
     case NodePredDesignator(pred) => Nodes map {_.nodeInfo} find {pred}
@@ -87,6 +89,7 @@ abstract class AbstractGraph[+ND, +ED] extends Graph[ND, ED] {
   }
 
   override def edge[SED >: ED](edgeDes: EdgeDesignator) = edgeDes match {
+    case ei: EdgeInfo[ED] => Some(ei)
     case EdgeIdxDesignator(idx) => Some((edges toSeq)(idx))
     case EdgeIDDesignator(id) => edges find {_.ID == id}
     case EdgeDataDesignator(data) => edges find {_.Data == data}
@@ -95,10 +98,10 @@ abstract class AbstractGraph[+ND, +ED] extends Graph[ND, ED] {
       findNodeStruct(node_des1).get.outEdges.values find { ei: EdgeInfo[_] => ei.DstNode == nid2 }
     }
     case EdgePredDesignator(pred) => edges find {pred(_)}
-    case ei: EdgeInfo[ED] => Some(ei)
   }
 
   protected def findNodeStruct(nodeDes: NodeDesignator): Option[NodeStruct[ND, ED]] = nodeDes match {
+    case ni: NodeInfo[_] => Nodes find {_.nodeInfo == ni}
     case NodeIdxDesignator(idx) => Some(Nodes(idx))
     case NodeIDDesignator(id) => Nodes find {_.nodeInfo.ID == id}
     case NodeDataDesignator(data) if data.isInstanceOf[AnyRef] => {
@@ -110,7 +113,6 @@ abstract class AbstractGraph[+ND, +ED] extends Graph[ND, ED] {
     }}
     case NodeDataDesignator(data) => Nodes find {_.nodeInfo.Data == data}
     case NodePredDesignator(pred) => Nodes find {ns => pred(ns.nodeInfo)}
-    case ni: NodeInfo[_] => Nodes find {_.nodeInfo == ni}
   }
 
   override def edges[SED >: ED](nd: NodeDesignator, direction: Int = NEIGHBOR_SIDE_BOTH): Set[EdgeInfo[SED]] = {

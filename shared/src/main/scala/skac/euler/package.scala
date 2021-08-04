@@ -22,13 +22,13 @@ package object euler {
       case g => ((0 until count).foldLeft(g){(graph, i) => f(graph, i)}, ())
     }
 
-  trait NodeDesignator
+  sealed trait NodeDesignator
   case class NodeIDDesignator(ID: Any) extends NodeDesignator
   case class NodeIdxDesignator(Index: Int) extends NodeDesignator
   case class NodeDataDesignator[+ND](Data: ND) extends NodeDesignator
   case class NodePredDesignator(Predicate: NodeInfo[_] => Boolean) extends NodeDesignator
 
-  trait EdgeDesignator
+  sealed trait EdgeDesignator
   case class EdgeIDDesignator(ID: Any) extends EdgeDesignator
   case class EdgeIdxDesignator(Index: Int) extends EdgeDesignator
   case class EdgeDataDesignator[+ED](Data: ED) extends EdgeDesignator

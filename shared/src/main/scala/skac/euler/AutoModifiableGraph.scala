@@ -2,7 +2,7 @@ package skac.euler
 import cats.Id
 
 object AutoModifiableGraph {
-  implicit def gTomg[G[ND, ED] <: Graph[ND, ED], ND, ED](g: G[ND, ED])(implicit m: GraphModifier[G[ND, ED], ND, ED])= AutoModifiableGraph(g)(m)
+  implicit def gTomg[G[ND, ED] <: Graph[ND, ED], ND, ED](g: G[ND, ED])(implicit m: GraphModifier[G[ND, ED], ND, ED]) = AutoModifiableGraph(g)(m)
   implicit def mgTog[G[ND, ED] <: Graph[ND, ED], ND, ED](mg: AutoModifiableGraph[G, ND, ED]) = mg.g
 }
 

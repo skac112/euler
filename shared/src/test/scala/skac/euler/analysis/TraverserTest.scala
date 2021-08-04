@@ -24,11 +24,11 @@ object TraverserTest extends TestSuite {
     }
 
     'CountingNodes - {
-      val t = new Traverser[Int, String, Any, Int, Id] {
+      val t = new Traverser[Int, String, Any, Int, Any, GP[Int, String], Id] {
         /**
          * Function handling node traversal.
          */
-        override def graphView: GraphView[Int, String, Id] = g
+        override def graphView: GP[Int, String] = g
 
         /**
          * Defines how signals merge.
@@ -47,10 +47,10 @@ object TraverserTest extends TestSuite {
          * @param res
          * @return
          */
-        override def nodeHandleFun(nInfo: ThisNodeInfo, stim: Any, res: Int): (EPropagation[Any], Int) = {
+        override def nodeHandleFun(nInfo: ThisNodeInfo, stim: Any, globalSig: Any, res: Int): (EPropagation[Any], Any, Int) = {
           val es_list = graphView.edges(nInfo).toSeq map {ei => (ei.ID.eid, null)}
           val e_prop = EPropagation[Any](es_list, Nil)
-          (e_prop, res + 1)
+          (e_prop, null, res + 1)
         }
 
         /**
@@ -61,7 +61,7 @@ object TraverserTest extends TestSuite {
          * @param res
          * @return
          */
-        override def edgeHandleFun(eidDes: EdgeIDDesignator, stim: Any, res: Int): Int = res
+        override def edgeHandleFun(eidDes: EdgeDesignator, stim: Any, globalSig: Any, res: Int) = (res, globalSig)
       }
 
 //      val node_handle_fun = (ni: NodeInfo[Int], stim: Any, gv: GraphView[Int, String, Id], t: Traverser[Int, String, Any, Int, Id], res: Int) => {
@@ -73,7 +73,7 @@ object TraverserTest extends TestSuite {
 //      val edge_handle_fun = (e: EdgeIDDesignator, stim: Any, gv: GraphView[Int, String, Id], t: Traverser[Int, String, Any, Int, Id], res: Int) => res
 
 //      val stim_merge_fun = (s1: Any, s2: Any) => s1
-      val res = t(g.node(0.i).get, null, 0)
+      val res = t(g.node(0.i).get, null, null, 0)
       assert(res == 11)
     }
   }

@@ -66,6 +66,9 @@ trait Graph[+ND, +ED] extends GraphView[ND, ED, Id] {
     nodes_hash + edges_hash
   }
 
+  def lastNode: Option[NodeInfo[ND]] = node((nodeCount - 1).i)
+
+  def lastEdge: Option[EdgeInfo[ED]] = edge((edgeCount - 1).ei)
 
   /**
    * Displays some info about graph.

@@ -4,7 +4,7 @@ import skac.euler._
 
 abstract class AbstractModifiableGraph[G <: AbstractModifiableGraph[G, ND, ED], ND, ED](pNodes: Vector[NodeStruct[ND, ED]] = Vector[NodeStruct[ND, ED]](),
                                                                      newElemIdSeed: Option[Int] = None)
-  extends AbstractGraph[G, ND, ED](pNodes) with ModifiableGraph[G, ND, ED] { self: G =>
+  extends AbstractGraph[G, ND, ED](pNodes, newElemIdSeed) with ModifiableGraph[G, ND, ED] { self: G =>
 
   override def addNode(data: ND): G = {
     val new_nodes: Vector[NodeStruct[ND, ED]] = Nodes :+ NodeStruct(newNodeInfo(data), Map[Any, EdgeInfo[ED]](),

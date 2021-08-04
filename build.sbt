@@ -2,10 +2,10 @@ import sbtcrossproject.CrossPlugin.autoImport.{crossProject, CrossType}
 
 val sharedSettings = Seq(
   name := "euler",
-  version := "0.10.1",
+  version := "0.10.3-SNAPSHOT",
   organization := "skac112",
   scalaVersion := "2.12.8",
-  libraryDependencies += "org.typelevel" %% "cats-core" % "1.2.0",
+  libraryDependencies += "org.typelevel" %%% "cats-core" % "1.2.0",
   libraryDependencies += "com.lihaoyi" %%% "utest" % "0.6.3" % "test",
   testFrameworks += new TestFramework("utest.runner.Framework")
 )
