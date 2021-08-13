@@ -5,7 +5,7 @@ import skac.euler._
 import skac.euler.GraphView._
 import cats._
 import cats.implicits._
-import skac.euler.analysis.monadcoll.GraphViewSignals
+import skac.euler.analysis.monadcoll.{GraphViewSignals, MonadEdgeSet}
 
 import scala.annotation._
 
@@ -78,7 +78,7 @@ abstract class Traverser[ND, ED, S, R, GS, GV <: GraphView[ND, ED, M], M[_] : Mo
     id_des <- graphView.idDes(initNode)
     walk_list = GraphViewSignals.empty(graphView).addToHead(id_des.get, initStim)
     visited_nodes = Set[NodeIDDesignator]()
-    visited_edges = Set[EdgeDesignator]()
+    visited_edges = MonadEdgeSet(graphView)
     res <- doWalking(walk_list, visited_nodes, visited_edges, initGlobalSig, initRes)
   } yield res._1
 
@@ -92,9 +92,8 @@ abstract class Traverser[ND, ED, S, R, GS, GV <: GraphView[ND, ED, M], M[_] : Mo
 
   private def doWalking(nodes: GraphViewSignals[S, M],
                         visitedNodes: NSet,
-                        visitedEdges: ESet,
+                        visitedEdges: MonadEdgeSet[M],
                         globalSig: GS,
-                        //  travFun: TravFun,
                         handleRes: R): M[(R, GS)] =
     if (nodes.isEmpty) {
       // just passing result from earlier evaluation
@@ -134,7 +133,7 @@ abstract class Traverser[ND, ED, S, R, GS, GV <: GraphView[ND, ED, M], M[_] : Mo
       } yield res
     }
 
-  private def handleEdges(ePropagation: EPropagation[S], visitedEdges: ESet, globalSig: GS, handleRes: R): M[(R, GS)] = {
+  private def handleEdges(ePropagation: EPropagation[S], visitedEdges: MonadEdgeSet[M], globalSig: GS, handleRes: R): M[(R, GS)] = {
     // function to filter out already handled (visited) edges
     val filt_f = (es: ESignal[S]) => visitedEdges(es._1)
     // function to handle each edge
@@ -187,7 +186,7 @@ abstract class Traverser[ND, ED, S, R, GS, GV <: GraphView[ND, ED, M], M[_] : Mo
   } yield nodes2
 
   /**
-    * Filter-outs propagation signals to already traversed nodes
+    * Filters-out propagation signals to already traversed nodes
     */
   private def filtOutVisNodes(propagation: NPropagation[S], visitedNodes: NSet): NPropagation[S] = {
     val filt_f = (ns: NSignal[S]) => visitedNodes(ns._1)

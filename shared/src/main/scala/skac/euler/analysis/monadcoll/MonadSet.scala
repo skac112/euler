@@ -1,33 +1,34 @@
 package skac.euler.analysis.monadcoll
 
+import cats._
 import cats.Monad
 import cats.implicits.{catsSyntaxFlatMapIdOps, _}
+import cats.implicits._
 
 /**
- * Kind of map differing from typical map by two properties:
- * -
+ *
  * @param monad$M$0
  * @tparam K
  * @tparam V
  * @tparam M
- * @tparam MM
+ * @tparam MS
  */
-abstract class MonadSet[V, M[_]: Monad, MM <: MonadSet[V, M, MM]] extends MonadColl[V, M] {
+abstract class MonadSet[V, M[_]: Monad, MS <: MonadSet[V, M, MS]] extends MonadColl[V, M] {
   def baseSet: Set[V]
-  def newInstance(set: Set[V]): MM
+  def newInstance(set: Set[V]): MS
   def comparableSubSet(v: V): Set[V] = baseSet filter {curr: (V) => canBeEqual(curr, v)}
 
   private def findByCompM(v: V, compVal: Any): M[Option[V]] = {
     // obtaining subset of baseSet containing only possibly equal values (by comparator value equality)
     val subset = comparableSubSet(v)
-    subset.tailRecM[M, Option[(K, V)]] { current: Map[K, V] => if (!current.isEmpty) {
-        if (canBeEqual(current.head._1, k)) {
+    subset.tailRecM[M, Option[V]] { current: Set[V] => if (!current.isEmpty) {
+        if (canBeEqual(current.head, v)) {
           for {
-            curr_comp_val <- compValueM(current.head._1)
+            curr_comp_val <- compValueM(current.head)
           } yield if (curr_comp_val == compVal) Right(Some(current.head)) else Left(current.tail)
         }
         else {
-          pure (Left(current.tail))
+          pure(Left(current.tail))
         }
     } else {
       pure(Right(None))
@@ -49,23 +50,6 @@ abstract class MonadSet[V, M[_]: Monad, MM <: MonadSet[V, M, MM]] extends MonadC
       }
     }
 
-
-  match {
-    case true => pure(Some(k, v))
-    // There are no key equal to k in baseMap in a normal sense, but still there can be some key equal by comparator
-    // value. Before comparator value is computed even for k, a checking is provided to determine if any key can
-    // be potentially equal (by comparator value).
-    case None => if (canHaveVal(k)) {
-      for {
-        comp_value <- compValueM(k)
-        found_o <- findByCompM(k, comp_value)
-      } yield found_o
-    }
-    else {
-      pure(None)
-    }
-  }
-
   /**
    * Determines if map can possibly contain given key. Returning true means that either:
    * - key exists in a baseMap (in a default meaning of equality, not taking comparator value into account)
@@ -74,53 +58,42 @@ abstract class MonadSet[V, M[_]: Monad, MM <: MonadSet[V, M, MM]] extends MonadC
    */
   def canHaveVal(v: V): Boolean = baseSet exists { curr => canBeEqual(curr, v) }
 
-
-
-  def findPair(k: K): M[Option[(K, V)]] = baseMap.get(k) match {
-    case Some(v) => pure(Some(k, v))
-    // There are no key equal to k in baseMap in a normal sense, but still there can be some key equal by comparator
-    // value. Before comparator value is computed even for k, a checking is provided to determine if any key can
-    // be potentially equal (by comparator value).
-    case None => if (canHaveVal(k)) {
-        for {
-          comp_value <- compValueM(k)
-          found_o <- findByCompM(k, comp_value)
-        } yield found_o
-      }
-      else {
-        pure(None)
-      }
-  }
-
   /**
-   * Adds or updates value for given key.
+   * Adds value if it doesn't exist taking possible equality by comparator value.
    * @param kv
    * @return
    */
-  def +(v: V): M[MM] = for {
+  def +(v: V): M[MS] = for {
     found_o <- find(v)
-    pair = pair_o match {
-      case Some((k, v)) => (k, kv._2)
-      case None => kv
+    res = found_o match {
+      case Some(v) => newInstance(baseSet + v)
+      case None => this
     }
-    new_map = baseMap + pair
-  } yield newInstance(new_map)
-
-  def -(k: K): M[MM] = for {
-    pair_o <- findPair(k)
-    new_map = pair_o match {
-      case Some((k, v)) => baseMap - k
-      case None => baseMap
-    }
-  } yield newInstance(new_map)
+  } yield res
 
   /**
-   * Adds keyvalue pair to map. Assumes that key doesn't exist in map, otherwise the result is undefined (key can
-   * be duplicated due to comparator value).
+   * Removes value if it exists taking possible equality by comparator value.
    * @param kv
    * @return
    */
-  def addOnly(kv: (K, V)): MM = newInstance(baseMap + kv)
+  def -(v: V): M[MS] = for {
+    found_o <- find(v)
+    res = found_o match {
+      case Some(v) => newInstance(baseSet - v)
+      case None => this
+    }
+  } yield res
 
-  def updated(k: K, v: V): M[MM] = this.+((k, v))
+//  private def addToSet(set: Set[V], v: V): M[Set[V]] = for {
+//    found_o <- find(v)
+//    res = found_o match {
+//      case Some(v) => baseSet + v
+//      case None => baseSet
+//    }
+//  } yield res
+
+  def ++(values: Iterable[V]): M[MS] = {
+    val start = newInstance(baseSet)
+    values.toList.foldM(start){ (curr_set, value) => curr_set + value }
+  }
 }
