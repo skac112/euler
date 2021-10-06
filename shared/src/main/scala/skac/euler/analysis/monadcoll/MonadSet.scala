@@ -14,13 +14,14 @@ import cats.implicits._
  * @tparam MS
  */
 abstract class MonadSet[V, M[_]: Monad, MS <: MonadSet[V, M, MS]] extends MonadColl[V, M] {
+  this: MS =>
   def baseSet: Set[V]
   def newInstance(set: Set[V]): MS
-  def comparableSubSet(v: V): Set[V] = baseSet filter {curr: (V) => canBeEqual(curr, v)}
+  def comparableSubset(v: V): Set[V] = baseSet filter { curr: (V) => canBeEqual(curr, v)}
 
   private def findByCompM(v: V, compVal: Any): M[Option[V]] = {
     // obtaining subset of baseSet containing only possibly equal values (by comparator value equality)
-    val subset = comparableSubSet(v)
+    val subset = comparableSubset(v)
     subset.tailRecM[M, Option[V]] { current: Set[V] => if (!current.isEmpty) {
         if (canBeEqual(current.head, v)) {
           for {
@@ -34,6 +35,10 @@ abstract class MonadSet[V, M[_]: Monad, MS <: MonadSet[V, M, MS]] extends MonadC
       pure(Right(None))
     }}
   }
+
+  def apply(v: V): M[Boolean] = for {
+    f <- find(v)
+  } yield (!f.isEmpty)
 
   def find(v: V): M[Option[V]] = if (baseSet(v)) {
       pure(Some(v))
@@ -51,10 +56,10 @@ abstract class MonadSet[V, M[_]: Monad, MS <: MonadSet[V, M, MS]] extends MonadC
     }
 
   /**
-   * Determines if map can possibly contain given key. Returning true means that either:
-   * - key exists in a baseMap (in a default meaning of equality, not taking comparator value into account)
-   * - key doesn't exists in a baseMap but can be equal to other key by comparator value (i. e. it's comparator value
-   * can be equal to some key's in a baseMap comparator value)
+   * Determines if set can possibly contain given key. Returning true means that either:
+   * - key exists in a baseSet (in a default meaning of equality, not taking comparator value into account)
+   * - key doesn't exists in a baseSet but can be equal to other key by comparator value (i. e. it's comparator value
+   * can be equal to some key's in a baseSet comparator value)
    */
   def canHaveVal(v: V): Boolean = baseSet exists { curr => canBeEqual(curr, v) }
 

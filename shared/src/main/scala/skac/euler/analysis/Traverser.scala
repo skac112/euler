@@ -113,8 +113,8 @@ abstract class Traverser[ND, ED, S, R, GS, GV <: GraphView[ND, ED, M], M[_] : Mo
               glob_stim_1 = e_prop_new_res._2
               new_res_1 = e_prop_new_res._3
               ehr <- handleEdges(e_prop, visitedEdges, glob_stim_1, new_res_1)
-              new_vis_edges = visitedEdges ++ (e_prop.toHead map (_._1)).toSet ++
-                (e_prop.toTail map (_._1)).toSet
+              new_vis_edges_1 <- visitedEdges ++ (e_prop.toHead map (_._1))
+              new_vis_edges <- new_vis_edges_1 ++ (e_prop.toTail map (_._1))
               raw_n_prop <- ePropToNProp(e_prop, node_info)
               // filtering out signals to already traversed nodes
               n_prop = filtOutVisNodes(raw_n_prop, new_vis_nodes)
@@ -137,12 +137,16 @@ abstract class Traverser[ND, ED, S, R, GS, GV <: GraphView[ND, ED, M], M[_] : Mo
     // function to filter out already handled (visited) edges
     val filt_f = (es: ESignal[S]) => visitedEdges(es._1)
     // function to handle each edge
-    val fun = (res_glob_stim: (R, GS), e_sig: ESignal[S]) => edgeHandleFun(e_sig._1, e_sig._2, res_glob_stim._2, res_glob_stim._1)
+    val fun = (res_glob_stim: (R, GS), e_sig: ESignal[S]) => for {
+      edge_visited <- visitedEdges.apply(e_sig._1)
+      res <- if (edge_visited) pure(res_glob_stim) else edgeHandleFun(e_sig._1, e_sig._2, res_glob_stim._2, res_glob_stim._1)
+    } yield res
+
     for {
       // handling edges in toHead part
-      res1 <- ePropagation.toHead.toList.filterNot(filt_f).foldM((handleRes, globalSig))(fun)
+      res1 <- ePropagation.toHead.toList.foldM((handleRes, globalSig))(fun)
       // handling edges in toTail part
-      res <- ePropagation.toTail.toList.filterNot(filt_f).foldM(res1)(fun)
+      res <- ePropagation.toTail.toList.foldM(res1)(fun)
     } yield res
   }
 
