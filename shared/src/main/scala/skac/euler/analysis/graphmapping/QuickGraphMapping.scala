@@ -15,7 +15,7 @@ object QuickGraphMapping {
 }
 
 /**
- * Bijective mapping between elements of two graph views.
+ * Mapping between elements of two graph views.
  * @param upGraph
  * @param downGraph
  * @param nodeMap
@@ -41,10 +41,9 @@ case class QuickGraphMapping[UND, UED, DND, DED, UG <: Graph[UND, UED], DG <: Gr
     d_id_des <- downSide.idDes(downNodeDes)
   } yield (if (d_id_des.isDefined) nodeMap.rightMap.contains(d_id_des.get) else false)
 
+  override def mapDown(upNodeDes: NodeDesignator) = nodeMap.r(upSide.idDes(upNodeDes).get)
 
-  override def mapDown(upNodeDes: NodeDesignator): NodeDesignator = ???
-
-  override def mapDown(upEdgeDes: EdgeDesignator): EdgeDesignator = ???
+  override def mapDown(upEdgeDes: EdgeDesignator): EdgeDesignator = edgeMap.r(upSide.idDes(upEdgeDes).get)
 }
 
 
